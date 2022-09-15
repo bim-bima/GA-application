@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('monitoring_kendaraan', function (Blueprint $table) {
-            $table->id();
-            $table->string('pengguna');
-            $table->string('PIC')->nullable();
-            $table->string('lokasi_tujuan');
-            $table->string('tujuan pemakaian');
-            $table->timestamps();
+        Schema::create('m_aktivitas', function (Blueprint $table) {
+            $table->increments('ma_id');
+            $table->string('ma_nama_aktivitas');
+            $table->timestamp('are_created_at',0)->useCurrent();
+            $table->timestamp('are_updated_at',0)->nullable();
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('monitoring_kendaraan');
+        Schema::dropIfExists('m_aktivitas');
     }
 };

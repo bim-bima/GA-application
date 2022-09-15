@@ -1,11 +1,11 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+            {{-- <i class="fas fa-laugh-wink"></i> --}}
         </div>
-        <div class="sidebar-brand-text mx-3">Genereal Affair</div>
+        <div class="sidebar-brand-text mx-3">General Affair</div>
     </a>
 
     <!-- Divider -->
@@ -23,7 +23,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        general affair
+        Data Master
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -93,22 +93,9 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="/monitoring-kendaraan">
+        <a class="nav-link" href="master_pic">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Kendaraan</span></a>
-    </li>
-
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="/asset">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Asset</span></a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="/asset">
-            <i class="fas fa-fw fa-table"></i>
-            <span>aktivitas</span></a>
+            <span>pic</span></a>
     </li>
 
     <!-- Divider -->

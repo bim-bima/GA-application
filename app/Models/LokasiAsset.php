@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Asset extends Model
+class LokasiAsset extends Model
 {
     use HasFactory;
 
-    protected $table = 'app_asset';
+    protected $table = 'm_lokasi_asset';
     protected $guarded = [];
-
 }
