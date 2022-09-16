@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('m_category_barang', function (Blueprint $table) {
-            $table->increments('mcb_id');
+            $table->increments('_id');
             $table->string('mcb_category');
-            $table->timestamp('are_created_at',0)->useCurrent();
-            $table->timestamp('are_updated_at',0)->nullable();
+            $table->timestamp('created_at',0)->useCurrent();
+            $table->timestamp('updated_at',0)->nullable();
         });
     }
 

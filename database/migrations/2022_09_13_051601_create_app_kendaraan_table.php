@@ -23,10 +23,10 @@ return new class extends Migration
             $table->string('ak_kondisi');
             $table->string('ak_lokasi_tujuan');
             $table->string('ak_tujuan_pemakaian');
-            $table->timestamp('are_created_at',0)->useCurrent();
-            $table->timestamp('are_updated_at',0)->nullable();
+            $table->timestamp('created_at',0)->useCurrent();
+            $table->timestamp('updated_at',0)->nullable();
 
-            $table->foreign('ak_mk_id')->references('mk_id')->on('m_kendaraan');
+            $table->foreign('ak_mk_id')->references('id')->on('m_kendaraan');
             $table->foreign('ak_mp_id')->references('id')->on('m_pic');
         });
     }

@@ -7,6 +7,17 @@ use App\Http\Controllers\AssetController;
 use App\Http\Controllers\LokasiAssetContoller;
 use App\Http\Controllers\MasterKendaraanController;
 use App\Http\Controllers\MasterPicController;
+use App\Http\Controllers\MasterAktivitasController;
+use App\Http\Controllers\MasterVendorController;
+use App\Http\Controllers\MasterBarangController;
+use App\Http\Controllers\MasterJenisBarangController;
+use App\Http\Controllers\MasterStatusFollowupController;
+use App\Http\Controllers\MasterLokasiAssetController;
+use App\Http\Controllers\MasterCategoryBarangController;
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,18 +38,26 @@ Route::middleware(['guest'])->group(function(){
 Route::middleware(['auth'])->group(function(){
 
     Route::resource('master_pic', MasterPicController::class);
+    Route::resource('master_kendaraan', MasterKendaraanController::class);
+    Route::resource('master_aktivitas', MasterAktivitasController::class);
+    Route::resource('master_vendor', MasterVendorController::class);
+    Route::resource('master_barang', MasterBarangController::class);
+    Route::resource('master_jenisbarang', MasterJenisBarangController::class);
+    Route::resource('master_categorybarang', MasterCategoryBarangController::class);
+    Route::resource('master_statusfollowup', MasterStatusFollowupController::class);
+    Route::resource('master_lokasiasset', MasterLokasiAssetController::class);
 
 
 
-    Route::get('/master_kendaraan',[MasterKendaraanController::class,'index']);
-    Route::get('/master_kendaraan/create',[MasterKendaraanController::class,'create']);
-    Route::post('/master_kendaraan/store',[MasterKendaraanController::class,'store']);
-    Route::get('/master_kendaraan/{id}/edit',[MasterKendaraanController::class,'edit']);
-    Route::put('/master_kendaraan/{id}',[MasterKendaraanController::class,'update']);
-    Route::delete('/masster_kendaraan/{id}',[MasterKendaraanController::class,'destroy']);
-    Route::get('/asset',[AssetController::class,'index']);
+    // Route::get('/master_kendaraan',[MasterKendaraanController::class,'index']);
+    // Route::get('/master_kendaraan/create',[MasterKendaraanController::class,'create']);
+    // Route::post('/master_kendaraan/store',[MasterKendaraanController::class,'store']);
+    // Route::get('/master_kendaraan/{id}/edit',[MasterKendaraanController::class,'edit']);
+    // Route::put('/master_kendaraan/{id}',[MasterKendaraanController::class,'update']);
+    // Route::delete('/masster_kendaraan/{id}',[MasterKendaraanController::class,'destroy']);
+    // Route::get('/asset',[AssetController::class,'index']);
 
-    Route::get('/lokasi_asset',[LokasiAssetContoller::class,'index']);
+    // Route::get('/lokasi_asset',[LokasiAssetContoller::class,'index']);
 
     // Route::get('/monitoring-kendaraan',[Monitoring_KendaraanController::class,'index']);
     // Route::get('/monitoring-kendaraan/create',[Monitoring_KendaraanController::class,'create']);

@@ -62,7 +62,7 @@
     </li> --}}
 
     <!-- Divider -->
-    <hr class="sidebar-divider">
+    {{-- <hr class="sidebar-divider"> --}}
 
     <!-- Heading -->
     {{-- <div class="sidebar-heading">
@@ -92,11 +92,62 @@
     </li> --}}
 
     <!-- Nav Item - Charts -->
+    <hr class="sidebar-divider">
     <li class="nav-item">
         <a class="nav-link" href="master_pic">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>pic</span></a>
+            <span>PIC</span></a>
     </li>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item">
+        <a class="nav-link" href="master_kendaraan">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Kendaraan</span></a>
+    </li>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item">
+        <a class="nav-link" href="master_aktivitas">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Aktivitas</span></a>
+    </li>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item">
+        <a class="nav-link" href="master_vendor">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Vendor</span></a>
+    </li>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item">
+        <a class="nav-link" href="master_barang">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Barang</span></a>
+    </li>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item">
+        <a class="nav-link" href="master_jenisbarang">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Jenis Barang</span></a>
+    </li>
+    <hr class="sidebar-divider my-0">
+    <!-- <li class="nav-item">
+        <a class="nav-link" href="master_categorybarang">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Category Barang</span></a>
+    </li> -->
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item">
+        <a class="nav-link" href="master_statusfollowup">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Status Follow Up</span></a>
+    </li>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item">
+        <a class="nav-link" href="master_lokasiasset">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Lokasi Asset</span></a>
+    </li>
+    <hr class="sidebar-divider my-0">
+
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

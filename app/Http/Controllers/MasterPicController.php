@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MasterPic;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MasterPicController extends Controller
 {
@@ -14,7 +15,7 @@ class MasterPicController extends Controller
         */
         public function index()
         {
-            $datapic = MasterPic::all();
+            $datapic = MasterPic::paginate(4);
             return view('master.masterpic.index', compact(['datapic']));
         }
         /**
@@ -40,18 +41,18 @@ class MasterPicController extends Controller
         $masterpic = new MasterPic();
         $masterpic->mp_nama = $request->mp_nama;
         $masterpic->save();
+        Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
         return redirect()->route('master_pic.index');
-        // ->with('success','Company has been created successfully.');
         }
         /**
         * Display the specified resource.
         *
-        * @param  \App\company  $company
+        * @param  \App\MasterPic  $pic
         * @return \Illuminate\Http\Response
         */
         public function show(MasterPic $pic)
         {
-        // return view('companies.show',compact('company'));
+        // return view('',compact(''));
         }
         /**
         * Show the form for editing the specified resource.
@@ -69,20 +70,19 @@ class MasterPicController extends Controller
         * Update the specified resource in storage.
         *
         * @param  \Illuminate\Http\Request  $request
-        * @param  \App\company  $company
+        * @param  \App\MasterPic  $pic
         * @return \Illuminate\Http\Response
         */
         public function update(Request $request, $id)
         {
         $request->validate([
-        'mp_nama' => 'required|min:5|max:15',
+        'mp_nama' => 'required|min:5|max:50',
         ]);
         $pic = MasterPic::find($id);
         $pic->mp_nama = $request->mp_nama;
-        // $pic->update($request);
         $pic->save();
+        Alert::success('Berhasil', 'Data Berhasil Diedit');
         return redirect()->route('master_pic.index');
-        // ->with('success','Company Has Been updated successfully');
         }
         /**
         * Remove the specified resource from storage.
@@ -94,9 +94,7 @@ class MasterPicController extends Controller
         {
             $id = MasterPic::find($id);
             $id->delete();
-        // $pic->delete();
-        // MasterPic::destroy($pic->id);
+        Alert::success('Berhasil', 'Data Berhasil Dihapus');
         return redirect()->route('master_pic.index');
-        // ->with('success','Company has been deleted successfully');
         }
 }

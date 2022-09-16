@@ -22,8 +22,8 @@ return new class extends Migration
             $table->integer('as_harga');
             $table->integer('as_nilai_residu');
             $table->integer('as_umur_manfaat');
-            $table->timestamp('are_created_at')->useCurrent();
-            $table->timestamp('are_updated_at')->nullable();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable();
 
             // $table->foreign('as_mla_id')->references('mla_id')->on('m_lokasi_asset');
             // $table->foreign('as_mla_id')->references('mk_id')->on('m_lokasi_asset');

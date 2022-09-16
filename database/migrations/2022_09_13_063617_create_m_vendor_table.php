@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('m_vendor', function (Blueprint $table) {
-            $table->increments('mv_id');
+            $table->increments('id');
             $table->string('mv_nama_vendor');
             $table->string('mv_lokasi');
-            $table->timestamp('are_created_at',0)->useCurrent();
-            $table->timestamp('are_updated_at',0)->nullable();
+            $table->timestamp('created_at',0)->useCurrent();
+            $table->timestamp('updated_at',0)->nullable();
         });
     }
 

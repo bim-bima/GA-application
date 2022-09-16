@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('m_lokasi_asset', function (Blueprint $table) {
-            $table->increments('mla_id');
+            $table->increments('id');
             $table->string('mla_lokasi_asset');
-            $table->timestamp('are_created_at',0)->useCurrent();
-            $table->timestamp('are_updated_at',0)->nullable();
+            $table->timestamp('created_at',0)->useCurrent();
+            $table->timestamp('updated_at',0)->nullable();
         });
     }
 

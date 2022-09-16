@@ -12,6 +12,10 @@
         @include('template.sidebar')
         <!-- End of Sidebar -->
 
+        {{-- sweet alert --}}
+        @include('sweetalert::alert')
+
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
