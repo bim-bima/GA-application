@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Genereal Affair</title>
+    <title>General Affair</title>
     @include('template.head')
 </head>
 <body id="page-top">

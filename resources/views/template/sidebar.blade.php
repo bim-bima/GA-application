@@ -18,6 +18,33 @@
             <span>Dashboard</span></a>
     </li>
 
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        App
+    </div>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item">
+        <a class="nav-link" href="app_asset">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Asset</span></a>
+    </li>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item">
+        <a class="nav-link" href="app_aktivitas">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Aktivitas</span></a>
+    </li>
+    <hr class="sidebar-divider my-0">
+        <li class="nav-item">
+        <a class="nav-link" href="app_aktivitas.calendar">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>calendar</span></a>
+    </li>
+    <hr class="sidebar-divider my-0">
+
+
+
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -62,7 +89,7 @@
     </li> --}}
 
     <!-- Divider -->
-    {{-- <hr class="sidebar-divider"> --}}
+    {{-- <hr class="sidebar-divider my-0"> --}}
 
     <!-- Heading -->
     {{-- <div class="sidebar-heading">
@@ -92,7 +119,7 @@
     </li> --}}
 
     <!-- Nav Item - Charts -->
-    <hr class="sidebar-divider">
+    <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="master_pic">
             <i class="fas fa-fw fa-chart-area"></i>

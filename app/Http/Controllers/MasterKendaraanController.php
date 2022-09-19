@@ -14,7 +14,7 @@ class MasterKendaraanController extends Controller
         */
         public function index()
         {
-            $datakendaraan = MasterKendaraan::all();
+            $datakendaraan = MasterKendaraan::paginate(4);
             return view('master.masterkendaraan.index', compact(['datakendaraan']));
         }
         /**

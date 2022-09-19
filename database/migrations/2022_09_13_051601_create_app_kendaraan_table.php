@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('app_kendaraan', function (Blueprint $table) {
-            $table->increments('ak_id');
+            $table->increments('id');
             $table->unsignedInteger('ak_mk_id');
             $table->string('ak_pengguna');
             $table->date('ak_tanggal_mulai');

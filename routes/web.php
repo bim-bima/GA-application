@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\AktivitasController;
 use App\Http\Controllers\LokasiAssetContoller;
 use App\Http\Controllers\MasterKendaraanController;
 use App\Http\Controllers\MasterPicController;
@@ -36,7 +37,10 @@ Route::middleware(['guest'])->group(function(){
 });
 
 Route::middleware(['auth'])->group(function(){
-
+    // app routes
+    Route::resource('app_asset', AssetController::class);
+    Route::resource('app_aktivitas', AktivitasController::class);
+    // master data routes
     Route::resource('master_pic', MasterPicController::class);
     Route::resource('master_kendaraan', MasterKendaraanController::class);
     Route::resource('master_aktivitas', MasterAktivitasController::class);

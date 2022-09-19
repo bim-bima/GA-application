@@ -33,7 +33,7 @@
             @endforeach
           </tbody>
         </table>
-        {{-- {{ $asset->links() }} --}}
+        {{ $datakendaraan->links() }}
 
       </div>
     </div>

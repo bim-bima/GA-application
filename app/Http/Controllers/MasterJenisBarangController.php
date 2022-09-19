@@ -64,7 +64,7 @@ class MasterJenisBarangController extends Controller
         {
             // dd($pic);
             $jenisbarang = MasterJenisBarang::find($id);
-            return view('master.masterjenisbarang.edit',compact('jenisbarang'));
+            return view('master.masterjenisbarang.edit',compact('jenisbaran'));
         }
         /**
         * Update the specified resource in storage.
