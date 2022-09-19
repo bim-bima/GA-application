@@ -35,12 +35,6 @@
             <span>Aktivitas</span></a>
     </li>
     <hr class="sidebar-divider my-0">
-        <li class="nav-item">
-        <a class="nav-link" href="app_aktivitas.calendar">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>calendar</span></a>
-    </li>
-    <hr class="sidebar-divider my-0">
 
 
 

@@ -15,6 +15,26 @@
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
+
+<!-- Modal -->
+<div class="modal fade" id="aktivitasmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Aktivitas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="input" id="title" class="form-control">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        <button type="button" id="saveBtn" class="btn btn-primary">Tambah Aktivitas</button>
+      </div>
+    </div>
+  </div>
+</div>
+
         <!-- Sidebar -->
         @include('template.sidebar')
         <!-- End of Sidebar -->
@@ -38,7 +58,7 @@
                       <h6 class="m-0 font-weight-bold text-primary">Aktivitas</h6>
                     </div>
                     <div class="card-body">
-                    <div id="calendar">
+                    <div id="calendar"> 
                       
                     </div>
                 </div>
@@ -78,10 +98,24 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script>
     $(document).ready(function() {
         $('#calendar').fullCalendar({
-
+            var aktivitas = @json($events);
+            editable:true,
+            header:{
+            left:'prev,next today',
+            center:'title',
+            right:'month,agendaWeek,agendaDay'
+            },
+            events:aktivitas,
+            selectable:true,
+            selectHelper:true,
+            select: function (start, end, allDays)
+            {
+                $('#aktivitasmodal').modal('toggle');
+            }
     })
   });
    @include('template.script')
@@ -115,11 +149,24 @@
     
   </div>
 </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 
 <script>
     $(document).ready(function() {
+        var aktivitas = @json($events);
         $('#calendar').fullCalendar({
-
+          header:{
+          'left':'prev,next today',
+          'center':'title',
+          'right':'month,agendaWeek,agendaDay' 
+          },
+          events: aktivitas,
+          selectable:true,
+          selectHelper:true,
+          select: function (start, end, allDays)
+            {
+                $('#aktivitasmodal').modal('toggle'); 
+            }
     })
   });
 
