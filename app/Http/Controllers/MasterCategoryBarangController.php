@@ -15,7 +15,7 @@ class MasterCategoryBarangController extends Controller
         */
         public function index()
         {
-            $datacategorybarang = MasterCategoryBarang::all();
+            $datacategorybarang = MasterCategoryBarang::paginate(4);
             return view('master.mastercategorybarang.index', compact(['datacategorybarang']));
         }
         /**

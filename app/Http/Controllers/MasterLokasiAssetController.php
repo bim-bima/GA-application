@@ -15,7 +15,7 @@ class MasterLokasiAssetController extends Controller
         */
         public function index()
         {
-            $datalokasiasset = MasterLokasiAsset::all();
+            $datalokasiasset = MasterLokasiAsset::paginate(4);
             return view('master.masterlokasiasset.index', compact(['datalokasiasset']));
         }
         /**

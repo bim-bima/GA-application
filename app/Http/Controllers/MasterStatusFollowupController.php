@@ -15,7 +15,7 @@ class MasterStatusFollowupController extends Controller
         */
         public function index()
         {
-            $datastatusfollowup = MasterStatusFollowup::all();
+            $datastatusfollowup = MasterStatusFollowup::paginate(4);
             return view('master.masterstatusfollowup.index', compact(['datastatusfollowup']));
         }
         /**

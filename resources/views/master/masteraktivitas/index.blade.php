@@ -31,7 +31,7 @@
             @endforeach
           </tbody>
         </table>
-        {{-- {{ $asset->links() }} --}}
+        {{ $dataaktivitas->links() }}
 
       </div>
     </div>

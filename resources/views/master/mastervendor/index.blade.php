@@ -35,7 +35,7 @@
             @endforeach
           </tbody>
         </table>
-        {{-- {{ $asset->links() }} --}}
+        {{ $datavendor->links() }}
 
       </div>
     </div>

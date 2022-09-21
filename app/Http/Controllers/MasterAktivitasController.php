@@ -15,7 +15,7 @@ class MasterAktivitasController extends Controller
         */
         public function index()
         {
-            $dataaktivitas = MasterAktivitas::all();
+            $dataaktivitas = MasterAktivitas::paginate(4);
             return view('master.masteraktivitas.index', compact(['dataaktivitas']));
         }
         /**
