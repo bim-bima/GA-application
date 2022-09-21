@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
@@ -9,6 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>General Affair</title>
     @include('template.head')
 </head>
@@ -26,6 +28,7 @@
       </div>
       <div class="modal-body">
         <input type="input" id="title" class="form-control">
+        <span id="titleError" class="text-danger"></span>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -98,12 +101,18 @@
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
     <script>
     $(document).ready(function() {
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+          });
+        var aktivitas = @json($events);
         $('#calendar').fullCalendar({
-            var aktivitas = @json($events);
-            editable:true,
             header:{
             left:'prev,next today',
             center:'title',
@@ -115,21 +124,52 @@
             select: function (start, end, allDays)
             {
                 $('#aktivitasmodal').modal('toggle');
-            }
+
+                $('#saveBtn').click(function(){
+                    var title = $('#title').val();
+                    var start_date = moment(start).format('YYYY-MM-DD');
+                    var end_date = moment(end).format('YYYY-MM-DD');
+                $.ajax({
+                    url: "{{ route('app_aktivitas.store') }}",
+                    type: "POST",
+                    dataType: 'json',
+                    data: { title, start_date, end_date },
+                    success:function(response)
+                    {
+                      $('#aktivitasmodal').modal('hide')
+                      // $('#calendar').fullCalendar('renderEvent');
+                      // alert("Added Successfully");
+                      // $('#calendar').fullCalendar('renderEvent',{
+                      //   'title' : response.title,
+                      //   'start' : response.start_date,
+                      //   'end'   : response.end_date
+                      // });
+                    },
+                    error:function(error)
+                    {
+                      if(error.responseJSON.errors){
+                        $('#titleError').html(error.responseJSON.errors.title)
+                      }
+                    },
+                  })
+                });
+            },
+            
     })
   });
-   @include('template.script')
-
-    </script>  
+    </script>
+   @include('template.script')  
     </body>
 </html>
 
 
 <!-- <html lang="en">
 <head>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
@@ -153,6 +193,11 @@
 
 <script>
     $(document).ready(function() {
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+          });
         var aktivitas = @json($events);
         $('#calendar').fullCalendar({
           header:{
@@ -165,8 +210,40 @@
           selectHelper:true,
           select: function (start, end, allDays)
             {
-                $('#aktivitasmodal').modal('toggle'); 
-            }
+                $('#aktivitasmodal').modal('toggle');
+
+                $('#saveBtn').click(function(){
+                    var title = $('#title').val();
+                    var start_date = moment(start).format('YYYY-MM-DD');
+                    var end_date = moment(end).format('YYYY-MM-DD');
+
+                $.ajax({
+                    url: "{{ route('app_aktivitas.store') }}",
+                    type: "POST",
+                    dataType: 'json',
+                    data: {title,start_date,end_date},
+                    success:function(response)
+                    {
+                      $('#aktivitasmodal').modal('hide')
+                      // $('#calendar').fullCalendar('renderEvent');
+                      // alert("Added Successfully");
+                      // $('#calendar').fullCalendar('renderEvents',{
+                      //   'title' : response.title,
+                      //   'start' : response.start_date,
+                      //   'end'   : response.end_date
+                      // });
+                    },
+                    error:function(error)
+                    {
+                      if(error.responseJSON.errors){
+                        $('#titleError').html(error.responseJSON.errors.title);
+                      }
+                    },
+                });
+            }); 
+            },
+            editable: true,
+
     })
   });
 

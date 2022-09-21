@@ -40,6 +40,8 @@ Route::middleware(['auth'])->group(function(){
     // app routes
     Route::resource('app_asset', AssetController::class);
     Route::resource('app_aktivitas', AktivitasController::class);
+    Route::post('app_aktivitas/store',[AktivitasController::class,'store']);
+
     // master data routes
     Route::resource('master_pic', MasterPicController::class);
     Route::resource('master_kendaraan', MasterKendaraanController::class);
