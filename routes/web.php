@@ -41,6 +41,8 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('app_asset', AssetController::class);
     Route::resource('app_aktivitas', AktivitasController::class);
     Route::post('app_aktivitas/store',[AktivitasController::class,'store']);
+    Route::patch('app_aktivitas/update/{id}',[AktivitasController::class,'update']);
+    Route::delete('app_aktivitas/destroy/{id}',[AktivitasController::class,'destroy']);
 
     // master data routes
     Route::resource('master_pic', MasterPicController::class);

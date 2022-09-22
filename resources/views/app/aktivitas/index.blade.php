@@ -137,13 +137,12 @@
                     success:function(response)
                     {
                       $('#aktivitasmodal').modal('hide')
-                      // $('#calendar').fullCalendar('renderEvent');
-                      // alert("Added Successfully");
-                      // $('#calendar').fullCalendar('renderEvent',{
-                      //   'title' : response.title,
-                      //   'start' : response.start_date,
-                      //   'end'   : response.end_date
-                      // });
+                      $('#calendar').fullCalendar('renderEvent',{
+                        'title' : response.title,
+                        'start' : response.start,
+                        'end'   : response.end,
+                        'color'   : response.color
+                      });
                     },
                     error:function(error)
                     {
@@ -151,11 +150,64 @@
                         $('#titleError').html(error.responseJSON.errors.title)
                       }
                     },
-                  })
+                  });
                 });
             },
+            editable:true,
+            eventDrop:function(event) {
+                var id = event.id;
+                var start_date = moment(event.start).format('YYYY-MM-DD');
+                var end_date = moment(event.end).format('YYYY-MM-DD');
+
+                $.ajax({
+                    url: "{{ route('app_aktivitas.update', '') }}" +'/'+ id,
+                    type: "PATCH",
+                    dataType: 'json',
+                    data: {start_date, end_date },
+                    success:function(response)
+                    {
+                      console.log(response)
+                    },
+                    error:function(error)
+                    {
+                      console.log(error)
+                    },
+                  });
+            },
+            eventClick: function(event){
+              var id = event.id; 
+
+              if(confirm('yakin ingin menghapus ini ')){
+                    $.ajax({
+                    url: "{{ route('app_aktivitas.destroy', '') }}" +'/'+ id,
+                    type: "DELETE",
+                    dataType: 'json',
+                    success:function(response)
+                    {
+                      $('#calendar').fullCalendar('removeEvents' ,response);
+                    },
+                    error:function(error)
+                    {
+                      console.log(error)
+                    },
+                  });    
+              }         
+            },
+            // selectAllow: function(event){
+            //   return moment(event.start).utcOffset(false).isSame(moment(event.end).subtract(1, 'second').utcOffset(false),'day');
+            // }  
             
-    })
+    });
+        $("#aktivitasmodal").on("hidden.bs.modal", function() {
+          $('#saveBtn').unbind();
+        });
+
+        // $('.fc-event').css('font-size','15px');
+        // $('.fc-event').css('color','white');
+        // $('.fc-event').css('padding','2px');
+        // $('.fc-event').css('padding-bottom','3px');
+
+
   });
     </script>
    @include('template.script')  
