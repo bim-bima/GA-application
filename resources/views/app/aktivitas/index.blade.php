@@ -121,6 +121,7 @@
             events:aktivitas,
             selectable:true,
             selectHelper:true,
+            defaultView:,
             select: function (start, end, allDays)
             {
                 $('#aktivitasmodal').modal('toggle');
