@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class LokasiAssetContoller extends Controller
 {
     public function index(){
-        $lokasiAsset = LokasiAsset::all();
+        $lokasiAsset = LokasiAsset::paginate(4);
         return view('lokasiasset.index',compact(['lokasiAsset']));
     }
     public function asset()
