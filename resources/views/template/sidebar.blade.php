@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             {{-- <i class="fas fa-laugh-wink"></i> --}}
         </div>
-        <div class="sidebar-brand-text mx-3">General Affair</div>
+        <div class="sidebar-brand-text mx-3 glyphicon glyphicon-signal">General Affair</div>
     </a>
 
     <!-- Divider -->
@@ -25,11 +25,12 @@
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="app_asset">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fa fa-leaf"></i>
             <span>Asset</span></a>
     </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
+<<<<<<< HEAD
         <a class="nav-link" href="app_perencanaan">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Perencanaan Aktivitas</span></a>
@@ -39,6 +40,11 @@
         <a class="nav-link" href="app_kendaraan">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Kendaraan</span></a>
+=======
+        <a class="nav-link" href="app_aktivitas">
+            <i class="fa fa-calendar"></i>
+            <span>Aktivitas</span></a>
+>>>>>>> 9cb606a2b3b7db6f588af9fee920a2238a23a644
     </li>
     <hr class="sidebar-divider my-0">
 
@@ -122,37 +128,37 @@
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="master_pic">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fa fa-user"></i>
             <span>PIC</span></a>
     </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="master_kendaraan">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-fw fa-car"></i>
             <span>Kendaraan</span></a>
     </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="master_aktivitas">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fa fa-tasks"></i>
             <span>Aktivitas</span></a>
     </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="master_vendor">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fa fa-shopping-cart"></i>
             <span>Vendor</span></a>
     </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="master_barang">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fa fa-wrench"></i>
             <span>Barang</span></a>
     </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="master_jenisbarang">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fa fa-filter"></i>
             <span>Jenis Barang</span></a>
     </li>
     <hr class="sidebar-divider my-0">
@@ -164,13 +170,13 @@
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="master_statusfollowup">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fa fa-table"></i>
             <span>Status Follow Up</span></a>
     </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="master_lokasiasset">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fa fa-map-marker"></i>
             <span>Lokasi Asset</span></a>
     </li>
     <hr class="sidebar-divider my-0">
