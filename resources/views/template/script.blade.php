@@ -8,60 +8,514 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset ('template/js/sb-admin-2.min.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    <!-- alert kendaraan -->
+    <script>
+        $(document).ready(function () {
 
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            $('.btndelete').click(function (e) {
+                e.preventDefault();
 
-<script>
-    $(document).ready(function () {
+                var deleteid = $(this).closest("tr").find('.delete_id').val();
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
+                swal({
+                        title: "Apakah anda yakin?",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteid,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: 'master_kendaraan/' + deleteid,
+
+                                data: data,
+                                success: function (response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
         });
 
-        $('.btndelete').click(function (e) {
-            e.preventDefault();
+    </script>
 
-            var deleteid = $(this).closest("tr").find('.delete_id').val();
+    <!-- alert pic -->
+    <script>
+        $(document).ready(function () {
 
-            swal({
-                    title: "Apakah anda yakin?",
-                    text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
-                        var data = {
-                            "_token": $('input[name=_token]').val(),
-                            'id': deleteid,
-                        };
-                        $.ajax({
-                            type: "DELETE",
-                            url: 'master_pic/' + deleteid,
-                            url: 'master_kendaraan/' + deleteid,
+            $('.btndelete2').click(function (e) {
+                e.preventDefault();
 
-                            data: data,
-                            success: function (response) {
-                                swal(response.status, {
-                                        icon: "success",
-                                    })
-                                    .then((result) => {
-                                        location.reload();
-                                    });
-                            }
-                        });
-                    }
-                });
+                var deleteid2 = $(this).closest("tr").find('.delete_id').val();
+
+                swal({
+                        title: "Apakah anda yakin?",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteid2,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: 'master_pic/' + deleteid2,
+
+                                data: data,
+                                success: function (response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
         });
 
-    });
+    </script>
 
-</script>
+    <!-- alert aktivitas -->
+    <script>
+        $(document).ready(function () {
 
-    
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.btndelete3').click(function (e) {
+                e.preventDefault();
+
+                var deleteid3 = $(this).closest("tr").find('.delete_id').val();
+
+                swal({
+                        title: "Apakah anda yakin?",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteid3,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: 'master_aktivitas/' + deleteid3,
+
+                                data: data,
+                                success: function (response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
+        });
+
+    </script>
+
+    <!-- alert vendor -->
+    <script>
+        $(document).ready(function () {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.btndelete4').click(function (e) {
+                e.preventDefault();
+
+                var deleteid4 = $(this).closest("tr").find('.delete_id').val();
+
+                swal({
+                        title: "Apakah anda yakin?",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteid4,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: 'master_vendor/' + deleteid4,
+
+                                data: data,
+                                success: function (response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
+        });
+
+    </script>
+
+    <!-- alert barang -->
+    <script>
+        $(document).ready(function () {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.btndelete5').click(function (e) {
+                e.preventDefault();
+
+                var deleteid5 = $(this).closest("tr").find('.delete_id').val();
+
+                swal({
+                        title: "Apakah anda yakin?",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteid5,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: 'master_barang/' + deleteid5,
+
+                                data: data,
+                                success: function (response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
+        });
+
+    </script>
+
+    <!-- alert jenis barang -->
+    <script>
+        $(document).ready(function () {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.btndelete6').click(function (e) {
+                e.preventDefault();
+
+                var deleteid6 = $(this).closest("tr").find('.delete_id').val();
+
+                swal({
+                        title: "Apakah anda yakin?",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteid6,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: 'master_jenisbarang/' + deleteid6,
+
+                                data: data,
+                                success: function (response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
+        });
+
+    </script>
+
+    <!-- alert status follow up -->
+    <script>
+        $(document).ready(function () {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.btndelete7').click(function (e) {
+                e.preventDefault();
+
+                var deleteid7 = $(this).closest("tr").find('.delete_id').val();
+
+                swal({
+                        title: "Apakah anda yakin?",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteid7,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: 'master_statusfollowup/' + deleteid7,
+
+                                data: data,
+                                success: function (response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
+        });
+
+    </script>
+
+    <!-- alert lokasi asset -->
+    <script>
+        $(document).ready(function () {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.btndelete8').click(function (e) {
+                e.preventDefault();
+
+                var deleteid8 = $(this).closest("tr").find('.delete_id').val();
+
+                swal({
+                        title: "Apakah anda yakin?",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteid8,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: 'master_lokasiasset/' + deleteid8,
+
+                                data: data,
+                                success: function (response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
+        });
+
+    </script>
+
+    <!-- alert asset -->
+    <script>
+        $(document).ready(function () {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.btndeleteasset').click(function (e) {
+                e.preventDefault();
+
+                var deleteidasset = $(this).closest("tr").find('.delete_id').val();
+
+                swal({
+                        title: "Apakah anda yakin?",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteidasset,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: 'app_asset/' + deleteidasset,
+
+                                data: data,
+                                success: function (response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
+        });
+
+    </script>
+
+    <!-- alert item -->
+    <script>
+        $(document).ready(function () {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.btndeleteitem').click(function (e) {
+                e.preventDefault();
+
+                var deleteiditem = $(this).closest("tr").find('.delete_id').val();
+
+                swal({
+                        title: "Apakah anda yakin?",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteiditem,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: 'app_kendaraan/' + deleteiditem,
+
+                                data: data,
+                                success: function (response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
+        });
+
+    </script>

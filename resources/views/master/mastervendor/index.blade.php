@@ -22,13 +22,14 @@
           <tbody>
             @foreach ($datavendor as $vendor)
             <tr>
+              <input type="hidden" class="delete_id" value="{{ $vendor->id }}">
               <td>{{ $vendor->mv_nama_vendor }}</td>
               <td>{{ $vendor->mv_lokasi }}</td>
               <td><a class="btn btn-warning" href="{{ route('master_vendor.edit',$vendor->id) }}">Edit</a>
                 <form action="{{ route('master_vendor.destroy',$vendor->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
-                    <input class="btn btn-danger" type="submit" value="Delete">
+                    <input class="btn btn-danger btndelete4" type="submit" value="Delete">
                 </form>
             </td>
             </tr>

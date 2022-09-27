@@ -94,7 +94,8 @@ class MasterAktivitasController extends Controller
         {
             $id = MasterAktivitas::find($id);
             $id->delete();
-        Alert::success('Berhasil', 'Data Berhasil Dihapus');
-        return redirect()->route('master_aktivitas.index');
+        // Alert::success('Berhasil', 'Data Berhasil Dihapus');
+        // return redirect()->route('master_aktivitas.index');
+        return response()->json(['status' => 'Data Berhasil di hapus!']);
         }
 }

@@ -21,12 +21,13 @@
           <tbody>
             @foreach ($databarang as $barang)
             <tr>
+              <input type="hidden" class="delete_id" value="{{ $barang->id }}">
               <td>{{ $barang->mb_nama_barang }}</td>
               <td><a class="btn btn-warning" href="{{ route('master_barang.edit',$barang->id) }}">Edit</a>
                 <form action="{{ route('master_barang.destroy',$barang->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
-                    <input class="btn btn-danger" type="submit" value="Delete">
+                    <input class="btn btn-danger btndelete5" type="submit" value="Delete">
                 </form>
             </td>
             </tr>

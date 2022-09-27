@@ -31,14 +31,15 @@
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="app_perencanaan">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fa fa-calendar"></i>
             <span>Perencanaan Aktivitas</span></a>
     </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="app_kendaraan">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fa fa-car"></i>
             <span>Kendaraan</span></a>
+
     </li>
     <hr class="sidebar-divider my-0">
 

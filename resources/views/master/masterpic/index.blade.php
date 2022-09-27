@@ -27,7 +27,7 @@
                 <form action="{{ route('master_pic.destroy',$pic->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
-                    <input class="btn btn-danger btndelete" type="submit" value="Delete">
+                    <input class="btn btn-danger btndelete2" type="submit" value="Delete">
                 </form>
             </td>
             </tr>
@@ -39,56 +39,5 @@
       </div>
     </div>
   </div>
-
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-  <script>
-      $(document).ready(function () {
-
-          $.ajaxSetup({
-              headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-          });
-
-          $('.btndelete').click(function (e) {
-              e.preventDefault();
-
-              var deleteid = $(this).closest("tr").find('.delete_id').val();
-
-              swal({
-                      title: "Apakah anda yakin?",
-                      text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
-                      icon: "warning",
-                      buttons: true,
-                      dangerMode: true,
-                  })
-                  .then((willDelete) => {
-                      if (willDelete) {
-
-                          var data = {
-                              "_token": $('input[name=_token]').val(),
-                              'id': deleteid,
-                          };
-                          $.ajax({
-                              type: "DELETE",
-                              url: 'master_pic/' + deleteid,
-                              data: data,
-                              success: function (response) {
-                                  swal(response.status, {
-                                          icon: "success",
-                                      })
-                                      .then((result) => {
-                                          location.reload();
-                                      });
-                              }
-                          });
-                      }
-                  });
-          });
-
-      });
-
-  </script>
 @endsection
 

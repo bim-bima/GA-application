@@ -19,12 +19,13 @@
           <tbody>
             @foreach ($dataaktivitas as $aktivitas)
             <tr>
+              <input type="hidden" class="delete_id" value="{{ $aktivitas->id }}">
               <td>{{ $aktivitas->ma_nama_aktivitas }}</td>
               <td><a class="btn btn-warning" href="{{ route('master_aktivitas.edit',$aktivitas->id) }}">Edit</a>
                 <form action="{{ route('master_aktivitas.destroy',$aktivitas->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
-                    <input class="btn btn-danger" type="submit" value="Delete">
+                    <input class="btn btn-danger btndelete3" type="submit" value="Delete">
                 </form>
             </td>
             </tr>

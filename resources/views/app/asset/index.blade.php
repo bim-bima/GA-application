@@ -27,6 +27,7 @@
           <tbody>
             @foreach ($dataasset as $asset)
             <tr>
+              <input type="hidden" class="delete_id" value="{{ $asset->id }}">
               <td>{{ $asset->as_nama_asset }}</td>
               <td>{{ $asset->lokasiAsset->mla_lokasi_asset }}</td>
               <td>{{ $asset->as_tahun_kepemilikan }}</td>
@@ -40,7 +41,7 @@
                 <form action="{{ route('app_asset.destroy',$asset->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
-                    <input class="btn btn-danger" type="submit" value="Delete">
+                    <input class="btn btn-danger btndeleteasset" type="submit" value="Delete">
                 </form>
             </td>
             </tr>

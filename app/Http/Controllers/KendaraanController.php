@@ -122,7 +122,8 @@ class KendaraanController extends Controller
         {
             $id = Kendaraan::find($id);
             $id->delete();
-        Alert::success('Berhasil', 'Data Berhasil Dihapus');
-        return redirect()->route('app_kendaraan.index');
+        // Alert::success('Berhasil', 'Data Berhasil Dihapus');
+        // return redirect()->route('app_kendaraan.index');
+        return response()->json(['status' => 'Data Berhasil di hapus!']);
         }
 }
