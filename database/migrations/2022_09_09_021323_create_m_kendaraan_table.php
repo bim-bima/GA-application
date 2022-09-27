@@ -16,6 +16,11 @@ return new class extends Migration
         Schema::create('m_kendaraan', function (Blueprint $table) {
             $table->increments('id');
             $table->string('mk_nama_kendaraan');
+            $table->string('mk_no_polisi');
+            $table->string('mk_jenis');
+            $table->string('mk_merk');
+            $table->string('mk_warna');
+            $table->string('mk_perlengkapan');
             $table->timestamp('created_at',0)->useCurrent();
             $table->timestamp('updated_at',0)->nullable();
         });

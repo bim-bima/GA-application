@@ -30,7 +30,6 @@
     </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
-<<<<<<< HEAD
         <a class="nav-link" href="app_perencanaan">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Perencanaan Aktivitas</span></a>
@@ -40,11 +39,6 @@
         <a class="nav-link" href="app_kendaraan">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Kendaraan</span></a>
-=======
-        <a class="nav-link" href="app_aktivitas">
-            <i class="fa fa-calendar"></i>
-            <span>Aktivitas</span></a>
->>>>>>> 9cb606a2b3b7db6f588af9fee920a2238a23a644
     </li>
     <hr class="sidebar-divider my-0">
 

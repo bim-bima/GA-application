@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('app_perencanaan', function (Blueprint $table) {
             $table->id();
             $table->string('ap_bulan');
-            $table->string('ap_tahun');
+            $table->integer('ap_tahun');
             $table->timestamps();
         });
     }

@@ -8,8 +8,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset ('template/js/sb-admin-2.min.js') }}"></script>
-<<<<<<< HEAD
-=======
+
 
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -66,4 +65,3 @@
 </script>
 
     
->>>>>>> 9cb606a2b3b7db6f588af9fee920a2238a23a644

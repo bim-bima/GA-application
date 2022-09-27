@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Asset;
+use App\Models\Aktivitas;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -22,6 +23,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'dimas',
             'email' => 'dimas@gmail.com',
             'password' => bcrypt('password')
+        ]);
+
+        Aktivitas::factory()->create([
+            'title' => 'tes',
+            'start_date' => '2050-11-11',
+            'end_date' =>  '2050-11-11',
+            'prioritas' => 'rendah'
         ]);
 
 

@@ -15,6 +15,11 @@
           <thead>
             <tr>
                 <th>Nama Kendaraan</th>
+                <th>No Polisi</th>
+                <th>Jenis</th>
+                <th>Merk</th>
+                <th>Warna</th>
+                <th>Perlengkapan</th>
                 <th>Aksi</th>
             </tr>
           </thead>
@@ -23,6 +28,11 @@
             <tr>
               <input type="hidden" class="delete_id" value="{{ $kendaraan->id }}">
               <td>{{ $kendaraan->mk_nama_kendaraan }}</td>
+              <td>{{ $kendaraan->mk_no_polisi }}</td>
+              <td>{{ $kendaraan->mk_jenis }}</td>
+              <td>{{ $kendaraan->mk_merk }}</td>
+              <td>{{ $kendaraan->mk_warna }}</td>
+              <td>{{ $kendaraan->mk_perlengkapan }}</td>
               <td><a class="btn btn-warning" href="{{ route('master_kendaraan.edit',$kendaraan->id) }}">Edit</a>
                 <form action="{{ route('master_kendaraan.destroy',$kendaraan->id) }}" method="post" class="d-inline">
                     @csrf

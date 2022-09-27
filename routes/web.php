@@ -47,7 +47,6 @@ Route::middleware(['auth'])->group(function(){
     Route::post('app_aktivitas/store',[AktivitasController::class,'store']);
     Route::patch('app_aktivitas/update/{id}',[AktivitasController::class,'update']);
     Route::delete('app_aktivitas/destroy/{id}',[AktivitasController::class,'destroy']);
-
     Route::delete('app_perencanaan/destroy/{id}',[AktivitasController::class,'destroy']);
     Route::resource('app_perencanaan', PerencanaanController::class);
 

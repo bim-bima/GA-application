@@ -12,6 +12,19 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>General Affair</title>
     @include('template.head')
+
+    <style>
+      .hover-end{
+        padding: 0;
+        margin: 0;
+        font-size: 10px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        opacity: .8;
+      }
+    </style>
 </head>
 <body id="page-top">
     <!-- Page Wrapper -->
@@ -22,20 +35,20 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Aktivitas</h5>
+        <h5 class="modal-title text-primary" id="exampleModalLabel">Aktivitas</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="mb-3">
           <label for="title" class="form-label">Nama Aktivitas</label>
-          <input type="text" class="form-control" id="title">
+          <input type="text" class="form-control" id="title" required>
         </div>
 <!-- <div class="mb-1">
           <input type="checkbox" class="form-check-input" id="reminder">
           <label for="reminder" class="form-checkbox-label">reminder</label>
         </div> -->
         <div class="form-check mb-1 ml-2">
-          <input class="form-check-input" type="checkbox" value="reminder" id="reminder">
+          <input class="form-check-input" type="checkbox" value="reminder" id="reminder" >
           <label class="form-check-label" for="reminder">
             Reminder
           </label>
@@ -50,16 +63,16 @@
               <select name="frekuensi" id="frekuensi" class="custom-select custom-select-md mb-3">
                 <option value="allday">setiap hari</option>
                 <option value="weekly">seminggu 1x</option>
-              </select>
+        </select>
         <div class="mb-1">
           <label for="todate" class="form-label">todate</label>
           <input type="date" class="form-control" id="todate">
         </div>
         <label class="form-label mt-3">Prioritas</label>
               <select name="prioritas" id="prioritas" class="custom-select custom-select-md mb-3">
-                <option value="utama">Utama</option>
-                <option value="sedang">Sedang</option>
-                <option value="rendah">Rendah</option>
+                <option value="rendah" class="text-primary">Rendah</option>
+                <option value="sedang" class="text-success">Sedang</option>
+                <option value="utama" class="text-danger">Tinggi</option>
               </select>
         <div class="mb-1">
           <label for="deskripsi" class="form-label">Deskripsi</label>
@@ -67,7 +80,7 @@
         </div>
         <div class="mb-1">
           <label for="penanganan" class="form-label">Penanganan</label>
-          <input type="text" class="form-control" id="penanganan">
+          <input type="text" onfocus="this.value=''" class="form-control" id="penanganan">
         </div>
         <span id="titleError" class="text-danger"></span>
       </div>
@@ -191,6 +204,9 @@
                     data: { title, reminder, repeat, frekuensi, todate,  start_date, end_date, deskripsi, penanganan,prioritas},
                     success:function(response)
                     {
+                      $('.fc-event').css('color','white');
+                      $('.fc-event').css('font-size','15px');
+                      $('.fc-event').css('padding','2px');
                       $('#aktivitasmodal').modal('hide')
                       $('#calendar').fullCalendar('renderEvent',{
                         'title'      : response.title,
@@ -229,6 +245,10 @@
                     success:function(response)
                     {
                       console.log(response)
+                      $('.fc-event').css('color','white');
+                      $('.fc-event').css('font-size','15px');
+                      $('.fc-event').css('padding','2px');
+
                     },
                     error:function(error)
                     {
@@ -247,6 +267,9 @@
                     success:function(response)
                     {
                       $('#calendar').fullCalendar('removeEvents' ,response);
+                      $('.fc-event').css('color','white');
+                      $('.fc-event').css('font-size','15px');
+                      $('.fc-event').css('padding','2px');
                     },
                     error:function(error)
                     {
@@ -255,22 +278,44 @@
                   });    
               }         
             },
+            // eventMouseover: function(event, jsEvent, view) {
+            //   $('.fc-event-inner'. this).append('<div id=\"'+event.id+'\" class=\"hover-end\">'+$.fullCalendar.formatDate(event.end,'h:mmt')+'</div>');
+            // },
+            // eventMouseout: function(event, jsEvent, view){
+            //   $('#'+event.id).remove();
+            // },              
             // selectAllow: function(event){
             //   return moment(event.start).utcOffset(false).isSame(moment(event.end).subtract(1, 'second').utcOffset(false),'day');
             // }  
             
     });
         $("#aktivitasmodal").on("hidden.bs.modal", function() {
+          $('#title').val('');
+          // $('#reminder').val('');
+          // $('#repeat').val('');
+          $('#frekuensi').val('allday');
+          $('#todate').val('-');
+          $('#prioritas').val('rendah');
+          $('#deskripsi').val('');
+          $('#penanganan').val('');
+           $('.fc-event').css('color','white');
+           $('.fc-event').css('font-size','15px');
+           $('.fc-event').css('padding','2px');
           $('#saveBtn').unbind();
         });
+
         $('.fc-event').css('font-size','15px');
-        // $('.fc-event').css('background-color','#4169e1');
-        $('.fc-event').css('color','white');
         $('.fc-event').css('padding','2px');
         $('.fc-view-container').css('background-color','rgb(176,196,222,0.1)');
-
-        // $('.fc-center h2').css('padding','20px');
         $('.fc-center h2').css('color','blue');
+        // $('.fc-month-button').css('background-color','blue');
+        $('.fc-month-button').css('color','blue');
+        // $('.fc-agendaDay-button').css('background-color','blue');
+        $('.fc-agendaDay-button').css('color','blue');
+        // $('.fc-agendaWeek-button').css('background-color','blue');
+        $('.fc-agendaWeek-button').css('color','blue');
+          $('.fc-event').css('color','white');
+
 
 //     $(document).ready(function() {
 //     var $months = $('#months');

@@ -32,24 +32,10 @@ class AktivitasController extends Controller
     
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required|string'
-        // ]);
-
-        if($request->repeat == 'repeat'){
-            if($request->frekuensi == 'allday'){
-                // $start = $request->start_date;
-                // $end = $request->todate;
-                // $selisih = $end-$start;
-                // $hari = $selisih /60/60/24; 
-                $i=0;
-                $a=3;
-                // $start = $request->start_date;
-                // $end = $request->todate;
-                // $diff = date_diff($start, $end);
-                // $i=0;
-                // $a=$diff->y ;
-                while( $i < $a ){
+        $request->validate([
+            'title' => 'required|string'
+        ]);
+       
                 $aktivitas = Aktivitas::create([
                 'title' => $request->title,
                 'reminder' => $request->reminder,
@@ -62,24 +48,20 @@ class AktivitasController extends Controller
                 'penanganan' => $request->penanganan,
                 'prioritas' => $request->prioritas,
                     ]);
-                $i++; 
-                }
-            }
-
-        }
         
         return response()->json([
-            'id' => $aktivitas->id,
+            'id'    => $aktivitas->id,
             'start' => $aktivitas->start_date,
-            'end' => $aktivitas->end_date,
+            'end'   => $aktivitas->end_date,
             'title' => $aktivitas->title,
-            'reminder' => $aktivitas->reminder,
-            'repeat' => $aktivitas->repeat,
+            'reminder'  => $aktivitas->reminder,
+            'repeat'    => $aktivitas->repeat,
             'frekuensi' => $aktivitas->frekuensi,
-            'todate' => $aktivitas->todate,
+            'todate'    => $aktivitas->todate,
             'deskripsi' => $aktivitas->deskripsi,
             'penanganan' => $aktivitas->penanganan,
-            'prioritas' => $aktivitas->prioritas,
+            'prioritas'  => $aktivitas->prioritas,
+            'color'  => $aktivitas->color,
         ]); 
     }
     public function update(Request $request,$id)

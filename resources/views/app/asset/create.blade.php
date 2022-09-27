@@ -31,8 +31,8 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
 
-                <label for="as_tahun_kepemilikan" class="form-label">Kode Asset</label>
-               <input type="text" class="form-control @error('tahun') is-invalid @enderror" name="as_tahun_kepemilikan" required>
+                <label for="as_tahun_kepemilikan" class="form-label">Tahun Kepemilikan</label>
+               <input type="number" class="form-control @error('tahun') is-invalid @enderror" name="as_tahun_kepemilikan" required>
                 @error('tahun')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

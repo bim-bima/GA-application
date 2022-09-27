@@ -14,7 +14,15 @@
       <div class="card mb-3">
         <div class="card-body">
           <div class="row">
-          <h5 class="card-title">{{ $perencanaan->ap_bulan.'-'.$perencanaan->ap_tahun }}</h5>
+            <?php 
+            $string = $perencanaan->ap_bulan;
+            $result = preg_replace("/[^0-9]/", "",$string);
+
+            $monthnum = $result;
+            $dateObj = DateTime::createFromFormat('!m', $monthnum);
+            $monthName = $dateObj->format('F');
+             ?>
+          <h5 class="card-title">{{ $monthName.'-'.$perencanaan->ap_tahun }}</h5>
           <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary">Lihat</a>
           <form action="{{ route('app_perencanaan.destroy',$perencanaan->id) }}" method="post" class="d-inline">
                     @csrf
@@ -52,7 +60,7 @@
               </select>
 
                 <label class="form-label mt-3">Tahun</label>
-               <input name="ap_tahun" type="text" class="form-control" required>                 
+               <input name="ap_tahun" type="number" class="form-control" required>                 
            <button type="submit" class="btn btn-primary mt-3">Tambah</button>
        </form>
       </div>

@@ -57,7 +57,7 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
 
-                 <label for="ak_tujuan_pemakaian" class="form-label">Umur Manfaat</label>
+                 <label for="ak_tujuan_pemakaian" class="form-label">Tujuan Pemakaian</label>
                <input type="text" class="form-control @error('tujuan') is-invalid @enderror" name="ak_tujuan_pemakaian" required>
                 @error('tujuan')
                     <div class="invalid-feedback">{{ $message }}</div>
