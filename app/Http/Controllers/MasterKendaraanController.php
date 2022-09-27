@@ -39,6 +39,11 @@ class MasterKendaraanController extends Controller
         ]);
         $kendaraan = new MasterKendaraan();
         $kendaraan->mk_nama_kendaraan = $request->mk_nama_kendaraan;
+        $kendaraan->mk_no_polisi = $request->mk_no_polisi;
+        $kendaraan->mk_jenis = $request->mk_jenis;
+        $kendaraan->mk_merk = $request->mk_merk;
+        $kendaraan->mk_warna = $request->mk_warna;
+        $kendaraan->mk_perlengkapan = $request->mk_perlengkapan;
         $kendaraan->save();
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
         return redirect()->route('master_kendaraan.index');
@@ -79,6 +84,11 @@ class MasterKendaraanController extends Controller
         ]);
         $kendaraan = MasterKendaraan::find($id);
         $kendaraan->mk_nama_kendaraan = $request->mk_nama_kendaraan;
+        $kendaraan->mk_no_polisi = $request->mk_no_polisi;
+        $kendaraan->mk_jenis = $request->mk_jenis;
+        $kendaraan->mk_merk = $request->mk_merk;
+        $kendaraan->mk_warna = $request->mk_warna;
+        $kendaraan->mk_perlengkapan = $request->mk_perlengkapan;
         $kendaraan->save();
         Alert::success('Berhasil', 'Data Berhasil Diedit');
         return redirect()->route('master_kendaraan.index');

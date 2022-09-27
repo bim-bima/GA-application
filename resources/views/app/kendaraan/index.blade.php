@@ -10,6 +10,49 @@
       <button class="btn btn-primary mt-3"><a href="{{ route('app_kendaraan.create') }}" class="text-white text-decoration-none">Tambah</a></button>
     </div>
     <div class="card-body">
+                 @foreach ($datakendaraan as $ken)
+                <!-- Card Header - Accordion -->
+                <!-- d-flex flex-row align-items-center justify-content-between -->
+                <div class="card shadow mb-4 col-md-12 d-flex justify-content-between p-0">
+                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                  <h6 class="m-0 font-weight-bold text-primary">{{ $ken->mk_nama_kendaraan }}</h6>
+                </a>
+                <!-- Card Content - Collapse -->
+                <div class="collapse show" id="collapseCardExample">
+                  <div class="card-body">
+                     <li class="list-unstyled">
+                      <i class="fa fa-leaf mr-3"> </i>
+                    <span> {{ $ken->mk_nama_kendaraan}} </span></a>
+                    </li>
+                    <li class="list-unstyled">
+                      <i class="fa fa-leaf mr-3"> </i>
+                    <span> {{ $ken->mk_no_polisi }} </span></a>
+                    </li>
+                    <li class="list-unstyled">
+                      <i class="fa fa-leaf mr-3"> </i>
+                    <span> {{ $ken->mk_merk }} </span></a>
+                    </li>
+                    <li class="list-unstyled">
+                      <i class="fa fa-leaf mr-3"> </i>
+                    <span> {{ $ken->mk_warna }} </span></a>
+                    </li>
+                    <li class="list-unstyled">
+                      <i class="fa fa-leaf mr-3"> </i>
+                    <span> {{ $ken->mk_jenis }} </span></a>
+                    </li>
+                    <li class="list-unstyled mt-3">
+                      <button class="btn-circle btn-sm btn-primary"></button>
+                    </li>
+                  
+                  </div>
+                </div>
+              </div>
+                 @endforeach
+               
+
+      
+
+
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>

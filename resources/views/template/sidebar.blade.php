@@ -30,7 +30,6 @@
     </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
-
         <a class="nav-link" href="app_perencanaan">
             <i class="fa fa-calendar"></i>
             <span>Perencanaan Aktivitas</span></a>

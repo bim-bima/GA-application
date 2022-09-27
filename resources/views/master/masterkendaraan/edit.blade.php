@@ -13,6 +13,61 @@
                @error('nama')
                    <div class="invalid-feedback">{{ $message }}</div>
                @enderror
+
+               <label for="mk_no_polisi" class="form-label">No Polisi</label>
+               <input type="text" class="form-control @error('nopolisi') is-invalid @enderror" name="mk_no_polisi" required  value="{{ $kendaraan->mk_no_polisi }}">
+                @error('nopolisi')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+
+                <label for="mk_jenis" class="form-label">Jenis Kendaraan</label>
+                <select name="mk_jenis" class="form-control @error('mk_jenis') is-invalid @enderror" required>
+                        <option value="{{ $kendaraan->mk_jenis }}" 
+                        ></option>
+                        <option value="Roda 2">Roda dua (2)</option>
+                        <option value="Roda 4">Roda empat (4)</option>
+                 </select>
+                @error('mk_jenis')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+
+               <!-- <label class="form-label mt-3">Jenis Kendaraan</label>
+               <select name="mk_jenis" id="mk_jenis" class="custom-select custom-select-md mb-3">
+                <option value="Roda2">Roda dua (2)</option>
+                <option value="Roda3">Roda empat (4)</option>
+               </select> -->
+            
+                <label for="mk_merk" class="form-label">Merk Kendaraan</label>
+               <input type="text" class="form-control @error('merk') is-invalid @enderror" name="mk_merk" required  value="{{ $kendaraan->mk_merk }}">
+                @error('merk')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+
+                <label for="mk_warna" class="form-label">Warna Kendaraan</label>
+               <input type="text" class="form-control @error('warna') is-invalid @enderror" name="mk_warna" required  value="{{ $kendaraan->mk_warna }}">
+                @error('warna')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+
+                <!-- <label class="form-label mt-3">Perlengkapan</label>
+              <select name="mk_perlengkapan" id="mk_perlengkapan" class="custom-select custom-select-md mb-3">
+                <option value="stnk_bpkb">STNK-BPKB</option>
+                <option value="stnk">STNK</option>
+                <option value="bpkb">BPKB</option>
+              </select> -->
+
+               <label for="mk_perlengkapan" class="form-label">Perlegkapan</label>
+                <select name="mk_perlengkapan" class="form-control @error('mk_perlengkapan') is-invalid @enderror" required>
+                        <option value="{{ $kendaraan->mk_perlengkapan }}" 
+                        ></option>
+                        <option value="STNK-BPKB">STNK-BPKB</option>
+                        <option value="STNK">STNK</option>
+                        <option value="BPKB">BPKB</option>
+                 </select>
+                @error('mk_perlengkapan')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+               
           <button type="submit" class="btn btn-primary my-3">Edit</button>
           <button class="btn btn-primary my-3"><a  href="{{ route('master_kendaraan.index') }}" class="text-white text-decoration-none">Kembali</a></button>
       </form>

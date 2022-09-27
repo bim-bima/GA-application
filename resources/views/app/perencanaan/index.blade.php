@@ -68,6 +68,7 @@
 
 {{-- @extends('layouts.main')
 
+
 @section('content')
 
 @include('sweetalert::alert')
@@ -96,6 +97,10 @@
         </div>
         @endforeach
         {{ $dataperencanaan->links() }}
+                <label class="form-label mt-3">Tahun</label>
+               <input name="ap_tahun" type="number" class="form-control" required>                 
+           <button type="submit" class="btn btn-primary mt-3">Tambah</button>
+       </form>
       </div>
     
       <div class="card mt-3 ml-5 mb-3">
