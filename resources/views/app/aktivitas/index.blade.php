@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +18,7 @@
     <div id="wrapper">
 
 <!-- Modal -->
-<div class="modal fade" id="aktivitasmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade centered" id="aktivitasmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -27,7 +26,49 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <input type="input" id="title" class="form-control">
+        <div class="mb-3">
+          <label for="title" class="form-label">Nama Aktivitas</label>
+          <input type="text" class="form-control" id="title">
+        </div>
+<!-- <div class="mb-1">
+          <input type="checkbox" class="form-check-input" id="reminder">
+          <label for="reminder" class="form-checkbox-label">reminder</label>
+        </div> -->
+        <div class="form-check mb-1 ml-2">
+          <input class="form-check-input" type="checkbox" value="reminder" id="reminder">
+          <label class="form-check-label" for="reminder">
+            Reminder
+          </label>
+        </div>
+        <div class="form-check mb-1 ml-2">
+          <input class="form-check-input" type="checkbox" value="repeat" id="repeat">
+          <label class="form-check-label" for="repeat">
+            Repeat
+          </label>
+        </div>
+        <label class="form-label mt-3">Frekuensi</label>
+              <select name="frekuensi" id="frekuensi" class="custom-select custom-select-md mb-3">
+                <option value="allday">setiap hari</option>
+                <option value="weekly">seminggu 1x</option>
+              </select>
+        <div class="mb-1">
+          <label for="todate" class="form-label">todate</label>
+          <input type="date" class="form-control" id="todate">
+        </div>
+        <label class="form-label mt-3">Prioritas</label>
+              <select name="prioritas" id="prioritas" class="custom-select custom-select-md mb-3">
+                <option value="utama">Utama</option>
+                <option value="sedang">Sedang</option>
+                <option value="rendah">Rendah</option>
+              </select>
+        <div class="mb-1">
+          <label for="deskripsi" class="form-label">Deskripsi</label>
+          <input type="text" class="form-control" id="deskripsi">
+        </div>
+        <div class="mb-1">
+          <label for="penanganan" class="form-label">Penanganan</label>
+          <input type="text" class="form-control" id="penanganan">
+        </div>
         <span id="titleError" class="text-danger"></span>
       </div>
       <div class="modal-footer">
@@ -56,17 +97,19 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                <div class="card shadow mb-4">
+                  <div class="card shadow mb-4">
                     <div class="card-header py-3">
                       <h6 class="m-0 font-weight-bold text-primary">Aktivitas</h6>
                     </div>
                     <div class="card-body">
-                    <div id="calendar"> 
-                      
+                      <!-- <div id='caljump'>
+                          <label for='months'>Pergi ke</label>
+                          <select id='months'></select>
+                      </div> -->
+                      <div id='calendar'></div>
                     </div>
+                  </div>
                 </div>
-              </div>
-            </div>
                 <!-- /.container-fluid -->
 
             </div>
@@ -114,35 +157,53 @@
         var aktivitas = @json($events);
         $('#calendar').fullCalendar({
             header:{
-            left:'prev,next today',
+            // left:'prev,next today',
+            left:'month',
             center:'title',
-            right:'month,agendaWeek,agendaDay'
+            right:'agendaWeek,agendaDay'
             },
+            defaultDate: moment('{{ $perencanaan->ap_tahun.$perencanaan->ap_bulan }}'),
             events:aktivitas,
             selectable:true,
             selectHelper:true,
-            defaultView:,
             select: function (start, end, allDays)
             {
                 $('#aktivitasmodal').modal('toggle');
 
                 $('#saveBtn').click(function(){
                     var title = $('#title').val();
+                    var reminder = $('#reminder').val();
+                    var repeat = $('#repeat').val();
+                    var frekuensi = $('#frekuensi').val();
+                    var todate = $('#todate').val();
                     var start_date = moment(start).format('YYYY-MM-DD');
                     var end_date = moment(end).format('YYYY-MM-DD');
+                    var deskripsi = $('#deskripsi').val();
+                    var penanganan = $('#penanganan').val();
+                    var prioritas = $('#prioritas').val();
+
+
+
                 $.ajax({
                     url: "{{ route('app_aktivitas.store') }}",
                     type: "POST",
                     dataType: 'json',
-                    data: { title, start_date, end_date },
+                    data: { title, reminder, repeat, frekuensi, todate,  start_date, end_date, deskripsi, penanganan,prioritas},
                     success:function(response)
                     {
                       $('#aktivitasmodal').modal('hide')
                       $('#calendar').fullCalendar('renderEvent',{
-                        'title' : response.title,
-                        'start' : response.start,
-                        'end'   : response.end,
-                        'color'   : response.color
+                        'title'      : response.title,
+                        'reminder'   : response.reminder,
+                        'repeat'     : response.repeat,
+                        'frekuensi'  : response.frekuensi,
+                        'todate'     : response.todate,
+                        'start'      : response.start,
+                        'end'        : response.end,
+                        'deskripsi'  : response.deskripsi,
+                        'penanganan' : response.penanganan,
+                        'prioritas'  : response.prioritas,
+                        'color'      : response.color,
                       });
                     },
                     error:function(error)
@@ -202,17 +263,53 @@
         $("#aktivitasmodal").on("hidden.bs.modal", function() {
           $('#saveBtn').unbind();
         });
+        $('.fc-event').css('font-size','15px');
+        // $('.fc-event').css('background-color','#4169e1');
+        $('.fc-event').css('color','white');
+        $('.fc-event').css('padding','2px');
+        $('.fc-view-container').css('background-color','rgb(176,196,222,0.1)');
 
-        // $('.fc-event').css('font-size','15px');
-        // $('.fc-event').css('color','white');
-        // $('.fc-event').css('padding','2px');
-        // $('.fc-event').css('padding-bottom','3px');
+        // $('.fc-center h2').css('padding','20px');
+        $('.fc-center h2').css('color','blue');
+
+//     $(document).ready(function() {
+//     var $months = $('#months');
+//     var $calendar = $('#calendar');
+
+//     $calendar.fullCalendar({
+//         viewRender: function() {
+//             buildMonthList();
+//         }
+//     });
+
+//     $('#months').on('change', function() {
+//         $calendar.fullCalendar('gotoDate', $(this).val());
+//     });
+
+//     buildMonthList(); // set initial jump list on load
+
+//     function buildMonthList() {
+//         $('#months').empty(); // clear jump list
+//         var month = $calendar.fullCalendar('getDate');
+//         var initial = month.format('YYYY-MM'); // where are we?
+//         month.add(-6, 'month'); // 6 months past
+//         for (var i = 0; i < 13; i++) { // 6 months future
+//             var opt = document.createElement('option');
+//             opt.value = month.format('YYYY-MM-01');
+//             opt.text = month.format('MMM YYYY');
+//             opt.selected = initial === month.format('YYYY-MM'); // current selection
+//             $months.append(opt);
+//             month.add(1, 'month');
+//         }
+//     }
+// });
 
 
   });
     </script>
-   @include('template.script')  
     </body>
+    
+   @include('template.script')  
 </html>
 
 
@@ -303,3 +400,4 @@
 
   </script>
 </html> 
+

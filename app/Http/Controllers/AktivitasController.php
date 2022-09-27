@@ -10,19 +10,21 @@ class AktivitasController extends Controller
 {
     public function index()
     {
+        // $events = array();
         $dataAktivitas = Aktivitas::all();
         foreach ($dataAktivitas as $aktivitas){
-            $color = null;
-            if($aktivitas->title == 'my event'){
-                $color = '#924ACE';
-            }
-
             $events[]=[
             'id'    => $aktivitas->id,
             'title' => $aktivitas->title,
+            'reminder' => $aktivitas->reminder,
+            'todate' => $aktivitas->todate,
+            'frekuensi' => $aktivitas->frekuensi,
             'start' => $aktivitas->start_date,
             'end'   => $aktivitas->end_date,
-            'color' => 'black'
+            'deskripsi'   => $aktivitas->deskripsi,
+            'penanganan'  => $aktivitas->penanganan,
+            'prioritas'   => $aktivitas->prioritas,
+            'color'   => $aktivitas->color,
             ];
         }
         return view('app.aktivitas.index', ['events' => $events]);
@@ -30,27 +32,54 @@ class AktivitasController extends Controller
     
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string'
-        ]);
+        // $request->validate([
+        //     'title' => 'required|string'
+        // ]);
 
-        $aktivitas = Aktivitas::create([
-            'title' => $request->title,
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
-        ]);
-
-        $color = null;
-        if($aktivitas->title == 'event'){
-                $color = '#924ACE';
+        if($request->repeat == 'repeat'){
+            if($request->frekuensi == 'allday'){
+                // $start = $request->start_date;
+                // $end = $request->todate;
+                // $selisih = $end-$start;
+                // $hari = $selisih /60/60/24; 
+                $i=0;
+                $a=3;
+                // $start = $request->start_date;
+                // $end = $request->todate;
+                // $diff = date_diff($start, $end);
+                // $i=0;
+                // $a=$diff->y ;
+                while( $i < $a ){
+                $aktivitas = Aktivitas::create([
+                'title' => $request->title,
+                'reminder' => $request->reminder,
+                'repeat' => $request->repeat,
+                'frekuensi' => $request->frekuensi,
+                'todate' => $request->todate,
+                'start_date' => $request->start_date,
+                'end_date' => $request->end_date,
+                'deskripsi' => $request->deskripsi,
+                'penanganan' => $request->penanganan,
+                'prioritas' => $request->prioritas,
+                    ]);
+                $i++; 
+                }
             }
 
+        }
+        
         return response()->json([
             'id' => $aktivitas->id,
             'start' => $aktivitas->start_date,
             'end' => $aktivitas->end_date,
             'title' => $aktivitas->title,
-            'color' => $color ? $color : '',
+            'reminder' => $aktivitas->reminder,
+            'repeat' => $aktivitas->repeat,
+            'frekuensi' => $aktivitas->frekuensi,
+            'todate' => $aktivitas->todate,
+            'deskripsi' => $aktivitas->deskripsi,
+            'penanganan' => $aktivitas->penanganan,
+            'prioritas' => $aktivitas->prioritas,
         ]); 
     }
     public function update(Request $request,$id)
@@ -79,6 +108,13 @@ class AktivitasController extends Controller
         return $id;
 
     }
+    // public function destroym($id)
+    // {
+    //     $aktivitas = Aktivitas::where('start');
+    //     $aktivitas = Aktivitas::find($id);
+    //     $aktivitas->delete();
+
+    // }
     
 
 

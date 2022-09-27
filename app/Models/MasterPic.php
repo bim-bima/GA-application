@@ -10,4 +10,8 @@ class MasterPic extends Model
     use HasFactory;
     protected $table = 'm_pic';
     protected $guarded = [];
+
+    public function kendaraan(){
+        return $this->hasMany('App\Models\Kendaraan','ak_mp_id');
+    }
 }

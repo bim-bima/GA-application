@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\AktivitasController;
+use App\Http\Controllers\PerencanaanController;
 use App\Http\Controllers\LokasiAssetContoller;
 use App\Http\Controllers\MasterKendaraanController;
 use App\Http\Controllers\MasterPicController;
@@ -39,10 +41,16 @@ Route::middleware(['guest'])->group(function(){
 Route::middleware(['auth'])->group(function(){
     // app routes
     Route::resource('app_asset', AssetController::class);
+    Route::resource('app_kendaraan', KendaraanController::class);
     Route::resource('app_aktivitas', AktivitasController::class);
+    Route::resource('app_aktivitas/index/{}', AktivitasController::class);
     Route::post('app_aktivitas/store',[AktivitasController::class,'store']);
     Route::patch('app_aktivitas/update/{id}',[AktivitasController::class,'update']);
     Route::delete('app_aktivitas/destroy/{id}',[AktivitasController::class,'destroy']);
+
+    Route::delete('app_perencanaan/destroy/{id}',[AktivitasController::class,'destroy']);
+    Route::resource('app_perencanaan', PerencanaanController::class);
+
 
     // master data routes
     Route::resource('master_pic', MasterPicController::class);

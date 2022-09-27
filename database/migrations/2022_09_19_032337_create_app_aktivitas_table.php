@@ -16,8 +16,13 @@ return new class extends Migration
         Schema::create('app_aktivitas', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('reminder');
+            $table->string('frekuensi');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
+            $table->string('prioritas');
+            $table->string('deskripsi')->nullable();
+            $table->string('penanganan')->nullable();
             $table->timestamps();
         });
     }

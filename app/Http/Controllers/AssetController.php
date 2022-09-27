@@ -12,18 +12,17 @@ class AssetController extends Controller
 {
     public function index()
         {
-            // $dataasset = Asset::paginate(5);
-            // return view('app.asset.index', compact(['dataasset']));
-
             $dataasset = Asset::with('lokasiAsset')->paginate(5);
             return view('app.asset.index', compact(['dataasset']));
         }
+
     public function create()
     {
         $lokasiAsset = MasterLokasiAsset::all();
         return view('app.asset.create', compact(['lokasiAsset']));
         
     }
+    
     public function store(Request $request)
     {
         // $request->validate([
