@@ -28,6 +28,7 @@
           <tbody>
             @foreach ($kendaraan as $item)
             <tr>
+              <input type="hidden" class="delete_id" value="{{ $item->id }}">
               <td>{{ $item->namaKendaraan->mk_nama_kendaraan }}</td>
               <td>{{ $item->ak_pengguna }}</td>
               <td>{{ $item->ak_tanggal_mulai }}</td>
@@ -40,7 +41,7 @@
                 <form action="{{ route('app_kendaraan.destroy',$item->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
-                    <input class="btn btn-danger" type="submit" value="Delete">
+                    <input class="btn btn-danger btndeleteitem" type="submit" value="Delete">
                 </form>
             </td>
             </tr>

@@ -94,8 +94,9 @@ class MasterBarangController extends Controller
         {
             $id = MasterBarang::find($id);
             $id->delete();
-        Alert::success('Berhasil', 'Data Berhasil Dihapus');
-        return redirect()->route('master_barang.index');
+        // Alert::success('Berhasil', 'Data Berhasil Dihapus');
+        // return redirect()->route('master_barang.index');
+        return response()->json(['status' => 'Data Berhasil di hapus!']);
         }
 
 }

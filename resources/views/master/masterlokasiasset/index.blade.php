@@ -21,12 +21,13 @@
           <tbody>
             @foreach ($datalokasiasset as $lokasiasset)
             <tr>
+              <input type="hidden" class="delete_id" value="{{ $lokasiasset->id }}">
               <td>{{ $lokasiasset->mla_lokasi_asset }}</td>
               <td><a class="btn btn-warning" href="{{ route('master_lokasiasset.edit',$lokasiasset->id) }}">Edit</a>
                 <form action="{{ route('master_lokasiasset.destroy',$lokasiasset->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
-                    <input class="btn btn-danger" type="submit" value="Delete">
+                    <input class="btn btn-danger btndelete8" type="submit" value="Delete">
                 </form>
             </td>
             </tr>
