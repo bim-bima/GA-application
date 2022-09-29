@@ -7,7 +7,10 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">Daftar Status FollowUp</h6>
-      <button class="btn btn-primary mt-3"><a href="{{ route('master_statusfollowup.create') }}" class="text-white text-decoration-none">Tambah</a></button>
+      <button class="btn btn-primary mt-3">
+        <i class="fa fa-plus"></i>
+        <a href="{{ route('master_statusfollowup.create') }}" class="text-white text-decoration-none">Tambah</a>
+      </button>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -23,11 +26,17 @@
             <tr>
               <input type="hidden" class="delete_id" value="{{ $statusfollowup->id }}">
               <td>{{ $statusfollowup->msf_status }}</td>
-              <td><a class="btn btn-warning" href="{{ route('master_statusfollowup.edit',$statusfollowup->id) }}">Edit</a>
+              <td>
+                <a class="btn btn-warning btn-circle" href="{{ route('master_statusfollowup.edit',$statusfollowup->id) }}">
+                  <i class="fas fa-edit"></i>
+                </a>
                 <form action="{{ route('master_statusfollowup.destroy',$statusfollowup->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
-                    <input class="btn btn-danger btndelete7" type="submit" value="Delete">
+                    {{-- <input class="btn btn-danger btndelete7" type="submit" value="Delete"> --}}
+                    <a href="" class="btn btn-danger btn-circle btndelete7">
+                      <i class="fas fa-trash"></i>
+                    </a>
                 </form>
             </td>
             </tr>

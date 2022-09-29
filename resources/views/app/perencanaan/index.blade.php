@@ -13,6 +13,7 @@
     <div class="row d-flex justify-content-around p-3">
       <div class="card-body col-md-7 p-0 mx-2">
         @foreach ($dataperencanaan as $perencanaan)
+        {{-- <input type="hidden" class="delete_id2" value="{{ $perencanaan->id }}"> --}}
         <div class="card mb-3">
           <div class="card-body">
             <div class="row d-flex justify-content-between">
@@ -31,11 +32,14 @@
                 <h5 class="card-title ml-3">{{ $monthName.'-'.$perencanaan->ap_tahun }}</h5>
               </div>
               <div class="">
-                <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary">Lihat</a>
+                <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary btn-circle">Lihat</a>
                 <form action="{{ route('app_perencanaan.destroy',$perencanaan->id) }}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
-                  <input class="btn btn-danger" type="submit" value="Delete">
+                  <button class="btn btn-danger btn-circle" type="submit">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                  {{-- <input class="btn btn-danger" type="submit" value="Delete" class="fas fa-trash"> --}}
                 </form>
               </div>
             </div>
@@ -66,8 +70,16 @@
                 <option value="-12">Desember</option>
               </select>
               <label class="form-label mt-3">Tahun</label>
+<<<<<<< HEAD
+              <input name="ap_tahun" type="text" class="form-control" required>                 
+          <button type="submit" class="btn btn-primary my-3">
+            <i class="fa fa-plus"></i>
+            Tambah
+          </button>
+=======
               <input name="ap_tahun" type="number" class="form-control" required>                 
           <button type="submit" class="btn btn-primary my-3">Tambah</button>
+>>>>>>> c4fc768e20b4bd550448e1a78f8d41ffcdf8565a
         </form>
       </div>
     </div>

@@ -7,7 +7,10 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">Cek Kendaraan</h6>
-      <button class="btn btn-primary mt-3"><a href="{{ route('app_kendaraan.create') }}" class="text-white text-decoration-none">Tambah</a></button>
+      <button class="btn btn-primary mt-3">
+        <i class="fa fa-plus"></i>
+        <a href="{{ route('app_kendaraan.create') }}" class="text-white text-decoration-none">Tambah</a>
+      </button>
     </div>
     <div class="card-body">
       <div class="row">
@@ -69,7 +72,7 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-                <th>kendaraan</th>
+                <th>Kendaraan</th>
                 <th>Pengguna</th>
                 <th>Tanggal Mulai</th>
                 <th>Jam</th>
@@ -92,11 +95,17 @@
               <td>{{ $item->ak_kondisi }}</td>
               <td>{{ $item->ak_lokasi_tujuan }}</td>
               <td>{{ $item->ak_tujuan_pemakaian }}</td>
-              <td><a class="btn btn-warning" href="{{ route('app_kendaraan.edit',$item->id) }}">Edit</a>
+              <td>
+                <a class="btn btn-warning btn-circle" href="{{ route('app_kendaraan.edit',$item->id) }}">
+                  <i class="fa fa-edit"></i>
+                </a>
                 <form action="{{ route('app_kendaraan.destroy',$item->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
-                    <input class="btn btn-danger btndeleteitem" type="submit" value="Delete">
+                    {{-- <input class="btn btn-danger btndeleteitem" type="submit" value="Delete"> --}}
+                    <a href="" class="btn btn-danger btn-circle btndeleteitem">
+                      <i class="fas fa-trash"></i>
+                    </a>
                 </form>
             </td>
             </tr>
