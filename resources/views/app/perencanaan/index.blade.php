@@ -13,6 +13,7 @@
     <div class="row d-flex justify-content-around p-3">
       <div class="card-body col-md-7 p-0 mx-2">
         @foreach ($dataperencanaan as $perencanaan)
+        {{-- <input type="hidden" class="delete_id2" value="{{ $perencanaan->id }}"> --}}
         <div class="card mb-3">
           <div class="card-body">
             <div class="row d-flex justify-content-between">
@@ -56,7 +57,10 @@
               </select>
               <label class="form-label mt-3">Tahun</label>
               <input name="ap_tahun" type="text" class="form-control" required>                 
-          <button type="submit" class="btn btn-primary my-3">Tambah</button>
+          <button type="submit" class="btn btn-primary my-3">
+            <i class="fa fa-plus"></i>
+            Tambah
+          </button>
         </form>
       </div>
     </div>

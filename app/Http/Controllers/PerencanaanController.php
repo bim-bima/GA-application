@@ -12,7 +12,7 @@ class PerencanaanController extends Controller
 {
     public function index()
     {
-        $dataperencanaan = Perencanaan::paginate(3);
+        $dataperencanaan = Perencanaan::paginate(4);
         return view('app.perencanaan.index', compact(['dataperencanaan']));
     }
     public function store(Request $request)
@@ -69,6 +69,7 @@ class PerencanaanController extends Controller
 
         Alert::success('Berhasil', 'Data Berhasil Dihapus');
         return redirect()->route('app_perencanaan.index');
+        // return response()->json(['status' => 'Data Berhasil di hapus!']);
     }
 
 

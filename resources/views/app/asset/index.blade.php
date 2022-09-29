@@ -7,10 +7,13 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">Daftar Asset</h6>
-      <button class="btn btn-primary mt-3"><a href="{{ route('app_asset.create') }}" class="text-white text-decoration-none">Tambah</a></button>
+      <button class="btn btn-primary mt-3">
+        <i class="fa fa-plus"></i>
+        <a href="{{ route('app_asset.create') }}" class="text-white text-decoration-none">Tambah</a>
+      </button>
     </div>
     <div class="card-body">
-      <div class="table-responsive">
+      <div class="table-responsive-lg">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
@@ -36,12 +39,21 @@
               <td>{{ $asset->as_nilai_residu }}</td>
               <td>{{ $asset->as_umur_manfaat }}</td>
               <td>
-                <a class="btn btn-info" href="{{ route('app_asset.show',$asset->id) }}">Detail</a>
-                <a class="btn btn-warning" href="{{ route('app_asset.edit',$asset->id) }}">Edit</a>
+                <a class="btn btn-info btn-circle" href="{{ route('app_asset.show',$asset->id) }}">
+                  <i class="fas fa-info-circle"></i>
+                </a>
+                <a class="btn btn-warning btn-circle" href="{{ route('app_asset.edit',$asset->id) }}">
+                  <i class="fa fa-edit"></i>
+                </a>
                 <form action="{{ route('app_asset.destroy',$asset->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
-                    <input class="btn btn-danger btndeleteasset" type="submit" value="Delete">
+                    {{-- <input class="btn btn-danger btn-circle btndeleteasset" type="submit" value="
+                    <i class="fas fa-trash"></i>"> --}}
+                    
+                    <a href="" class="btn btn-danger btn-circle btndeleteasset">
+                      <i class="fas fa-trash"></i>
+                    </a>
                 </form>
             </td>
             </tr>

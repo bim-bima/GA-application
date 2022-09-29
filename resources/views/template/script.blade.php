@@ -10,7 +10,7 @@
     <script src="{{ asset ('template/js/sb-admin-2.min.js') }}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <!-- alert kendaraan -->
+    <!-- Alert Kendaraan -->
     <script>
         $(document).ready(function () {
 
@@ -26,8 +26,8 @@
                 var deleteid = $(this).closest("tr").find('.delete_id').val();
 
                 swal({
-                        title: "Apakah anda yakin?",
-                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        title: "Apakah anda yakin ingin menghapus data kendaraan?",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -61,7 +61,7 @@
 
     </script>
 
-    <!-- alert pic -->
+    <!-- Alert Pic -->
     <script>
         $(document).ready(function () {
 
@@ -78,7 +78,7 @@
 
                 swal({
                         title: "Apakah anda yakin?",
-                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -112,7 +112,7 @@
 
     </script>
 
-    <!-- alert aktivitas -->
+    <!-- Alert Aktivitas -->
     <script>
         $(document).ready(function () {
 
@@ -129,7 +129,7 @@
 
                 swal({
                         title: "Apakah anda yakin?",
-                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -163,7 +163,7 @@
 
     </script>
 
-    <!-- alert vendor -->
+    <!-- Alert Vendor -->
     <script>
         $(document).ready(function () {
 
@@ -180,7 +180,7 @@
 
                 swal({
                         title: "Apakah anda yakin?",
-                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -214,7 +214,7 @@
 
     </script>
 
-    <!-- alert barang -->
+    <!-- Alert Barang -->
     <script>
         $(document).ready(function () {
 
@@ -231,7 +231,7 @@
 
                 swal({
                         title: "Apakah anda yakin?",
-                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -265,7 +265,7 @@
 
     </script>
 
-    <!-- alert jenis barang -->
+    <!-- Alert Jenis Barang -->
     <script>
         $(document).ready(function () {
 
@@ -282,7 +282,7 @@
 
                 swal({
                         title: "Apakah anda yakin?",
-                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -316,7 +316,7 @@
 
     </script>
 
-    <!-- alert status follow up -->
+    <!-- alert Status Follow Up -->
     <script>
         $(document).ready(function () {
 
@@ -333,7 +333,7 @@
 
                 swal({
                         title: "Apakah anda yakin?",
-                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -367,7 +367,7 @@
 
     </script>
 
-    <!-- alert lokasi asset -->
+    <!-- Alert Lokasi Asset -->
     <script>
         $(document).ready(function () {
 
@@ -384,7 +384,7 @@
 
                 swal({
                         title: "Apakah anda yakin?",
-                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -418,7 +418,7 @@
 
     </script>
 
-    <!-- alert asset -->
+    <!-- Alert Asset -->
     <script>
         $(document).ready(function () {
 
@@ -435,7 +435,7 @@
 
                 swal({
                         title: "Apakah anda yakin?",
-                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -469,7 +469,7 @@
 
     </script>
 
-    <!-- alert item -->
+    <!-- Alert Item -->
     <script>
         $(document).ready(function () {
 
@@ -486,7 +486,7 @@
 
                 swal({
                         title: "Apakah anda yakin?",
-                        text: "Setelah dihapus, Anda tidak dapat memulihkan Tag ini lagi!",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -501,6 +501,57 @@
                             $.ajax({
                                 type: "DELETE",
                                 url: 'app_kendaraan/' + deleteiditem,
+
+                                data: data,
+                                success: function (response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
+        });
+
+    </script>
+
+    <!-- Alert Perencanaan -->
+    <script>
+        $(document).ready(function () {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.btndelete10').click(function (e) {
+                e.preventDefault();
+
+                var deleteidi10 = $(this).closest("div").find('.delete_id2').val();
+
+                swal({
+                        title: "Apakah anda yakin?",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteidi10,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: 'app_perencanaan/' + deleteidi10,
 
                                 data: data,
                                 success: function (response) {

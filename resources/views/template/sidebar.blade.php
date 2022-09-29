@@ -1,11 +1,13 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+<ul class="navbar-nav sidebar sidebar-dark accordion m-0" id="accordionSidebar" style="background-color: #4e73df">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fa fa-rocket"></i>
             {{-- <i class="fas fa-laugh-wink"></i> --}}
         </div>
-        <div class="sidebar-brand-text mx-3 glyphicon glyphicon-signal">General Affair</div>
+        <div class="sidebar-brand-text ml-2">General Affair</div>
     </a>
 
     <!-- Divider -->
@@ -22,6 +24,31 @@
     <div class="sidebar-heading">
         App
     </div>
+		<li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseApp"
+            aria-expanded="true" aria-controls="collapseApp">
+            <i class="fa fa-desktop"></i>
+            <span>APP</span>
+        </a>
+        <div id="collapseApp" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="text-white bg-primary py-2 collapse-inner rounded">
+							<a class="nav-link" href="app_perencanaan">
+								<i class="fa fa-calendar"></i>
+								<span>Perencanaan Aktivitas</span>
+							</a>
+							<a class="nav-link" href="app_asset">
+								<i class="fa fa-leaf"></i>
+								<span>Asset</span>
+							</a>
+							<a class="nav-link nav-item active" href="app_kendaraan">
+								<i class="fa fa-car"></i>
+								<span>Kendaraan</span>
+							</a>
+
+							
+            </div>
+        </div>
+    {{-- </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="app_asset">
@@ -41,7 +68,7 @@
             <span>Kendaraan</span></a>
 
     </li>
-    <hr class="sidebar-divider my-0">
+    <hr class="sidebar-divider my-0"> --}}
 
 
 
@@ -98,29 +125,52 @@
     </div> --}}
 
     <!-- Nav Item - Pages Collapse Menu -->
-    {{-- <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-            aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
+    <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseDataMaster" aria-expanded="true"
+            aria-controls="collapseDataMaster">
+            <i class="fas fa-fw fa-key"></i>
+            <span>Data Master</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="login.html">Login</a>
-                <a class="collapse-item" href="register.html">Register</a>
-                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
-            </div>
+        <div id="collapseDataMaster" class="collapse" aria-labelledby="headingPages"
+          data-parent="#accordionSidebar">
+          <div class="text-white bg-primary py-2 collapse-inner rounded">
+						<a class="nav-link" href="master_pic">
+							<i class="fa fa-user"></i>
+							<span>PIC</span></a>
+						<a class="nav-link" href="master_kendaraan">
+							<i class="fa fa-car"></i>
+							<span>Kendaraan</span>
+						</a>
+						<a class="nav-link" href="master_aktivitas">
+							<i class="fa fa-tasks"></i>
+							<span>Aktivitas</span>
+						</a>
+						<a class="nav-link" href="master_vendor">
+							<i class="fa fa-shopping-cart"></i>
+							<span>Vendor</span>
+						</a>
+						<a class="nav-link" href="master_barang">
+							<i class="fa fa-wrench"></i>
+							<span>Barang</span>
+						</a>
+						<a class="nav-link" href="master_jenisbarang">
+							<i class="fa fa-filter"></i>
+							<span>Jenis Barang</span>
+						</a>
+						<a class="nav-link" href="master_statusfollowup">
+							<i class="fa fa-table"></i>
+							<span>Status Follow Up</span>
+						</a>
+						<a class="nav-link" href="master_lokasiasset">
+							<i class="fa fa-map-marker"></i>
+							<span>Lokasi Asset</span>
+						</a>
+          </div>
         </div>
-    </li> --}}
+    </li>
 
     <!-- Nav Item - Charts -->
-    <hr class="sidebar-divider my-0">
+    {{-- <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="master_pic">
             <i class="fa fa-user"></i>
@@ -174,11 +224,11 @@
             <i class="fa fa-map-marker"></i>
             <span>Lokasi Asset</span></a>
     </li>
-    <hr class="sidebar-divider my-0">
+    <hr class="sidebar-divider my-0"> --}}
 
 
     <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
+    <hr class="sidebar-divider d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
