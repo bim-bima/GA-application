@@ -50,10 +50,10 @@ Route::middleware(['auth'])->group(function(){
     Route::delete('app_perencanaan/destroy/{id}',[AktivitasController::class,'destroy']);
     Route::resource('app_perencanaan', PerencanaanController::class);
 
-
     // master data routes
     Route::resource('master_pic', MasterPicController::class);
     Route::resource('master_kendaraan', MasterKendaraanController::class);
+    // Route::post('master_kendaraan/editstatus', MasterKendaraanController::class,'editstatus');
     Route::resource('master_aktivitas', MasterAktivitasController::class);
     Route::resource('master_vendor', MasterVendorController::class);
     Route::resource('master_barang', MasterBarangController::class);

@@ -19,7 +19,7 @@ class KendaraanController extends Controller
         public function index()
         {
             $kendaraan = Kendaraan::with('namaKendaraan','pic')->paginate(4);
-            $datakendaraan = MasterKendaraan::all();
+            $datakendaraan = MasterKendaraan::paginate(3);
             return view('app.kendaraan.index', compact(['kendaraan','datakendaraan']));
         }
         /**

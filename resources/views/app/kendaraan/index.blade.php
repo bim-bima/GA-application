@@ -13,49 +13,61 @@
       </button>
     </div>
     <div class="card-body">
-                 @foreach ($datakendaraan as $ken)
-                <!-- Card Header - Accordion -->
-                <!-- d-flex flex-row align-items-center justify-content-between -->
-                <div class="card shadow mb-4 col-md-12 d-flex justify-content-between p-0">
-                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                  <h6 class="m-0 font-weight-bold text-primary">{{ $ken->mk_nama_kendaraan }}</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="collapseCardExample">
-                  <div class="card-body">
-                     <li class="list-unstyled">
-                      <i class="fa fa-leaf mr-3"> </i>
-                    <span> {{ $ken->mk_nama_kendaraan}} </span></a>
-                    </li>
-                    <li class="list-unstyled">
-                      <i class="fa fa-leaf mr-3"> </i>
-                    <span> {{ $ken->mk_no_polisi }} </span></a>
-                    </li>
-                    <li class="list-unstyled">
-                      <i class="fa fa-leaf mr-3"> </i>
-                    <span> {{ $ken->mk_merk }} </span></a>
-                    </li>
-                    <li class="list-unstyled">
-                      <i class="fa fa-leaf mr-3"> </i>
-                    <span> {{ $ken->mk_warna }} </span></a>
-                    </li>
-                    <li class="list-unstyled">
-                      <i class="fa fa-leaf mr-3"> </i>
-                    <span> {{ $ken->mk_jenis }} </span></a>
-                    </li>
-                    <li class="list-unstyled mt-3">
-                      <button class="btn-circle btn-sm btn-primary"></button>
-                    </li>
-                  
+      <div class="row">
+          @foreach( $datakendaraan as $ken )
+            <div class="col-xl-4 col-md-6 mb-4">
+                  <div class="card h-100 ">
+                    <div class="card-header py-2">
+                  <h6 class="m-0 font-weight-bold text-primary text-center">{{ $ken->mk_nama_kendaraan }}</h6>
+                  </div>
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase ">Status</div>
+                        <div class=" h5 mb-0 font-weight-bold text-gray-800">{{ $ken->mk_status }}</div>
+                        </div>
+                        <div class="col-auto ">
+                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                      </div>
+
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase ">Bahan Bakar Tersedia</div>
+                        <div class=" h5 mb-0 font-weight-bold text-gray-800">{{ $ken->mk_bahan_bakar }}</div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                      </div>
+
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase ">Kilometer</div>
+                        <div class=" h5 mb-0 font-weight-bold text-gray-800">{{ $ken->mk_kilometer }}</div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                      </div>
+
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase ">Kondisi Lain</div>
+                        <div class=" h5 mb-0 font-weight-bold text-gray-800">{{ $ken->mk_kondisi_lain }}</div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                      </div>
+                      <a class="mt-3 btn btn-warning px-5" href="{{ route('master_kendaraan.edit',$ken->id) }}">Update</a>
+                    </div>
                   </div>
                 </div>
-              </div>
-                 @endforeach
-               
+            @endforeach
+                </div>
 
-      
-
-
+                 
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>

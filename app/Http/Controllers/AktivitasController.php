@@ -18,7 +18,7 @@ class AktivitasController extends Controller
             'title' => $aktivitas->title,
             'reminder' => $aktivitas->reminder,
             'todate' => $aktivitas->todate,
-            'frekuensi' => $aktivitas->frekuensi,
+            'ulangi' => $aktivitas->ulangi,
             'start' => $aktivitas->start_date,
             'end'   => $aktivitas->end_date,
             'deskripsi'   => $aktivitas->deskripsi,
@@ -32,15 +32,30 @@ class AktivitasController extends Controller
     
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string'
-        ]);
-       
+        // $request->validate([
+        //     'title' => 'required|string'
+        // ]);
+
+        if($request->ulangi == "allday"){
+            for($i=$request->start_date; $i<=$request->todate; $i++){
                 $aktivitas = Aktivitas::create([
                 'title' => $request->title,
                 'reminder' => $request->reminder,
-                'repeat' => $request->repeat,
-                'frekuensi' => $request->frekuensi,
+                'ulangi' => $request->ulangi,
+                'todate' => $request->todate,
+                'start_date' => $request->start_date++,
+                'end_date' => $request->end_date,
+                'deskripsi' => $request->deskripsi,
+                'penanganan' => $request->penanganan,
+                'prioritas' => $request->prioritas,
+                    ]);
+            }
+        }elseif($request->ulangi == "weekly") {
+            // for($i=$request->start_date; $i<=$request->todate; $i++){
+                $aktivitas = Aktivitas::create([
+                'title' => $request->title,
+                'reminder' => $request->reminder,
+                'ulangi' => $request->ulangi,
                 'todate' => $request->todate,
                 'start_date' => $request->start_date,
                 'end_date' => $request->end_date,
@@ -48,15 +63,15 @@ class AktivitasController extends Controller
                 'penanganan' => $request->penanganan,
                 'prioritas' => $request->prioritas,
                     ]);
-        
+            // }
+        }
         return response()->json([
             'id'    => $aktivitas->id,
             'start' => $aktivitas->start_date,
             'end'   => $aktivitas->end_date,
             'title' => $aktivitas->title,
             'reminder'  => $aktivitas->reminder,
-            'repeat'    => $aktivitas->repeat,
-            'frekuensi' => $aktivitas->frekuensi,
+            'ulangi'    => $aktivitas->ulangi,
             'todate'    => $aktivitas->todate,
             'deskripsi' => $aktivitas->deskripsi,
             'penanganan' => $aktivitas->penanganan,

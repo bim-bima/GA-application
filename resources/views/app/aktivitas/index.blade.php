@@ -53,17 +53,11 @@
             Reminder
           </label>
         </div>
-        <div class="form-check mb-1 ml-2">
-          <input class="form-check-input" type="checkbox" value="repeat" id="repeat">
-          <label class="form-check-label" for="repeat">
-            Repeat
-          </label>
-        </div>
-        <label class="form-label mt-3">Frekuensi</label>
-              <select name="frekuensi" id="frekuensi" class="custom-select custom-select-md mb-3">
-                <option value="allday">setiap hari</option>
-                <option value="weekly">seminggu 1x</option>
-        </select>
+                <label class="form-label mt-3">ulangi</label>
+              <select name="ulangi" id="ulangi" class="custom-select custom-select-md mb-3">
+                <option value="allday" class="text-primary">Setiap Hari</option>
+                <option value="weekly" class="text-success">Seminngu 1x</option>
+              </select>
         <div class="mb-1">
           <label for="todate" class="form-label">todate</label>
           <input type="date" class="form-control" id="todate">
@@ -186,8 +180,7 @@
                 $('#saveBtn').click(function(){
                     var title = $('#title').val();
                     var reminder = $('#reminder').val();
-                    var repeat = $('#repeat').val();
-                    var frekuensi = $('#frekuensi').val();
+                    var ulangi = $('#ulangi').val();
                     var todate = $('#todate').val();
                     var start_date = moment(start).format('YYYY-MM-DD');
                     var end_date = moment(end).format('YYYY-MM-DD');
@@ -201,18 +194,18 @@
                     url: "{{ route('app_aktivitas.store') }}",
                     type: "POST",
                     dataType: 'json',
-                    data: { title, reminder, repeat, frekuensi, todate,  start_date, end_date, deskripsi, penanganan,prioritas},
+                    data: { title, reminder, ulangi, todate,  start_date, end_date, deskripsi, penanganan,prioritas},
                     success:function(response)
                     {
                       $('.fc-event').css('color','white');
                       $('.fc-event').css('font-size','15px');
                       $('.fc-event').css('padding','2px');
                       $('#aktivitasmodal').modal('hide')
+                      $('#calendar').fullCalendar('refetchEvents');
                       $('#calendar').fullCalendar('renderEvent',{
                         'title'      : response.title,
                         'reminder'   : response.reminder,
-                        'repeat'     : response.repeat,
-                        'frekuensi'  : response.frekuensi,
+                        'ulangi'     : response.ulangi,
                         'todate'     : response.todate,
                         'start'      : response.start,
                         'end'        : response.end,
@@ -302,6 +295,7 @@
            $('.fc-event').css('font-size','15px');
            $('.fc-event').css('padding','2px');
           $('#saveBtn').unbind();
+          $('#saveBtn').refresh();
         });
 
         $('.fc-event').css('font-size','15px');
