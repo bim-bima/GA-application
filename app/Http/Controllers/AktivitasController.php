@@ -50,21 +50,20 @@ class AktivitasController extends Controller
                 'prioritas' => $request->prioritas,
                     ]);
             }
-        }elseif($request->ulangi == "weekly"){
-
-            for($i=$request->start_date; $i<=$request->todate; $i++){
+        }elseif($request->ulangi == "weekly") {
+            // for($i=$request->start_date; $i<=$request->todate; $i++){
                 $aktivitas = Aktivitas::create([
                 'title' => $request->title,
                 'reminder' => $request->reminder,
                 'ulangi' => $request->ulangi,
                 'todate' => $request->todate,
-                'start_date' => $request->start_date++,
+                'start_date' => $request->start_date,
                 'end_date' => $request->end_date,
                 'deskripsi' => $request->deskripsi,
                 'penanganan' => $request->penanganan,
                 'prioritas' => $request->prioritas,
                     ]);
-            }
+            // }
         }
         return response()->json([
             'id'    => $aktivitas->id,
@@ -80,7 +79,6 @@ class AktivitasController extends Controller
             'color'  => $aktivitas->color,
         ]); 
     }
-
     public function update(Request $request,$id)
     {
         $aktivitas = Aktivitas::find($id);
