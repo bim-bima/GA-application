@@ -135,12 +135,10 @@
         <div id="collapseDataMaster" class="collapse" aria-labelledby="headingPages"
           data-parent="#accordionSidebar">
           <ul class="text-white bg-primary py-2 collapse-inner rounded">
-            <li class="nav-item" data-toggle="collapse">
-              <a class="nav-link" href="master_pic" aria-expanded="true">
-                <i class="fa fa-user"></i>
-                <span>PIC</span>
-              </a>
-            </li>
+            <a class="nav-link" href="master_pic" aria-expanded="true">
+              <i class="fa fa-user"></i>
+              <span>PIC</span>
+            </a>
 						{{-- <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a> --}}
 						<a class="nav-link" href="master_kendaraan" >
 							<i href="master_kendaraan" class="fa fa-car"></i>
