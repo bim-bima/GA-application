@@ -21,11 +21,14 @@
                 <h5 class="card-title">{{ $perencanaan->ap_bulan.'-'.$perencanaan->ap_tahun }}</h5>
               </div>
               <div class="">
-                <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary">Lihat</a>
+                <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary btn-circle">Lihat</a>
                 <form action="{{ route('app_perencanaan.destroy',$perencanaan->id) }}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
-                  <input class="btn btn-danger" type="submit" value="Delete">
+                  <button class="btn btn-danger btn-circle" type="submit">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                  {{-- <input class="btn btn-danger" type="submit" value="Delete" class="fas fa-trash"> --}}
                 </form>
               </div>
             </div>

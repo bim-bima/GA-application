@@ -14,10 +14,11 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link" href="/home">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+    <li class="nav-item ">
+      <a class="nav-link" href="/home">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span>
+      </a>
     </li>
 
     <!-- Heading -->
@@ -32,7 +33,7 @@
         </a>
         <div id="collapseApp" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="text-white bg-primary py-2 collapse-inner rounded">
-							<a class="nav-link" href="app_perencanaan">
+							<a class="nav-link" href="app_perencanaan" aria-labelledby="headingTwo">
 								<i class="fa fa-calendar"></i>
 								<span>Perencanaan Aktivitas</span>
 							</a>
@@ -133,14 +134,22 @@
         </a>
         <div id="collapseDataMaster" class="collapse" aria-labelledby="headingPages"
           data-parent="#accordionSidebar">
-          <div class="text-white bg-primary py-2 collapse-inner rounded">
-						<a class="nav-link" href="master_pic">
-							<i class="fa fa-user"></i>
-							<span>PIC</span></a>
-						<a class="nav-link" href="master_kendaraan">
-							<i class="fa fa-car"></i>
+          <ul class="text-white bg-primary py-2 collapse-inner rounded">
+            <li class="nav-item" data-toggle="collapse">
+              <a class="nav-link" href="master_pic" aria-expanded="true">
+                <i class="fa fa-user"></i>
+                <span>PIC</span>
+              </a>
+            </li>
+						{{-- <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a> --}}
+						<a class="nav-link" href="master_kendaraan" >
+							<i href="master_kendaraan" class="fa fa-car"></i>
 							<span>Kendaraan</span>
 						</a>
+            {{-- <a class="nav-item nav-link" id="nav-kontak-tab" data-toggle="tab">
+              <span style="color: #ff0000;" href="#nav-kontak">Kontak</span>
+            </a> --}}
+
 						<a class="nav-link" href="master_aktivitas">
 							<i class="fa fa-tasks"></i>
 							<span>Aktivitas</span>
@@ -165,10 +174,11 @@
 							<i class="fa fa-map-marker"></i>
 							<span>Lokasi Asset</span>
 						</a>
-          </div>
+          </ul>
         </div>
     </li>
-
+    <!-- Nav Item - Pages Collapse Menu -->
+    
     <!-- Nav Item - Charts -->
     {{-- <hr class="sidebar-divider my-0">
     <li class="nav-item">
