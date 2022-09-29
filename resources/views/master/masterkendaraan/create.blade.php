@@ -43,7 +43,43 @@
                 <option value="STNK-BPKB">STNK-BPKB</option>
                 <option value="STNK">STNK</option>
                 <option value="BPKB">BPKB</option>
+                <option value="TIDAK-ADA">TIDAK ADA</option>
               </select>
+
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Status Kendaraan</h6>
+                </div>
+                <div class="card-body">
+                  <label class="form-label mt-3">Status</label>
+                  <select name="mk_status" id="mk_status" class="custom-select custom-select-md mb-3">
+                    <option class="text-success" value="tersedia">Tersedia</option>
+                    <option class="text-primary" value="sedang dipakai" >Sedang DiPakai</option>
+                    <option class="text-warning" value="akan dipakai">Akan DiPakai</option>
+                  </select>
+
+                   <label for="mk_bahan_bakar" class="form-label">jumlah Bahan Bakar</label>
+               <input type="text" class="form-control @error('mk_bahan_bakar') is-invalid @enderror" name="mk_bahan_bakar" required>
+                @error('mk_bahan_bakar')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+
+                <label for="mk_kilometer" class="form-label">Kilometer</label>
+                <input type="text" class="form-control @error('mk_kilometer') is-invalid @enderror" name="mk_kilometer" required>
+                @error('mk_kilometer')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+
+                <label for="mk_kondisi_lain" class="form-label">Kondisi Lain</label>
+                <input type="text" class="form-control @error('mk_kondisi_lain') is-invalid @enderror" name="mk_kondisi_lain" required>
+                @error('mk_kondisi_lain')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+
+
+                </div>
+              </div>
+
                
            <button type="submit" class="btn btn-primary my-3">Tambah</button>
            <button class="btn btn-primary my-3"><a  href="{{ route('master_kendaraan.index') }}" class="text-white text-decoration-none">Kembali</a></button>

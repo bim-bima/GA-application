@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('mk_merk');
             $table->string('mk_warna');
             $table->string('mk_perlengkapan');
+            $table->string('mk_status')->nullable();
+            $table->string('mk_bahan_bakar')->nullable();
+            $table->string('mk_kilometer')->nullable();
+            $table->string('mk_kondisi_lain')->nullable();
             $table->timestamp('created_at',0)->useCurrent();
             $table->timestamp('updated_at',0)->nullable();
         });

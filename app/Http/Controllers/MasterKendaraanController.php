@@ -44,6 +44,10 @@ class MasterKendaraanController extends Controller
         $kendaraan->mk_merk = $request->mk_merk;
         $kendaraan->mk_warna = $request->mk_warna;
         $kendaraan->mk_perlengkapan = $request->mk_perlengkapan;
+        $kendaraan->mk_status = $request->mk_status;
+        $kendaraan->mk_bahan_bakar = $request->mk_bahan_bakar;
+        $kendaraan->mk_kilometer = $request->mk_kilometer;
+        $kendaraan->mk_kondisi_lain = $request->mk_kondisi_lain;
         $kendaraan->save();
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
         return redirect()->route('master_kendaraan.index');
@@ -89,10 +93,45 @@ class MasterKendaraanController extends Controller
         $kendaraan->mk_merk = $request->mk_merk;
         $kendaraan->mk_warna = $request->mk_warna;
         $kendaraan->mk_perlengkapan = $request->mk_perlengkapan;
+        $kendaraan->mk_status = $request->mk_status;
+        $kendaraan->mk_bahan_bakar = $request->mk_bahan_bakar;
+        $kendaraan->mk_kilometer = $request->mk_kilometer;
+        $kendaraan->mk_kondisi_lain = $request->mk_kondisi_lain;
         $kendaraan->save();
         Alert::success('Berhasil', 'Data Berhasil Diedit');
         return redirect()->route('master_kendaraan.index');
         }
+
+        // public function show($id)
+        // {
+        //     $kendaraan = MasterKendaraan::find($id);
+        //     return view('master.masterkendaraan.editstatus',compact('kendaraan'));
+        // }
+
+        /**
+        * Update the specified resource in storage.
+        *
+        * @param  \Illuminate\Http\Request  $request
+        * @param  \App\MasterKendaraan  $pic
+        * @return \Illuminate\Http\Response
+        */
+        // public function update(Request $request, $id)
+        // {
+        // $request->validate([
+        // 'mk_nama_kendaraan' => 'required|min:5|max:15',
+        // ]);
+        // $kendaraan = MasterKendaraan::find($id);
+        // $kendaraan->mk_nama_kendaraan = $request->mk_nama_kendaraan;
+        // $kendaraan->mk_no_polisi = $request->mk_no_polisi;
+        // $kendaraan->mk_jenis = $request->mk_jenis;
+        // $kendaraan->mk_merk = $request->mk_merk;
+        // $kendaraan->mk_warna = $request->mk_warna;
+        // $kendaraan->mk_perlengkapan = $request->mk_perlengkapan;
+        // $kendaraan->save();
+        // Alert::success('Berhasil', 'Data Berhasil Diedit');
+        // return redirect()->route('master_kendaraan.index');
+        // }
+
         /**
         * Remove the specified resource from storage.
         *

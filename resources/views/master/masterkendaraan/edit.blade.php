@@ -8,6 +8,60 @@
           <form action="{{ route('master_kendaraan.update',$kendaraan->id) }}" method="POST" enctype="multipart/form-data" class="col-lg-6">
           @csrf
           @method('put')
+             <div class="card mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Status Kendaraan</h6>
+                </div>
+                <div class="card-body">
+                  
+                
+
+            <label for="mk_perlengkapan" class="form-label">Status</label>
+                <select name="mk_status" class="form-control @error('mk_status') is-invalid @enderror" required>
+                        <option value="{{ $kendaraan->mk_status }}" 
+                        >{{ $kendaraan->mk_status }}</option>
+                        <option value="tersedia">Tersedia</option>
+                        <option value="sedang dipakai">Sedang DiPakai</option>
+                        <option value="akan dipakai">Akan DiPakai</option>
+                 </select>
+                @error('mk_status')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+
+               <label for="mk_Bahan_bakar" class="form-label">Bahan Bakar Tersedia</label>
+               <input type="text" class="form-control @error('bahanbakar') is-invalid @enderror" name="mk_bahan_bakar" required  value="{{ $kendaraan->mk_bahan_bakar }}">
+                @error('bahanbakar')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+
+                <label for="mk_kilometer" class="form-label">Kilometer</label>
+               <input type="text" class="form-control @error('kilometer') is-invalid @enderror" name="mk_kilometer" required  value="{{ $kendaraan->mk_kilometer }}">
+                @error('kilometer')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+
+                <label for="mk_kondisi_lain" class="form-label">Kondisi Lain</label>
+               <input type="text" class="form-control @error('kondisi') is-invalid @enderror" name="mk_kondisi_lain" required  value="{{ $kendaraan->mk_kondisi_lain }}">
+                @error('kondisi')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+
+            </div>
+              </div>
+
+               <!-- <label for="mk_perlengkapan" class="form-label">Perlegkapan</label>
+                <select name="mk_perlengkapan" class="form-control @error('mk_perlengkapan') is-invalid @enderror" required>
+                        <option value="{{ $kendaraan->mk_perlengkapan }}" 
+                        >{{ $kendaraan->mk_perlengkapan }}</option>
+                        <option value="STNK-BPKB">STNK-BPKB</option>
+                        <option value="STNK">STNK</option>
+                        <option value="BPKB">BPKB</option>
+                        <option value="TIDAK-ADA">TIDAK-ADA</option>
+                 </select>
+                @error('mk_perlengkapan')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror -->
+
               <label for="mk_nama_kendaraan" class="form-label">Nama Kendaraan</label>
               <input type="text" class="form-control @error('nama') is-invalid @enderror" name="mk_nama_kendaraan" value="{{ $kendaraan->mk_nama_kendaraan }}" required>
                @error('nama')
@@ -23,7 +77,7 @@
                 <label for="mk_jenis" class="form-label">Jenis Kendaraan</label>
                 <select name="mk_jenis" class="form-control @error('mk_jenis') is-invalid @enderror" required>
                         <option value="{{ $kendaraan->mk_jenis }}" 
-                        ></option>
+                        >{{ $kendaraan->mk_jenis }}</option>
                         <option value="Roda 2">Roda dua (2)</option>
                         <option value="Roda 4">Roda empat (4)</option>
                  </select>
@@ -59,10 +113,11 @@
                <label for="mk_perlengkapan" class="form-label">Perlegkapan</label>
                 <select name="mk_perlengkapan" class="form-control @error('mk_perlengkapan') is-invalid @enderror" required>
                         <option value="{{ $kendaraan->mk_perlengkapan }}" 
-                        ></option>
+                        >{{ $kendaraan->mk_perlengkapan }}</option>
                         <option value="STNK-BPKB">STNK-BPKB</option>
                         <option value="STNK">STNK</option>
                         <option value="BPKB">BPKB</option>
+                        <option value="TIDAK-ADA">TIDAK-ADA</option>
                  </select>
                 @error('mk_perlengkapan')
                     <div class="invalid-feedback">{{ $message }}</div>
