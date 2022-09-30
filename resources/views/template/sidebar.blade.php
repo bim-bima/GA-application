@@ -1,10 +1,4 @@
-
-<<<<<<< HEAD
-<ul class="navbar-nav sidebar sidebar-dark accordion m-0" id="accordionSidebar" style="background-color: #4e73df">
-=======
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
->>>>>>> c4fc768e20b4bd550448e1a78f8d41ffcdf8565a
-
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon rotate-n-15">

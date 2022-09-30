@@ -12,19 +12,6 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>General Affair</title>
     @include('template.head')
-
-    <style>
-      .hover-end{
-        padding: 0;
-        margin: 0;
-        font-size: 10px;
-        text-align: center;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        opacity: .8;
-      }
-    </style>
 </head>
 <body id="page-top">
     <!-- Page Wrapper -->
@@ -41,26 +28,34 @@
       <div class="modal-body">
         <div class="mb-3">
           <label for="title" class="form-label">Nama Aktivitas</label>
-          <input type="text" class="form-control" id="title" required>
+          <input type="text" class="form-control @error('nama') is-invalid @enderror" id="title" required>
+          @error('nama')
+            <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
         </div>
-<!-- <div class="mb-1">
-          <input type="checkbox" class="form-check-input" id="reminder">
-          <label for="reminder" class="form-checkbox-label">reminder</label>
-        </div> -->
         <div class="form-check mb-1 ml-2">
           <input class="form-check-input" type="checkbox" value="reminder" id="reminder" >
           <label class="form-check-label" for="reminder">
             Reminder
           </label>
         </div>
-                <label class="form-label mt-3">ulangi</label>
+                <label class="form-label mt-3">Ulangi</label>
               <select name="ulangi" id="ulangi" class="custom-select custom-select-md mb-3">
-                <option value="allday" class="text-primary">Setiap Hari</option>
-                <option value="weekly" class="text-success">Seminngu 1x</option>
+                <option value="oneday">Hanya Hari ini</option>
+                <option value="allday">Setiap Hari</option>
+                <option value="twodays">2Hari 1x</option>
+                <option value="threedays">3Hari 1x</option>
+                <option value="fourdays">4Hari 1x</option>
+                <option value="fivedays">5Hari 1x</option>
+                <option value="sixdays">6Hari 1x</option>
+                <option value="weekly">Seminngu 1x</option>
               </select>
         <div class="mb-1">
-          <label for="todate" class="form-label">todate</label>
+          <label for="todate" class="form-label">Sampai Tanggal</label>
           <input type="date" class="form-control" id="todate">
+          @error('nama')
+            <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
         </div>
         <label class="form-label mt-3">Prioritas</label>
               <select name="prioritas" id="prioritas" class="custom-select custom-select-md mb-3">
@@ -70,12 +65,9 @@
               </select>
         <div class="mb-1">
           <label for="deskripsi" class="form-label">Deskripsi</label>
-          <input type="text" class="form-control" id="deskripsi">
+          <input type="textarea" class="form-control" id="deskripsi">
         </div>
-        <div class="mb-1">
-          <label for="penanganan" class="form-label">Penanganan</label>
-          <input type="text" onfocus="this.value=''" class="form-control" id="penanganan">
-        </div>
+        
         <span id="titleError" class="text-danger"></span>
       </div>
       <div class="modal-footer">
@@ -173,6 +165,9 @@
             events:aktivitas,
             selectable:true,
             selectHelper:true,
+            // eventRender: function(event, element) {
+            // $(element).tooltip({title: event.title});             
+            // },
             select: function (start, end, allDays)
             {
                 $('#aktivitasmodal').modal('toggle');
@@ -185,18 +180,15 @@
                     var start_date = moment(start).format('YYYY-MM-DD');
                     var end_date = moment(end).format('YYYY-MM-DD');
                     var deskripsi = $('#deskripsi').val();
-                    var penanganan = $('#penanganan').val();
                     var prioritas = $('#prioritas').val();
-
-
-
                 $.ajax({
                     url: "{{ route('app_aktivitas.store') }}",
                     type: "POST",
                     dataType: 'json',
-                    data: { title, reminder, ulangi, todate,  start_date, end_date, deskripsi, penanganan,prioritas},
+                    data: { title, reminder, ulangi, todate,  start_date, end_date, deskripsi, prioritas},
                     success:function(response)
                     {
+                      location.reload()
                       $('.fc-event').css('color','white');
                       $('.fc-event').css('font-size','15px');
                       $('.fc-event').css('padding','2px');
@@ -210,7 +202,6 @@
                         'start'      : response.start,
                         'end'        : response.end,
                         'deskripsi'  : response.deskripsi,
-                        'penanganan' : response.penanganan,
                         'prioritas'  : response.prioritas,
                         'color'      : response.color,
                       });
@@ -251,7 +242,6 @@
             },
             eventClick: function(event){
               var id = event.id; 
-
               if(confirm('yakin ingin menghapus ini ')){
                     $.ajax({
                     url: "{{ route('app_aktivitas.destroy', '') }}" +'/'+ id,
@@ -286,29 +276,22 @@
           $('#title').val('');
           // $('#reminder').val('');
           // $('#repeat').val('');
-          $('#frekuensi').val('allday');
-          $('#todate').val('-');
-          $('#prioritas').val('rendah');
-          $('#deskripsi').val('');
-          $('#penanganan').val('');
            $('.fc-event').css('color','white');
            $('.fc-event').css('font-size','15px');
-           $('.fc-event').css('padding','2px');
+           $('.fc-event').css('font-weight','bold');
+           $('.fc-event').css('padding','5px');
           $('#saveBtn').unbind();
-          $('#saveBtn').refresh();
         });
 
         $('.fc-event').css('font-size','15px');
-        $('.fc-event').css('padding','2px');
+        $('.fc-event').css('font-weight','bold');
+        $('.fc-event').css('padding','5px');
         $('.fc-view-container').css('background-color','rgb(176,196,222,0.1)');
         $('.fc-center h2').css('color','blue');
-        // $('.fc-month-button').css('background-color','blue');
         $('.fc-month-button').css('color','blue');
-        // $('.fc-agendaDay-button').css('background-color','blue');
         $('.fc-agendaDay-button').css('color','blue');
-        // $('.fc-agendaWeek-button').css('background-color','blue');
-        $('.fc-agendaWeek-button').css('color','blue');
-          $('.fc-event').css('color','white');
+        $('.fc-agendaWeek-button').css('coF#lor','blue');
+        $('.fc-event').css('color','white');
 
 
 //     $(document).ready(function() {

@@ -22,7 +22,6 @@ class AktivitasController extends Controller
             'start' => $aktivitas->start_date,
             'end'   => $aktivitas->end_date,
             'deskripsi'   => $aktivitas->deskripsi,
-            'penanganan'  => $aktivitas->penanganan,
             'prioritas'   => $aktivitas->prioritas,
             'color'   => $aktivitas->color,
             ];
@@ -32,26 +31,118 @@ class AktivitasController extends Controller
     
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required|string'
-        // ]);
+        $request->validate([
+            'title' => 'required|string|max:100|min:3',
+            'reminder' => 'nullable',
+            'reminder' => 'nullable',
+            'ulangi' => 'required',
+            'todate' => 'nullable|after:today',
+            'deskripsi' => 'nullable',
+        ]);
+
+        $datetime1 = new \DateTime($request->start_date);
+        $datetime2 = new \DateTime($request->todate);
+        $interval = $datetime1->diff($datetime2);
+        $jumlahhari = $interval->days;
 
         if($request->ulangi == "allday"){
-            for($i=$request->start_date; $i<=$request->todate; $i++){
+            for($i=0; $i<=$jumlahhari; $i++){
                 $aktivitas = Aktivitas::create([
                 'title' => $request->title,
                 'reminder' => $request->reminder,
                 'ulangi' => $request->ulangi,
                 'todate' => $request->todate,
-                'start_date' => $request->start_date++,
+                'start_date' => date('Y-m-d', strtotime($request->start_date. ' + '.$i.' days')),
                 'end_date' => $request->end_date,
                 'deskripsi' => $request->deskripsi,
-                'penanganan' => $request->penanganan,
+                'prioritas' => $request->prioritas,
+                    ]);
+            }
+        }elseif($request->ulangi == "twodays") {
+            
+            for($i=0; $i<=$jumlahhari; $i+=2){
+                $aktivitas = Aktivitas::create([
+                'title' => $request->title,
+                'reminder' => $request->reminder,
+                'ulangi' => $request->ulangi,
+                'todate' => $request->todate,
+                'start_date' => date('Y-m-d', strtotime($request->start_date. ' + '.$i.' days')),
+                'end_date' => $request->end_date,
+                'deskripsi' => $request->deskripsi,
+                'prioritas' => $request->prioritas,
+                    ]);
+            }
+        }elseif($request->ulangi == "threedays") {
+            
+            for($i=0; $i<=$jumlahhari; $i+=3){
+                $aktivitas = Aktivitas::create([
+                'title' => $request->title,
+                'reminder' => $request->reminder,
+                'ulangi' => $request->ulangi,
+                'todate' => $request->todate,
+                'start_date' => date('Y-m-d', strtotime($request->start_date. ' + '.$i.' days')),
+                'end_date' => $request->end_date,
+                'deskripsi' => $request->deskripsi,
+                'prioritas' => $request->prioritas,
+                    ]);
+            }
+        }elseif($request->ulangi == "fourdays") {
+            
+            for($i=0; $i<=$jumlahhari; $i+=4){
+                $aktivitas = Aktivitas::create([
+                'title' => $request->title,
+                'reminder' => $request->reminder,
+                'ulangi' => $request->ulangi,
+                'todate' => $request->todate,
+                'start_date' => date('Y-m-d', strtotime($request->start_date. ' + '.$i.' days')),
+                'end_date' => $request->end_date,
+                'deskripsi' => $request->deskripsi,
+                'prioritas' => $request->prioritas,
+                    ]);
+            }
+        }elseif($request->ulangi == "fivedays") {
+            
+            for($i=0; $i<=$jumlahhari; $i+=5){
+                $aktivitas = Aktivitas::create([
+                'title' => $request->title,
+                'reminder' => $request->reminder,
+                'ulangi' => $request->ulangi,
+                'todate' => $request->todate,
+                'start_date' => date('Y-m-d', strtotime($request->start_date. ' + '.$i.' days')),
+                'end_date' => $request->end_date,
+                'deskripsi' => $request->deskripsi,
+                'prioritas' => $request->prioritas,
+                    ]);
+            }
+        }elseif($request->ulangi == "sixdays") {
+            
+            for($i=0; $i<=$jumlahhari; $i+=6){
+                $aktivitas = Aktivitas::create([
+                'title' => $request->title,
+                'reminder' => $request->reminder,
+                'ulangi' => $request->ulangi,
+                'todate' => $request->todate,
+                'start_date' => date('Y-m-d', strtotime($request->start_date. ' + '.$i.' days')),
+                'end_date' => $request->end_date,
+                'deskripsi' => $request->deskripsi,
                 'prioritas' => $request->prioritas,
                     ]);
             }
         }elseif($request->ulangi == "weekly") {
-            // for($i=$request->start_date; $i<=$request->todate; $i++){
+            
+            for($i=0; $i<=$jumlahhari; $i+=7){
+                $aktivitas = Aktivitas::create([
+                'title' => $request->title,
+                'reminder' => $request->reminder,
+                'ulangi' => $request->ulangi,
+                'todate' => $request->todate,
+                'start_date' => date('Y-m-d', strtotime($request->start_date. ' + '.$i.' days')),
+                'end_date' => $request->end_date,
+                'deskripsi' => $request->deskripsi,
+                'prioritas' => $request->prioritas,
+                    ]);
+            }
+        }else{
                 $aktivitas = Aktivitas::create([
                 'title' => $request->title,
                 'reminder' => $request->reminder,
@@ -60,10 +151,8 @@ class AktivitasController extends Controller
                 'start_date' => $request->start_date,
                 'end_date' => $request->end_date,
                 'deskripsi' => $request->deskripsi,
-                'penanganan' => $request->penanganan,
                 'prioritas' => $request->prioritas,
                     ]);
-            // }
         }
         return response()->json([
             'id'    => $aktivitas->id,
@@ -74,7 +163,6 @@ class AktivitasController extends Controller
             'ulangi'    => $aktivitas->ulangi,
             'todate'    => $aktivitas->todate,
             'deskripsi' => $aktivitas->deskripsi,
-            'penanganan' => $aktivitas->penanganan,
             'prioritas'  => $aktivitas->prioritas,
             'color'  => $aktivitas->color,
         ]); 

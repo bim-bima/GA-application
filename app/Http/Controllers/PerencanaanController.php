@@ -12,7 +12,7 @@ class PerencanaanController extends Controller
 {
     public function index()
     {
-        $dataperencanaan = Perencanaan::paginate(4);
+        $dataperencanaan = Perencanaan::paginate(5);
         return view('app.perencanaan.index', compact(['dataperencanaan']));
     }
     public function store(Request $request)

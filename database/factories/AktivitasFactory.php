@@ -22,6 +22,7 @@ class AktivitasFactory extends Factory
             // 'repeat' => $this->faker->repeat(),
             // 'frekuensi' => $this->faker->frekuensi(),
             // 'todate' => $this->faker->todate(),
+            'ulangi' => $this->faker->title(),
             'start_date' => $this->faker->date($format='Y-M-D'),
             'end_date' => $this->faker->date($format='Y-M-D'),
             'prioritas' => $this->faker->name(),

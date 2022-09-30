@@ -70,16 +70,11 @@
                 <option value="-12">Desember</option>
               </select>
               <label class="form-label mt-3">Tahun</label>
-<<<<<<< HEAD
-              <input name="ap_tahun" type="text" class="form-control" required>                 
+              <input name="ap_tahun" type="number" class="form-control" required>  
           <button type="submit" class="btn btn-primary my-3">
             <i class="fa fa-plus"></i>
             Tambah
           </button>
-=======
-              <input name="ap_tahun" type="number" class="form-control" required>                 
-          <button type="submit" class="btn btn-primary my-3">Tambah</button>
->>>>>>> c4fc768e20b4bd550448e1a78f8d41ffcdf8565a
         </form>
       </div>
     </div>

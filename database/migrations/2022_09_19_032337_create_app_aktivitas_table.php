@@ -17,15 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('reminder')->nullable();
-            // $table->string('repeat')->nullable();
-            // $table->string('frekuensi')->nullable();
-            $table->string('ulangi')->nullable();
+            $table->string('ulangi');
             $table->string('todate')->nullable();
             $table->date('start_date');
             $table->date('end_date');
             $table->string('prioritas');
             $table->longText('deskripsi')->nullable();
-            $table->longText('penanganan')->nullable();
             $table->timestamps();
         });
     }
