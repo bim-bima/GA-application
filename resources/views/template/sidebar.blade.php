@@ -3,11 +3,11 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         {{-- <div class="icon"> --}}
-          <img class="template/img-profile" src="{{asset('template/img/icon.png') }}" width="35px">
-          {{-- <div id="loading" style="background-image: url('{{ asset('/public/images/')}}');"> --}}
-            {{-- <img src="/public/images/icons.png" alt="" width="50px" style="background-image: ">
-            <i class="fas fa-laugh-wink"></i> --}}
-        {{-- </div> --}}
+        <img class="template/img-profile" src="{{asset('template/img/icon.png') }}" width="35px">
+        {{-- <div id="loading" style="background-image: url('{{ asset('/public/images/')}}');"> --}}
+        {{-- <img src="/public/images/icons.png" alt="" width="50px" style="background-image: ">
+        <i class="fas fa-laugh-wink"></i> --}}
+    {{-- </div> --}}
         <div class="sidebar-brand-text">General Affair</div>
     </a>
 
