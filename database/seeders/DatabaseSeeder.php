@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
 
         Aktivitas::factory()->create([
             'title' => 'tes',
+            'ulangi' => 'oneday',
             'start_date' => '2050-11-11',
             'end_date' =>  '2050-11-11',
             'prioritas' => 'rendah'
