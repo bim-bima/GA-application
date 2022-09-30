@@ -53,13 +53,13 @@
             Reminder
           </label>
         </div>
-                <label class="form-label mt-3">ulangi</label>
+                <label class="form-label mt-3">Ulangi</label>
               <select name="ulangi" id="ulangi" class="custom-select custom-select-md mb-3">
                 <option value="allday" class="text-primary">Setiap Hari</option>
                 <option value="weekly" class="text-success">Seminngu 1x</option>
               </select>
         <div class="mb-1">
-          <label for="todate" class="form-label">todate</label>
+          <label for="todate" class="form-label">ToDate</label>
           <input type="date" class="form-control" id="todate">
         </div>
         <label class="form-label mt-3">Prioritas</label>
@@ -103,7 +103,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid p-2">
                   <div class="card shadow mb-4">
                     <div class="card-header py-3">
                       <h6 class="m-0 font-weight-bold text-primary">Aktivitas</h6>
