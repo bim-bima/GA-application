@@ -26,13 +26,15 @@
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                           <div class="text-xs font-weight-bold text-primary text-uppercase ">Status</div>
-<<<<<<< HEAD
-                          <div class="text-xs mb-0 font-weight-bold text-primary-800">{{ $ken->mk_status }}</div>
-=======
+
+                          {{-- <div class="text-xs mb-0 font-weight-bold text-primary-800">
+                            {{ $ken->mk_status }}
+                          </div> --}}
+
                         <div class=" h5 mb-0 font-weight-bold text-gray-800">
                         {{$ken->mk_status}}
                         </div>
->>>>>>> 8caa81bc0be2726da176b3b7cd6796007bd79d3c
+
                         </div>
                         <div class="col-auto ">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>

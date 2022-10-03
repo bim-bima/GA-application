@@ -3,12 +3,15 @@
 @section('content')
 
 @include('sweetalert::alert')
+
 <div class="container-fluid p-0">
   <div class="card">
     <div class="card-header">
       <h6 class="m-0 font-weight-bold text-primary">List Perencanaan Aktivitas</h6>
     </div>
-    <div class="row d-flex justify-content-around p-3">
+    <div class="row d-flex p-3">
+      {{-- management --}}
+      @if(auth()->user()->level == "management")
       <div class="card-body col-md-7 p-0 mx-2">
         @foreach ($dataperencanaan as $perencanaan)
         <div class="card mb-3">
@@ -29,14 +32,16 @@
                 <h5 class="card-title ml-3">{{ $monthName.'-'.$perencanaan->ap_tahun }}</h5>
               </div>
               <div class="">
-<<<<<<< HEAD
+
+                {{-- <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary btn-circle">
+                  <i class="fas fa-eye"></i>
+                </a> --}}
+
                 <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary btn-circle">
                   <i class="fas fa-eye"></i>
                 </a>
-=======
-                <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary btn-circle">Lihat</a>
                 @if(auth()->user()->level == "general-affair")
->>>>>>> 8caa81bc0be2726da176b3b7cd6796007bd79d3c
+
                 <form action="{{ route('app_perencanaan.destroy',$perencanaan->id) }}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
@@ -53,6 +58,55 @@
         @endforeach
         {{ $dataperencanaan->links() }}
       </div>
+      @endif
+      @if(auth()->user()->level == "general-affair")
+      <div class="card-body col-md-7 p-0 mx-2">
+        @foreach ($dataperencanaan as $perencanaan)
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row d-flex justify-content-between">
+              <div class="">
+                <?php 
+            $string = $perencanaan->ap_bulan;
+            $result = preg_replace("/[^0-9]/", "",$string);
+
+            $monthnum = $result;
+            $dateObj = DateTime::createFromFormat('!m', $monthnum);
+            $monthName = $dateObj->format('F');
+             ?>
+
+
+
+                <h5 class="card-title ml-3">{{ $monthName.'-'.$perencanaan->ap_tahun }}</h5>
+              </div>
+              <div class="">
+
+                {{-- <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary btn-circle">
+                  <i class="fas fa-eye"></i>
+                </a> --}}
+
+                <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary btn-circle">
+                  <i class="fas fa-eye"></i>
+                </a>
+                @if(auth()->user()->level == "general-affair")
+
+                <form action="{{ route('app_perencanaan.destroy',$perencanaan->id) }}" method="post" class="d-inline">
+                  @csrf
+                  @method('delete')
+                  <button class="btn btn-danger btn-circle" type="submit">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                  {{-- <input class="btn btn-danger" type="submit" value="Delete" class="fas fa-trash"> --}}
+                </form>
+                @endif
+              </div>
+            </div>
+          </div>
+        </div>
+        @endforeach
+        {{ $dataperencanaan->links() }}
+      </div>
+    @endif
     @if(auth()->user()->level == "general-affair")
       <div class="card col-md-4 p-0 mx-2">
         <div class="card-header px-2">
