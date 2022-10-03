@@ -8,21 +8,51 @@
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">Asset</h6>
     </div>
-    <div id="grafik" class="card-body col-lg-9">
     <?php   
-          for ( $i=$t;  $i<=$ta;  $i++ ){
-            echo $i;
-
-            ?><span>_</span><?php
+        // 'asset','tahunawal','tahunakhir','harga','residu','umur','penurunan1','penurunan2'
+          $penurunan = array();  
+          for ( $p=$harga; $p>=$penurunan1; $p-=$penurunan2 ){
+              $penurunan[] = array($p);
             }
-     ?>  
+          $tahun = array();  
+          for ( $i=$tahunawal;  $i<=$tahunakhir;  $i++ ){
+              $tahun[] = array($i);
+          }
+    ?>  
+    <div class="card-body col-lg-9" style="width: 800px;">
+        <canvas id="grafik"></canvas>
     </div>
 
+    <script>
+      var ctx = document.getElementById("grafik").getContext('2d');
+      var grafik = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: {{ json_encode($tahun) }},
+            datasets: [{
+            label: 'Penyusutan Harga {{ $asset->as_nama_asset }}',
+            data: {{ json_encode($penurunan) }},
+            backgroundColor: 'rgba(255, 159, 64)' ,
+            borderColor: 'black',
+            
+            borderWidth:1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero:true
+              }
+            }]
+          }
+        }
+      });
+    </script>
 
 
 
-
-    <!-- <div class="card-body col-lg-3">
+    <div class="card-body col-lg-3">
         <ol class="list-group list-group-numbered">
   <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
@@ -66,8 +96,13 @@
     </div>
   </li>
 </ol>
-    </div> -->
+    </div>
   </div>
+
+   <button class="btn btn-info my-3 mr-1">
+        <i class="fa fa-angle-left"></i>
+        <a href="{{ route('app_asset.index') }}" class="text-white text-decoration-none">kembali</a>
+   </button>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script type="text/javascript">

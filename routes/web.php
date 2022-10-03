@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -7,6 +6,7 @@ use App\Http\Controllers\AssetController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\AktivitasController;
 use App\Http\Controllers\PerencanaanController;
+use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\LokasiAssetContoller;
 use App\Http\Controllers\MasterKendaraanController;
 use App\Http\Controllers\MasterPicController;
@@ -31,16 +31,44 @@ use App\Http\Controllers\MasterCategoryBarangController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::middleware(['guest'])->group(function(){
     Route::get('/', function () {
         return view('/auth/login');
+        // return view('/public/index');
     });
 });
 
-Route::middleware(['auth'])->group(function(){
+Auth::routes();
+
+Route::group(['middleware' => ['auth', 'level:general-affair']], function(){
+    Route::resource('master_pic', MasterPicController::class);
+    Route::resource('master_kendaraan', MasterKendaraanController::class);
+    Route::resource('master_aktivitas', MasterAktivitasController::class);
+    Route::resource('master_vendor', MasterVendorController::class);
+    Route::resource('master_barang', MasterBarangController::class);
+    Route::resource('master_jenisbarang', MasterJenisBarangController::class);
+    Route::resource('master_categorybarang', MasterCategoryBarangController::class);
+    Route::resource('master_statusfollowup', MasterStatusFollowupController::class);
+    Route::resource('master_lokasiasset', MasterLokasiAssetController::class);
+});
+
+    // ga
+Route::group(['middleware' => ['auth', 'level:management']], function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     // app routes
     Route::resource('app_asset', AssetController::class);
+    Route::resource('app_pengajuan', PengajuanController::class);
+    Route::resource('app_kendaraan', KendaraanController::class);
+    Route::resource('app_aktivitas', AktivitasController::class);
+    Route::resource('app_aktivitas/index/{}', AktivitasController::class);
+    Route::resource('app_perencanaan', PerencanaanController::class);
+
+    
+});
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('app_asset', AssetController::class);
+    Route::resource('app_pengajuan', PengajuanController::class);
     Route::resource('app_kendaraan', KendaraanController::class);
     Route::resource('app_aktivitas', AktivitasController::class);
     Route::resource('app_aktivitas/index/{}', AktivitasController::class);
@@ -50,46 +78,5 @@ Route::middleware(['auth'])->group(function(){
     Route::delete('app_perencanaan/destroy/{id}',[AktivitasController::class,'destroy']);
     Route::resource('app_perencanaan', PerencanaanController::class);
 
-    // master data routes
-    Route::resource('master_pic', MasterPicController::class);
-    Route::resource('master_kendaraan', MasterKendaraanController::class);
-    // Route::post('master_kendaraan/editstatus', MasterKendaraanController::class,'editstatus');
-    Route::resource('master_aktivitas', MasterAktivitasController::class);
-    Route::resource('master_vendor', MasterVendorController::class);
-    Route::resource('master_barang', MasterBarangController::class);
-    Route::resource('master_jenisbarang', MasterJenisBarangController::class);
-    Route::resource('master_categorybarang', MasterCategoryBarangController::class);
-    Route::resource('master_statusfollowup', MasterStatusFollowupController::class);
-    Route::resource('master_lokasiasset', MasterLokasiAssetController::class);
 
 
-
-    // Route::get('/master_kendaraan',[MasterKendaraanController::class,'index']);
-    // Route::get('/master_kendaraan/create',[MasterKendaraanController::class,'create']);
-    // Route::post('/master_kendaraan/store',[MasterKendaraanController::class,'store']);
-    // Route::get('/master_kendaraan/{id}/edit',[MasterKendaraanController::class,'edit']);
-    // Route::put('/master_kendaraan/{id}',[MasterKendaraanController::class,'update']);
-    // Route::delete('/masster_kendaraan/{id}',[MasterKendaraanController::class,'destroy']);
-    // Route::get('/asset',[AssetController::class,'index']);
-
-    // Route::get('/lokasi_asset',[LokasiAssetContoller::class,'index']);
-
-    // Route::get('/monitoring-kendaraan',[Monitoring_KendaraanController::class,'index']);
-    // Route::get('/monitoring-kendaraan/create',[Monitoring_KendaraanController::class,'create']);
-    // Route::post('/monitoring-kendaraan/store',[Monitoring_KendaraanController::class,'store']);
-    // Route::get('/monitoring-kendaraan/{id}/edit',[Monitoring_KendaraanController::class,'edit']);
-    // Route::put('/monitoring-kendaraanp/{id}',[Monitoring_KendaraanController::class,'update']);
-    // Route::delete('/monitoring-kendaraan/{id}',[Monitoring_KendaraanController::class,'destroy']);
-
-    // Route::get('/asset',[AssetController::class,'index']);
-    // Route::get('/asset/create',[AssetController::class,'create']);
-    // Route::post('/asset/store',[AssetController::class,'store']);
-    // Route::get('/asset/{id}/edit',[AssetController::class,'edit']);
-    // Route::put('/asset/{id}',[AssetController::class,'update']);
-    // Route::delete('/asset/{id}',[AssetController::class,'destroy']);
-
-});
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

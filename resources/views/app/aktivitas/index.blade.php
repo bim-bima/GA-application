@@ -168,6 +168,7 @@
             // eventRender: function(event, element) {
             // $(element).tooltip({title: event.title});             
             // },
+            @if(auth()->user()->level == "general-affair")
             select: function (start, end, allDays)
             {
                 $('#aktivitasmodal').modal('toggle');
@@ -242,7 +243,7 @@
             },
             eventClick: function(event){
               var id = event.id; 
-              if(confirm('yakin ingin menghapus ini ')){
+              if(confirm('yakin ingin menghapus ini')){
                     $.ajax({
                     url: "{{ route('app_aktivitas.destroy', '') }}" +'/'+ id,
                     type: "DELETE",
@@ -261,6 +262,8 @@
                   });    
               }         
             },
+            @endif
+
             // eventMouseover: function(event, jsEvent, view) {
             //   $('.fc-event-inner'. this).append('<div id=\"'+event.id+'\" class=\"hover-end\">'+$.fullCalendar.formatDate(event.end,'h:mmt')+'</div>');
             // },

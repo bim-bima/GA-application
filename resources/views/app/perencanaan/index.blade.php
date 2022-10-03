@@ -8,12 +8,9 @@
     <div class="card-header">
       <h6 class="m-0 font-weight-bold text-primary">List Perencanaan Aktivitas</h6>
     </div>
-    {{-- <button class="btn btn-primary mt-3"><a href="{{ route('app_perencanaan.create') }}" class="text-white 
-      text-decoration-none">Tambah</a></button> --}}
     <div class="row d-flex justify-content-around p-3">
       <div class="card-body col-md-7 p-0 mx-2">
         @foreach ($dataperencanaan as $perencanaan)
-        {{-- <input type="hidden" class="delete_id2" value="{{ $perencanaan->id }}"> --}}
         <div class="card mb-3">
           <div class="card-body">
             <div class="row d-flex justify-content-between">
@@ -33,6 +30,7 @@
               </div>
               <div class="">
                 <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary btn-circle">Lihat</a>
+                @if(auth()->user()->level == "general-affair")
                 <form action="{{ route('app_perencanaan.destroy',$perencanaan->id) }}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
@@ -41,6 +39,7 @@
                   </button>
                   {{-- <input class="btn btn-danger" type="submit" value="Delete" class="fas fa-trash"> --}}
                 </form>
+                @endif
               </div>
             </div>
           </div>
@@ -48,6 +47,7 @@
         @endforeach
         {{ $dataperencanaan->links() }}
       </div>
+    @if(auth()->user()->level == "general-affair")
       <div class="card col-md-4 p-0 mx-2">
         <div class="card-header px-2">
           <h6 class="m-0 font-weight-bold text-primary">Tambah List Perencanaan</h6>
@@ -77,6 +77,7 @@
           </button>
         </form>
       </div>
+      @endif
     </div>
   </div>
 </div>
