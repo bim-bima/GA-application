@@ -22,57 +22,69 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title text-primary" id="exampleModalLabel">Aktivitas</h5>
+        <h5 class="modal-title text-primary font-weight-bold" id="exampleModalLabel">Aktivitas</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <div class="mb-3">
+      <div class="modal-body row">
+        <div class="mb-3 col-12">
           <label for="title" class="form-label">Nama Aktivitas</label>
           <input type="text" class="form-control @error('nama') is-invalid @enderror" id="title" required>
           @error('nama')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="form-check mb-1 ml-2">
+        <div class="form-check mb-3 ml-3 col-6">
           <input class="form-check-input" type="checkbox" value="reminder" id="reminder" >
-          <label class="form-check-label" for="reminder">
+          <label class="form-check-label p-0" for="reminder">
             Reminder
           </label>
         </div>
-                <label class="form-label mt-3">Ulangi</label>
-              <select name="ulangi" id="ulangi" class="custom-select custom-select-md mb-3">
-                <option value="oneday">Hanya Hari ini</option>
-                <option value="allday">Setiap Hari</option>
-                <option value="twodays">2Hari 1x</option>
-                <option value="threedays">3Hari 1x</option>
-                <option value="fourdays">4Hari 1x</option>
-                <option value="fivedays">5Hari 1x</option>
-                <option value="sixdays">6Hari 1x</option>
-                <option value="weekly">Seminngu 1x</option>
-              </select>
-        <div class="mb-1">
+        <div class="col-md-6">
+          <label class="form-label">Ulangi</label>
+          <select name="ulangi" id="ulangi" class="custom-select custom-select-md mb-3">
+            <option value="oneday">Hanya Hari ini</option>
+            <option value="allday">Setiap Hari</option>
+            <option value="twodays">2Hari 1x</option>
+            <option value="threedays">3Hari 1x</option>
+            <option value="fourdays">4Hari 1x</option>
+            <option value="fivedays">5Hari 1x</option>
+            <option value="sixdays">6Hari 1x</option>
+            <option value="weekly">Seminngu 1x</option>
+          </select>
+        </div>
+        
+        <div class="col-md-6 mb-1">
           <label for="todate" class="form-label">Sampai Tanggal</label>
           <input type="date" class="form-control" id="todate">
           @error('nama')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <label class="form-label mt-3">Prioritas</label>
-              <select name="prioritas" id="prioritas" class="custom-select custom-select-md mb-3">
-                <option value="rendah" class="text-primary">Rendah</option>
-                <option value="sedang" class="text-success">Sedang</option>
-                <option value="utama" class="text-danger">Tinggi</option>
-              </select>
+        <div class="col-12">
+          <label class="form-label">Prioritas</label>
+          <select name="prioritas" id="prioritas" class="custom-select custom-select-md mb-3">
+            <option value="rendah" class="text-primary">Rendah</option>
+            <option value="sedang" class="text-success">Sedang</option>
+            <option value="utama" class="text-danger">Tinggi</option>
+          </select>
+        </div>
+        
         <div class="mb-1">
           <label for="deskripsi" class="form-label">Deskripsi</label>
-          <input type="textarea" class="form-control" id="deskripsi">
+          <textarea class="form-control" id="deskripsi" rows="3"></textarea>
         </div>
         
         <span id="titleError" class="text-danger"></span>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-        <button type="button" id="saveBtn" class="btn btn-primary">Tambah Aktivitas</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <i class="fa fa-times"></i>
+          Tutup
+        </button>
+        <button type="button" id="saveBtn" class="btn btn-success">
+          <i class="fa fa-plus-circle"></i>
+          Tambah Aktivitas
+        </button>
       </div>
     </div>
   </div>
@@ -95,7 +107,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid p-2">
                   <div class="card shadow mb-4">
                     <div class="card-header py-3">
                       <h6 class="m-0 font-weight-bold text-primary">Aktivitas</h6>

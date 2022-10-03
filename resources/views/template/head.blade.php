@@ -28,5 +28,5 @@
 
 
 <!-- fullCalendar Event -->
-
+<link rel="shortcut icon" href="{{asset ('template/img/icon.png') }}"/>
 

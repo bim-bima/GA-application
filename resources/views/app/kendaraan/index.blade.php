@@ -26,9 +26,13 @@
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                           <div class="text-xs font-weight-bold text-primary text-uppercase ">Status</div>
+<<<<<<< HEAD
+                          <div class="text-xs mb-0 font-weight-bold text-primary-800">{{ $ken->mk_status }}</div>
+=======
                         <div class=" h5 mb-0 font-weight-bold text-gray-800">
                         {{$ken->mk_status}}
                         </div>
+>>>>>>> 8caa81bc0be2726da176b3b7cd6796007bd79d3c
                         </div>
                         <div class="col-auto ">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -105,14 +109,14 @@
               <td>{{ $item->ak_tujuan_pemakaian }}</td>
               @if(auth()->user()->level == "general-affair")
               <td>
-                <a class="btn btn-warning btn-circle" href="{{ route('app_kendaraan.edit',$item->id) }}">
+                <a class="btn btn-warning btn-circle btn-sm mb-xxl-0 mb-2" href="{{ route('app_kendaraan.edit',$item->id) }}">
                   <i class="fa fa-edit"></i>
                 </a>
                 <form action="{{ route('app_kendaraan.destroy',$item->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
                     {{-- <input class="btn btn-danger btndeleteitem" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle btndeleteitem">
+                    <a href="" class="btn btn-danger btn-circle btn-sm  btndeleteitem mb-xxl-0 mb-2">
                       <i class="fas fa-trash"></i>
                     </a>
                 </form>

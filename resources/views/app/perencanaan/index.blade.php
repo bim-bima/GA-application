@@ -3,7 +3,7 @@
 @section('content')
 
 @include('sweetalert::alert')
-<div class="container-fluid">
+<div class="container-fluid p-0">
   <div class="card">
     <div class="card-header">
       <h6 class="m-0 font-weight-bold text-primary">List Perencanaan Aktivitas</h6>
@@ -29,8 +29,14 @@
                 <h5 class="card-title ml-3">{{ $monthName.'-'.$perencanaan->ap_tahun }}</h5>
               </div>
               <div class="">
+<<<<<<< HEAD
+                <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary btn-circle">
+                  <i class="fas fa-eye"></i>
+                </a>
+=======
                 <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary btn-circle">Lihat</a>
                 @if(auth()->user()->level == "general-affair")
+>>>>>>> 8caa81bc0be2726da176b3b7cd6796007bd79d3c
                 <form action="{{ route('app_perencanaan.destroy',$perencanaan->id) }}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
@@ -70,11 +76,16 @@
                 <option value="-12">Desember</option>
               </select>
               <label class="form-label mt-3">Tahun</label>
-              <input name="ap_tahun" type="number" class="form-control" required>  
-          <button type="submit" class="btn btn-primary my-3">
-            <i class="fa fa-plus"></i>
-            Tambah
-          </button>
+
+              <input name="ap_tahun" type="text" class="form-control" required>                 
+              <button type="submit" class="btn btn-success my-3">
+                <i class="fa fa-plus-circle"></i>
+                Tambah
+              </button>
+
+              {{-- <input name="ap_tahun" type="number" class="form-control" required>                 
+          <button type="submit" class="btn btn-primary my-3">Tambah</button> --}}
+
         </form>
       </div>
       @endif

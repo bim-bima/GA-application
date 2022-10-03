@@ -1,14 +1,25 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark" id="accordionSidebar">
+
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+<<<<<<< HEAD
+        {{-- <div class="icon"> --}}
+        <img class="template/img-profile" src="{{asset('template/img/icon.png') }}" width="35px">
+        {{-- <div id="loading" style="background-image: url('{{ asset('/public/images/')}}');"> --}}
+        {{-- <img src="/public/images/icons.png" alt="" width="50px" style="background-image: ">
+        <i class="fas fa-laugh-wink"></i> --}}
+    {{-- </div> --}}
+        <div class="sidebar-brand-text">General Affair</div>
+=======
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fa fa-rocket"></i>
         </div>
         <div class="sidebar-brand-text ml-2">General Affair</div>
+>>>>>>> 8caa81bc0be2726da176b3b7cd6796007bd79d3c
     </a>
 
     <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+    <hr class="sidebar-divider">
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item ">
@@ -17,7 +28,7 @@
         <span>Dashboard</span>
       </a>
     </li>
-
+    <hr class="sidebar-divider">
     <!-- Heading -->
     <div class="sidebar-heading">
         App
@@ -33,8 +44,8 @@
             <span>GA System</span>
             @endif
         </a>
-        <div id="collapseApp" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="text-white bg-primary py-2 collapse-inner rounded">
+        <div id="collapseApp" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="z-index: 100">
+            <div class="text-white bg-primary py-2 rounded">
 							<a class="nav-link" href="app_perencanaan" aria-labelledby="headingTwo">
 								<i class="fa fa-calendar"></i>
 								<span>Perencanaan Aktivitas</span>
@@ -75,8 +86,8 @@
             <span>Data Master</span>
         </a>
         <div id="collapseDataMaster" class="collapse" aria-labelledby="headingPages"
-          data-parent="#accordionSidebar">
-          <ul class="text-white bg-primary py-2 collapse-inner rounded">
+          data-parent="#accordionSidebar" style="z-index: 100">
+          <ul class="text-white bg-primary p-0 rounded">
             <a class="nav-link" href="master_pic" aria-expanded="true">
               <i class="fa fa-user"></i>
               <span>PIC</span>
