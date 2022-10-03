@@ -27,18 +27,18 @@
               <input type="hidden" class="delete_id" value="{{ $statusfollowup->id }}">
               <td>{{ $statusfollowup->msf_status }}</td>
               <td>
-                <a class="btn btn-warning btn-circle" href="{{ route('master_statusfollowup.edit',$statusfollowup->id) }}">
+                <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_statusfollowup.edit',$statusfollowup->id) }}">
                   <i class="fas fa-edit"></i>
                 </a>
                 <form action="{{ route('master_statusfollowup.destroy',$statusfollowup->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
                     {{-- <input class="btn btn-danger btndelete7" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle btndelete7">
+                    <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete7">
                       <i class="fas fa-trash"></i>
                     </a>
                 </form>
-            </td>
+              </td>
             </tr>
             @endforeach
           </tbody>

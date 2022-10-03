@@ -36,16 +36,17 @@
               <td>{{ $kendaraan->mk_merk }}</td>
               <td>{{ $kendaraan->mk_warna }}</td>
               <td>{{ $kendaraan->mk_perlengkapan }}</td>
-              <td><a class="btn btn-warning btn-circle" href="{{ route('master_kendaraan.edit',$kendaraan->id) }}">
-                <i class="fa fa-edit"></i>
-              </a>
+              <td>
+                <a class="btn-sm btn-warning btn-circle mb-xl-0 mb-2" href="{{ route('master_kendaraan.edit',$kendaraan->id) }}">
+                  <i class="fa fa-edit"></i>
+                </a>
                 <form action="{{ route('master_kendaraan.destroy',$kendaraan->id) }}" method="post" class="d-inline">
-                    @csrf
-                    @method('delete')
-                    {{-- <input class="btn btn-danger btndelete" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle btndelete">
-                      <i class="fas fa-trash"></i>
-                    </a>
+                  @csrf
+                  @method('delete')
+                  {{-- <input class="btn btn-danger btndelete" type="submit" value="Delete"> --}}
+                  <a href="" class="btn-sm btn-danger btn-circle mb-xl-0 mb-2 btndelete">
+                    <i class="fas fa-trash"></i>
+                  </a>
                 </form>
             </td>
             </tr>

@@ -17,8 +17,8 @@
         <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-                <th>Nama</th>
-                <th>Aksi</th>
+              <th>Nama</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -27,14 +27,14 @@
               <input type="hidden" class="delete_id" value="{{ $pic->id }}">
               <td>{{ $pic->mp_nama }}</td>
               <td>
-                <a class="btn btn-warning btn-circle" href="{{ route('master_pic.edit',$pic->id) }}">
+                <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_pic.edit',$pic->id) }}">
                   <i class="fa fa-edit"></i>
                 </a>
                 <form action="{{ route('master_pic.destroy',$pic->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
                     {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle btndelete2">
+                    <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete2">
                       <i class="fas fa-trash"></i>
                     </a>
                 </form>

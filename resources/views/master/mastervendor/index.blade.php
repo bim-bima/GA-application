@@ -28,18 +28,19 @@
               <input type="hidden" class="delete_id" value="{{ $vendor->id }}">
               <td>{{ $vendor->mv_nama_vendor }}</td>
               <td>{{ $vendor->mv_lokasi }}</td>
-              <td><a class="btn btn-warning btn-circle" href="{{ route('master_vendor.edit',$vendor->id) }}">
-                <i class="fas fa-edit"></i>
-              </a>
+              <td>
+                <a class="btn btn-warning btn-circle mb-lg-0 mb-2" href="{{ route('master_vendor.edit',$vendor->id) }}">
+                  <i class="fas fa-edit"></i>
+                </a>
                 <form action="{{ route('master_vendor.destroy',$vendor->id) }}" method="post" class="d-inline">
-                    @csrf
-                    @method('delete')
-                    {{-- <input class="btn btn-danger btndelete4" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle btndelete4">
-                      <i class="fas fa-trash"></i>
-                    </a>
+                  @csrf
+                  @method('delete')
+                  {{-- <input class="btn btn-danger btndelete4" type="submit" value="Delete"> --}}
+                  <a href="" class="btn btn-danger btn-circle mb-lg-0 mb-2 btndelete4">
+                    <i class="fas fa-trash"></i>
+                  </a>
                 </form>
-            </td>
+              </td>
             </tr>
             @endforeach
           </tbody>
