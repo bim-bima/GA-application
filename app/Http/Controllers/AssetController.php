@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Carbon\Carbon;
 use App\Models\Asset;
 use App\Models\MasterLokasiAsset;
@@ -56,19 +57,14 @@ class AssetController extends Controller
         // 300.000.000 - 100.000.000 : 10
         // 200.000.000 : 10
         // 20.000.000
-        $h = $asset->as_harga;
-        $r = $asset->as_nilai_residu;
-        $u = $asset->as_umur_manfaat;
-        $p1 = $h - $r ;
-        $p2 = $p1 / $u ;
-        $t = $asset->as_tahun_kepemilikan; //tahun awal 15
-        $ta = $t + $u; //tahun akhir 25
-
-        
-
-
-
-        return view('app.asset.show', compact(['asset','t','ta','h','r','u','p1','p2']));
+        $harga = $asset->as_harga;
+        $residu = $asset->as_nilai_residu;
+        $umur = $asset->as_umur_manfaat;
+        $penurunan1 = $harga - $residu ;
+        $penurunan2 = $penurunan1 / $umur ;
+        $tahunawal = $asset->as_tahun_kepemilikan; //tahun awal 15
+        $tahunakhir = $tahunawal + $umur; //tahun akhir 25
+        return view('app.asset.show', compact(['asset','tahunawal','tahunakhir','harga','residu','umur','penurunan1','penurunan2']));
 
         // $penyusutan = Asset::select(DB::raw("CAST(SUM(as_harga) as int) as as_harga"))
         //               ->GroupBy(DB::raw("as_tahun_kepemilikan"))

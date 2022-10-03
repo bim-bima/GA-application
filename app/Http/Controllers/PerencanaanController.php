@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Models\Perencanaan;
 use App\Models\Aktivitas;
@@ -14,7 +15,7 @@ class PerencanaanController extends Controller
     {
         $dataperencanaan = Perencanaan::paginate(5);
         return view('app.perencanaan.index', compact(['dataperencanaan']));
-    }
+    }   
     public function store(Request $request)
     {
         $request->validate([

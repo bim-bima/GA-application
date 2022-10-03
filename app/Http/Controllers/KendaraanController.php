@@ -20,7 +20,8 @@ class KendaraanController extends Controller
         {
             $kendaraan = Kendaraan::with('namaKendaraan','pic')->paginate(4);
             $datakendaraan = MasterKendaraan::paginate(3);
-            return view('app.kendaraan.index', compact(['kendaraan','datakendaraan']));
+            $now = Carbon::now()->toDAteString();
+            return view('app.kendaraan.index', compact(['kendaraan','datakendaraan','now']));
         }
         /**
         * Show the form for creating a new resource.
