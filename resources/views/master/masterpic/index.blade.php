@@ -5,23 +5,24 @@
 @include('sweetalert::alert')
 
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Daftar PIC</h6>
-      <button class="btn btn-primary mt-3">
-        <i class="fa fa-plus"></i>
-        <a href="{{ route('master_pic.create') }}" class="text-white text-decoration-none">Tambah</a>
-      </button>
-    </div>
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
-          <thead>
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Daftar PIC</h6>
+    <button class="btn btn-primary mt-3">
+      <i class="fa fa-plus"></i>
+      <a href="{{ route('master_pic.create') }}" class="text-white text-decoration-none">Tambah</a>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="table-responsive col-md-8 border-dark">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead class="">
             <tr>
-              <th>Nama</th>
-              <th>Aksi</th>
+              <th class="col-sm-5 col-3 ">Nama</th>
+              <th class="col-3">Aksi</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="border-top-0">
             @foreach ($datapic as $pic)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $pic->id }}">
@@ -43,10 +44,10 @@
             @endforeach
           </tbody>
         </table>
-       {{ $datapic->links() }}
-
+        {{ $datapic->links() }}
       </div>
     </div>
-  </div>
+   </div>
+</div>
 @endsection
 

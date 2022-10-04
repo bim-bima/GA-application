@@ -79,7 +79,7 @@
       <div class="col-md-6 mb-2">
         <button class="btn btn-info my-3 mr-1">
           <i class="fa fa-angle-left"></i>
-          <a href="{{ route('app_kendaraan.index') }}" class="text-white text-decoration-none">kembali</a>
+          <a href="{{ route('app_kendaraan.index') }}" class="text-white text-decoration-none">Kembali</a>
         </button>
         <button type="submit" class="btn btn-success my-3">
           <i class="fa fa-edit"></i>

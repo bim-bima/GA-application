@@ -69,7 +69,8 @@
           <a href="{{ route('app_asset.index') }}" class="text-white text-decoration-none">Kembali</a>
         </button>
         <button type="submit" class="btn btn-success my-3">
-          <i class="fa fa-edit"></i> Edit
+          <i class="fa fa-edit"></i>
+          Edit
         </button>
       </div>
     </form>

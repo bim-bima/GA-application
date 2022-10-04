@@ -20,7 +20,7 @@
         }
     ?>  
     <div class="row">
-      <div class="card-body col-lg-9" style="width: 800px;">
+      <div class="card-body col-lg-9 pb-0 pr-1" style="width: 700px;">
         <canvas id="grafik"></canvas>
       </div>
 
@@ -51,45 +51,45 @@
         });
       </script>
       <div class="card-body col-lg-3 pl-0 pr-4">
-        <ol class="list-group list-group-numbered">
+        <ol class="list-group list-group-numbered mr-1">
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
             <div class="ms-2 me-auto">
               <div class="fs-6"><small>Nama Asset :</small></div>
               <b>{{ $asset->as_nama_asset }}</b>
             </div>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
+          <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
             <div class="ms-2 me-auto">
               <div class="fs-6"><small>Lokasi Asset :</small></div>
               <b>{{ $asset->lokasiAsset->mla_lokasi_asset }}</b>
             </div>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
+          <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
             <div class="ms-2 me-auto">
               <div class="fs-6"><small>Tahun kepemilikan :</small></div>
               <b>{{ $asset->as_tahun_kepemilikan }}</b>
             </div>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
+          <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
             <div class="ms-2 me-auto">
               <div class="fs-6"><small>Kode Asset :</small></div>
               <b>{{ $asset->as_kode_asset }}</b>
             </div>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
+          <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
             <div class="ms-2 me-auto">
               <div class="fs-6"><small>Harga Asset :</small></div>
               <b>{{ $asset->as_harga }}</b>
             </div>
           </li> 
-          <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
+          <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
             <div class="ms-2 me-auto">
               <div class="fs-6"><small>Nilai Residu :</small></div>
               <b>{{ $asset->as_nilai_residu }}</b>
             </div>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
-            <div class="ms-2 me-auto">
+          <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
+            <div class="ms-2 me-auto pb-2">
               <div class="fs-6"><small>Umur Manfaat :</small></div>
               <b>{{ $asset->as_umur_manfaat }}</b>
             </div>
@@ -97,7 +97,7 @@
         </ol>
       </div>
     </div>
-      <div class="col-1 pt-0">
+      <div class="col-1 pt-3 pb-2">
         <button class="btn btn-info mb-3 mr-1">
           <i class="fa fa-angle-left"></i>
           <a href="{{ route('app_asset.index') }}" class="text-white text-decoration-none">Kembali</a>

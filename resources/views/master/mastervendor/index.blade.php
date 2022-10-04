@@ -17,9 +17,9 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-                <th>Nama Vendor</th>
-                <th>Lokasi Vendor</th>
-                <th>Aksi</th>
+              <th>Nama Vendor</th>
+              <th>Lokasi Vendor</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>

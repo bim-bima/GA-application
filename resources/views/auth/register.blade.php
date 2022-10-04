@@ -2,16 +2,15 @@
 
 @section('content')
 
-<div class="container-fluid">
-    <div class="container p-0">
+<div class="container-fluid p-md-2 p-0">
+    <div class="container p-md-2 p-0">
         <div class="align-self-center align-content-center">
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <div class="row justify-content-center">
-                        <div class="register-image col-lg-7">  
-                        </div>
-                        <div class="col-lg-5 p-0">
-                            <div class="p-5">
+                        <div class="register-image col-lg-7"></div>
+                        <div class="col-lg-5">
+                            <div class="p-sm-5 px-2 py-4">
                                 <!-- <main class="form-registration w-100 m-auto"> -->
 
                                 <h1 class="h4 mb-4 fw-normal text-center">{{ __('Create an Account!') }}</h1>

@@ -13,38 +13,41 @@
       </button>
     </div>
     <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-          <thead>
-            <tr>
-              <th>Nama Jenis Barang</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($datajenisbarang as $jenisbarang)
-            <tr>
-              <input type="hidden" class="delete_id" value="{{ $jenisbarang->id }}">
-              <td>{{ $jenisbarang->mjb_jenis_barang }}</td>
-              <td>
-                <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_jenisbarang.edit',$jenisbarang->id) }}">
-                  <i class="fas fa-edit"></i>
-                </a>
-                <form action="{{ route('master_jenisbarang.destroy',$jenisbarang->id) }}" method="post" class="d-inline">
-                  @csrf
-                  @method('delete')
-                  {{-- <input class="btn btn-danger btndelete6" type="submit" value="Delete"> --}}
-                  <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete6">
-                    <i class="fas fa-trash"></i>
+      <div class="row">
+        <div class="table-responsive col-md-8">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th class="col-sm-5 col-3">Nama Jenis Barang</th>
+                <th class="col-lg-2 col-3">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($datajenisbarang as $jenisbarang)
+              <tr>
+                <input type="hidden" class="delete_id" value="{{ $jenisbarang->id }}">
+                <td>{{ $jenisbarang->mjb_jenis_barang }}</td>
+                <td>
+                  <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_jenisbarang.edit',$jenisbarang->id) }}">
+                    <i class="fas fa-edit"></i>
                   </a>
-                </form>
-              </td>
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
-        {{ $datajenisbarang->links() }}
+                  <form action="{{ route('master_jenisbarang.destroy',$jenisbarang->id) }}" method="post" class="d-inline">
+                    @csrf
+                    @method('delete')
+                    {{-- <input class="btn btn-danger btndelete6" type="submit" value="Delete"> --}}
+                    <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete6">
+                      <i class="fas fa-trash"></i>
+                    </a>
+                  </form>
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+          {{ $datajenisbarang->links() }}
+        </div>
       </div>
+      
     </div>
   </div>
 @endsection
