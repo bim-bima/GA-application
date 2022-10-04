@@ -13,38 +13,39 @@
       </button>
     </div>
     <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-          <thead>
-            <tr>
+      <div class="row">
+        <div class="table-responsive col-md-8">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
                 <th>Nama Lokasi Asset</th>
                 <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($datalokasiasset as $lokasiasset)
-            <tr>
-              <input type="hidden" class="delete_id" value="{{ $lokasiasset->id }}">
-              <td>{{ $lokasiasset->mla_lokasi_asset }}</td>
-              <td>
-                <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_lokasiasset.edit',$lokasiasset->id) }}">
-                  <i class="fas fa-edit"></i>
-                </a>
-                <form action="{{ route('master_lokasiasset.destroy',$lokasiasset->id) }}" method="post" class="d-inline">
-                    @csrf
-                    @method('delete')
-                    {{-- <input class="btn btn-danger btndelete8" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle btndelete8 mb-sm-0 mb-2">
-                      <i class="fas fa-trash"></i>
-                    </a>
-                </form>
-            </td>
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
-        {{ $datalokasiasset->links() }}
-
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($datalokasiasset as $lokasiasset)
+              <tr>
+                <input type="hidden" class="delete_id" value="{{ $lokasiasset->id }}">
+                <td>{{ $lokasiasset->mla_lokasi_asset }}</td>
+                <td>
+                  <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_lokasiasset.edit',$lokasiasset->id) }}">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <form action="{{ route('master_lokasiasset.destroy',$lokasiasset->id) }}" method="post" class="d-inline">
+                      @csrf
+                      @method('delete')
+                      {{-- <input class="btn btn-danger btndelete8" type="submit" value="Delete"> --}}
+                      <a href="" class="btn btn-danger btn-circle btndelete8 mb-sm-0 mb-2">
+                        <i class="fas fa-trash"></i>
+                      </a>
+                  </form>
+              </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+          {{ $datalokasiasset->links() }}
+        </div>
       </div>
     </div>
   </div>

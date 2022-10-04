@@ -12,7 +12,8 @@
     <div class="row d-flex p-3">
       {{-- management --}}
       @if(auth()->user()->level == "management")
-      <div class="card-body col-md-7 p-0 mx-2">
+      
+      <div class="card-body col-md-6 p-0 mx-2">
         @foreach ($dataperencanaan as $perencanaan)
         <div class="card mb-3">
           <div class="card-body">
@@ -60,7 +61,7 @@
       </div>
       @endif
       @if(auth()->user()->level == "general-affair")
-      <div class="card-body col-md-7 p-0 mx-2">
+      <div class="card-body col-lg-7 p-0 mx-2">
         @foreach ($dataperencanaan as $perencanaan)
         <div class="card mb-3">
           <div class="card-body">
@@ -105,9 +106,10 @@
         @endforeach
         {{ $dataperencanaan->links() }}
       </div>
-    @endif
+      @endif
+      
     @if(auth()->user()->level == "general-affair")
-      <div class="card col-md-4 p-0 mx-2">
+      <div class="card col-md-4 p-0 mx-2 h-25 ml-5">
         <div class="card-header px-2">
           <h6 class="m-0 font-weight-bold text-primary">Tambah List Perencanaan</h6>
         </div>
@@ -131,7 +133,7 @@
               <label class="form-label mt-3">Tahun</label>
 
               <input name="ap_tahun" type="text" class="form-control" required>                 
-              <button type="submit" class="btn btn-success my-3">
+              <button type="submit" class="btn btn-success my-4">
                 <i class="fa fa-plus-circle"></i>
                 Tambah
               </button>

@@ -112,7 +112,9 @@
           <div class="col-12 mt-4">
             <button class="btn btn-info mb-1 mr-1">
               <i class="fa fa-angle-left"></i>
-              <a href="{{ route('master_kendaraan.index') }}" class="text-white text-decoration-none">Kembali</a>
+              <a href="{{ route('master_kendaraan.index') }}" class="text-white text-decoration-none">
+                Kembali
+              </a>
             </button>
             <button type="submit" class="btn btn-success mb-1">
               <i class="fa fa-edit"></i>

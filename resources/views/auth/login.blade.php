@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
-    <div class="container">
+<div class="container-fluid p-md-2 p-0">
+    <div class="container p-md-2 p-0">
         <div class="row justify-content-center pt-lg-4">
             <div class="col-xl-10 col-lg-12 col-md-9">
                 <div class="card o-hidden border-0 shadow-sm my-5">
@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block img-login"></div>
                             <div class="col-lg-6">
-                                <div class="p-5">
+                                <div class="p-sm-5 px-2 py-4">
                                     <h1 class="h3 mb-4 fw-normal text-center">Please Login</h1>
                                     <form class="user" action="{{ route('login') }}" method="post">
                                         @csrf
