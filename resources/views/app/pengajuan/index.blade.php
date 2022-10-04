@@ -17,40 +17,28 @@
         <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
+                <th>Tanggal</th>
                 <th>Nama Pengajuan</th>
                 <th>Jenis</th>
                 <th>Vendor</th>
                 <th>Biaya</th>
                 <th>Catatan</th>
-                <th>Tanggal Pengadaan</th>
+                <th>Tanggal Di Butuhkan</th>
                 <th>PIC</th>
-                <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($datapengajuan as $pengajuan)
             <tr>
-              <input type="hidden" class="delete_id" value="{{ $pengajuan->id }}">
+              <td>{{ $pengajuan->created_at }}</td>
               <td>{{ $pengajuan->ap_nama_pengajuan }}</td>
               <td>{{ $pengajuan->ap_jenis_pengajuan }}</td>
-              <td>{{ $pengajuan->ap_mv_id }}</td>
+              <td>{{ $pengajuan->vendor->mv_nama_vendor }}</td>
               <td>{{ $pengajuan->ap_biaya }}</td>
               <td>{{ $pengajuan->ap_catatan }}</td>
               <td>{{ $pengajuan->ap_tanggal_pengadaan }}</td>
-              <td>{{ $pengajuan->ap_mp_id }}</td>
-              <td>
-                <a class="btn btn-warning btn-circle" href="{{ route('app_pengajuan.edit',$pengajuan->id) }}">
-                  <i class="fa fa-edit"></i>
-                </a>
-                <form action="{{ route('app_pengajuan.destroy',$pengajuan->id) }}" method="post" class="d-inline">
-                    @csrf
-                    @method('delete')
-                    {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle btndelete2">
-                      <i class="fas fa-trash"></i>
-                    </a>
-                </form>
-            </td>
+              <td>{{ $pengajuan->pic->mp_nama }}</td>
+              
             </tr>
             @endforeach
           </tbody>

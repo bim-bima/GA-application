@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pengajuan;
+use App\Models\MasterVendor;
+use App\Models\MasterPic;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PengajuanController extends Controller
@@ -15,7 +17,7 @@ class PengajuanController extends Controller
         */
         public function index()
         {
-            $datapengajuan = Pengajuan::paginate(4);
+            $datapengajuan = Pengajuan::with('vendor','pic')->paginate(4);
             return view('app.pengajuan.index', compact(['datapengajuan']));
         }
         /**
@@ -25,7 +27,9 @@ class PengajuanController extends Controller
         */
         public function create()
         {
-        return view('master.masterpic.create');
+        $vendor = MasterVendor::all();
+        $pic = MasterPic::all();
+        return view('app.pengajuan.create', compact(['vendor','pic']));
         }
         /**
         * Store a newly created resource in storage.
@@ -36,13 +40,25 @@ class PengajuanController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'mp_nama' => 'required|min:5|max:15',
+        'ap_nama_pengajuan' => 'required|min:5|max:200',
+        'ap_jenis_pengajuan' => 'required|min:5|max:200',
+        'ap_mv_id' => 'nullable',
+        'ap_biaya' => 'nullable',
+        'ap_catatan' => 'required|min:5|max:500',
+        'ap_tanggal_pengadaan' => 'nullable',
+        'ap_mp_id' => 'nullable',
         ]);
-        $masterpic = new MasterPic();
-        $masterpic->mp_nama = $request->mp_nama;
-        $masterpic->save();
+        $pengajuan = new Pengajuan();
+        $pengajuan->ap_nama_pengajuan = $request->ap_nama_pengajuan;
+        $pengajuan->ap_jenis_pengajuan = $request->ap_jenis_pengajuan;
+        $pengajuan->ap_mv_id = $request->ap_mv_id;
+        $pengajuan->ap_biaya = $request->ap_biaya;
+        $pengajuan->ap_catatan = $request->ap_catatan;
+        $pengajuan->ap_tanggal_pengadaan = $request->ap_tanggal_pengadaan;
+        $pengajuan->ap_mp_id = $request->ap_mp_id;
+        $pengajuan->save();
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
-        return redirect()->route('master_pic.index');
+        return redirect()->route('app_pengajuan.index');
         }
         /**
         * Display the specified resource.
@@ -50,10 +66,10 @@ class PengajuanController extends Controller
         * @param  \App\MasterPic  $pic
         * @return \Illuminate\Http\Response
         */
-        public function show(MasterPic $pic)
-        {
+        // public function show(MasterPic $pic)
+        // {
         // return view('',compact(''));
-        }
+        // }
         /**
         * Show the form for editing the specified resource.
         *
@@ -62,9 +78,8 @@ class PengajuanController extends Controller
         */
         public function edit($id)
         {
-            // dd($pic);
-            $pic = MasterPic::find($id);
-            return view('master.masterpic.edit',compact('pic'));
+            $pengajuan = Pengajuan::find($id);
+            return view('app.pengajuan.edit',compact('pengajuan'));
         }
         /**
         * Update the specified resource in storage.

@@ -81,12 +81,12 @@
               </div>
               <div class="">
 
-                {{-- <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary btn-circle">
-                  <i class="fas fa-eye"></i>
-                </a> --}}
-
                 <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary btn-circle">
                   <i class="fas fa-eye"></i>
+                </a>
+
+                <a href="/perencanaan/list" class=" btn btn-success btn-circle">
+                  <i class="fas fa-calendar"></i>
                 </a>
                 @if(auth()->user()->level == "general-affair")
 
@@ -96,7 +96,6 @@
                   <button class="btn btn-danger btn-circle" type="submit">
                     <i class="fas fa-trash"></i>
                   </button>
-                  {{-- <input class="btn btn-danger" type="submit" value="Delete" class="fas fa-trash"> --}}
                 </form>
                 @endif
               </div>

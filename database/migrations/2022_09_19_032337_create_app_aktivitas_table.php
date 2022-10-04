@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('end_date');
             $table->string('prioritas');
             $table->longText('deskripsi')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

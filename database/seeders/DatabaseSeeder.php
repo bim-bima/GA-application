@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 use App\Models\MasterPic;
+use App\Models\MasterVendor;
 use App\Models\User;
 use App\Models\Asset;
 use App\Models\Aktivitas;
@@ -119,6 +120,19 @@ class DatabaseSeeder extends Seeder
         ]);
         MasterAktivitas::factory()->create([
             'ma_nama_aktivitas' => 'menghidupkan hidropnik'
+        ]);
+
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => 'Toko komputer',
+            'mv_lokasi' => 'tangsel'
+        ]);
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => 'Toko Matrial',
+            'mv_lokasi' => 'tangsel'
+        ]);
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => 'Toko Mable',
+            'mv_lokasi' => 'tangsel'
         ]);
 
     }
