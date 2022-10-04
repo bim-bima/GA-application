@@ -80,5 +80,6 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
     Route::get('/perencanaan/list', function () {
         return view('/app/perencanaan/list');
     });
+    Route::get('downloadlist', [AktivitasController::class,'download']);
 
 

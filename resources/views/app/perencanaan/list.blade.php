@@ -7,6 +7,10 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">List Aktivitas</h6>
+      <button class="btn btn-primary mt-3">
+        <i class="fa fa-plus"></i>
+        <a href="{{ url('downloadlist') }}" class="text-white text-decoration-none">Unduh</a>
+      </button>
     </div>
     <div class="card-body">
       <div class="table-responsive">

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Excel;
 use App\Models\Aktivitas;
+use App\Exports\AktivitasExport;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -194,6 +196,10 @@ class AktivitasController extends Controller
         $aktivitas->delete();
         return $id;
 
+    }
+    public function download()
+    {
+        return Excel::download(new AktivitasExport, 'ListAktivitas.xlsx');
     }
     // public function destroym($id)
     // {
