@@ -5,13 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MasterVendor extends Model
+class Request extends Model
 {
     use HasFactory;
-    protected $table = 'm_vendor';
+    protected $table = 'app_request';
     protected $guarded = [];
 
-    public function pengajuanv(){
-        return $this->hasMany('App\Models\Pengajuan','ap_mv_id');
-    }
 }

@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\RequestController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\AktivitasController;
 use App\Http\Controllers\PerencanaanController;
@@ -17,8 +18,6 @@ use App\Http\Controllers\MasterJenisBarangController;
 use App\Http\Controllers\MasterStatusFollowupController;
 use App\Http\Controllers\MasterLokasiAssetController;
 use App\Http\Controllers\MasterCategoryBarangController;
-
-
 
 
 /*
@@ -77,6 +76,9 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
     Route::delete('app_aktivitas/destroy/{id}',[AktivitasController::class,'destroy']);
     Route::delete('app_perencanaan/destroy/{id}',[AktivitasController::class,'destroy']);
     Route::resource('app_perencanaan', PerencanaanController::class);
-
+    Route::resource('app_request', RequestController::class);
+    Route::get('/perencanaan/list', function () {
+        return view('/app/perencanaan/list');
+    });
 
 

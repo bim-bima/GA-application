@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('ap_catatan');
             $table->date('ap_tanggal_pengadaan');
             $table->unsignedInteger('ap_mp_id');
-            $table->timestamp('created_at')->useCurrent();
+            $table->date('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
 
             $table->foreign('ap_mp_id')->references('id')->on('m_pic');

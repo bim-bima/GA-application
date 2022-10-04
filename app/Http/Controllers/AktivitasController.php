@@ -26,6 +26,8 @@ class AktivitasController extends Controller
             'color'   => $aktivitas->color,
             ];
         }
+    
+
         return view('app.aktivitas.index', ['events' => $events]);
     }
     

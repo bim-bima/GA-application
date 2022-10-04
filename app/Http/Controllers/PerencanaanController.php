@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Perencanaan;
 use App\Models\Aktivitas;
+use App\Models\MasterAktivitas;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 
@@ -53,8 +55,12 @@ class PerencanaanController extends Controller
             ];
         }
         $perencanaan = Perencanaan::find($id);
-        return view('app.aktivitas.index', ['events' => $events], compact(['perencanaan']) );
-        // compact(['lokasiAsset'])
+        $maktivitas = MasterAktivitas::all();
+        $auto_delete = Aktivitas::where('start_date', '<', Carbon::now()->subDays(45))->get();
+        foreach ($auto_delete as $delete) {
+            $delete->delete();
+        }
+        return view('app.aktivitas.index', ['events' => $events], compact(['perencanaan','maktivitas']) );
     }
     public function destroy($id)
     {
@@ -73,6 +79,7 @@ class PerencanaanController extends Controller
         // return response()->json(['status' => 'Data Berhasil di hapus!']);
     }
 
+   
 
 
 }

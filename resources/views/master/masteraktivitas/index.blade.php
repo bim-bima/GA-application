@@ -15,8 +15,8 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-                <th>Nama Aktivitas</th>
-                <th>Aksi</th>
+              <th class="">Nama Aktivitas</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>

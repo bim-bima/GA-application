@@ -14,4 +14,7 @@ class MasterPic extends Model
     public function kendaraan(){
         return $this->hasMany('App\Models\Kendaraan','ak_mp_id');
     }
+    public function pengajuanp(){
+        return $this->hasMany('App\Models\pengajuan','ak_mp_id');
+    }
 }

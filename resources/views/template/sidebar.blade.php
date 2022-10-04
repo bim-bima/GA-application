@@ -2,14 +2,9 @@
 
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-      {{-- <div class="icon"> --}}
     <img class="template/img-profile" src="{{asset('template/img/icon.png') }}" width="35px">
     <div class="sidebar-brand-text">General Affair</div>
   </a>
-        {{-- <div id="loading" style="background-image: url('{{ asset('/public/images/')}}');"> --}}
-        {{-- <img src="/public/images/icons.png" alt="" width="50px" style="background-image: ">
-        <i class="fas fa-laugh-wink"></i> --}}
-    {{-- </div> --}}
       
 
     <!-- Divider -->
@@ -56,6 +51,11 @@
           <i class="fa fa-leaf"></i>
           <span>Pengajuan Pengadaan</span>
         </a>
+        <a class="nav-link nav-item active" href="app_request">
+          <i class="fa fa-leaf"></i>
+          <span>Request</span>
+        </a>
+
       </div>
     </div>
   
