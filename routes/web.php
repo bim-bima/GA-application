@@ -18,6 +18,7 @@ use App\Http\Controllers\MasterJenisBarangController;
 use App\Http\Controllers\MasterStatusFollowupController;
 use App\Http\Controllers\MasterLokasiAssetController;
 use App\Http\Controllers\MasterCategoryBarangController;
+use App\Http\Controllers\MasterJenisPengajuanController;
 
 
 /*
@@ -49,6 +50,7 @@ Route::group(['middleware' => ['auth', 'level:general-affair']], function(){
     Route::resource('master_categorybarang', MasterCategoryBarangController::class);
     Route::resource('master_statusfollowup', MasterStatusFollowupController::class);
     Route::resource('master_lokasiasset', MasterLokasiAssetController::class);
+    Route::resource('master_jenispengajuan', MasterJenisPengajuanController::class);
 });
 
     // ga
@@ -81,5 +83,11 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
         return view('/app/perencanaan/list');
     });
     Route::get('downloadlist', [AktivitasController::class,'download']);
+
+    Route::get('web', function () {
+        Notification::route('slack',env('SLACK_URL'))
+        ->notify(new AppNotificationsErrorNotification());
+    });
+
 
 

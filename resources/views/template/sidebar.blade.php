@@ -107,6 +107,10 @@
             <i class="fa fa-map-marker"></i>
             <span>Lokasi Asset</span>
           </a>
+          <a class="nav-link" href="master_jenispengajuan">
+            <i class="fa fa-map-marker"></i>
+            <span>Jenis Pengajuan</span>
+          </a>
         </ul>
       </div>
     </li>
