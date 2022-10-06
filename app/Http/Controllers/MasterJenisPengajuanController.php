@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Pengajuan;
-use App\Models\MasterVendor;
-use App\Models\MasterPic;
 use App\Models\MasterJenisPengajuan;
+use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Facades\DB;
 
-
-class PengajuanController extends Controller
+class MasterJenisPengajuanController extends Controller
 {
         /**
         * Display a listing of the resource.
@@ -20,11 +15,8 @@ class PengajuanController extends Controller
         */
         public function index()
         {
-            $datapengajuan = Pengajuan::with('vendor','pic','jenispengajuan')->paginate(4);
-            $vendor = MasterVendor::all();
-            $pic = MasterPic::all();
-            $jenispengajuan = MasterJenisPengajuan::all();
-            return view('app.pengajuan.index', compact(['datapengajuan','vendor','pic','jenispengajuan']));
+            $jenispengajuan = MasterJenisPengajuan::paginate(4);
+            return view('master.masterjenispengajuan.index', compact(['jenispengajuan']));
         }
         /**
         * Show the form for creating a new resource.
@@ -33,9 +25,7 @@ class PengajuanController extends Controller
         */
         public function create()
         {
-        $vendor = MasterVendor::all();
-        $pic = MasterPic::all();
-        return view('app.pengajuan.create', compact(['vendor','pic']));
+        return view('master.masterpic.create');
         }
         /**
         * Store a newly created resource in storage.
@@ -45,27 +35,14 @@ class PengajuanController extends Controller
         */
         public function store(Request $request)
         {
-        // $request->validate([
-        // 'ap_nama_pengajuan' => 'required|min:5|max:200',
-        // 'ap_mjp_id' => 'required|min:5|max:200',
-        // 'ap_mv_id' => 'nullable',
-        // 'ap_biaya' => 'nullable',
-        // 'ap_catatan' => 'min:5|max:500',
-        // 'ap_tanggal_pengadaan' => 'nullable',
-        // 'ap_mp_id' => 'nullable',
-        // 'ap_status' => 'nullable',
-        // ]);
-        $pengajuan = new Pengajuan();
-        $pengajuan->ap_nama_pengajuan = $request->ap_nama_pengajuan;
-        $pengajuan->ap_mjp_id = $request->ap_mjp_id;
-        $pengajuan->ap_mv_id = $request->ap_mv_id;
-        $pengajuan->ap_biaya = $request->ap_biaya;
-        $pengajuan->ap_catatan = $request->ap_catatan;
-        $pengajuan->ap_tanggal_pengadaan = $request->ap_tanggal_pengadaan;
-        $pengajuan->ap_mp_id = $request->ap_mp_id;
-        $pengajuan->save();
+        $request->validate([
+        'mp_nama' => 'required|min:5|max:15',
+        ]);
+        $masterpic = new MasterPic();
+        $masterpic->mp_nama = $request->mp_nama;
+        $masterpic->save();
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
-        return redirect()->route('app_pengajuan.index');
+        return redirect()->route('master_pic.index');
         }
         /**
         * Display the specified resource.
@@ -73,10 +50,10 @@ class PengajuanController extends Controller
         * @param  \App\MasterPic  $pic
         * @return \Illuminate\Http\Response
         */
-        // public function show(MasterPic $pic)
-        // {
+        public function show(MasterPic $pic)
+        {
         // return view('',compact(''));
-        // }
+        }
         /**
         * Show the form for editing the specified resource.
         *
@@ -85,8 +62,9 @@ class PengajuanController extends Controller
         */
         public function edit($id)
         {
-            $pengajuan = Pengajuan::find($id);
-            return view('app.pengajuan.edit',compact('pengajuan'));
+            // dd($pic);
+            $pic = MasterPic::find($id);
+            return view('master.masterpic.edit',compact('pic'));
         }
         /**
         * Update the specified resource in storage.
@@ -123,4 +101,3 @@ class PengajuanController extends Controller
 
         }
 }
-

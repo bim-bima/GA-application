@@ -7,10 +7,11 @@
 <div class="card shadow mb-4">
 
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Daftar PIC</h6>
+    <h6 class="m-0 font-weight-bold text-primary">Jenis jenis
+    Pengajuan</h6>
     <button class="btn btn-primary mt-3">
       <i class="fa fa-plus"></i>
-      <a href="{{ route('master_pic.create') }}" class="text-white text-decoration-none">Tambah</a>
+      <a href="{{ route('master_jenispengajuan.create') }}" class="text-white text-decoration-none">Ajukan</a>
     </button>
   </div>
   <div class="card-body">
@@ -19,20 +20,21 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead class="">
             <tr>
-              <th class="col-sm-5 col-3 ">Nama</th>
+              <th class="col-sm-5 col-3 ">Jenis Pengajuan</th>
               <th class="col-3">Aksi</th>
             </tr>
           </thead>
           <tbody class="border-top-0">
-            @foreach ($datapic as $pic)
+            @foreach ($jenis
+            pengajuan as $jenis)
             <tr>
-              <input type="hidden" class="delete_id" value="{{ $pic->id }}">
-              <td>{{ $pic->mp_nama }}</td>
+              <input type="hidden" class="delete_id" value="{{ $jenis->id }}">
+              <td>{{ $jenis->mjp_jenis }}</td>
               <td>
-                <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_pic.edit',$pic->id) }}">
+                <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_jenispengajuan.edit',$jenis->id) }}">
                   <i class="fa fa-edit"></i>
                 </a>
-                <form action="{{ route('master_pic.destroy',$pic->id) }}" method="post" class="d-inline">
+                <form action="{{ route('master_jenispengajuan.destroy',$jenis->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
                     {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
@@ -45,13 +47,8 @@
             @endforeach
           </tbody>
         </table>
-        {{ $datapic->links() }}
-<<<<<<< HEAD
-      </div>
-=======
->>>>>>> d435e7647e9eece935871adafdbfedfaf5cb8454
+        {{ $jenispengajuan->links() }}
    </div>
-  </div>
 </div>
 @endsection
 

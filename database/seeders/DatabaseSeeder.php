@@ -10,6 +10,7 @@ use App\Models\MasterKendaraan;
 use App\Models\MasterLokasiAsset;
 use App\Models\MasterAktivitas;
 use App\Models\Perencanaan;
+use App\Models\MasterJenisPengajuan;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -133,6 +134,12 @@ class DatabaseSeeder extends Seeder
         MasterVendor::factory()->create([
             'mv_nama_vendor' => 'Toko Mable',
             'mv_lokasi' => 'tangsel'
+        ]);
+        MasterJenisPengajuan::factory()->create([
+            'mjp_jenis' => 'pengadaan barang',
+        ]);
+        MasterJenisPengajuan::factory()->create([
+            'mjp_jenis' => 'pengadaan jasa',
         ]);
 
     }
