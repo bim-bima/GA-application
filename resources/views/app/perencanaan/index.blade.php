@@ -87,7 +87,7 @@
                 </a>
 
                 <a href="/perencanaan/list" class=" btn btn-success btn-circle">
-                  <i class="fas fa-calendar"></i>
+                  <i class="fas fa-download"></i>
                 </a>
                 @if(auth()->user()->level == "general-affair")
 
