@@ -46,7 +46,12 @@
           </tbody>
         </table>
         {{ $datapic->links() }}
+<<<<<<< HEAD
+      </div>
+=======
+>>>>>>> d435e7647e9eece935871adafdbfedfaf5cb8454
    </div>
+  </div>
 </div>
 @endsection
 
