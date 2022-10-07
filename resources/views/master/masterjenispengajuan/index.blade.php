@@ -30,14 +30,14 @@
               <input type="hidden" class="delete_id" value="{{ $jenis->id }}">
               <td>{{ $jenis->mjp_jenis }}</td>
               <td>
-                <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_jenispengajuan.edit',$jenis->id) }}">
+                <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_jenispengajuan.edit',$jenis->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
                   <i class="fa fa-edit"></i>
                 </a>
                 <form action="{{ route('master_jenispengajuan.destroy',$jenis->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
                     {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete2">
+                    <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete2" data-toggle="tooltip" data-placement="left" title="Delete">
                       <i class="fas fa-trash"></i>
                     </a>
                 </form>
@@ -48,6 +48,8 @@
         </table>
         {{ $jenispengajuan->links() }}
    </div>
+    </div>
+  </div>
 </div>
 @endsection
 
