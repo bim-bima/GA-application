@@ -117,7 +117,7 @@
             <span>Lokasi Asset</span>
           </a>
           <a class="nav-link" href="master_jenispengajuan">
-            <i class="fa fa-map-marker"></i>
+            <i class="fa fa-list-alt"></i>
             <span>Jenis Pengajuan</span>
           </a>
         </ul>
