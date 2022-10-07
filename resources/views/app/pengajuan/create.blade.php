@@ -6,7 +6,7 @@
     <h6 class="m-0 font-weight-bold text-primary">Tambah PIC</h6>
   </div>
   <div class="card-body">
-    <form action="{{ route('app_pengajuan.store') }}" method="POST" enctype="multipart/form-data" class="col-lg-6">
+    <form action="{{ route('app_pengajuan.store') }}" method="POST" enctype="multipart/form-data" class="row">
       @csrf
       <label for="ap_nama_pengajuan" class="form-label">Nama Pengajuan</label>
       <input type="text" class="form-control @error('nama') is-invalid @enderror" name="ap_nama_pengajuan" required>

@@ -82,11 +82,11 @@
               </div>
               <div class="">
 
-                <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary btn-circle">
+                <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class=" btn btn-primary btn-circle"  data-toggle="tooltip" data-placement="left" title="Lihat">
                   <i class="fas fa-eye"></i>
                 </a>
 
-                <a href="/perencanaan/list" class=" btn btn-success btn-circle">
+                <a href="/perencanaan/list" class=" btn btn-success btn-circle"  data-toggle="tooltip" data-placement="left" title="Unduh">
                   <i class="fas fa-download"></i>
                 </a>
                 @if(auth()->user()->level == "general-affair")
@@ -94,7 +94,7 @@
                 <form action="{{ route('app_perencanaan.destroy',$perencanaan->id) }}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
-                  <button class="btn btn-danger btn-circle" type="submit">
+                  <button class="btn btn-danger btn-circle" type="submit"  data-toggle="tooltip" data-placement="left" title="Delete">
                     <i class="fas fa-trash"></i>
                   </button>
                 </form>

@@ -28,14 +28,14 @@
                 <input type="hidden" class="delete_id" value="{{ $lokasiasset->id }}">
                 <td>{{ $lokasiasset->mla_lokasi_asset }}</td>
                 <td>
-                  <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_lokasiasset.edit',$lokasiasset->id) }}">
+                  <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_lokasiasset.edit',$lokasiasset->id) }}" data-toggle="tooltip" data-placement="left" title="Edit">
                     <i class="fas fa-edit"></i>
                   </a>
                   <form action="{{ route('master_lokasiasset.destroy',$lokasiasset->id) }}" method="post" class="d-inline">
                       @csrf
                       @method('delete')
                       {{-- <input class="btn btn-danger btndelete8" type="submit" value="Delete"> --}}
-                      <a href="" class="btn btn-danger btn-circle btndelete8 mb-sm-0 mb-2">
+                      <a href="" class="btn btn-danger btn-circle btndelete8 mb-sm-0 mb-2" data-toggle="tooltip" data-placement="left" title="Delete">
                         <i class="fas fa-trash"></i>
                       </a>
                   </form>
