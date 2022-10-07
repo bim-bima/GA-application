@@ -50,7 +50,7 @@
             <div class="col-lg-6 pl-xl-4">
               <div class="mb-3">
                 <label for="ap_reason" class="form-label">Catatan</label>
-                <textarea type="text" class="form-control @error('reason') is-invalid @enderror" name="ap_reason" required rows="6"></textarea>
+                <textarea type="text" class="form-control @error('reason') is-invalid @enderror" name="ap_reason" required rows="5"></textarea>
                 @error('catatan')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -72,9 +72,9 @@
                   </div>
                 </div>
               </fieldset>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-primary mt-2">
                 Kirim
-                <i class="fa fa-check"></i>
+                <i class="fa fa-paper-plane"></i>
               </button>
             </div>
           </div>          
@@ -150,7 +150,7 @@
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-3">
         <label for="ap_catatan" class="form-label">Catatan</label>
         <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="ap_catatan" required rows="3"></textarea>
         @error('catatan')
@@ -160,9 +160,9 @@
       <input type="text" class="form-control d-none" name="ap_status" value="null">
       <input type="text" class="form-control d-none" name="ap_status" value="null">
       <div class="col-12">
-        <button type="submit" class="btn btn-success my-3">
+        <button type="submit" class="btn btn-success mb-3">
           Kirim Pengajuan
-          <i class="fa fa-location-arrow"></i>
+          <i class="fa fa-paper-plane"></i>
         </button>
       </div>
     </form>

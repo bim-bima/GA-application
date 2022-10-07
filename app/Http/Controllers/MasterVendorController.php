@@ -15,7 +15,7 @@ class MasterVendorController extends Controller
         */
         public function index()
         {
-            $datavendor = MasterVendor::paginate(4);
+            $datavendor = MasterVendor::paginate(8);
             return view('master.mastervendor.index', compact(['datavendor']));
         }
         /**
