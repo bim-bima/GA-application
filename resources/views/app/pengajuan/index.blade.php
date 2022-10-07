@@ -5,50 +5,80 @@
 @include('sweetalert::alert')
 
 <div class="card shadow mb-4">
-  <div class="card shadow mb-4">
 @if(auth()->user()->level == "management")
 
   @foreach ($ajuan as $pengajuan)
     <div class="card">
       <div class="card-header">
-
+        <h6 class="m-0 font-weight-bold text-primary">Persetujuan</h6>
       </div>
       <form action="{{ route('app_pengajuan.update',$pengajuan->id) }}" method="POST" enctype="multipart/form-data">
-      @csrf
-      @method('put')
-      <div class="card-body">
-        <h5 class="card-title">{{ $pengajuan->ap_nama_pengajuan }}</h5>
-        <p class="card-text">{{ $pengajuan->ap_catatan }}</p>
-        <p class="card-text">{{ $pengajuan->jenispengajuan->mjp_jenis }}</p>
-        <p class="card-text">{{ $pengajuan->vendor->mv_nama_vendor }}</p>
-        <p class="card-text">{{ $pengajuan->ap_biaya }}</p>
-        <p class="card-text">{{ $pengajuan->pic->mp_nama }}</p>
-        <p class="card-text text-danger"><small>{{ $pengajuan->ap_tanggal_pengadaan }}</small></p>
-        <fieldset class="form-group row">
-    <legend class="col-form-label col-sm-4 float-sm-left pt-0">Setujui pengajuan ?</legend>
-    <div class="col-sm-8">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="ap_status" id="gridRadios1" value="setujui" checked>
-        <label class="form-check-label" for="gridRadios1">
-          Setujui 
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="ap_status" id="gridRadios2" value="tidak setuju">
-        <label class="form-check-label" for="gridRadios2">
-          Tidak Setujui
-        </label>
-      </div>
-    </div>
-  </fieldset>
-
-  <label for="ap_reason" class="form-label">Catatan</label>
-      <input type="text" class="form-control @error('reason') is-invalid @enderror" name="ap_reason" required>
-      @error('reason')
-      <div class="invalid-feedback">{{ $message }}</div>
-      @enderror
-        <button type="submit" class="btn btn-primary my-3">Kirim</button>
-      </div>
+        @csrf
+        @method('put')
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="d-flex row mb-4">
+                <div for="ap_nama_pengajuan" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Nama Pengajuan</div>
+                <div class="card-text col-sm-5 col-md-8 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->ap_nama_pengajuan }}</div>
+              </div>
+              <div class="d-flex row mb-4">
+                <div for="ap_mjp_id" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Jenis Pengajuan</div>
+                <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->jenispengajuan->mjp_jenis }}</div>
+              </div>
+              <div class="d-flex row mb-4">
+                <div for="ap_mv_id" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Vendor</div>
+                <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->vendor->mv_nama_vendor }}</div>
+              </div>
+              <div class="d-flex row mb-4">
+                <div for="ap_biaya" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Biaya</div>
+                <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->ap_biaya }}</div>
+              </div>
+              <div class="d-flex row mb-4">
+                <div for="ap_mp_id" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">PIC</div>
+                <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->pic->mp_nama }}</div>
+              </div>
+              <div class="d-flex row mb-4">
+                <div for="ap_catatan" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Catatan</div>
+                <div class="card-text col-sm-8 col-md-8 col-lg-7 col-xl-8 col-12 pl-sm-0">{{ $pengajuan->ap_catatan }}</div>
+              </div>
+              <div class="d-flex row mb-4">
+                <div for="ap_tanggal_pengadaan" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Tanggal</div>
+                <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0 text-danger">{{ $pengajuan->ap_tanggal_pengadaan }}</div>
+              </div>
+            </div>
+            <div class="col-lg-6 pl-xl-4">
+              <div class="mb-3">
+                <label for="ap_reason" class="form-label">Catatan</label>
+                <textarea type="text" class="form-control @error('reason') is-invalid @enderror" name="ap_reason" required rows="6"></textarea>
+                @error('catatan')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+              <fieldset class="d-flex row">
+                <legend class="col-form-label col-12 col-sm-6 col-md-5 col-lg-6 col-xl-5 text-primary font-weight-bold float-sm-left pt-0">Setujui pengajuan ?</legend>
+                <div class="col-sm-4 col-lg-5 col-xl-4 col-12 pl-sm-0">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ap_status" id="gridRadios1" value="setujui" checked>
+                    <label class="form-check-label p-sm-0" for="gridRadios1">
+                      Setujui 
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ap_status" id="gridRadios2" value="tidak setuju">
+                    <label class="form-check-label p-sm-0" for="gridRadios2">
+                      Tidak Setujui
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+              <button type="submit" class="btn btn-primary">
+                Kirim
+                <i class="fa fa-check"></i>
+              </button>
+            </div>
+          </div>          
+        </div>
       </form>
     </div>
    @endforeach     
@@ -61,16 +91,14 @@
   </div>
   <div class="card-body">
     <form action="{{ route('app_pengajuan.store') }}" method="POST" enctype="multipart/form-data" class="row">
+      @csrf
       <div class="col-md-6 mb-2">
-        @csrf
         <label for="ap_nama_pengajuan" class="form-label">Nama Pengajuan</label>
         <input type="text" class="form-control @error('nama') is-invalid @enderror" name="ap_nama_pengajuan" required>
         @error('nama')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      
-
       <div class="col-md-6 mb-2">
         <label for="ap_mjp_id" class="form-label">Jenis Pengajuan</label>
         <select name="ap_mjp_id" class="form-control @error('jenis') is-invalid @enderror" required>
@@ -83,9 +111,8 @@
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-
       <div class="col-md-6 mb-2">
-          <label for="ap_mv_id" class="form-label">Vendor</label>
+        <label for="ap_mv_id" class="form-label">Vendor</label>
         <select name="ap_mv_id" class="form-control @error('ap_mv_id') is-invalid @enderror" required>
           <option value="">Pilih Vendor</option>
           @foreach ($vendor as $ven)
@@ -103,6 +130,14 @@
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
+      
+      <div class="col-md-6 mb-2">
+        <label for="ap_tanggal_pengadaan" class="form-label">Tanggal Dibutuhkan</label>
+        <input type="date" class="form-control @error('pengadaan') is-invalid @enderror" name="ap_tanggal_pengadaan" >
+        @error('pengadaan')
+        <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+      </div>
       <div class="col-md-6 mb-2">
         <label for="ap_mp_id" class="form-label">PIC</label>
         <select name="ap_mp_id" class="form-control @error('ap_mp_id') is-invalid @enderror" required>
@@ -115,32 +150,25 @@
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      
-      <div class="col-md-6 mb-2">
-        <label for="ap_tanggal_pengadaan" class="form-label">Tanggal Dibutuhkan</label>
-        <input type="date" class="form-control @error('pengadaan') is-invalid @enderror" name="ap_tanggal_pengadaan" >
-        @error('pengadaan')
-        <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-      </div>
       <div class="col-12 mb-2">
         <label for="ap_catatan" class="form-label">Catatan</label>
         <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="ap_catatan" required rows="3"></textarea>
         @error('catatan')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
-        {{-- <label for="ap_catatan" class="form-label">Catatan</label>
-        <input type="text" class="form-control @error('catatan') is-invalid @enderror" name="ap_catatan" required> --}}
       </div>
-      
-      <div class="col-md-6">
+      <input type="text" class="form-control d-none" name="ap_status" value="null">
+      <input type="text" class="form-control d-none" name="ap_status" value="null">
+      <div class="col-12">
         <button type="submit" class="btn btn-success my-3">
-          <i class="fa fa-plus-circle"></i>
           Kirim Pengajuan
+          <i class="fa fa-location-arrow"></i>
         </button>
       </div>
     </form>
   </div>
+
+@endif
 </div>
 <div class="card shadow mb-4">
   <div class="card-header py-3">
@@ -151,18 +179,22 @@
       <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>Tanggal</th>
-            <th>Nama Pengajuan</th>
-            <th>Jenis</th>
-            <th>Vendor</th>
-            <th>Biaya</th>
-            <th>Catatan</th>
-            <th>Tanggal Di Butuhkan</th>
-            <th>PIC</th>
+              <th>Tanggal</th>
+              <th>Nama Pengajuan</th>
+              <th>Jenis</th>
+              <th>Vendor</th>
+              <th>Biaya</th>
+              <th>Catatan</th>
+              <th>Tanggal Di Butuhkan</th>
+              <th>PIC</th>
+              <!-- <th>Status</th> -->
           </tr>
         </thead>
         <tbody>
-          @foreach ($datapengajuan as $pengajuan)
+          <?php 
+
+           ?>
+          @foreach ($setuju as $pengajuan)
           <tr>
             <td>{{ $pengajuan->created_at }}</td>
             <td>{{ $pengajuan->ap_nama_pengajuan }}</td>
@@ -172,82 +204,18 @@
             <td>{{ $pengajuan->ap_catatan }}</td>
             <td>{{ $pengajuan->ap_tanggal_pengadaan }}</td>
             <td>{{ $pengajuan->pic->mp_nama }}</td>
+            <!-- <td>{{ $pengajuan->ap_status }}</td> -->
+            
           </tr>
           @endforeach
         </tbody>
       </table>
-     {{ $datapengajuan->links() }}
+     <!-- {{ $datapengajuan->links() }} -->
 
-          <label for="ap_mp_id" class="form-label">PIC</label>
-          <select name="ap_mp_id" class="form-control @error('ap_mp_id') is-invalid @enderror" required>
-            <option value="">Pilih PIC</option>
-            @foreach ($pic as $pi)
-            <option value="{{ $pi->id }}">{{ $pi->mp_nama}}</option>
-            @endforeach    
-          </select>
-          @error('ap_mp_id')
-            <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div>
-
-      <input type="text" class="form-control d-none" name="ap_status" value="null">
-      <input type="text" class="form-control d-none" name="ap_status" value="null">
-
-
-      <button type="submit" class="btn btn-success my-3">
-        <i class="fa fa-plus-circle"></i>
-        Kirim Pengajuan
-      </button>
-</form>
-  </div>
-</div>
-
-@endif
-
-    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Riwayat Pengajuan</h6>
-    </div>
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
-          <thead>
-            <tr>
-                <th>Tanggal</th>
-                <th>Nama Pengajuan</th>
-                <th>Jenis</th>
-                <th>Vendor</th>
-                <th>Biaya</th>
-                <th>Catatan</th>
-                <th>Tanggal Di Butuhkan</th>
-                <th>PIC</th>
-                <!-- <th>Status</th> -->
-            </tr>
-          </thead>
-          <tbody>
-            <?php 
-
-             ?>
-            @foreach ($setuju as $pengajuan)
-            <tr>
-              <td>{{ $pengajuan->created_at }}</td>
-              <td>{{ $pengajuan->ap_nama_pengajuan }}</td>
-              <td>{{ $pengajuan->jenispengajuan->mjp_jenis }}</td>
-              <td>{{ $pengajuan->vendor->mv_nama_vendor }}</td>
-              <td>{{ $pengajuan->ap_biaya }}</td>
-              <td>{{ $pengajuan->ap_catatan }}</td>
-              <td>{{ $pengajuan->ap_tanggal_pengadaan }}</td>
-              <td>{{ $pengajuan->pic->mp_nama }}</td>
-              <!-- <td>{{ $pengajuan->ap_status }}</td> -->
-              
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
-       <!-- {{ $datapengajuan->links() }} -->
-
-      </div>
     </div>
   </div>
 </div>
+
+    
 @endsection
 
