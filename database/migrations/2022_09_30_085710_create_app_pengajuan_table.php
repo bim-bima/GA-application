@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('ap_tanggal_pengadaan');
             $table->unsignedInteger('ap_mp_id');
             $table->string('ap_status')->nullable();
+            $table->string('ap_reason')->nullable();
             $table->date('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
 

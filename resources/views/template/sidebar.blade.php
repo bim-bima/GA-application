@@ -47,10 +47,19 @@
           <i class="fa fa-car"></i>
           <span>Kendaraan</span>
         </a>
+        @if(auth()->user()->level == "general-affair")
         <a class="nav-link nav-item active" href="app_pengajuan">
           <i class="fa fa-share-square"></i>
           <span>Pengajuan Pengadaan</span>
         </a>
+        @endif
+  
+        @if(auth()->user()->level == "management")
+        <a class="nav-link nav-item active" href="app_pengajuan">
+          <i class="fa fa-share-square"></i>
+          <span>Pengajuan</span>
+        </a>
+        @endif
         <a class="nav-link nav-item active" href="app_request">
           <i class="fa fa-share"></i>
           <span>Request</span>
