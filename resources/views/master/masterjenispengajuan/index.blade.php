@@ -11,7 +11,7 @@
     Pengajuan</h6>
     <button class="btn btn-primary mt-3">
       <i class="fa fa-plus"></i>
-      <a href="{{ route('master_jenispengajuan.create') }}" class="text-white text-decoration-none">Ajukan</a>
+      <a href="{{ route('master_jenispengajuan.create') }}" class="text-white text-decoration-none">Tambah</a>
     </button>
   </div>
   <div class="card-body">
@@ -25,8 +25,7 @@
             </tr>
           </thead>
           <tbody class="border-top-0">
-            @foreach ($jenis
-            pengajuan as $jenis)
+            @foreach ($jenispengajuan as $jenis)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $jenis->id }}">
               <td>{{ $jenis->mjp_jenis }}</td>

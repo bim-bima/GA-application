@@ -20,11 +20,15 @@ class PengajuanController extends Controller
         */
         public function index()
         {
-            $datapengajuan = Pengajuan::with('vendor','pic','jenispengajuan')->paginate(4);
+            $datapengajuan = Pengajuan::with('vendor','pic','jenispengajuan')->paginate(10);
+            // $datapengajuan = Pengajuan::whereHas('vendor','pic','jenispengajuan', function($q){$q->where('ap_status', 'disetujui');})->get();
             $vendor = MasterVendor::all();
             $pic = MasterPic::all();
             $jenispengajuan = MasterJenisPengajuan::all();
-            return view('app.pengajuan.index', compact(['datapengajuan','vendor','pic','jenispengajuan']));
+            // $datapengajuan = Pengajuan::where('ap_status', 'tidak setuju')->get();
+            $ajuan = Pengajuan::where('ap_status', 'null')->get();
+            $setuju = Pengajuan::where('ap_status', 'setujui')->with('vendor')->get();
+            return view('app.pengajuan.index', compact(['datapengajuan','vendor','pic','jenispengajuan','setuju','ajuan']));
         }
         /**
         * Show the form for creating a new resource.
@@ -33,9 +37,7 @@ class PengajuanController extends Controller
         */
         public function create()
         {
-        $vendor = MasterVendor::all();
-        $pic = MasterPic::all();
-        return view('app.pengajuan.create', compact(['vendor','pic']));
+
         }
         /**
         * Store a newly created resource in storage.
@@ -63,8 +65,10 @@ class PengajuanController extends Controller
         $pengajuan->ap_catatan = $request->ap_catatan;
         $pengajuan->ap_tanggal_pengadaan = $request->ap_tanggal_pengadaan;
         $pengajuan->ap_mp_id = $request->ap_mp_id;
+        $pengajuan->ap_status = $request->ap_status;
+        $pengajuan->ap_reason = $request->ap_reason;
         $pengajuan->save();
-        Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
+        Alert::success('Berhasil', 'Data Berhasil Diajukan');
         return redirect()->route('app_pengajuan.index');
         }
         /**
@@ -73,21 +77,18 @@ class PengajuanController extends Controller
         * @param  \App\MasterPic  $pic
         * @return \Illuminate\Http\Response
         */
+        public function update(Request $request, $id)
+        {
+        $setujui = Pengajuan::find($id);
+        $setujui->ap_status = $request->ap_status;
+        $setujui->save();
+        Alert::success('Berhasil', 'Pengajuan Berhasil Dikirim');
+        return redirect()->route('app_pengajuan.index');
+        }
         // public function show(MasterPic $pic)
         // {
         // return view('',compact(''));
         // }
-        /**
-        * Show the form for editing the specified resource.
-        *
-        * @param  \App\MasterPic  $pic
-        * @return \Illuminate\Http\Response
-        */
-        public function edit($id)
-        {
-            $pengajuan = Pengajuan::find($id);
-            return view('app.pengajuan.edit',compact('pengajuan'));
-        }
         /**
         * Update the specified resource in storage.
         *
@@ -95,32 +96,10 @@ class PengajuanController extends Controller
         * @param  \App\MasterPic  $pic
         * @return \Illuminate\Http\Response
         */
-        public function update(Request $request, $id)
+        public function show($id)
         {
-        $request->validate([
-        'mp_nama' => 'required|min:5|max:50',
-        ]);
-        $pic = MasterPic::find($id);
-        $pic->mp_nama = $request->mp_nama;
-        $pic->save();
-        Alert::success('Berhasil', 'Data Berhasil Diedit');
-        return redirect()->route('master_pic.index');
-        }
-        /**
-        * Remove the specified resource from storage.
-        *
-        * @param  \App\Company  $company
-        * @return \Illuminate\Http\Response
-        */
-        public function destroy($id)
-        {
-            $id = MasterPic::find($id);
-            $id->delete();
-        // Alert::success('Berhasil', 'Data Berhasil Dihapus');
-        // return redirect()->route('master_pic.index');
-        return response()->json(['status' => 'Data Berhasil di hapus!']);
-
-
+        $pengajuan = Pengajuan::find($id);
+        return view('app.pengajuan.show', compact(['pengajuan']));
         }
 }
 
