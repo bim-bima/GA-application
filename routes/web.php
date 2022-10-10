@@ -34,12 +34,24 @@ use App\Http\Controllers\MAsterCategoryAssetController;
 */
 Route::middleware(['guest'])->group(function(){
     Route::get('/', function () {
-        // return view('/auth/login');
-        return view('public/index');
+        return view('/auth/login');
+        // return view('public/index');
     });
 });
 
 Auth::routes();
+
+Route::group(['middleware' => ['auth', 'level:pegawai']], function(){
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    // app routes
+    Route::resource('app_asset', AssetController::class);
+    Route::resource('app_pengajuan', PengajuanController::class);
+    Route::resource('app_kendaraan', KendaraanController::class);
+    Route::resource('app_aktivitas', AktivitasController::class);
+    Route::resource('app_aktivitas/index/{}', AktivitasController::class);
+    Route::resource('app_perencanaan', PerencanaanController::class);
+    Route::resource('app_request', RequestController::class);
+});
 
 Route::group(['middleware' => ['auth', 'level:general-affair']], function(){
     Route::resource('master_pic', MasterPicController::class);
