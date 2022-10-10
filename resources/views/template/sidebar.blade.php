@@ -17,8 +17,8 @@
       <span>Dashboard</span>
     </a>
   </li>
-<<<<<<< HEAD
-  <hr class="sidebar-divider">
+
+  {{-- <hr class="sidebar-divider">
   <!-- Heading -->
   <div class="sidebar-heading">
       App
@@ -73,10 +73,8 @@
   
     <!-- Divider -->
     <hr class="sidebar-divider">
-    @if(auth()->user()->level == "general-affair")
-=======
+    @if(auth()->user()->level == "general-affair") --}}
   @if(auth()->user()->level == "general-affair")
->>>>>>> ea7746ac8e5b058125c3db7ada37706a641658ce
     <!-- Heading -->
     <div class="sidebar-heading">
         Data Master

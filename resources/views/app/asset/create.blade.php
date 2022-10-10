@@ -8,14 +8,14 @@
     <div class="card-body">
       <form action="{{ route('app_asset.store') }}" method="POST" enctype="multipart/form-data" class="row">
         @csrf
-        <div class="col-md-6">
+        <div class="col-md-6 mb-2">
           <label for="as_nama_asset" class="form-label">Nama Asset</label>
           <input type="text" class="form-control @error('nama') is-invalid @enderror" name="as_nama_asset" required>
           @error('nama')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mb-2">
           <label for="as_jumlah" class="form-label">Jumlah Asset</label>
           <input type="number" class="form-control @error('jumlah') is-invalid @enderror" name="as_jumlah" required>
           @error('jumlah')
@@ -23,7 +23,7 @@
           @enderror
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 mb-2">
           <label for="as_mla_id" class="form-label">Lokasi Asset</label>
           <select name="as_mla_id" class="form-control @error('as_mla_id') is-invalid @enderror" required>
             <option value="">Pilih Lokasi</option>
@@ -36,7 +36,7 @@
           @enderror
         </div>
         <!-- format label -->
-        <div class="col-md-6">
+        <div class="col-md-6 mb-2">
           <label for="as_mca_id" class="form-label">Category Asset</label>
           <select name="as_mca_id" class="form-control @error('as_mca_id') is-invalid @enderror" required>
             <option value="">Pilih Category</option>
@@ -48,36 +48,38 @@
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mb-2">
           <label for="as_tahun_kepemilikan" class="form-label">Tahun Pembelian</label>
           <input type="number" class="form-control @error('tahun') is-invalid @enderror" name="as_tahun_kepemilikan" required>
           @error('tahun')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <label class="form-label mt-3">Bulan Pembelian</label>
-              <select name="as_bulan" class="custom-select custom-select-md mb-3">
-                <option value="-01">Januari</option>
-                <option value="-02">Februari</option>
-                <option value="-03">Maret</option>
-                <option value="-04">April</option>
-                <option value="-05">Mei</option>
-                <option value="-06">Juni</option>
-                <option value="-07">Juli</option>
-                <option value="-08">Agustus</option>
-                <option value="-09">September</option>
-                <option value="-10">Oktober</option>
-                <option value="-11">November</option>
-                <option value="-12">Desember</option>
-              </select>
-        <div class="col-md-6">
+        <div class="col-md-6 mb-2">
+          <label class="form-label">Bulan Pembelian</label>
+          <select name="as_bulan" class="custom-select custom-select-md">
+            <option value="-01">Januari</option>
+            <option value="-02">Februari</option>
+            <option value="-03">Maret</option>
+            <option value="-04">April</option>
+            <option value="-05">Mei</option>
+            <option value="-06">Juni</option>
+            <option value="-07">Juli</option>
+            <option value="-08">Agustus</option>
+            <option value="-09">September</option>
+            <option value="-10">Oktober</option>
+            <option value="-11">November</option>
+            <option value="-12">Desember</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-2">
           <label for="as_harga" class="form-label">Harga Asset </label>
           <input type="text" class="form-control @error('harga') is-invalid @enderror" name="as_harga" required>
           @error('harga')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mb-2">
           <label for="as_umur_manfaat" class="form-label">Umur Manfaat Asset</label>
           <select name="as_umur_manfaat" class="form-control @error('as_umur_manfaat') is-invalid @enderror" required>
             <option value="4">4 tahun</option>
@@ -90,7 +92,7 @@
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6 pt-3">
+        <div class="col-md-6 mb-2">
           <button class="btn btn-info mr-1">
             <i class="fa fa-angle-left"></i>
             <a  href="{{ route('app_asset.index') }}" class="text-white text-decoration-none">Kembali</a>
