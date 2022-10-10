@@ -17,7 +17,9 @@
       <span>Dashboard</span>
     </a>
   </li>
+
   <hr class="sidebar-divider">
+
   <!-- Heading -->
   <!-- <div class="sidebar-heading"> 
       App
@@ -71,6 +73,7 @@
     </div>-->
   
     <!-- Divider -->
+
    
   <!-- Heading -->
   <div class="sidebar-heading">
@@ -148,6 +151,7 @@
   </li>
    <hr class="sidebar-divider">
     @if(auth()->user()->level == "general-affair")
+{{-- >>>>>>> 3dc89aa45931aaa6b770a57c0b58e1cd2d53c0ad --}}
     <!-- Heading -->
     <div class="sidebar-heading">
         Data Master

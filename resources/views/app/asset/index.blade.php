@@ -42,20 +42,20 @@
               <td>{{ $asset->categoryasset->mca_category }}</td>
               <td>{{ $asset->as_umur_manfaat }} tahun</td>
               <td>
-                <a class="btn-sm btn-info btn-circle mb-xl-0 mb-2" href="{{ route('app_asset.show',$asset->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
+                <a class="btn-sm btn-info btn-circle mb-xl-0 mb-1" href="{{ route('app_asset.show',$asset->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
                   <i class="fas fa-info-circle"></i>
                 </a>
 
                 {{-- <a class="btn-sm btn-warning btn-circle mb-xl-0 mb-2" href="{{ route('app_asset.edit',$asset->id) }}"> --}}
 
               @if(auth()->user()->level == "general-affair")
-                <a class="btn-sm btn-warning btn-circle" href="{{ route('app_asset.edit',$asset->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
+                <a class="btn-sm btn-warning btn-circle mb-1" href="{{ route('app_asset.edit',$asset->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
                   <i class="fa fa-edit"></i>
                 </a>
                 <form action="{{ route('app_asset.destroy',$asset->id) }}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
-                  <button class="btn btn-danger btn-circle btn-sm" type="submit">
+                  <button class="btn btn-danger btn-circle btn-sm btndeleteasset" type="submit">
                     <i class="fas fa-trash"></i>
                   </button>
                 </form>
@@ -65,11 +65,7 @@
                     @method('delete')
                     {{-- <input class="btn btn-danger btn-circle btndeleteasset" type="submit" value="<i class="fas fa-trash"></i>"> --}}
                     
-<<<<<<< HEAD
-                    <a href="" class="btn-sm btn-danger btn-circle btndeleteasset mb-xl-0 mb-2">
-=======
                     <a href="" class="btn-sm btn-danger btn-circle btndeleteasset mb-xl-0 mb-2" data-toggle="tooltip" data-placement="left" title="Delete">
->>>>>>> ea7746ac8e5b058125c3db7ada37706a641658ce
                       <i class="fas fa-trash"></i>
                     </a>
                 </form> -->

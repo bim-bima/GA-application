@@ -25,7 +25,7 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <div class="container-fluid px-sm-2 px-0">
             <!-- Page Heading -->
             @yield('content')
         </div>

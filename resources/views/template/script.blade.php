@@ -677,3 +677,54 @@
         });
 
     </script>
+
+<!-- Alert App Asset -->
+<script>
+	$(document).ready(function () {
+
+			$.ajaxSetup({
+					headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					}
+			});
+
+			$('.btndeleteasset').click(function (e) {
+					e.preventDefault();
+
+					var deleteidasset = $(this).closest("tr").find('.delete_id').val();
+
+					swal({
+									title: "Apakah anda yakin?",
+									text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
+									icon: "warning",
+									buttons: true,
+									dangerMode: true,
+							})
+							.then((willDelete) => {
+									if (willDelete) {
+
+											var data = {
+													"_token": $('input[name=_token]').val(),
+													'id': deleteidasset,
+											};
+											$.ajax({
+													type: "DELETE",
+													url: 'app_asset/' + deleteidasset,
+
+													data: data,
+													success: function (response) {
+															swal(response.status, {
+																			icon: "success",
+																	})
+																	.then((result) => {
+																			location.reload();
+																	});
+													}
+											});
+									}
+							});
+			});
+
+	});
+
+</script>
