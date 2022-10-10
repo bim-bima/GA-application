@@ -2,14 +2,10 @@
 @section('content')
 @include('sweetalert::alert')
 
+@if(auth()->user()->level == "general-affair")
 <div class="card shadow mb-4">
-
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Daftar Request</h6>
-    <!-- <button class="btn btn-primary mt-3">
-      <i class="fa fa-plus"></i>
-      <a href="{{ route('app_request.create') }}" class="text-white text-decoration-none">Tambah</a>
-    </button> -->
+        <h6 class="m-0 font-weight-bold text-primary">Daftar Request</h6>
   </div>
   <div class="card-body">
     <div class="row">
@@ -29,9 +25,6 @@
               <td>{{ $request->ar_request }}</td>
               <td>{{ $request->ar_catatan }}</td>
               <td>
-                <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('app_request.edit',$request->id) }}">
-                  <i class="fa fa-edit"></i>
-                </a>
                 <form action="{{ route('app_request.destroy',$request->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
@@ -46,9 +39,44 @@
           </tbody>
         </table>
         {{ $datarequest->links() }}
+  </div>
       </div>
    </div>
   </div>
-</div>
+@endif
+
+@if(auth()->user()->level == "pegawai")
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Buat Request</h6>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="table-responsive col-md-8 border-dark">
+    <form action="{{ route('app_request.store') }}" method="POST" enctype="multipart/form-data" class="col-lg-6">
+      @csrf
+      <label for="ar_request" class="form-label">Request</label>
+      <input type="text" class="form-control @error('request') is-invalid @enderror" name="ar_request" required>
+      @error('request')
+      <div class="invalid-feedback">{{ $message }}</div>
+      @enderror
+
+      <label for="ar_catatan" class="form-label">Catatan</label>
+      <input type="text" class="form-control @error('catatan') is-invalid @enderror" name="ar_catatan" required>
+      @error('catatan')
+      <div class="invalid-feedback">{{ $message }}</div>
+      @enderror
+      <button type="submit" class="btn btn-success my-3">
+        <i class="fa fa-plus-circle"></i>
+        Kirim
+      </button>
+    </form>
+  </div>
+      </div>
+   </div>
+  </div>
+@endif
+
+
 @endsection
 

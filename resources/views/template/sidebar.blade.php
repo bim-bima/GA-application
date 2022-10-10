@@ -18,9 +18,10 @@
     </a>
   </li>
 
-  {{-- <hr class="sidebar-divider">
+  <hr class="sidebar-divider">
+
   <!-- Heading -->
-  <div class="sidebar-heading">
+  <!-- <div class="sidebar-heading"> 
       App
   </div>
   <li class="nav-item">
@@ -69,12 +70,88 @@
         @endif
 
       </div>
-    </div>
+    </div>-->
   
     <!-- Divider -->
-    <hr class="sidebar-divider">
-    @if(auth()->user()->level == "general-affair") --}}
-  @if(auth()->user()->level == "general-affair")
+
+   
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    @if(auth()->user()->level == "pegawai")
+      App
+    @endif
+    @if(auth()->user()->level == "general-affair")
+      App
+    @endif
+    @if(auth()->user()->level == "management")
+      GA System
+    @endif
+  </div>
+  <li class="nav-item">
+    <div class="text-white py-2 rounded">
+      @if(auth()->user()->level == "general-affair")
+      <a class="nav-link" href="app_perencanaan" aria-labelledby="headingTwo">
+        <i class="fa fa-calendar"></i>
+        <span>Perencanaan Aktivitas</span>
+      </a>
+      <a class="nav-link" href="app_asset">
+        <i class="fa fa-cube"></i>
+        <span>Asset</span>
+      </a>
+      <a class="nav-link nav-item active" href="app_kendaraan">
+        <i class="fa fa-car"></i>
+        <span>Kendaraan</span>
+      </a>
+      <a class="nav-link nav-item active" href="app_pengajuan">
+        <i class="fa fa-share-square"></i>
+        <span>Pengajuan Pengadaan</span>
+      </a>
+      <a class="nav-link nav-item active" href="app_request">
+        <i class="fa fa-share"></i>
+        <span>Request</span>
+      </a>
+      @endif
+
+      @if(auth()->user()->level == "management")
+      <a class="nav-link" href="app_perencanaan" aria-labelledby="headingTwo">
+        <i class="fa fa-calendar"></i>
+        <span>Perencanaan Aktivitas</span>
+      </a>
+      <a class="nav-link" href="app_asset">
+        <i class="fa fa-cube"></i>
+        <span>Asset</span>
+      </a>
+      <a class="nav-link nav-item active" href="app_kendaraan">
+        <i class="fa fa-car"></i>
+        <span>Kendaraan</span>
+      </a>
+      <a class="nav-link nav-item active" href="app_pengajuan">
+        <i class="fa fa-share-square"></i>
+        <span>Pengajuan</span>
+      </a>
+      @endif
+
+
+
+      @if(auth()->user()->level == "pegawai")
+      <a class="nav-link nav-item active" href="app_kendaraan">
+        <i class="fa fa-car"></i>
+        <span>Kendaraan</span>
+      </a>
+
+      <a class="nav-link nav-item active" href="app_request">
+        <i class="fa fa-share"></i>
+        <span>Request</span>
+      </a>
+      @endif
+    </div>
+    <!-- Divider -->
+    
+ 
+  </li>
+   <hr class="sidebar-divider">
+    @if(auth()->user()->level == "general-affair")
+{{-- >>>>>>> 3dc89aa45931aaa6b770a57c0b58e1cd2d53c0ad --}}
     <!-- Heading -->
     <div class="sidebar-heading">
         Data Master
@@ -132,54 +209,9 @@
       </div>
     </li>
     <hr class="sidebar-divider d-md-block">
+       <!-- Sidebar Toggler (Sidebar) -->
   @endif
-  <!-- Heading -->
-  <div class="sidebar-heading">
-    @if(auth()->user()->level == "general-affair")
-      App
-    @endif
-    @if(auth()->user()->level == "management")
-      GA System
-    @endif
-  </div>
-  <li class="nav-item">
-    <div class="text-white py-2 rounded">
-      <a class="nav-link" href="app_perencanaan" aria-labelledby="headingTwo">
-        <i class="fa fa-calendar"></i>
-        <span>Perencanaan Aktivitas</span>
-      </a>
-      <a class="nav-link" href="app_asset">
-        <i class="fa fa-cube"></i>
-        <span>Asset</span>
-      </a>
-      <a class="nav-link nav-item active" href="app_kendaraan">
-        <i class="fa fa-car"></i>
-        <span>Kendaraan</span>
-      </a>
-      @if(auth()->user()->level == "general-affair")
-      <a class="nav-link nav-item active" href="app_pengajuan">
-        <i class="fa fa-share-square"></i>
-        <span>Pengajuan Pengadaan</span>
-      </a>
-      @endif
-
-      @if(auth()->user()->level == "management")
-      <a class="nav-link nav-item active" href="app_pengajuan">
-        <i class="fa fa-share-square"></i>
-        <span>Pengajuan</span>
-      </a>
-      @endif
-      <a class="nav-link nav-item active" href="app_request">
-        <i class="fa fa-share"></i>
-        <span>Request</span>
-      </a>
-    </div>
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-    
-    <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
-  </li>
 </ul>

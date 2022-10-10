@@ -35,7 +35,7 @@ class MasterKendaraanController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'mk_nama_kendaraan' => 'required|min:5|max:20',
+        'mk_nama_kendaraan' => 'required|min:5',
         ]);
         $kendaraan = new MasterKendaraan();
         $kendaraan->mk_nama_kendaraan = $request->mk_nama_kendaraan;
@@ -50,7 +50,7 @@ class MasterKendaraanController extends Controller
         $kendaraan->mk_kondisi_lain = $request->mk_kondisi_lain;
         $kendaraan->save();
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
-        return redirect()->route('master_kendaraan.index');
+        return redirect()->route('app_kendaraan.index');
         }
         /**
         * Display the specified resource.
