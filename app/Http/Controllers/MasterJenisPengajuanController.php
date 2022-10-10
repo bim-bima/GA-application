@@ -15,7 +15,7 @@ class MasterJenisPengajuanController extends Controller
         */
         public function index()
         {
-            $jenispengajuan = MasterJenisPengajuan::paginate(4);
+            $jenispengajuan = MasterJenisPengajuan::paginate(8);
             return view('master.masterjenispengajuan.index', compact(['jenispengajuan']));
         }
         /**

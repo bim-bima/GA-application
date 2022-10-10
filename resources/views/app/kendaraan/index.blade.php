@@ -109,14 +109,14 @@
               <td>{{ $item->ak_tujuan_pemakaian }}</td>
               @if(auth()->user()->level == "general-affair")
               <td>
-                <a class="btn btn-warning btn-circle btn-sm mb-xxl-0 mb-2" href="{{ route('app_kendaraan.edit',$item->id) }}">
+                <a class="btn btn-warning btn-circle btn-sm mb-xxl-0 mb-2" href="{{ route('app_kendaraan.edit',$item->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
                   <i class="fa fa-edit"></i>
                 </a>
                 <form action="{{ route('app_kendaraan.destroy',$item->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
                     {{-- <input class="btn btn-danger btndeleteitem" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle btn-sm  btndeleteitem mb-xxl-0 mb-2">
+                    <a href="" class="btn btn-danger btn-circle btn-sm  btndeleteitem mb-xxl-0 mb-2"  data-toggle="tooltip" data-placement="left" title="Delete">
                       <i class="fas fa-trash"></i>
                     </a>
                 </form>

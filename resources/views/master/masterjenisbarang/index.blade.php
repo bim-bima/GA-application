@@ -28,14 +28,14 @@
                 <input type="hidden" class="delete_id" value="{{ $jenisbarang->id }}">
                 <td>{{ $jenisbarang->mjb_jenis_barang }}</td>
                 <td>
-                  <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_jenisbarang.edit',$jenisbarang->id) }}">
+                  <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_jenisbarang.edit',$jenisbarang->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
                     <i class="fas fa-edit"></i>
                   </a>
                   <form action="{{ route('master_jenisbarang.destroy',$jenisbarang->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
                     {{-- <input class="btn btn-danger btndelete6" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete6">
+                    <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete6"  data-toggle="tooltip" data-placement="left" title="Delete">
                       <i class="fas fa-trash"></i>
                     </a>
                   </form>

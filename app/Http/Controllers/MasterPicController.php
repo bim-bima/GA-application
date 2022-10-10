@@ -15,7 +15,7 @@ class MasterPicController extends Controller
         */
         public function index()
         {
-            $datapic = MasterPic::paginate(4);
+            $datapic = MasterPic::paginate(8);
             return view('master.masterpic.index', compact(['datapic']));
         }
         /**

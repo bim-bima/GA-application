@@ -3,14 +3,18 @@
 @include('template-landing.head')
 
 <body>
+  
 
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">General Affair<span>.</span></a></h1>
+      <h1 class="logo"><a href="">General Affair<span>.</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
+      {{-- <a href="index.html" class="logo">
+        <img class="template/img-profile" src="{{asset('template/img/icon.png') }}" width="35px">
+      </a> --}}
+      <img src="assets/img/logo.png" alt="">
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -26,25 +30,25 @@
   </header>
   <!-- End Header -->
   <!-- ===== Hero Image ===== -->
-  <div class="">
-    <section id="hero" class="d-flex align-items-center">
-      <div class="container" data-aos="zoom-out" data-aos-delay="100">
-        <h1>Welcome to <span>General Affair</span></h1>
-        <h2>Berfokus pada pemberian pelayanan kepada seluruh bagian perusahaan demi kelancaran kerja perusahaan secara menyeluruh melalui supporting unit.</h2>
-      </div>
-    </section>
-  </div>
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container" data-aos="zoom-out" data-aos-delay="100">
+      <h1>Welcome to <span>General Affair</span></h1>
+      <h2>Berfokus pada pemberian pelayanan kepada seluruh bagian perusahaan demi kelancaran kerja perusahaan secara menyeluruh melalui supporting unit.</h2>
+    </div>
+  </section>
+  
   <main id="main">
 
-    <!-- ======= Featured Services Section ======= -->
+    <!-- ======= Featured Services Section ======= -->    
     <section id="featured-services" class="featured-services">
       <div class="container" data-aos="fade-up">
-
         <div class="row">
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
               <div class="icon"><i class="bx bx-world"></i></div>
-              <h4 class="title"><a href="">Pemeliharaan dan Perawatan</a></h4>
+              <h4 class="title">
+                <a class="" data-bs-toggle="modal" href="#modal-1">Pemeliharaan dan Perawatan</a>
+              </h4>
               <p class="description">Pemeliharaan dan Perawatan tentang kondisi dan fasilitas perusahaan.</p>
             </div>
           </div>
@@ -52,7 +56,9 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
               <div class="icon"><i class="bx bx-task"></i></div>
-              <h4 class="title"><a href="">Menyiapkan Laporan Bersekala</a></h4>
+              <h4 class="title">
+                <a data-bs-toggle="modal" href="#modal-2">Menyiapkan Laporan Bersekala</a>
+              </h4>
               <p class="description">Menyiapkan laporan berkala untuk keperluan rapat anggaran.</p>
             </div>
           </div>
@@ -60,7 +66,9 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
               <div class="icon"><i class="bx bx-check"></i></div>
-              <h4 class="title"><a href="">Membantu Perizinan</a></h4>
+              <h4 class="title">
+                <a data-bs-toggle="modal" href="#modal-3">Membantu Perizinan</a>
+              </h4>
               <p class="description">Divisi GA pada sebuah perusahaan juga bisa membantu dalam pengurusan segala bentuk perizinan yang dibutuhkan.</p>
             </div>
           </div>
@@ -68,7 +76,9 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
               <div class="icon"><i class="bx bx-group"></i></div>
-              <h4 class="title"><a href="">Membina Hubungan Baik</a></h4>
+              <h4 class="title">
+                <a data-bs-toggle="modal" href="#modal-4">Membina Hubungan Baik</a>
+              </h4>
               <p class="description">Membina hubungan baik dengan para suplier barang atau jasa.</p>
             </div>
           </div>
@@ -76,11 +86,12 @@
         </div>
 
       </div>
-    </section><!-- End Featured Services Section -->
+    </section>
+    <!-- End Featured Services Section -->
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about section-bg">
-      <div class="container">
+      <div class="container" data-aos="fade-up">
 
         <div class="section-title">
           <h2>About</h2>
@@ -91,29 +102,29 @@
         <div class="row justify-content-center">
           <div class="col-lg-10 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos-delay="100">
             <ul>
-              <li>
+              <li data-aos="fade-right">
                 <i class="bx bx-briefcase"></i>
                 <div>
                   <h5>Bertanggung Jawab Pada Pengadaan Barang</h5>
                   <p>mengurus pengadaan barang. Misalnya, barang atau aset mengalami kerusakan atau sudah lama dan mengalami penurunan kinerja. Dalam hal ini, GA akan memastikan barang atau aset perusahaan mana saja yang sudah harus diperbarui.</p>
                 </div>
               </li>
-              <li>
+              <li data-aos="fade-left">
                 <i class="bx bx-money"></i>
                 <div>
                   <h5>Bertanggung Jawab Pada Pembayaran dan Pembelian Rutin</h5>
                   <p>Selain membeli aset perusahaan yang bersifat semi permanen, GA juga bertugas melakukan pembelian rutin perusahaan.</p>
                 </div>
               </li>
-              <li>
-                <i class="bx bx-images"></i>
+              <li data-aos="fade-right">
+                <i class="bx bx-bar-chart"></i>
                 <div>
                   <h5>General Affair Bertugas untuk Pemeliharaan Aset.</h5>
                   <p>GA bertanggung jawab untuk mengontrol dan memelihara aset yang ada di perusahaan.</p>
                 </div>
               </li>
-              <li>
-                <i class="bx bx-images"></i>
+              <li data-aos="fade-left">
+                <i class="bx bx-building"></i>
                 <div>
                   <h5>Renovasi dan Pembukaan Kantor Cabang.</h5>
                   <p>GA bertugas untuk merinci biaya yang dibutuhkan untuk keperluan renovasi atau pembukaan kantor cabang.</p>
@@ -135,7 +146,7 @@
 
     <!-- ======= Frequently Asked Questions Section ======= -->
     <section id="faq" class="faq section-bg">
-      <div class="container">
+      <div class="container" data-aos="fade-up">
 
         <div class="section-title">
           <h2>F.A.Q</h2>
@@ -200,7 +211,8 @@
   @include('template-landing.footer')
 
 
-  
+  {{-- modal-1 --}}
+
 @include('template-landing.script')
 </body>
 
