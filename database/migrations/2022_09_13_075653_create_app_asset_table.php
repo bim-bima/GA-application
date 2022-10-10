@@ -17,11 +17,14 @@ return new class extends Migration
             $table->increments('id');
             $table->string('as_nama_asset');
             $table->BigInteger('as_mla_id')->unsigned();
+            $table->BigInteger('as_mca_id')->unsigned();
             $table->integer('as_tahun_kepemilikan');
+            $table->string('as_bulan');
             $table->string('as_kode_asset');
             $table->integer('as_harga');
-            $table->integer('as_nilai_residu');
+            // $table->integer('as_nilai_residu');
             $table->integer('as_umur_manfaat');
+            $table->integer('as_jumlah');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
 

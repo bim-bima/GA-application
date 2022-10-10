@@ -15,6 +15,20 @@
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
+            <div class="col-lg-6">
+        <label for="as_mca_id" class="form-label">Category Asset</label>
+        <select name="as_mca_id" class="form-control @error('as_mca_id') is-invalid @enderror" required>
+          @foreach ($categoryAsset as $category)
+          <option value="{{ $category->id }}" 
+          {{ $category->id == $asset->as_mca_id ? 'selected="selected"' : '' }}>
+          {{ $category->mca_category}}</option>
+          @endforeach    
+        </select>
+        @error('as_mca_id')
+          <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+      </div>
+
       <div class="col-lg-6">
         <label for="as_mla_id" class="form-label">Lokasi Asset</label>
         <select name="as_mla_id" class="form-control @error('as_mla_id') is-invalid @enderror" required>
@@ -30,18 +44,35 @@
       </div>
       <div class="col-lg-6">
         <label for="as_kode_asset" class="form-label">Kode Asset</label>
-        <input type="text" class="form-control @error('kode') is-invalid @enderror" name="as_kode_asset" value="{{ $asset->as_kode_asset }}" required>
+        <input type="text" class="form-control @error('kode') is-invalid @enderror" name="as_kode_asset" value="{{ $asset->as_kode_asset }}" required readonly>
         @error('kode')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
       <div class="col-lg-6">
-        <label for="as_tahun_kepemilikan" class="form-label">Tahun Kepemilikan</label>
+        <label for="as_tahun_kepemilikan" class="form-label">Tahun Pembelian</label>
         <input type="text" class="form-control @error('tahun') is-invalid @enderror" name="as_tahun_kepemilikan" value="{{ $asset->as_tahun_kepemilikan }}" required>
         @error('tahun')
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
+      <label class="form-label mt-3">Bulan Pembelian</label>
+              <select name="as_bulan" class="custom-select custom-select-md mb-3">
+                <option value="{{ $asset->as_bulan}}">pilih bulan</option>
+                <option value="-01">Januari</option>
+                <option value="-02">Februari</option>
+                <option value="-03">Maret</option>
+                <option value="-04">April</option>
+                <option value="-05">Mei</option>
+                <option value="-06">Juni</option>
+                <option value="-07">Juli</option>
+                <option value="-08">Agustus</option>
+                <option value="-09">September</option>
+                <option value="-10">Oktober</option>
+                <option value="-11">November</option>
+                <option value="-12">Desember</option>
+              </select>
+
       <div class="col-lg-6">
         <label for="as_harga" class="form-label">Harga Asset</label>
         <input type="text" class="form-control @error('harga') is-invalid @enderror" name="as_harga" value="{{ $asset->as_harga }}" required>
@@ -49,20 +80,28 @@
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-lg-6">
-        <label for="as_nilai_residu" class="form-label">Nilai Residu</label>
-        <input type="text" class="form-control @error('nilai') is-invalid @enderror" name="as_nilai_residu" value="{{ $asset->as_nilai_residu }}" required>
-        @error('nilai')
-          <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-      </div>
-      <div class="col-lg-6">
+      <!-- <div class="col-lg-6">
         <label for="as_umur_manfaat" class="form-label">Umur Manfaat Asset</label>
         <input type="text" class="form-control @error('umur') is-invalid @enderror" name="as_umur_manfaat" value="{{ $asset->as_umur_manfaat }}" required>
         @error('umur')
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
-      </div>
+      </div> -->
+      <div class="col-md-6">
+          <label for="as_umur_manfaat" class="form-label">Umur Manfaat Asset</label>
+          <select name="as_umur_manfaat" class="form-control @error('as_umur_manfaat') is-invalid @enderror" required>
+            <option value="{{ $asset->as_umur_manfaat }}">{{ $asset->as_umur_manfaat }} tahun</option>
+            <option value="4">4 tahun</option>
+            <option value="8">8 tahun</option>
+            <option value="12">12 tahun</option>
+            <option value="16">16 tahun</option>
+            <option value="20">20 tahun</option>
+            <option value="tanah">tanah</option>
+          </select>
+          @error('as_umur_manfaat')
+            <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
       <div class="col-lg-6 pt-3">
         <button class="btn btn-info mr-1">
           <i class="fa fa-angle-left"></i>

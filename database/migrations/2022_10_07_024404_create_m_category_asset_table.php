@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_request', function (Blueprint $table) {
+        Schema::create('m_category_asset', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ar_request');
-            $table->string('ar_catatan');
+            $table->string('mca_category');
+            $table->string('mca_id_category');
             $table->timestamp('created_at',0)->useCurrent();
             $table->timestamp('updated_at',0)->nullable();
         });
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_request');
+        Schema::dropIfExists('m_category_asset');
     }
 };

@@ -11,6 +11,8 @@ use App\Models\MasterLokasiAsset;
 use App\Models\MasterAktivitas;
 use App\Models\Perencanaan;
 use App\Models\MasterJenisPengajuan;
+use App\Models\MasterCategoryAsset;
+
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -140,6 +142,22 @@ class DatabaseSeeder extends Seeder
         ]);
         MasterJenisPengajuan::factory()->create([
             'mjp_jenis' => 'pengadaan jasa',
+        ]);
+        MasterCategoryAsset::factory()->create([
+            'mca_category' => 'elektronik',
+            'mca_id_category' => 'A'
+        ]);
+        MasterCategoryAsset::factory()->create([
+            'mca_category' => 'Aksesories',
+            'mca_id_category' => 'B'
+        ]);
+        MasterCategoryAsset::factory()->create([
+            'mca_category' => 'properti & furniture',
+            'mca_id_category' => 'C'
+        ]);
+        MasterCategoryAsset::factory()->create([
+            'mca_category' => 'kendaraan',
+            'mca_id_category' => 'D'
         ]);
 
     }

@@ -25,7 +25,8 @@
             <tr>
                 <th>Aktivitas</th>
                 <th>Tanggal</th>
-                <th>Status</th>
+                <th>Prioritas</th>
+                <th>Deskripsi</th>
             </tr>
           </thead>
           <tbody>
@@ -33,7 +34,8 @@
             <tr>
               <td>{{ $list->title }}</td>
               <td>{{ $list->start_date }}</td>
-              <td>{{ $list->status }}</td>
+              <td>{{ $list->prioritas }}</td>
+              <td>{{ $list->deskripsi }}</td>
             </tr>
             @endforeach
           </tbody>

@@ -9,11 +9,17 @@
     <h6 class="m-0 font-weight-bold text-primary">Asset</h6>
   </div>
   <?php   
-      // 'asset','tahunawal','tahunakhir','harga','residu','umur','penurunan1','penurunan2'
+        $tahunawal = $asset->as_tahun_kepemilikan; 
+        $tahunakhir = $tahunawal + $asset->as_umur_manfaat;
+        $harga = $asset->as_harga;
+        $umur = $asset->as_umur_manfaat;
+        $penurunan1 = $harga / $umur;
+
         $penurunan = array();  
-        for ( $p=$harga; $p>=$penurunan1; $p-=$penurunan2 ){
+        for ( $p=$harga; $p>=0; $p-=$penurunan1 ){
             $penurunan[] = array($p);
           }
+          
         $tahun = array();  
         for ( $i=$tahunawal;  $i<=$tahunakhir;  $i++ ){
             $tahun[] = array($i);
@@ -30,8 +36,9 @@
           type: 'bar',
           data: {
             labels: {{ json_encode($tahun) }},
+            // labels: ["kopi","susu","kopi","teh"],
               datasets: [{
-              label: 'Penyusutan Harga {{ $asset->as_nama_asset }}',
+              label: 'Penyusutan {{ $asset->as_nama_asset }}',
               data: {{ json_encode($penurunan) }},
               backgroundColor: 'rgba(255, 159, 64)' ,
               borderColor: 'black',
@@ -49,7 +56,7 @@
             }
           }
         });
-      </script>
+      </script> 
       <div class="card-body col-lg-3 pl-0 pr-4">
         <ol class="list-group list-group-numbered mr-1">
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
@@ -62,6 +69,12 @@
             <div class="ms-2 me-auto">
               <div class="fs-6"><small>Lokasi Asset :</small></div>
               <b>{{ $asset->lokasiAsset->mla_lokasi_asset }}</b>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
+            <div class="ms-2 me-auto">
+              <div class="fs-6"><small>Category Asset :</small></div>
+              <b>{{ $asset->categoryasset->mca_category }}</b>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
@@ -82,16 +95,16 @@
               <b>{{ $asset->as_harga }}</b>
             </div>
           </li> 
-          <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
+          <!-- <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
             <div class="ms-2 me-auto">
               <div class="fs-6"><small>Nilai Residu :</small></div>
               <b>{{ $asset->as_nilai_residu }}</b>
             </div>
-          </li>
+          </li>-->
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
             <div class="ms-2 me-auto pb-2">
               <div class="fs-6"><small>Umur Manfaat :</small></div>
-              <b>{{ $asset->as_umur_manfaat }}</b>
+              <b>{{ $asset->as_umur_manfaat }} tahun</b>
             </div>
           </li>
         </ol>

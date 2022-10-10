@@ -57,7 +57,7 @@ class AktivitasController extends Controller
                 'ulangi' => $request->ulangi,
                 'todate' => $request->todate,
                 'start_date' => date('Y-m-d', strtotime($request->start_date. ' + '.$i.' days')),
-                'end_date' => $request->end_date,
+                'end_date' => $request->end_date++,
                 'deskripsi' => $request->deskripsi,
                 'prioritas' => $request->prioritas,
                     ]);
@@ -71,7 +71,8 @@ class AktivitasController extends Controller
                 'ulangi' => $request->ulangi,
                 'todate' => $request->todate,
                 'start_date' => date('Y-m-d', strtotime($request->start_date. ' + '.$i.' days')),
-                'end_date' => $request->end_date,
+                'end_date' => date('Y-m-d', strtotime($request->end_date. ' + '.$i.' days')),
+                // 'end_date' => $request->end_date+=2,
                 'deskripsi' => $request->deskripsi,
                 'prioritas' => $request->prioritas,
                     ]);
@@ -85,7 +86,8 @@ class AktivitasController extends Controller
                 'ulangi' => $request->ulangi,
                 'todate' => $request->todate,
                 'start_date' => date('Y-m-d', strtotime($request->start_date. ' + '.$i.' days')),
-                'end_date' => $request->end_date,
+                'end_date' => date('Y-m-d', strtotime($request->end_date. ' + '.$i.' days')),
+                // 'end_date' => $request->end_date,
                 'deskripsi' => $request->deskripsi,
                 'prioritas' => $request->prioritas,
                     ]);
@@ -99,7 +101,8 @@ class AktivitasController extends Controller
                 'ulangi' => $request->ulangi,
                 'todate' => $request->todate,
                 'start_date' => date('Y-m-d', strtotime($request->start_date. ' + '.$i.' days')),
-                'end_date' => $request->end_date,
+                'end_date' => date('Y-m-d', strtotime($request->end_date. ' + '.$i.' days')),
+                // 'end_date' => $request->end_date,
                 'deskripsi' => $request->deskripsi,
                 'prioritas' => $request->prioritas,
                     ]);
@@ -113,7 +116,8 @@ class AktivitasController extends Controller
                 'ulangi' => $request->ulangi,
                 'todate' => $request->todate,
                 'start_date' => date('Y-m-d', strtotime($request->start_date. ' + '.$i.' days')),
-                'end_date' => $request->end_date,
+                'end_date' => date('Y-m-d', strtotime($request->end_date. ' + '.$i.' days')),
+                // 'end_date' => $request->end_date,
                 'deskripsi' => $request->deskripsi,
                 'prioritas' => $request->prioritas,
                     ]);
@@ -127,7 +131,8 @@ class AktivitasController extends Controller
                 'ulangi' => $request->ulangi,
                 'todate' => $request->todate,
                 'start_date' => date('Y-m-d', strtotime($request->start_date. ' + '.$i.' days')),
-                'end_date' => $request->end_date,
+                'end_date' => date('Y-m-d', strtotime($request->end_date. ' + '.$i.' days')),
+                // 'end_date' => $request->end_date,
                 'deskripsi' => $request->deskripsi,
                 'prioritas' => $request->prioritas,
                     ]);
@@ -141,7 +146,8 @@ class AktivitasController extends Controller
                 'ulangi' => $request->ulangi,
                 'todate' => $request->todate,
                 'start_date' => date('Y-m-d', strtotime($request->start_date. ' + '.$i.' days')),
-                'end_date' => $request->end_date,
+                'end_date' => date('Y-m-d', strtotime($request->end_date. ' + '.$i.' days')),
+                // 'end_date' => $request->end_date,
                 'deskripsi' => $request->deskripsi,
                 'prioritas' => $request->prioritas,
                     ]);

@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\AppRequest;
+
+use App\Models\MasterCategoryAsset;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class RequestController extends Controller
+class MAsterCategoryAssetController extends Controller
 {
         /**
         * Display a listing of the resource.
@@ -14,8 +15,8 @@ class RequestController extends Controller
         */
         public function index()
         {
-            $datarequest = AppRequest::paginate(5);
-            return view('app.request.index', compact(['datarequest']));
+            $datacategory = MasterCategoryAsset::paginate(5);
+            return view('master.mastercategoryasset.index', compact(['datacategory']));
         }
         /**
         * Show the form for creating a new resource.
@@ -24,7 +25,7 @@ class RequestController extends Controller
         */
         public function create()
         {
-        return view('master.masterpic.create');
+        return view('master.mastercategoryasset.create');
         }
         /**
         * Store a newly created resource in storage.
@@ -35,13 +36,15 @@ class RequestController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'mp_nama' => 'required|min:5|max:15',
+        'mca_category' => 'required|min:5|max:100',
+        'mca_id_category' => 'required|max:3|unique',
         ]);
-        $masterpic = new MasterPic();
-        $masterpic->mp_nama = $request->mp_nama;
-        $masterpic->save();
+        $mastercategoryasset = new Mastercategoryasset();
+        $mastercategoryasset->mca_category = $request->mca_category;
+        $mastercategoryasset->mca_id_category = $request->mca_id_category;
+        $mastercategoryasset->save();
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
-        return redirect()->route('master_pic.index');
+        return redirect()->route('master_categoryasset.index');
         }
         /**
         * Display the specified resource.
@@ -49,10 +52,10 @@ class RequestController extends Controller
         * @param  \App\MasterPic  $pic
         * @return \Illuminate\Http\Response
         */
-        public function show(MasterPic $pic)
-        {
+        // public function show(MasterPic $pic)
+        // {
         // return view('',compact(''));
-        }
+        // }
         /**
         * Show the form for editing the specified resource.
         *
@@ -62,8 +65,8 @@ class RequestController extends Controller
         public function edit($id)
         {
             // dd($pic);
-            $pic = MasterPic::find($id);
-            return view('master.masterpic.edit',compact('pic'));
+            $mastercategory = MasterCategoryAsset::find($id);
+            return view('master.mastercategoryasset.edit',compact('mastercategory'));
         }
         /**
         * Update the specified resource in storage.
@@ -75,13 +78,14 @@ class RequestController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-        'mp_nama' => 'required|min:5|max:50',
+        'mca_category' => 'required|min:5|max:50',
         ]);
-        $pic = MasterPic::find($id);
-        $pic->mp_nama = $request->mp_nama;
-        $pic->save();
+        $category = MasterCategoryAsset::find($id);
+        $category->mca_category = $request->mca_category;
+        $category->mca_id_category = $request->mca_id_category;
+        $category->save();
         Alert::success('Berhasil', 'Data Berhasil Diedit');
-        return redirect()->route('master_pic.index');
+        return redirect()->route('master_categoryasset.index');
         }
         /**
         * Remove the specified resource from storage.
@@ -91,12 +95,9 @@ class RequestController extends Controller
         */
         public function destroy($id)
         {
-            $id = MasterPic::find($id);
+            $id = MasterCategoryAsset::find($id);
             $id->delete();
-        // Alert::success('Berhasil', 'Data Berhasil Dihapus');
-        // return redirect()->route('master_pic.index');
-        return response()->json(['status' => 'Data Berhasil di hapus!']);
-
-
+            return response()->json(['status' => 'Data Berhasil di hapus!']);
         }
+
 }

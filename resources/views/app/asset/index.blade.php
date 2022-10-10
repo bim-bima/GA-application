@@ -6,7 +6,8 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Daftar Asset</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Daftar 
+      </h6>
       @if(auth()->user()->level == "general-affair")
       <button class="btn btn-primary mt-3">
         <i class="fa fa-plus"></i>
@@ -24,7 +25,7 @@
                 <th>Tahun milikan</th>
                 <th>Kode Asset</th>
                 <th>Harga Asset</th>
-                <th>Nilai Residu</th>
+                <th>Category</th>
                 <th>Umur Manfaat</th>
                 <th>Aksi</th>
             </tr>
@@ -38,8 +39,8 @@
               <td>{{ $asset->as_tahun_kepemilikan }}</td>
               <td>{{ $asset->as_kode_asset }}</td>
               <td>{{ $asset->as_harga }}</td>
-              <td>{{ $asset->as_nilai_residu }}</td>
-              <td>{{ $asset->as_umur_manfaat }}</td>
+              <td>{{ $asset->categoryasset->mca_category }}</td>
+              <td>{{ $asset->as_umur_manfaat }} tahun</td>
               <td>
                 <a class="btn-sm btn-info btn-circle mb-xl-0 mb-2" href="{{ route('app_asset.show',$asset->id) }}">
                   <i class="fas fa-info-circle"></i>
@@ -53,16 +54,22 @@
                   <i class="fa fa-edit"></i>
                 </a>
                 <form action="{{ route('app_asset.destroy',$asset->id) }}" method="post" class="d-inline">
+                  @csrf
+                  @method('delete')
+                  <button class="btn btn-danger btn-circle btn-sm" type="submit">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </form>
+
+<!--                 <form action="{{ route('app_asset.destroy',$asset->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
-                    {{-- <input class="btn btn-danger btn-circle btndeleteasset" type="submit" value="
-                    <i class="fas fa-trash"></i>"> --}}
+                    {{-- <input class="btn btn-danger btn-circle btndeleteasset" type="submit" value="<i class="fas fa-trash"></i>"> --}}
                     
                     <a href="" class="btn-sm btn-danger btn-circle btndeleteasset mb-xl-0 mb-2">
-
                       <i class="fas fa-trash"></i>
                     </a>
-                </form>
+                </form> -->
             @endif
             </td>
             </tr>

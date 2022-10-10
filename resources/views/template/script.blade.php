@@ -43,6 +43,7 @@
                             };
                             $.ajax({
                                 type: "DELETE",
+
                                 url: 'master_kendaraan/' + deleteid,
 
                                 data: data,
@@ -62,6 +63,59 @@
         });
 
     </script>
+
+    
+<!-- Alert category asset -->
+    <script>
+        $(document).ready(function () {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.btndelete2').click(function (e) {
+                e.preventDefault();
+
+                var deleteid2 = $(this).closest("tr").find('.delete_id').val();
+
+                swal({
+                        title: "Apakah anda yakin?",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteid2,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: 'master_categoryasset/' + deleteid2,
+
+                                data: data,
+                                success: function (response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
+        });
+
+    </script>
+
 
     <!-- Alert Pic -->
     <script>

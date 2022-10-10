@@ -19,6 +19,7 @@ use App\Http\Controllers\MasterStatusFollowupController;
 use App\Http\Controllers\MasterLokasiAssetController;
 use App\Http\Controllers\MasterCategoryBarangController;
 use App\Http\Controllers\MasterJenisPengajuanController;
+use App\Http\Controllers\MAsterCategoryAssetController;
 
 
 /*
@@ -51,6 +52,9 @@ Route::group(['middleware' => ['auth', 'level:general-affair']], function(){
     Route::resource('master_statusfollowup', MasterStatusFollowupController::class);
     Route::resource('master_lokasiasset', MasterLokasiAssetController::class);
     Route::resource('master_jenispengajuan', MasterJenisPengajuanController::class);
+    Route::resource('master_categoryasset', MAsterCategoryAssetController::class);
+    Route::patch('app_aktivitas/update/{id}',[AktivitasController::class,'update']);
+
 });
 
     // ga
@@ -69,6 +73,7 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('app_asset', AssetController::class);
+    Route::resource('app_request', RequestController::class);
     Route::resource('app_pengajuan', PengajuanController::class);
     Route::resource('app_kendaraan', KendaraanController::class);
     Route::resource('app_aktivitas', AktivitasController::class);

@@ -13,16 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_aktivitas', function (Blueprint $table) {
+        Schema::create('app_request', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('reminder')->nullable();
-            $table->string('ulangi');
-            $table->string('todate')->nullable();
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->string('prioritas');
-            $table->longText('deskripsi')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_aktivitas');
+        Schema::dropIfExists('app_request');
     }
 };

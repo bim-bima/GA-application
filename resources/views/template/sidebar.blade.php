@@ -60,10 +60,12 @@
           <span>Pengajuan</span>
         </a>
         @endif
+        @if(auth()->user()->level == "general-affair")
         <a class="nav-link nav-item active" href="app_request">
           <i class="fa fa-share"></i>
           <span>Request</span>
         </a>
+        @endif
 
       </div>
     </div>
@@ -119,6 +121,10 @@
           <a class="nav-link" href="master_jenispengajuan">
             <i class="fa fa-map-marker"></i>
             <span>Jenis Pengajuan</span>
+          </a>
+          <a class="nav-link" href="master_categoryasset">
+            <i class="fa fa-map-marker"></i>
+            <span>Category Asset</span>
           </a>
         </ul>
       </div>
