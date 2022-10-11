@@ -35,6 +35,9 @@
                     @csrf
                     @method('delete')
                     {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
+                    {{-- <button type="submit" class="btn btn-circle btn-danger btn-flat show_confirm_pic" data-toggle="tooltip" title="Delete">
+                      <i class="fas fa-trash"></i>
+                    </button> --}}
                     <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete2" data-toggle="tooltip" data-placement="left" title="Delete">
                       <i class="fas fa-trash"></i>
                     </a>

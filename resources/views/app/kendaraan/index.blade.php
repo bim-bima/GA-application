@@ -14,24 +14,24 @@
       </button>
       @endif
     </div>
-    <div class="card-body">
+    <div class="card-body px-sm-3 px-1">
       <div class="row">
           @foreach( $datakendaraan as $ken )
             <div class="col-xl-3 col-md-6 mb-4">
-                  <div class="card h-100 ">
+                  <div class="card h-100">
                     <div class="card-header py-2">
                   <h6 class="m-0 font-weight-bold text-primary text-center">{{ $ken->mk_nama_kendaraan }}</h6>
                   </div>
                     <div class="card-body">
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-primary text-uppercase ">Status</div>
+                          <div class="h6 font-weight-bold text-primary mb-0">Status</div>
 
                           {{-- <div class="text-xs mb-0 font-weight-bold text-primary-800">
                             {{ $ken->mk_status }}
                           </div> --}}
 
-                        <div class=" h5 mb-0 font-weight-bold text-gray-800">
+                        <div class="h6 font-weight-bold text-gray-800">
                         {{$ken->mk_status}}
                         </div>
 
@@ -41,8 +41,8 @@
 
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-primary text-uppercase ">Bahan Bakar Tersedia</div>
-                        <div class=" h5 mb-0 font-weight-bold text-gray-800">{{ $ken->mk_bahan_bakar }}</div>
+                          <div class="h6 font-weight-bold text-primary mb-0">Bahan Bakar Tersedia</div>
+                        <div class="h6 font-weight-bold text-gray-800">{{ $ken->mk_bahan_bakar }}</div>
                         </div>
                         <div class="col-auto">
                           {{-- <i class="fas fa-calendar fa-2x text-gray-300"></i> --}}
@@ -51,8 +51,8 @@
 
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-primary text-uppercase ">Kilometer</div>
-                        <div class=" h5 mb-0 font-weight-bold text-gray-800">{{ $ken->mk_kilometer }}</div>
+                          <div class="h6 font-weight-bold text-primary mb-0">Kilometer</div>
+                        <div class="h6 font-weight-bold text-gray-800">{{ $ken->mk_kilometer }}</div>
                         </div>
                         <div class="col-auto">
                           {{-- <i class="fas fa-calendar fa-2x text-gray-300"></i> --}}
@@ -61,15 +61,17 @@
 
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-primary text-uppercase ">Kondisi Lain</div>
-                        <div class=" h5 mb-0 font-weight-bold text-gray-800">{{ $ken->mk_kondisi_lain }}</div>
+                          <div class="h6 font-weight-bold text-primary mb-0">Kondisi Lain</div>
+                        <div class="h6 font-weight-bold text-gray-800">{{ $ken->mk_kondisi_lain }}</div>
                         </div>
                         <div class="col-auto">
                           {{-- <i class="fas fa-calendar fa-2x text-gray-300"></i> --}}
                         </div>
                       </div>
                       @if(auth()->user()->level == "general-affair")
-                      <a class="mt-3 btn btn-warning px-5" href="{{ route('master_kendaraan.edit',$ken->id) }}">Update</a>
+                      <div class="row justify-content-center">
+                        <a class="mt-3 btn btn-warning px-5" href="{{ route('master_kendaraan.edit',$ken->id) }}">Update</a>
+                      </div>
                       @endif
                     </div>
                   </div>

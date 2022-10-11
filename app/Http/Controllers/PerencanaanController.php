@@ -87,7 +87,7 @@ class PerencanaanController extends Controller
 
         Alert::success('Berhasil', 'Data Berhasil Dihapus');
         return redirect()->route('app_perencanaan.index');
-        return response()->json(['status' => 'Data Berhasil di hapus!']);
+        // return response()->json(['status' => 'Data Berhasil di hapus!']);
     }
 
    

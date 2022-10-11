@@ -151,7 +151,6 @@
   </li>
    <hr class="sidebar-divider">
     @if(auth()->user()->level == "general-affair")
-{{-- >>>>>>> 3dc89aa45931aaa6b770a57c0b58e1cd2d53c0ad --}}
     <!-- Heading -->
     <div class="sidebar-heading">
         Data Master
@@ -202,7 +201,7 @@
             <span>Jenis Pengajuan</span>
           </a>
           <a class="nav-link" href="master_categoryasset">
-            <i class="fa fa-map-marker"></i>
+            <i class="fa fa-cog"></i>
             <span>Category Asset</span>
           </a>
         </ul>

@@ -95,9 +95,11 @@
                 <form action="{{ route('app_perencanaan.destroy',$perencanaan->id) }}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
-                  <button class="btn btn-danger btn-circle" type="submit"  data-toggle="tooltip" data-placement="left" title="Delete">
+                  {{-- <a href="" class="delete" data-confirm="Are you sure to delete this item?">Delete</a> --}}
+                  <button type="submit" class="btn btn-circle btn-danger btn-flat show_confirm" data-toggle="tooltip" title="Delete">
                     <i class="fas fa-trash"></i>
                   </button>
+                  {{-- <button class="btn btn-danger btn-circle delete" type="submit"  data-toggle="tooltip" data-placement="left" title="Delete" data-confirm="Are you sure to delete this item?"> --}}
                 </form>
                 @endif
               </div>
