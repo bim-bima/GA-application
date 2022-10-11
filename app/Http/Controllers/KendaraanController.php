@@ -35,7 +35,7 @@ class KendaraanController extends Controller
         return view('app.kendaraan.create', compact(['namaKendaraan','datapic']));
         }
         /**
-        * Store a newly created resource in storage.
+        * Store a newly created resource in storage.    
         *
         * @param  \Illuminate\Http\Request  $request
         * @return \Illuminate\Http\Response
@@ -63,7 +63,14 @@ class KendaraanController extends Controller
         $datakendaraan->save();
 
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
-        return redirect()->route('app_kendaraan.index');
+        $namaKendaraan = MasterKendaraan::all();
+        $datapic = Masterpic::all();
+        if(auth()->user()->level == "pegawai"){
+            return view('app.kendaraan.create', compact(['namaKendaraan','datapic']));
+        }else{
+            return redirect()->route('app_kendaraan.index');
+        } 
+        
     }
         /**
         * Display the specified resource.
@@ -71,9 +78,10 @@ class KendaraanController extends Controller
         * @param  \App\MasterPic  $pic
         * @return \Illuminate\Http\Response
         */
-        public function show(MasterPic $pic)
+        public function show($id)
         {
-        // return view('',compact(''));
+            $kendaraan = MasterKendaraan::find($id);
+            return view('app.kendaraan.show', compact(['kendaraan']));
         }
         /**
         * Show the form for editing the specified resource.

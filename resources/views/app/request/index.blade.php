@@ -5,11 +5,11 @@
 @if(auth()->user()->level == "general-affair")
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Daftar Request</h6>
+    <h6 class="m-0 font-weight-bold text-primary">Daftar Request</h6>
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="table-responsive col-md-8 border-dark">
+      <div class="table-responsive col-md-12 border-dark">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead class="">
             <tr>
@@ -23,17 +23,21 @@
             @foreach ($datarequest as $request)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $request->id }}">
-              <td>{{ $request->created_at }}</td>
+              <?php 
+                $tanggal1 = $request->created_at;
+                $tanggal = substr($tanggal1,-0,10);
+               ?>
+              <td>{{ $tanggal }}</td>
               <td>{{ $request->ar_request }}</td>
               <td>{{ $request->ar_catatan }}</td>
               <td>
                 <form action="{{ route('app_request.destroy',$request->id) }}" method="post" class="d-inline">
-                    @csrf
-                    @method('delete')
-                    {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndeleterequest">
-                      <i class="fas fa-trash"></i>
-                    </a>
+                  @csrf
+                  @method('delete')
+                  {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
+                  <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndeleterequest">
+                    <i class="fas fa-trash"></i>
+                  </a>
                 </form>
             </td>
             </tr>
@@ -49,13 +53,13 @@
 
 @if(auth()->user()->level == "pegawai")
 <div class="row px-sm-3 px-0">
-  <div class="card shadow mb-4 col-md-6 px-0">
+  <div class="card shadow mb-4 col-12 px-0">
     <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Buat Request</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Buat Request</h6>
     </div>
     <div class="card-body">
       <div class="row">
-        <div class="col-10 border-dark">
+        <div class="col-6 border-dark">
           <form action="{{ route('app_request.store') }}" method="POST" enctype="multipart/form-data" class="">
             @csrf
             <label for="ar_request" class="form-label">Request</label>
