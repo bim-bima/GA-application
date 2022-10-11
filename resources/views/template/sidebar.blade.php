@@ -148,7 +148,7 @@
             <span>Jenis Pengajuan</span>
           </a>
           <a class="nav-link" href="master_categoryasset">
-            <i class="fa fa-map-marker"></i>
+            <i class="fa fa-cog"></i>
             <span>Category Asset</span>
           </a>
         </ul>

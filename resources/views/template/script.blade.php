@@ -831,4 +831,48 @@
 
 </script>
 
+<script type="text/javascript">
+ 
+    $('.show_confirm').click(function(event) {
+         var form =  $(this).closest("form");
+         var name = $(this).data("name");
+         event.preventDefault();
+         swal({
+             title: `Apakah Anda yakin?`,
+             text: "Semua aktivitas di bulan ini akan dihapus!",
+             icon: "warning",
+             buttons: true,
+             dangerMode: true,
+         })
+         .then((willDelete) => {
+           if (willDelete) {
+             form.submit();
+           }
+         });
+     });
+ 
+</script>
+
+{{-- <script type="text/javascript">
+ 
+    $('.show_confirm_pic').click(function(event) {
+         var form =  $(this).closest("form");
+         var name = $(this).data("name");
+         event.preventDefault();
+         swal({
+             title: `Apakah anda yakin?`,
+             text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
+             icon: "warning",
+             buttons: true,
+             dangerMode: true,
+         })
+         .then((willDelete) => {
+           if (willDelete) {
+             form.submit();
+           }
+         });
+     });
+ 
+</script> --}}
+
 

@@ -10,11 +10,11 @@
         <a href="{{ route('master_aktivitas.create') }}" class="text-white text-decoration-none">Tambah</a>
       </button>
     </div>
-    <div class="card-body">
+    <div class="card-body px-sm-4 px-1">
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
-            <tr>
+            <tr class="">
               <th class="">Nama Aktivitas</th>
               <th>Aksi</th>
             </tr>

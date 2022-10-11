@@ -20,17 +20,17 @@
       @enderror
 
       <div class="col-md-6">
-          <label for="ap_mv_id" class="form-label">Vendor</label>
-          <select name="ap_mv_id" class="form-control @error('ap_mv_id') is-invalid @enderror" required>
-            <option value="">Pilih Vendor</option>
-            @foreach ($vendor as $ven)
-            <option value="{{ $ven->id }}">{{ $ven->mv_nama_vendor}}</option>
-            @endforeach    
-          </select>
-          @error('ap_mv_id')
-            <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div>
+        <label for="ap_mv_id" class="form-label">Vendor</label>
+        <select name="ap_mv_id" class="form-control @error('ap_mv_id') is-invalid @enderror" required>
+          <option value="">Pilih Vendor</option>
+          @foreach ($vendor as $ven)
+          <option value="{{ $ven->id }}">{{ $ven->mv_nama_vendor}}</option>
+          @endforeach    
+        </select>
+        @error('ap_mv_id')
+          <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+      </div>
       <label for="ap_biaya" class="form-label">Biaya</label>
       <input type="text" class="form-control @error('biaya') is-invalid @enderror" name="ap_biaya" required>
       @error('biaya')
@@ -46,20 +46,18 @@
       @error('pengadaan')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
-
       <div class="col-md-6">
-          <label for="ap_mp_id" class="form-label">PIC</label>
-          <select name="ap_mp_id" class="form-control @error('ap_mp_id') is-invalid @enderror" required>
-            <option value="">Pilih Vendor</option>
-            @foreach ($pic as $pi)
-            <option value="{{ $pi->id }}">{{ $pi->mp_nama}}</option>
-            @endforeach    
-          </select>
-          @error('ap_mp_id')
-            <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div>
-
+        <label for="ap_mp_id" class="form-label">PIC</label>
+        <select name="ap_mp_id" class="form-control @error('ap_mp_id') is-invalid @enderror" required>
+          <option value="">Pilih Vendor</option>
+          @foreach ($pic as $pi)
+          <option value="{{ $pi->id }}">{{ $pi->mp_nama}}</option>
+          @endforeach    
+        </select>
+        @error('ap_mp_id')
+        <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+      </div>
       <button class="btn btn-info my-3 mr-1">
         <i class="fa fa-angle-left"></i>
         <a href="{{ route('app_pengajuan.index') }}" class="text-white text-decoration-none">kembali</a>
@@ -71,7 +69,6 @@
     </form>
   </div>
 </div>
-
 @endsection
 
 
