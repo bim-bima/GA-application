@@ -27,6 +27,7 @@
           <tbody class="border-top-0">
             @foreach ($datacategory as $category)
             <tr>
+              <input type="hidden" class="delete_id" value="{{ $category->id }}">
               <td>{{ $category->mca_category }}</td>
               <td>{{ $category->id }}</td>
               <td>
@@ -37,7 +38,7 @@
                     @csrf
                     @method('delete')
                     {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete2">
+                    <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndeletecategory">
                       <i class="fas fa-trash"></i>
                     </a>
                 </form>

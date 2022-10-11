@@ -35,7 +35,7 @@ class MasterKendaraanController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'mk_nama_kendaraan' => 'required|min:5',
+        'mk_nama_kendaraan' => 'required|min:3',
         ]);
         $kendaraan = new MasterKendaraan();
         $kendaraan->mk_nama_kendaraan = $request->mk_nama_kendaraan;
@@ -84,7 +84,7 @@ class MasterKendaraanController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-        'mk_nama_kendaraan' => 'required|min:5|max:15',
+        'mk_nama_kendaraan' => 'required|min:3|max:15',
         ]);
         $kendaraan = MasterKendaraan::find($id);
         $kendaraan->mk_nama_kendaraan = $request->mk_nama_kendaraan;

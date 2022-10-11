@@ -637,10 +637,10 @@
                 }
             });
 
-            $('.btndelete10').click(function (e) {
+            $('.btndeleteaktivitas').click(function (e) {
                 e.preventDefault();
 
-                var deleteidi10 = $(this).closest("div").find('.delete_id2').val();
+                var deleteidi10 = $(this).closest("div").find('.delete_id').val();
 
                 swal({
                         title: "Apakah anda yakin?",
@@ -677,3 +677,158 @@
         });
 
     </script>
+
+<!-- Alert App Asset -->
+<script>
+	$(document).ready(function () {
+
+			$.ajaxSetup({
+					headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					}
+			});
+
+			$('.btndeleteasset').click(function (e) {
+					e.preventDefault();
+
+					var deleteidasset = $(this).closest("tr").find('.delete_id').val();
+
+					swal({
+									title: "Apakah anda yakin?",
+									text: "Asset ini akan dihapus!",
+									icon: "warning",
+									buttons: true,
+									dangerMode: true,
+							})
+							.then((willDelete) => {
+									if (willDelete) {
+
+											var data = {
+													"_token": $('input[name=_token]').val(),
+													'id': deleteidasset,
+											};
+											$.ajax({
+													type: "DELETE",
+													url: 'app_asset/' + deleteidasset,
+
+													data: data,
+													success: function (response) {
+															swal(response.status, {
+																			icon: "success",
+																	})
+																	.then((result) => {
+																			location.reload();
+																	});
+													}
+											});
+									}
+							});
+			});
+
+	});
+
+</script>
+
+<!-- Alert Delete Category -->
+<script>
+	$(document).ready(function () {
+
+			$.ajaxSetup({
+					headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					}
+			});
+
+			$('.btndeletecategory').click(function (e) {
+					e.preventDefault();
+
+					var deletecategory = $(this).closest("tr").find('.delete_id').val();
+
+					swal({
+									title: "Apakah anda yakin?",
+									text: "Kategori ini akan di Hapus!",
+									icon: "warning",
+									buttons: true,
+									dangerMode: true,
+							})
+							.then((willDelete) => {
+									if (willDelete) {
+
+											var data = {
+													"_token": $('input[name=_token]').val(),
+													'id': deletecategory,
+											};
+											$.ajax({
+													type: "DELETE",
+													url: 'master_categoryasset/' + deletecategory,
+
+													data: data,
+													success: function (response) {
+															swal(response.status, {
+																			icon: "success",
+																	})
+																	.then((result) => {
+																			location.reload();
+																	});
+													}
+											});
+									}
+							});
+			});
+
+	});
+
+</script>
+
+<!-- Alert Delete Request-->
+<script>
+	$(document).ready(function () {
+
+			$.ajaxSetup({
+					headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					}
+			});
+
+			$('.btndeleterequest').click(function (e) {
+					e.preventDefault();
+
+					var deleterequest = $(this).closest("tr").find('.delete_id').val();
+
+					swal({
+									title: "Apakah anda yakin?",
+									text: "Request ini akan di hapus!",
+									icon: "warning",
+									buttons: true,
+									dangerMode: true,
+							})
+							.then((willDelete) => {
+									if (willDelete) {
+
+											var data = {
+													"_token": $('input[name=_token]').val(),
+													'id': deleterequest,
+											};
+											$.ajax({
+													type: "DELETE",
+													url: 'app_request/' + deleterequest,
+
+													data: data,
+													success: function (response) {
+															swal(response.status, {
+																			icon: "success",
+																	})
+																	.then((result) => {
+																			location.reload();
+																	});
+													}
+											});
+									}
+							});
+			});
+
+	});
+
+</script>
+
+

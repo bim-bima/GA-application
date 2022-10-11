@@ -36,7 +36,7 @@ class MasterStatusFollowupController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'msf_status' => 'required|min:5|max:15',
+        'msf_status' => 'required|min:5|max:50',
         ]);
         $masterstatusfollowup = new MasterStatusFollowup();
         $masterstatusfollowup->msf_status = $request->msf_status;

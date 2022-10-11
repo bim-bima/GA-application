@@ -76,7 +76,7 @@ class MasterAktivitasController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-        'ma_nama_aktivitas' => 'required|min:5|max:20',
+        'ma_nama_aktivitas' => 'required|min:5|max:50',
         ]);
         $aktivitas = MasterAktivitas::find($id);
         $aktivitas->ma_nama_aktivitas = $request->ma_nama_aktivitas;

@@ -36,7 +36,7 @@ class MasterPicController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'mp_nama' => 'required|min:5|max:15',
+        'mp_nama' => 'required|min:3|max:15',
         ]);
         $masterpic = new MasterPic();
         $masterpic->mp_nama = $request->mp_nama;
@@ -76,7 +76,7 @@ class MasterPicController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-        'mp_nama' => 'required|min:5|max:50',
+        'mp_nama' => 'required|min:3|max:50',
         ]);
         $pic = MasterPic::find($id);
         $pic->mp_nama = $request->mp_nama;
