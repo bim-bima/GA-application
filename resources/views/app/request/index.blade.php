@@ -13,6 +13,7 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead class="">
             <tr>
+              <th class="col-sm-5 col-3 ">Tanggal</th>
               <th class="col-sm-5 col-3 ">Request</th>
               <th class="col-sm-5 col-3 ">Catatan</th>
               <th class="col-3">Aksi</th>
@@ -22,6 +23,7 @@
             @foreach ($datarequest as $request)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $request->id }}">
+              <td>{{ $request->created_at }}</td>
               <td>{{ $request->ar_request }}</td>
               <td>{{ $request->ar_catatan }}</td>
               <td>

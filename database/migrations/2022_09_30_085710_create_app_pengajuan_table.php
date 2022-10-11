@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedInteger('ap_mp_id');
             $table->string('ap_status')->nullable();
             $table->string('ap_reason')->nullable();
-            $table->date('created_at')->useCurrent();
+            $table->date('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
 
             $table->foreign('ap_mp_id')->references('id')->on('m_pic');

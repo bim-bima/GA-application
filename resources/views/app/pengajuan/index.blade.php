@@ -157,8 +157,6 @@
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <input type="text" class="form-control d-none" name="ap_status" value="null">
-      <input type="text" class="form-control d-none" name="ap_status" value="null">
       <div class="col-12">
         <button type="submit" class="btn btn-success mb-3">
           Kirim Pengajuan
@@ -181,30 +179,20 @@
           <tr>
               <th>Tanggal</th>
               <th>Nama Pengajuan</th>
-              <th>Jenis</th>
-              <th>Vendor</th>
-              <th>Biaya</th>
-              <th>Catatan</th>
-              <th>Tanggal Di Butuhkan</th>
-              <th>PIC</th>
-              <!-- <th>Status</th> -->
+              <th>Status</th>
+              <th>Detail</th>
           </tr>
         </thead>
         <tbody>
-          <?php 
-
-           ?>
-          @foreach ($setuju as $pengajuan)
+          @foreach ($datapengajuan as $pengajuan)
           <tr>
             <td>{{ $pengajuan->created_at }}</td>
             <td>{{ $pengajuan->ap_nama_pengajuan }}</td>
-            <td>{{ $pengajuan->jenispengajuan->mjp_jenis }}</td>
-            <td>{{ $pengajuan->vendor->mv_nama_vendor }}</td>
-            <td>{{ $pengajuan->ap_biaya }}</td>
-            <td>{{ $pengajuan->ap_catatan }}</td>
-            <td>{{ $pengajuan->ap_tanggal_pengadaan }}</td>
-            <td>{{ $pengajuan->pic->mp_nama }}</td>
-            <!-- <td>{{ $pengajuan->ap_status }}</td> -->
+            <td>{{ $pengajuan->ap_status }}</td>
+            <td><a class="btn-sm btn-info btn-circle mb-xl-0 mb-2" href="{{ route('app_pengajuan.show',$pengajuan->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
+                  <i class="fas fa-info-circle"></i>
+                </a>
+            </td>
             
           </tr>
           @endforeach

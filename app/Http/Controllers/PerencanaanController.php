@@ -62,6 +62,17 @@ class PerencanaanController extends Controller
         }
         return view('app.aktivitas.index', ['events' => $events], compact(['perencanaan','maktivitas']) );
     }
+
+    public function edit($id)
+        {
+            $perencanaan = Perencanaan::find($id);
+            $waktu = $perencanaan->ap_tahun.$perencanaan->ap_bulan;
+            $listaktivitas = Aktivitas::all();
+            $list = DB::table("app_aktivitas")->where("start_date", 'LIKE', '%'.$waktu.'%')->get();
+
+            return view('app.perencanaan.list',compact('list'));
+        }
+    
     public function destroy($id)
     {
         $perencanaan = Perencanaan::find($id);

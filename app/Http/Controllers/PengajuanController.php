@@ -26,7 +26,7 @@ class PengajuanController extends Controller
             $pic = MasterPic::all();
             $jenispengajuan = MasterJenisPengajuan::all();
             // $datapengajuan = Pengajuan::where('ap_status', 'tidak setuju')->get();
-            $ajuan = Pengajuan::where('ap_status', 'null')->get();
+            $ajuan = Pengajuan::where('ap_status', 'menunggu persetujuan')->get();
             $setuju = Pengajuan::where('ap_status', 'setujui')->with('vendor')->get();
             return view('app.pengajuan.index', compact(['datapengajuan','vendor','pic','jenispengajuan','setuju','ajuan']));
         }
@@ -65,7 +65,7 @@ class PengajuanController extends Controller
         $pengajuan->ap_catatan = $request->ap_catatan;
         $pengajuan->ap_tanggal_pengadaan = $request->ap_tanggal_pengadaan;
         $pengajuan->ap_mp_id = $request->ap_mp_id;
-        $pengajuan->ap_status = $request->ap_status;
+        $pengajuan->ap_status = 'menunggu persetujuan';
         $pengajuan->ap_reason = $request->ap_reason;
         $pengajuan->save();
         Alert::success('Berhasil', 'Data Berhasil Diajukan');
@@ -81,6 +81,7 @@ class PengajuanController extends Controller
         {
         $setujui = Pengajuan::find($id);
         $setujui->ap_status = $request->ap_status;
+        $setujui->ap_reason = $request->ap_reason;
         $setujui->save();
         Alert::success('Berhasil', 'Pengajuan Berhasil Dikirim');
         return redirect()->route('app_pengajuan.index');

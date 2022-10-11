@@ -86,7 +86,7 @@
                   <i class="fas fa-eye"></i>
                 </a>
 
-                <a href="/perencanaan/list" class=" btn btn-success btn-circle"  data-toggle="tooltip" data-placement="left" title="Unduh">
+                <a href="{{ route('app_perencanaan.edit',$perencanaan->id) }}" class=" btn btn-success btn-circle"  data-toggle="tooltip" data-placement="left" title="Unduh">
                   <i class="fas fa-download"></i>
                 </a>
                 @if(auth()->user()->level == "general-affair")

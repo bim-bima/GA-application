@@ -191,6 +191,9 @@ class AktivitasController extends Controller
         ]);
         return response()->json('Event updated');
     }
+    public function updatestatus(Request $request,$id){
+        
+    }
     public function destroy($id)
     {
         $aktivitas = Aktivitas::find($id);

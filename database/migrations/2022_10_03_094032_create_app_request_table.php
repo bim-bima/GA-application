@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('ar_request');
             $table->string('ar_catatan');
-            $table->timestamp('created_at',0)->useCurrent();
+            $table->date('created_at',0)->useCurrent();
             $table->timestamp('updated_at',0)->nullable();
         });
     }

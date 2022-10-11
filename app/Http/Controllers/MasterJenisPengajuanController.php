@@ -25,7 +25,7 @@ class MasterJenisPengajuanController extends Controller
         */
         public function create()
         {
-        return view('master.masterpic.create');
+        return view('master.masterjenispengajuan.create');
         }
         /**
         * Store a newly created resource in storage.
@@ -36,13 +36,13 @@ class MasterJenisPengajuanController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'mp_nama' => 'required|min:5|max:15',
+        'mjp_jenis' => 'required|min:5|max:100',
         ]);
-        $masterpic = new MasterPic();
-        $masterpic->mp_nama = $request->mp_nama;
-        $masterpic->save();
+        $MasterJenisPengajuan = new MasterJenisPengajuan();
+        $MasterJenisPengajuan->mjp_jenis = $request->mjp_jenis;
+        $MasterJenisPengajuan->save();
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
-        return redirect()->route('master_pic.index');
+        return redirect()->route('master_jenispengajuan.index');
         }
         /**
         * Display the specified resource.
@@ -50,10 +50,10 @@ class MasterJenisPengajuanController extends Controller
         * @param  \App\MasterPic  $pic
         * @return \Illuminate\Http\Response
         */
-        public function show(MasterPic $pic)
-        {
+        // public function show(MasterPic $pic)
+        // {
         // return view('',compact(''));
-        }
+        // }
         /**
         * Show the form for editing the specified resource.
         *
@@ -62,9 +62,8 @@ class MasterJenisPengajuanController extends Controller
         */
         public function edit($id)
         {
-            // dd($pic);
-            $pic = MasterPic::find($id);
-            return view('master.masterpic.edit',compact('pic'));
+            $jenispengajuan = MasterJenisPengajuan::find($id);
+            return view('master.masterjenispengajuan.edit',compact('jenispengajuan'));
         }
         /**
         * Update the specified resource in storage.
@@ -76,13 +75,13 @@ class MasterJenisPengajuanController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-        'mp_nama' => 'required|min:5|max:50',
+        'mjp_jenis' => 'required|min:5|max:100',
         ]);
-        $pic = MasterPic::find($id);
-        $pic->mp_nama = $request->mp_nama;
-        $pic->save();
+        $jenispengajuan = MasterJenisPengajuan::find($id);
+        $jenispengajuan->mjp_jenis = $request->mjp_jenis;
+        $jenispengajuan->save();
         Alert::success('Berhasil', 'Data Berhasil Diedit');
-        return redirect()->route('master_pic.index');
+        return redirect()->route('master_jenispengajuan.index');
         }
         /**
         * Remove the specified resource from storage.
@@ -92,7 +91,7 @@ class MasterJenisPengajuanController extends Controller
         */
         public function destroy($id)
         {
-            $id = MasterPic::find($id);
+            $id = MasterJenisPengajuan::find($id);
             $id->delete();
         // Alert::success('Berhasil', 'Data Berhasil Dihapus');
         // return redirect()->route('master_pic.index');

@@ -28,7 +28,7 @@
             @foreach ($datacategory as $category)
             <tr>
               <td>{{ $category->mca_category }}</td>
-              <td>{{ $category->mca_id_category }}</td>
+              <td>{{ $category->id }}</td>
               <td>
                 <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_categoryasset.edit',$category->id) }}">
                   <i class="fa fa-edit"></i>
