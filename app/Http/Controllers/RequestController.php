@@ -16,14 +16,14 @@ class RequestController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'ar_request' => 'required|min:5',
+        'ar_request' => 'required|min:4',
         ]);
         $datarequest = new AppRequest();
         $datarequest->ar_request = $request->ar_request;
         $datarequest->ar_catatan = $request->ar_catatan;
         $datarequest->save();
         Alert::success('Berhasil', 'Data Berhasil Dikirim');
-        return redirect()->route('/home');
+        return redirect()->route('home');
         }
         
         public function destroy($id)

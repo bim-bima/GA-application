@@ -3,8 +3,7 @@
 @section('content')
 <div class="row">
   <div class="col-lg-6 p-0">
-
-    <form action="{{ route('master_kendaraan.store') }}" method="POST" enctype="multipart/form-data" class="row">
+    <form action="{{ route('master_kendaraan.store') }}" method="POST" enctype="multipart/form-data" class="">
     @csrf
     
     <div class="card shadow mb-4 mr-lg-2">
@@ -12,35 +11,35 @@
         <h6 class="m-0 font-weight-bold text-primary">Status Kendaraan</h6>
       </div>
       <div class="card-body">
-          <div class="col-12 mb-2">
-            <label class="form-label">Status</label>
-            <select name="mk_status" class="custom-select custom-select-md">
-              <option class="text-success" value="tersedia">Tersedia</option>
-              <option class="text-primary" value="sedang dipakai">Sedang Di Pakai</option>
-              <option class="text-warning" value="akan dipakai">Akan Di Pakai</option>
-            </select>
-          </div>
-          <div class="col-12 mb-2">
-            <label for="mk_bahan_bakar" class="form-label">Jumlah Bahan Bakar</label>
-            <input type="text" class="form-control @error('mk_bahan_bakar') is-invalid @enderror" name="mk_bahan_bakar" required>
-            @error('mk_bahan_bakar')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-          </div>
-          <div class="col-12 mb-2">
-            <label for="mk_kilometer" class="form-label">Kilometer</label>
-            <input type="text" class="form-control @error('mk_kilometer') is-invalid @enderror" name="mk_kilometer" required>
-            @error('mk_kilometer')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-          </div>
-          <div class="col-12 mb-2">
-            <label for="mk_kondisi_lain" class="form-label">Kondisi Lain</label>
-            <input type="text" class="form-control @error('mk_kondisi_lain') is-invalid @enderror" name="mk_kondisi_lain">
-            @error('mk_kondisi_lain')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-          </div>
+        <div class="col-12 mb-2">
+          <label class="form-label">Status</label>
+          <select name="mk_status" class="custom-select custom-select-md">
+            <option class="text-success" value="tersedia">Tersedia</option>
+            <option class="text-primary" value="sedang dipakai">Sedang Di Pakai</option>
+            <option class="text-warning" value="akan dipakai">Akan Di Pakai</option>
+          </select>
+        </div>
+        <div class="col-12 mb-2">
+          <label for="mk_bahan_bakar" class="form-label">Jumlah Bahan Bakar</label>
+          <input type="text" class="form-control @error('mk_bahan_bakar') is-invalid @enderror" name="mk_bahan_bakar" required>
+          @error('mk_bahan_bakar')
+              <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="col-12 mb-2">
+          <label for="mk_kilometer" class="form-label">Kilometer</label>
+          <input type="text" class="form-control @error('mk_kilometer') is-invalid @enderror" name="mk_kilometer" required>
+          @error('mk_kilometer')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="col-12 mb-2">
+          <label for="mk_kondisi_lain" class="form-label">Kondisi Lain</label>
+          <input type="text" class="form-control @error('mk_kondisi_lain') is-invalid @enderror" name="mk_kondisi_lain">
+          @error('mk_kondisi_lain')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
       </div>
     </div>
   </div>
@@ -50,6 +49,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Tambah Kendaraan</h6>
       </div>
       <div class="card-body">
+        <div class="row">
           <div class="col-md-6 mb-2">
             <label for="mk_nama_kendaraan" class="form-label">Nama Kendaraan</label>
             <input type="text" class="form-control @error('nama') is-invalid @enderror" name="mk_nama_kendaraan" required>
@@ -103,12 +103,11 @@
               Tambah
             </button>
           </div>
-        </form>
+        </div>
+    </form>
       </div>
     </div>
   </div>
-
-  
 </div>
 @endsection
 

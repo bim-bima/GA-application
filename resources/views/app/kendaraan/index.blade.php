@@ -17,7 +17,7 @@
     <div class="card-body">
       <div class="row">
           @foreach( $datakendaraan as $ken )
-            <div class="col-xl-4 col-md-6 mb-4">
+            <div class="col-xl-3 col-md-6 mb-4">
                   <div class="card h-100 ">
                     <div class="card-header py-2">
                   <h6 class="m-0 font-weight-bold text-primary text-center">{{ $ken->mk_nama_kendaraan }}</h6>
@@ -45,7 +45,7 @@
                         <div class=" h5 mb-0 font-weight-bold text-gray-800">{{ $ken->mk_bahan_bakar }}</div>
                         </div>
                         <div class="col-auto">
-                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                          {{-- <i class="fas fa-calendar fa-2x text-gray-300"></i> --}}
                         </div>
                       </div>
 
@@ -55,7 +55,7 @@
                         <div class=" h5 mb-0 font-weight-bold text-gray-800">{{ $ken->mk_kilometer }}</div>
                         </div>
                         <div class="col-auto">
-                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                          {{-- <i class="fas fa-calendar fa-2x text-gray-300"></i> --}}
                         </div>
                       </div>
 
@@ -65,7 +65,7 @@
                         <div class=" h5 mb-0 font-weight-bold text-gray-800">{{ $ken->mk_kondisi_lain }}</div>
                         </div>
                         <div class="col-auto">
-                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                          {{-- <i class="fas fa-calendar fa-2x text-gray-300"></i> --}}
                         </div>
                       </div>
                       @if(auth()->user()->level == "general-affair")
@@ -73,8 +73,15 @@
                       @endif
                     </div>
                   </div>
+                  
                 </div>
+                
             @endforeach
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    {{ $datakendaraan->links() }}
+                  </div>
                 </div>
 
                  

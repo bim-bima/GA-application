@@ -36,7 +36,7 @@ class MasterBarangController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'mb_nama_barang' => 'required|min:5|max:100',
+        'mb_nama_barang' => 'required|min:3|max:100',
         ]);
         $masterbarang = new MasterBarang();
         $masterbarang->mb_nama_barang = $request->mb_nama_barang;
@@ -76,7 +76,7 @@ class MasterBarangController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-        'mb_nama_barang' => 'required|min:5|max:100',
+        'mb_nama_barang' => 'required|min:3|max:100',
         ]);
         $pic = MasterBarang::find($id);
         $pic->mb_nama_barang = $request->mb_nama_barang;

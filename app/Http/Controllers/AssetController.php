@@ -144,9 +144,9 @@ class AssetController extends Controller
     {
         $dataasset = Asset::find($id);
         $dataasset->delete();
-        Alert::success('Berhasil', 'Data Berhasil Dihapus');
-        return redirect()->route('app_asset.index'); 
-        // return response()->json(['status' => 'Data Berhasil di hapus!']);   
+      //   Alert::success('Berhasil', 'Data Berhasil Dihapus');
+      //   return redirect()->route('app_asset.index'); 
+        return response()->json(['status' => 'Data Berhasil di hapus!']);   
     }
 
 

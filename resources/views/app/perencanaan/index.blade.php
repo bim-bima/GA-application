@@ -58,6 +58,7 @@
         </div>
         @endforeach
         {{ $dataperencanaan->links() }}
+        <input type="hidden" class="delete_id" value="{{ $perencanaan->id }}">
       </div>
       @endif
       @if(auth()->user()->level == "general-affair")
