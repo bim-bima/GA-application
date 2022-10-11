@@ -5,6 +5,7 @@
 @include('sweetalert::alert')
 
 <div class="card shadow mb-4">
+
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Daftar PIC</h6>
     <button class="btn btn-primary mt-3">
@@ -28,14 +29,14 @@
               <input type="hidden" class="delete_id" value="{{ $pic->id }}">
               <td>{{ $pic->mp_nama }}</td>
               <td>
-                <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_pic.edit',$pic->id) }}" data-toggle="tooltip" data-placement="left" title="Edit">
+                <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_pic.edit',$pic->id) }}">
                   <i class="fa fa-edit"></i>
                 </a>
                 <form action="{{ route('master_pic.destroy',$pic->id) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
                     {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete2" data-toggle="tooltip" data-placement="left" title="Delete">
+                    <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete2">
                       <i class="fas fa-trash"></i>
                     </a>
                 </form>

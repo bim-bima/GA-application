@@ -186,7 +186,11 @@
         <tbody>
           @foreach ($datapengajuan as $pengajuan)
           <tr>
-            <td>{{ $pengajuan->created_at }}</td>
+            <?php 
+                $tanggal1 = $pengajuan->created_at;
+                $tanggal = substr($tanggal1,-0,10);
+            ?>
+            <td>{{ $tanggal }}</td>
             <td>{{ $pengajuan->ap_nama_pengajuan }}</td>
             <td>{{ $pengajuan->ap_status }}</td>
             <td><a class="btn-sm btn-info btn-circle mb-xl-0 mb-2" href="{{ route('app_pengajuan.show',$pengajuan->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">

@@ -56,7 +56,8 @@ class AssetController extends Controller
          $subcategory = substr($ambil2,-0,3);
          $nourut = 001;
          $bulan = $request->as_bulan; 
-         $tahun = $request->as_tahun_kepemilikan; 
+         $ambil1 = $request->as_tahun_kepemilikan; 
+         $tahun = substr($ambil1,-2,2);
          $kodeasset = $prefik.'.'.$kelompok.'.'.$category.'.'.$subcategory;  
 
         for($c=1; $c<=$request->as_jumlah; $c++){            

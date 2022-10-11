@@ -5,7 +5,6 @@
   <div class="col-lg-6 p-0">
     <form action="{{ route('master_kendaraan.store') }}" method="POST" enctype="multipart/form-data" class="">
     @csrf
-    
     <div class="card shadow mb-4 mr-lg-2">
       <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Status Kendaraan</h6>

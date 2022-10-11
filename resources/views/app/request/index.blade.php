@@ -23,7 +23,11 @@
             @foreach ($datarequest as $request)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $request->id }}">
-              <td>{{ $request->created_at }}</td>
+              <?php 
+                $tanggal1 = $request->created_at;
+                $tanggal = substr($tanggal1,-0,10);
+               ?>
+              <td>{{ $tanggal }}</td>
               <td>{{ $request->ar_request }}</td>
               <td>{{ $request->ar_catatan }}</td>
               <td>

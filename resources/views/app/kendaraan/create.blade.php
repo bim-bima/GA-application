@@ -3,7 +3,7 @@
 @section('content')
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Tambah</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Booking Kendaraan</h6>
     </div>
     <div class="card-body">
         <form action="{{ route('app_kendaraan.store') }}" method="POST" enctype="multipart/form-data" class="row">
@@ -78,13 +78,22 @@
             @enderror
           </div>
           <div class="col-md-6 mb-2">
+              @if(auth()->user()->level == "general-affair")
             <button class="btn btn-info my-3 mr-1">
               <i class="fa fa-angle-left"></i>
               <a href="{{ route('app_kendaraan.index') }}"class="text-white text-decoration-none">Kembali</a>
             </button>
+              @endif
+
+              @if(auth()->user()->level == "pegawai")
+            <button class="btn btn-info my-3 mr-1">
+              <i class="fa fa-angle-left"></i>
+              <a href="/home" class="text-white text-decoration-none">Kembali</a>
+            </button>
+              @endif
             <button type="submit" class="btn btn-success my-3">
               <i class="fa fa-plus-circle"></i>
-              Tambah
+              Kirim
             </button>
           </div>
         </form>

@@ -23,11 +23,7 @@ class RequestController extends Controller
         $datarequest->ar_catatan = $request->ar_catatan;
         $datarequest->save();
         Alert::success('Berhasil', 'Data Berhasil Dikirim');
-<<<<<<< HEAD
-        return redirect()->route('app_request');
-=======
-        return redirect()->route('home');
->>>>>>> 9f9d4faea28c252ca090651340ab216d6cce3460
+        return redirect()->route('app_request.index');
         }
         
         public function destroy($id)

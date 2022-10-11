@@ -3,36 +3,40 @@
 @section('content')
 
 @if(auth()->user()->level == "pegawai")
-<div class="row px-sm-3 px-0">
-  <div class="card shadow mb-4 col-md-6 px-0">
+<div class="card shadow mb-4">
     <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Buat Request</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Dashboard</h6>
     </div>
     <div class="card-body">
       <div class="row">
-        <div class="col-10 border-dark">
-          <form action="{{ route('app_request.store') }}" method="POST" enctype="multipart/form-data" class="">
-            @csrf
-            <label for="ar_request" class="form-label">Request</label>
-            <input type="text" class="mb-2 form-control @error('request') is-invalid @enderror" name="ar_request" required>
-            @error('request')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-            <label for="ar_catatan" class="form-label">Catatan</label>
-            <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="ar_catatan" required rows="3"></textarea>
-            @error('catatan')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-            <button type="submit" class="btn btn-success my-3">
-              Kirim Request
-              <i class="fa fa-paper-plane"></i>
+        @foreach ($datakendaraan as $kendaraan)
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{ $kendaraan->mk_nama_kendaraan }}</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $kendaraan->mk_status }}</div>
+                    </div>
+                    <div class="col-auto">
+                      <!-- <i class="fas fa-calendar fa-2x text-gray-300"></i> -->
+                       <a class="btn-sm btn-info btn-circle mb-xl-0 mb-1" href="{{ route('app_kendaraan.show',$kendaraan->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
+                  <i class="fas fa-info-circle"></i>
+                </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        @endforeach
+    </div>
+                <button class="btn btn-info my-3 mr-1">
+              <i class="fa fa-angle-car"></i>
+              <a href="{{ route('app_kendaraan.create') }}"class="text-white text-decoration-none">Booking Kendaraan</a>
             </button>
-          </form>
-        </div>
-        </div>
-     </div>
+            
   </div>
-</div>
+  </div>
 
       @endif
 
