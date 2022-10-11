@@ -299,7 +299,7 @@
             },   
             eventClick: function(event){
               var id = event.id; 
-              if(confirm('yakin ingin menghapus ini')){
+              if(confirm('yakin ingin menghapus ini ')){
                     $.ajax({
                     url: "{{ route('app_aktivitas.destroy', '') }}" +'/'+ id,
                     type: "DELETE",
