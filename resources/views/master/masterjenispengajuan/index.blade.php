@@ -5,7 +5,6 @@
 @include('sweetalert::alert')
 
 <div class="card shadow mb-4">
-
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Jenis jenis
     Pengajuan</h6>
@@ -34,20 +33,20 @@
                   <i class="fa fa-edit"></i>
                 </a>
                 <form action="{{ route('master_jenispengajuan.destroy',$jenis->id) }}" method="post" class="d-inline">
-                    @csrf
-                    @method('delete')
-                    {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete2" data-toggle="tooltip" data-placement="left" title="Delete">
-                      <i class="fas fa-trash"></i>
-                    </a>
+                  @csrf
+                  @method('delete')
+                  {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
+                  <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete2" data-toggle="tooltip" data-placement="left" title="Delete">
+                    <i class="fas fa-trash"></i>
+                  </a>
                 </form>
-            </td>
+              </td>
             </tr>
             @endforeach
           </tbody>
         </table>
         {{ $jenispengajuan->links() }}
-   </div>
+      </div>
     </div>
   </div>
 </div>
