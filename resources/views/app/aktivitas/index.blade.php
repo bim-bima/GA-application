@@ -12,6 +12,28 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>General Affair</title>
     @include('template.head')
+    <style> 
+        .fc-event-hover{
+          position: relative !important ;
+          height:   17px; 
+        }
+        .fc-event-hover .fc-content{
+          position: absolute !important ;
+          top: 1px;
+          left: 0;
+          z-index: 999999;
+          width:  auto;
+          overflow: visible !important;
+          background-color: rgba(0, 0, 0, 0.8);
+          padding: 15px;
+          border-radius: 5px;
+        }
+        .fc-content-skeleton tr td:last-child .fc-event-hover .fc-content {
+          left: auto;
+          right:  0;
+        }
+
+    </style>  
 </head>
 <body id="page-top">
     <!-- Page Wrapper -->
@@ -190,9 +212,6 @@
             events:aktivitas,
             selectable:true,
             selectHelper:true,
-            // eventRender: function(event, element) {
-            // $(element).tooltip({title: event.title});             
-            // },
             @if(auth()->user()->level == "general-affair")
             select: function (start, end, allDays)
             {
@@ -215,6 +234,12 @@
                     success:function(response)
                     {
                       location.reload()
+                      $('.fc-event').mouseenter(function() {
+                            $(this).addClass('fc-event-hover');
+                      });
+                      $('.fc-event').mouseleave(function() {
+                            $(this).removeClass('fc-event-hover');
+                      });
                       $('.fc-event').css('color','white');
                       $('.fc-event').css('font-size','15px');
                       $('.fc-event').css('padding','2px');
@@ -255,6 +280,12 @@
                     success:function(response)
                     {
                       console.log(response)
+                      $('.fc-event').mouseenter(function() {
+                            $(this).addClass('fc-event-hover');
+                      });
+                      $('.fc-event').mouseleave(function() {
+                            $(this).removeClass('fc-event-hover');
+                      });
                       $('.fc-event').css('color','white');
                       $('.fc-event').css('font-size','15px');
                       $('.fc-event').css('padding','2px');
@@ -265,7 +296,7 @@
                       console.log(error)
                     },
                   });
-            },
+            },   
             eventClick: function(event){
               var id = event.id; 
               if(confirm('yakin ingin menghapus ini ')){
@@ -276,6 +307,12 @@
                     success:function(response)
                     {
                       $('#calendar').fullCalendar('removeEvents' ,response);
+                      $('.fc-event').mouseenter(function() {
+                            $(this).addClass('fc-event-hover');
+                      });
+                      $('.fc-event').mouseleave(function() {
+                            $(this).removeClass('fc-event-hover');
+                      });
                       $('.fc-event').css('color','white');
                       $('.fc-event').css('font-size','15px');
                       $('.fc-event').css('padding','2px');
@@ -300,6 +337,12 @@
             // }  
             
     });
+        $('.fc-event').mouseenter(function() {
+              $(this).addClass('fc-event-hover');
+        });
+        $('.fc-event').mouseleave(function() {
+              $(this).removeClass('fc-event-hover');
+        });
         $("#aktivitasmodal").on("hidden.bs.modal", function() {
           $('#title').val('');
           // $('#reminder').val('');
@@ -361,7 +404,6 @@
     
    @include('template.script')  
 </html>
-
 
 <!-- <html lang="en">
 <head>
@@ -450,4 +492,5 @@
 
   </script>
 </html> 
+
 

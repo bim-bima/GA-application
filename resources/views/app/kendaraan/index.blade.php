@@ -8,10 +8,10 @@
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Cek Kendaraan</h6>
     @if(auth()->user()->level == "general-affair")
-    <button class="btn btn-primary mt-3">
+    <!-- <button class="btn btn-primary mt-3"> 
       <i class="fa fa-plus"></i>
       <a href="{{ route('app_kendaraan.create') }}" class="text-white text-decoration-none">Tambah</a>
-    </button>
+    </button> -->
     @endif
   </div>
   <div class="card-body">
