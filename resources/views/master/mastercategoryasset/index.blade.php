@@ -14,13 +14,13 @@
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="table-responsive col-md-8 border-dark">
+      <div class="table-responsive col-12 border-dark">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead class="">
             <tr>
               <th class="col-sm-5 col-3 ">Nama Category</th>
               <th class="col-sm-5 col-3 ">Id Category</th>
-              <th class="col-3">Aksi</th>
+              <th class="col-2">Aksi</th>
             </tr>
           </thead>
           <tbody class="border-top-0">

@@ -40,14 +40,6 @@
                 Kembali
               </a>
             </button>
-            @if(auth()->user()->level == "pegawai")
-            <button class="btn btn-info mb-1 mr-1">
-              <i class="fa fa-angle-left"></i>
-              <a href="/home" class="text-white text-decoration-none">
-                Kembali
-              </a>
-            </button>
-            @endif
           </div>
         </form>
       </div>
