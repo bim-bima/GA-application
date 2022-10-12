@@ -28,7 +28,6 @@
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-
       <div class="col-lg-6 mb-2">
         <label for="as_mla_id" class="form-label">Lokasi Asset</label>
         <select name="as_mla_id" class="form-control @error('as_mla_id') is-invalid @enderror" required>
@@ -89,26 +88,26 @@
         @enderror
       </div> -->
       <div class="col-lg-6 mb-2">
-          <label for="as_umur_manfaat" class="form-label">Umur Manfaat Asset</label>
-          <select name="as_umur_manfaat" class="form-control @error('as_umur_manfaat') is-invalid @enderror" required>
-            <option value="{{ $asset->as_umur_manfaat }}">{{ $asset->as_umur_manfaat }} tahun</option>
-            <option value="4">4 tahun</option>
-            <option value="8">8 tahun</option>
-            <option value="12">12 tahun</option>
-            <option value="16">16 tahun</option>
-            <option value="20">20 tahun</option>
-            <option value="tanah">tanah</option>
-          </select>
-          @error('as_umur_manfaat')
-            <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div>
-      <div class="col-lg-6 mb-2 pt-3">
-        <button class="btn btn-info mr-1">
+        <label for="as_umur_manfaat" class="form-label">Umur Manfaat Asset</label>
+        <select name="as_umur_manfaat" class="form-control @error('as_umur_manfaat') is-invalid @enderror" required>
+          <option value="{{ $asset->as_umur_manfaat }}">{{ $asset->as_umur_manfaat }} tahun</option>
+          <option value="4">4 tahun</option>
+          <option value="8">8 tahun</option>
+          <option value="12">12 tahun</option>
+          <option value="16">16 tahun</option>
+          <option value="20">20 tahun</option>
+          <option value="tanah">tanah</option>
+        </select>
+        @error('as_umur_manfaat')
+          <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+      </div>
+      <div class="col-lg-6">
+        <button class="btn btn-info mr-1 mt-3 mb-1">
           <i class="fa fa-angle-left"></i>
           <a href="{{ route('app_asset.index') }}" class="text-white text-decoration-none">Kembali</a>
         </button>
-        <button type="submit" class="btn btn-success my-3">
+        <button type="submit" class="btn btn-success mt-3 mb-1">
           <i class="fa fa-edit"></i>
           Edit
         </button>

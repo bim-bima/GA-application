@@ -6,9 +6,8 @@
 
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Jenis jenis
-    Pengajuan</h6>
-    <button class="btn btn-primary mt-3">
+    <h6 class="m-0 font-weight-bold text-primary">Jenis jenis Pengajuan</h6>
+    <button class="btn btn-primary mt-2">
       <i class="fa fa-plus"></i>
       <a href="{{ route('master_jenispengajuan.create') }}" class="text-white text-decoration-none">Tambah</a>
     </button>

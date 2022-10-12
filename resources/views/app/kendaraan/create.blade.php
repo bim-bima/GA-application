@@ -63,35 +63,32 @@
       </div>
       <div class="col-md-6 mb-2">
         <label for="ak_lokasi_tujuan" class="form-label">Lokasi Tujuan</label>
-        <input type="text" class="form-control @error('lokasi_tujuan') is-invalid @enderror" name="ak_lokasi_tujuan"
-            required>
+        <input type="text" class="form-control @error('lokasi_tujuan') is-invalid @enderror" name="ak_lokasi_tujuan" required>
         @error('lokasi_tujuan')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
       <div class="col-md-6 mb-2 mb-1">
         <label for="ak_tujuan_pemakaian" class="form-label">Tujuan Pemakaian</label>
-        <input type="text" class="form-control @error('tujuan') is-invalid @enderror" name="ak_tujuan_pemakaian"
-            required>
+        <input type="text" class="form-control @error('tujuan') is-invalid @enderror" name="ak_tujuan_pemakaian" required>
         @error('tujuan')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
       <div class="col-md-6 mb-2">
-          @if(auth()->user()->level == "general-affair")
+        @if(auth()->user()->level == "general-affair")
         <button class="btn btn-info my-3 mr-1">
           <i class="fa fa-angle-left"></i>
           <a href="{{ route('app_kendaraan.index') }}"class="text-white text-decoration-none">Kembali</a>
         </button>
-          @endif
-
-          @if(auth()->user()->level == "pegawai")
-        <button class="btn btn-info my-3 mr-1">
+        @endif
+        @if(auth()->user()->level == "pegawai")
+        <button class="btn btn-info mt-3 mr-1 mb-1">
           <i class="fa fa-angle-left"></i>
           <a href="/home" class="text-white text-decoration-none">Kembali</a>
         </button>
-          @endif
-        <button type="submit" class="btn btn-success my-3">
+        @endif
+        <button type="submit" class="btn btn-success mt-3 mb-1">
           <i class="fa fa-plus-circle"></i>
           Kirim
         </button>

@@ -14,15 +14,15 @@
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
       <label for="mca_id_category" class="form-label">Id Category</label>
-      <input type="text" class="form-control @error('idcategory') is-invalid @enderror" name="mca_id_category" required>
+      <input type="text" class="mb-1 form-control @error('idcategory') is-invalid @enderror" name="mca_id_category" required>
       @error('idcategory')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
-      <button class="btn btn-info my-3 mr-1">
+      <button class="btn btn-info mt-3 mb-1 mr-1">
         <i class="fa fa-angle-left"></i>
         <a href="{{ route('master_categoryasset.index') }}" class="text-white text-decoration-none">Kembali</a>
       </button>
-      <button type="submit" class="btn btn-success my-3">
+      <button type="submit" class="btn btn-success mt-3 mb-1">
         <i class="fa fa-plus-circle"></i>
         Tambah
       </button>

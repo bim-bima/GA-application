@@ -9,11 +9,11 @@
       @csrf
       @method('put')
       <label for="mca_category" class="form-label">Nama Category</label>
-      <input type="text" class="form-control @error('nama') is-invalid @enderror" name="mca_category" value="{{ $mastercategory->mca_category }}" required>
+      <input type="text" class="mb-1 form-control @error('nama') is-invalid @enderror" name="mca_category" value="{{ $mastercategory->mca_category }}" required>
       @error('nama')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
-      <button class="btn btn-info my-3 mr-1">
+      <button class="btn btn-info mt-3 mb-1 mr-1">
         <a  href="{{ route('master_categoryasset.index') }}" class="text-white text-decoration-none">
           <i class="fa fa-angle-left"></i>
           Kembali

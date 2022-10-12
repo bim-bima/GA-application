@@ -16,15 +16,15 @@
         @enderror
       </div>
       <label for="mv_lokasi" class="form-label">Lokasi Vendor</label>
-      <input type="text" class="form-control @error('lokasi') is-invalid @enderror" name="mv_lokasi" required>
+      <input type="text" class="mb-1 form-control @error('lokasi') is-invalid @enderror" name="mv_lokasi" required>
       @error('lokasi')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
-      <button class="btn btn-info my-3 mr-1">
+      <button class="btn btn-info mt-3 mb-1 mr-1">
         <i class="fa fa-angle-left"></i>
-        <a href="{{ route('master_vendor.index') }}" class="text-white text-decoration-none">kembali</a>
+        <a href="{{ route('master_vendor.index') }}" class="text-white text-decoration-none">Kembali</a>
       </button>
-      <button type="submit" class="btn btn-success my-3">
+      <button type="submit" class="btn btn-success mt-3 mb-1">
 				<i class="fa fa-plus-circle"></i>
 				Tambah
 			</button>

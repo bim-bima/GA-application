@@ -92,12 +92,12 @@
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6 mb-2">
-          <button class="btn btn-info mr-1">
+        <div class="col-md-6">
+          <button class="btn btn-info mr-1 mt-3 mb-1">
             <i class="fa fa-angle-left"></i>
             <a  href="{{ route('app_asset.index') }}" class="text-white text-decoration-none">Kembali</a>
           </button>
-          <button type="submit" class="btn btn-success my-3">
+          <button type="submit" class="btn btn-success mt-3 mb-1">
             <i class="fa fa-plus-circle"></i>
             Tambah
           </button>

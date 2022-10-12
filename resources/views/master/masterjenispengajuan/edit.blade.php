@@ -9,17 +9,17 @@
       @csrf
       @method('put')
       <label for="mjp_jenis" class="form-label">Nama Jenis Pengajuan</label>
-      <input type="text" class="form-control @error('jenis') is-invalid @enderror" name="mjp_jenis" value="{{ $jenispengajuan->mjp_jenis }}" required>
+      <input type="text" class="mb-1 form-control @error('jenis') is-invalid @enderror" name="mjp_jenis" value="{{ $jenispengajuan->mjp_jenis }}" required>
       @error('jenis')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
-      <button class="btn btn-info my-3 mr-1">
+      <button class="btn btn-info mt-3 mb-1 mr-1">
         <a href="{{ route('master_jenispengajuan.index') }}" class="text-white text-decoration-none">
           <i class="fa fa-angle-left"></i>
           Kembali
         </a>
       </button>
-      <button type="submit" class="btn btn-success my-3">
+      <button type="submit" class="btn btn-success mt-3 mb-1">
         <i class="fa fa-edit"></i>
         Edit
       </button>

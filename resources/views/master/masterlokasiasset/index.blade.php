@@ -7,7 +7,7 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Daftar Lokasi Asset</h6>
-    <button class="btn btn-primary mt-3">
+    <button class="btn btn-primary mt-2">
       <i class="fa fa-plus"></i>
       <a href="{{ route('master_lokasiasset.create') }}" class="text-white text-decoration-none">Tambah</a>
     </button>

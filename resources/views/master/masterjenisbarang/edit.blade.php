@@ -13,11 +13,11 @@
       @error('nama')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
-      <button class="btn btn-info my-3 mr-1">
+      <button class="btn btn-info mt-3 mb-1 mr-1">
         <i class="fa fa-angle-left"></i>
         <a href="{{ route('master_jenisbarang.index') }}" class="text-white text-decoration-none">Kembali</a>
       </button>
-      <button type="submit" class="btn btn-success my-3">
+      <button type="submit" class="btn btn-success mt-3 mb-1">
         <i class="fa fa-edit"></i>
         Edit
       </button>

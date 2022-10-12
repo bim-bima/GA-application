@@ -9,15 +9,15 @@
       @csrf
       @method('put')
       <label for="mla_lokasi_asset" class="form-label">Nama Lokasi Asset</label>
-      <input type="text" class="form-control @error('lokasiasset') is-invalid @enderror" name="mla_lokasi_asset" value="{{ $lokasiasset->mla_lokasi_asset }}" required>
+      <input type="text" class="mb-1 form-control @error('lokasiasset') is-invalid @enderror" name="mla_lokasi_asset" value="{{ $lokasiasset->mla_lokasi_asset }}" required>
       @error('lokasiasset')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
-      <button class="btn btn-info my-3 mr-1">
+      <button class="btn btn-info mt-3 mb-1 mr-1">
         <i class="fa fa-angle-left"></i>
         <a href="{{ route('master_lokasiasset.index') }}" class="text-white text-decoration-none">Kembali</a>
       </button>
-      <button type="submit" class="btn btn-success my-3">
+      <button type="submit" class="btn btn-success mt-3 mb-1">
         <i class="fa fa-edit"></i>
         Edit
       </button>

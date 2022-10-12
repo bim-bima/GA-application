@@ -147,7 +147,7 @@
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-12 mb-3">
+      <div class="col-12 mb-2">
         <label for="ap_catatan" class="form-label">Catatan</label>
         <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="ap_catatan" required rows="3"></textarea>
         @error('catatan')
@@ -155,7 +155,7 @@
         @enderror
       </div>
       <div class="col-12">
-        <button type="submit" class="btn btn-success mb-3">
+        <button type="submit" class="btn btn-success mt-3 mb-1">
           Kirim Pengajuan
           <i class="fa fa-paper-plane"></i>
         </button>

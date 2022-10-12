@@ -13,10 +13,10 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead class="">
             <tr>
-              <th class="col-sm-5 col-3 ">Tanggal</th>
-              <th class="col-sm-5 col-3 ">Request</th>
-              <th class="col-sm-5 col-3 ">Catatan</th>
-              <th class="col-3">Aksi</th>
+              <th class="col-sm-4 col-3">Tanggal</th>
+              <th class="col-sm-5 col-3">Request</th>
+              <th class="col-sm-5 col-3">Catatan</th>
+              <th class="col-1">Aksi</th>
             </tr>
           </thead>
           <tbody class="border-top-0">
@@ -45,10 +45,10 @@
           </tbody>
         </table>
         {{ $datarequest->links() }}
-  </div>
       </div>
-   </div>
+    </div>
   </div>
+</div>
 @endif
 
 @if(auth()->user()->level == "pegawai")
@@ -73,7 +73,13 @@
             @error('catatan')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
-            <button type="submit" class="btn btn-success my-3">
+            @if(auth()->user()->level == "pegawai")
+            <button class="btn btn-info mt-3 mr-1 mb-1">
+              <i class="fa fa-angle-left"></i>
+              <a href="/home" class="text-white text-decoration-none">Kembali</a>
+            </button>
+            @endif
+            <button type="submit" class="btn btn-success mt-3 mb-1">
               Kirim Request
               <i class="fa fa-paper-plane"></i>
             </button>
@@ -83,9 +89,6 @@
      </div>
   </div>
 </div>
-
 @endif
-
-
 @endsection
 

@@ -5,12 +5,11 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">List Aktivitas</h6>
-
-    <button class="btn btn-success mt-3">
+    <button class="btn btn-info mt-3">
       <i class="fas fa-angle-left"></i>
       <a href="{{ route('app_perencanaan.index') }}" class="text-white text-decoration-none">Kembali</a>
     </button>
-    <button class="btn btn-primary mt-3">
+    <button class="btn btn-success mt-3">
       <i class="fas fa-download"></i>
       <a href="{{ url('downloadlist') }}" class="text-white text-decoration-none">Unduh</a>
     </button>
@@ -44,5 +43,5 @@
     </div>
   </div>
 </div>
+{{-- {{ $listaktivitas -> links() }} --}}
 @endsection
-{{-- {{ $listaktivitas ->links() }} --}}

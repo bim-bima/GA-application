@@ -5,7 +5,7 @@
 @include('sweetalert::alert')
 
 <div class="card shadow mb-4">
-  <div class="card-header pt-3">
+  <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">{{ $pengajuan->ap_nama_pengajuan }}</h6>
   </div>
   <div class="card-body">
@@ -39,13 +39,11 @@
         </tr>
       </tbody>
     </table>
-  </div>
-  <div class="px-3">
-    <button class="btn btn-info mb-3 ml-1">
+    <button class="btn btn-info mb-1 mt-2 ml-1">
       <i class="fa fa-angle-left"></i>
       <a href="{{ route('app_pengajuan.index') }}" class="text-white text-decoration-none">Kembali</a>
     </button>
-  </div> 
+  </div>
 </div>
 @endsection
 

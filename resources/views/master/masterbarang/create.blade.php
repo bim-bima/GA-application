@@ -9,15 +9,15 @@
     <form action="{{ route('master_barang.store') }}" method="POST" enctype="multipart/form-data" class="col-lg-6">
       @csrf
       <label for="mb_nama_barang" class="form-label">Nama Barang</label>
-      <input type="text" class="form-control @error('nama') is-invalid @enderror" name="mb_nama_barang" required>
+      <input type="text" class="mb-1 form-control @error('nama') is-invalid @enderror" name="mb_nama_barang" required>
       @error('nama')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
-      <button class="btn btn-info my-3 mr-1">
+      <button class="btn btn-info mt-3 mb-1 mr-1">
         <i class="fa fa-angle-left"></i>
         <a href="{{ route('master_barang.index') }}" class="text-white text-decoration-none">Kembali</a>
       </button>
-      <button type="submit" class="btn btn-success my-3">
+      <button type="submit" class="btn btn-success mt-3 mb-1">
 				<i class="fa fa-plus-circle"></i>
 				Tambah
 			</button>
