@@ -3,36 +3,37 @@
 @section('content')
 @include('sweetalert::alert')
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Daftar Aktivitas</h6>
-      <button class="btn btn-primary mt-2">
-        <i class="fa fa-plus"></i>
-        <a href="{{ route('master_aktivitas.create') }}" class="text-white text-decoration-none">Tambah</a>
-      </button>
-    </div>
-    <div class="card-body px-sm-4 px-1">
-      <div class="table-responsive">
+  <div class="card-header py-3 px-sm-3 px-2">
+    <h6 class="m-0 font-weight-bold text-primary">Daftar Aktivitas</h6>
+    <button class="btn btn-primary mt-2">
+      <i class="fa fa-plus"></i>
+      <a href="{{ route('master_aktivitas.create') }}" class="text-white text-decoration-none">Tambah</a>
+    </button>
+  </div>
+  <div class="card-body px-sm-3 px-1">
+    <div class="row">
+      <div class="table-responsive col-12">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr class="">
-              <th class="">Nama Aktivitas</th>
-              <th>Aksi</th>
+              <th class="border border-secondary col-5 col-sm-9">Nama Aktivitas</th>
+              <th class="border border-secondary col-3 col-sm-3 col-md-2 col-xl-1">Aksi</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($dataaktivitas as $aktivitas)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $aktivitas->id }}">
-              <td>{{ $aktivitas->ma_nama_aktivitas }}</td>
-              <td>
-                <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_aktivitas.edit',$aktivitas->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
+              <td class="border-secondary">{{ $aktivitas->ma_nama_aktivitas }}</td>
+              <td class="border-secondary">
+                <a class="btn-sm btn-warning btn-circle mb-sm-0 mb-1" href="{{ route('master_aktivitas.edit',$aktivitas->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
                   <i class="fas fa-edit"></i>
                 </a>
                 <form action="{{ route('master_aktivitas.destroy',$aktivitas->id) }}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
                   {{-- <input class="btn btn-danger btndelete3" type="submit" value="Delete"> --}}
-                  <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete3"  data-toggle="tooltip" data-placement="left" title="Delete">
+                  <a href="" class="btn-sm btn-danger btn-circle mb-sm-0 mb-1 btndelete3"  data-toggle="tooltip" data-placement="left" title="Delete">
                     <i class="fas fa-trash"></i>
                   </a>
                 </form>
@@ -42,9 +43,9 @@
           </tbody>
         </table>
         {{ $dataaktivitas->links() }}
-
       </div>
     </div>
   </div>
+</div>
 @endsection
 

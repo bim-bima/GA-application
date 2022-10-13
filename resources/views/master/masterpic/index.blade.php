@@ -5,37 +5,37 @@
 @include('sweetalert::alert')
 
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
+  <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">Daftar PIC</h6>
     <button class="btn btn-primary mt-2">
       <i class="fa fa-plus"></i>
       <a href="{{ route('master_pic.create') }}" class="text-white text-decoration-none">Tambah</a>
     </button>
   </div>
-  <div class="card-body">
+  <div class="card-body px-sm-3 px-1">
     <div class="row">
-      <div class="table-responsive col-md-8 border-dark">
+      <div class="table-responsive col-xl-7">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead class="">
             <tr>
-              <th class="col-sm-5 col-3 ">Nama</th>
-              <th class="col-3">Aksi</th>
+              <th class="border border-secondary col-4 col-sm-7 col-md-9">Nama</th>
+              <th class="border border-secondary col-4 col-sm-2">Aksi</th>
             </tr>
           </thead>
           <tbody class="border-top-0">
             @foreach ($datapic as $pic)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $pic->id }}">
-              <td>{{ $pic->mp_nama }}</td>
-              <td>
-                <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_pic.edit',$pic->id) }}">
+              <td class="border-secondary">{{ $pic->mp_nama }}</td>
+              <td class="border-secondary">
+                <a class="btn-sm btn-warning btn-circle mb-sm-0 mb-1" href="{{ route('master_pic.edit',$pic->id) }}">
                   <i class="fa fa-edit"></i>
                 </a>
                 <form action="{{ route('master_pic.destroy',$pic->id) }}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
                   {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
-                  <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete2">
+                  <a href="" class="btn-sm btn-danger btn-circle mb-sm-0 mb-1 btndelete2">
                     <i class="fas fa-trash"></i>
                   </a>
                 </form>

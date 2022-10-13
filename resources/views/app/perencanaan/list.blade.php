@@ -20,22 +20,22 @@
       use App\Models\Aktivitas;
       $listaktivitas = Aktivitas::paginate(10);
       ?>        
-      <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>Tanggal</th>
-            <th>Aktivitas</th>
-            <th>Prioritas</th>
-            <th>Deskripsi</th>
+            <th class="border border-secondary">Tanggal</th>
+            <th class="border border-secondary">Aktivitas</th>
+            <th class="border border-secondary">Prioritas</th>
+            <th class="border border-secondary">Deskripsi</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($list as $listaktivitas)
           <tr>
-            <td>{{ $listaktivitas->start_date }}</td>
-            <td>{{ $listaktivitas->title }}</td>
-            <td>{{ $listaktivitas->prioritas }}</td>
-            <td>{{ $listaktivitas->deskripsi }}</td>
+            <td class="border-secondary">{{ $listaktivitas->start_date }}</td>
+            <td class="border-secondary">{{ $listaktivitas->title }}</td>
+            <td class="border-secondary">{{ $listaktivitas->prioritas }}</td>
+            <td class="border-secondary">{{ $listaktivitas->deskripsi }}</td>
           </tr>
           @endforeach
         </tbody>

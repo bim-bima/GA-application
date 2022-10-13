@@ -4,15 +4,15 @@
 
 @if(auth()->user()->level == "pegawai")
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
+  <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">Dashboard</h6>
   </div>
   <div class="card-body">
     <div class="row">
       @foreach ($datakendaraan as $kendaraan)
       <div class="col-xl-3 col-md-6 mb-3 px-0 px-md-2">
-        <div class="card shadow">
-          <div class="card-body">
+        <div class="card shadow-sm">
+          <div class="card-body px-2">
             <div class="row">
               <div class="col-12 mb-1">
                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{ $kendaraan->mk_nama_kendaraan }}</div>

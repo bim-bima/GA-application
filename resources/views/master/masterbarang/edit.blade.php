@@ -1,11 +1,11 @@
  @extends('layouts.main')
  @section('content')
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
+  <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">Edit Barang</h6>
   </div>
-  <div class="card-body">
-    <form action="{{ route('master_barang.update',$barang->id) }}" method="POST" enctype="multipart/form-data" class="col-lg-6">
+  <div class="card-body px-sm-3 px-2">
+    <form action="{{ route('master_barang.update',$barang->id) }}" method="POST" enctype="multipart/form-data" class="px-0 col-lg-6">
       @csrf
       @method('put')
       <label for="mb_nama_barang" class="form-label">Nama Barang</label>

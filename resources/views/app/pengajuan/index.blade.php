@@ -84,10 +84,10 @@
   @endif
 
   @if(auth()->user()->level == "general-affair")
-  <div class="card-header py-3">
+  <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">Buat pengajuan</h6>
   </div>
-  <div class="card-body">
+  <div class="card-body px-sm-3 px-2">
     <form action="{{ route('app_pengajuan.store') }}" method="POST" enctype="multipart/form-data" class="row">
       @csrf
       <div class="col-md-6 mb-2">
@@ -165,18 +165,18 @@
   @endif
 </div>
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
+  <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">Riwayat Pengajuan</h6>
   </div>
-  <div class="card-body">
+  <div class="card-body px-sm-3 px-2">
     <div class="table-responsive">
-      <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>Tanggal</th>
-            <th>Nama Pengajuan</th>
-            <th>Status</th>
-            <th>Detail</th>
+            <th class="border border-secondary col-1 col-sm-3">Tanggal</th>
+            <th class="border border-secondary col-2 col-sm-5">Nama Pengajuan</th>
+            <th class="border border-secondary col-2 col-sm-3">Status</th>
+            <th class="border border-secondary col-1">Detail</th>
           </tr>
         </thead>
         <tbody>
@@ -186,10 +186,10 @@
               $tanggal1 = $pengajuan->created_at;
               $tanggal = substr($tanggal1,-0,10);
             ?>
-            <td>{{ $tanggal }}</td>
-            <td>{{ $pengajuan->ap_nama_pengajuan }}</td>
-            <td>{{ $pengajuan->ap_status }}</td>
-            <td>
+            <td class="border-secondary">{{ $tanggal }}</td>
+            <td class="border-secondary">{{ $pengajuan->ap_nama_pengajuan }}</td>
+            <td class="border-secondary">{{ $pengajuan->ap_status }}</td>
+            <td class="border-secondary">
               <a class="btn-sm btn-info btn-circle mb-xl-0 mb-2" href="{{ route('app_pengajuan.show',$pengajuan->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
                 <i class="fas fa-info-circle"></i>
               </a>

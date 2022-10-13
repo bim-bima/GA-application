@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
+  <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">Tambah Vendor</h6>
   </div>
-  <div class="card-body">
-    <form action="{{ route('master_vendor.store') }}" method="POST" enctype="multipart/form-data" class="col-lg-6">
+  <div class="card-body px-sm-3 px-2">
+    <form action="{{ route('master_vendor.store') }}" method="POST" enctype="multipart/form-data" class="col-lg-6 px-0">
       @csrf
       <div class="mb-2">
         <label for="mv_nama_vendor" class="form-label">Nama Vendor</label>

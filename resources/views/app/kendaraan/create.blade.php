@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
+  <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">Booking Kendaraan</h6>
   </div>
-  <div class="card-body">
-    <form action="{{ route('app_kendaraan.store') }}" method="POST" enctype="multipart/form-data" class="row">
+  <div class="card-body px-sm-3 px-2">
+    <form action="{{ route('app_kendaraan.store') }}" method="POST" enctype="multipart/form-data" class="row px-0">
       @csrf
       <div class="col-md-6 mb-2">
         <label for="ak_mk_id" class="form-label">Nama Kendaraan</label>

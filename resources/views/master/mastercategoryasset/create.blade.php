@@ -1,12 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="card shadow mb-4 p-0">
-  <div class="card-header py-3">
+<div class="card shadow mb-4">
+  <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">Tambah Category Asset</h6>
   </div>
-  <div class="card-body px-0 px-sm-2">
-    <form action="{{ route('master_categoryasset.store') }}" method="POST" enctype="multipart/form-data" class="col-lg-6">
+  <div class="card-body px-sm-3 px-2">
+    <form action="{{ route('master_categoryasset.store') }}" method="POST" enctype="multipart/form-data" class="col-lg-6 px-0">
       @csrf
       <label for="mca_category" class="form-label">Nama Category</label>
       <input type="text" class="mb-2 form-control @error('nama') is-invalid @enderror" name="mca_category" required>
