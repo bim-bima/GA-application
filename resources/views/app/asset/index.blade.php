@@ -5,43 +5,42 @@
 @include('sweetalert::alert')
 
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Daftar 
-    </h6>
+  <div class="card-header py-3 px-sm-3 px-2">
+    <h6 class="m-0 font-weight-bold text-primary">Daftar</h6>
     @if(auth()->user()->level == "general-affair")
-    <button class="btn btn-primary mt-3">
+    <button class="btn btn-primary mt-2">
       <i class="fa fa-plus"></i>
       <a href="{{ route('app_asset.create') }}" class="text-white text-decoration-none">Tambah</a>
     </button>
     @endif      
   </div>
-  <div class="card-body">
-    <div class="table-responsive-lg">
+  <div class="card-body px-sm-3 px-2">
+    <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>Nama Asset</th>
-            <th>Lokasi Asset</th>
-            <th>Tahun milikan</th>
-            <th>Kode Asset</th>
-            <th>Harga Asset</th>
-            <th>Category</th>
-            <th>Umur Manfaat</th>
-            <th>Aksi</th>
+            <th class="border border-secondary px-2">Nama Asset</th>
+            <th class="border border-secondary px-2">Lokasi Asset</th>
+            <th class="border border-secondary px-2">Tahun milikan</th>
+            <th class="border border-secondary px-2">Kode Asset</th>
+            <th class="border border-secondary px-2">Harga Asset</th>
+            <th class="border border-secondary px-2">Category</th>
+            <th class="border border-secondary px-2">Umur Manfaat</th>
+            <th class="border border-secondary px-2">Aksi</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($dataasset as $asset)
           <tr>
             <input type="hidden" class="delete_id" value="{{ $asset->id }}">
-            <td>{{ $asset->as_nama_asset }}</td>
-            <td>{{ $asset->lokasiAsset->mla_lokasi_asset }}</td>
-            <td>{{ $asset->as_tahun_kepemilikan }}</td>
-            <td>{{ $asset->as_kode_asset }}</td>
-            <td>{{ $asset->as_harga }}</td>
-            <td>{{ $asset->categoryasset->mca_category }}</td>
-            <td>{{ $asset->as_umur_manfaat }} tahun</td>
-            <td>
+            <td class="border-secondary px-2">{{ $asset->as_nama_asset }}</td>
+            <td class="border-secondary px-2">{{ $asset->lokasiAsset->mla_lokasi_asset }}</td>
+            <td class="border-secondary px-2">{{ $asset->as_tahun_kepemilikan }}</td>
+            <td class="border-secondary px-2">{{ $asset->as_kode_asset }}</td>
+            <td class="border-secondary px-2">{{ $asset->as_harga }}</td>
+            <td class="border-secondary px-2">{{ $asset->categoryasset->mca_category }}</td>
+            <td class="border-secondary px-2">{{ $asset->as_umur_manfaat }} tahun</td>
+            <td class="border-secondary px-2">
               <a class="btn-sm btn-info btn-circle mb-xl-0 mb-1" href="{{ route('app_asset.show',$asset->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
                 <i class="fas fa-info-circle"></i>
               </a>

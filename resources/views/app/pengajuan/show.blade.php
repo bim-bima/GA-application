@@ -5,47 +5,45 @@
 @include('sweetalert::alert')
 
 <div class="card shadow mb-4">
-  <div class="card-header pt-3">
+  <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">{{ $pengajuan->ap_nama_pengajuan }}</h6>
   </div>
-  <div class="card-body">
+  <div class="card-body px-sm-3 px-2">
     <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
       <thead>
         <tr>
-          <th>Tanggal</th>
-          <th>Nama Pengajuan</th>
-          <th>Jenis</th>
-          <th>Vendor</th>
-          <th>Biaya</th>
-          <th>Catatan</th>
-          <th>Tanggal Estimasi</th>
-          <th>PIC</th>
-          <th>Status</th>
-          <th>Alasan</th>
+          <th class="border border-secondary px-2">Tanggal</th>
+          <th class="border border-secondary px-2">Nama Pengajuan</th>
+          <th class="border border-secondary px-2">Jenis</th>
+          <th class="border border-secondary px-2">Vendor</th>
+          <th class="border border-secondary px-2">Biaya</th>
+          <th class="border border-secondary px-2">Catatan</th>
+          <th class="border border-secondary px-2">Tanggal Estimasi</th>
+          <th class="border border-secondary px-2">PIC</th>
+          <th class="border border-secondary px-2">Status</th>
+          <th class="border border-secondary px-2">Alasan</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>{{ $pengajuan->created_at }}</td>
-          <td>{{ $pengajuan->ap_nama_pengajuan }}</td>
-          <td>{{ $pengajuan->jenispengajuan->mjp_jenis }}</td>
-          <td>{{ $pengajuan->vendor->mv_nama_vendor }}</td>
-          <td>{{ $pengajuan->ap_biaya }}</td>
-          <td>{{ $pengajuan->ap_catatan }}</td>
-          <td>{{ $pengajuan->ap_tanggal_pengadaan }}</td>
-          <td>{{ $pengajuan->pic->mp_nama }}</td>
-          <td>{{ $pengajuan->ap_status }}</td>
-          <td>{{ $pengajuan->ap_reason }}</td>
+          <td class="border-secondary px-2">{{ $pengajuan->created_at }}</td>
+          <td class="border-secondary px-2">{{ $pengajuan->ap_nama_pengajuan }}</td>
+          <td class="border-secondary px-2">{{ $pengajuan->jenispengajuan->mjp_jenis }}</td>
+          <td class="border-secondary px-2">{{ $pengajuan->vendor->mv_nama_vendor }}</td>
+          <td class="border-secondary px-2">{{ $pengajuan->ap_biaya }}</td>
+          <td class="border-secondary px-2">{{ $pengajuan->ap_catatan }}</td>
+          <td class="border-secondary px-2">{{ $pengajuan->ap_tanggal_pengadaan }}</td>
+          <td class="border-secondary px-2">{{ $pengajuan->pic->mp_nama }}</td>
+          <td class="border-secondary px-2">{{ $pengajuan->ap_status }}</td>
+          <td class="border-secondary px-2">{{ $pengajuan->ap_reason }}</td>
         </tr>
       </tbody>
     </table>
-  </div>
-  <div class="px-3">
-    <button class="btn btn-info mb-3 ml-1">
+    <button class="btn btn-info mb-1 mt-2 ml-1">
       <i class="fa fa-angle-left"></i>
       <a href="{{ route('app_pengajuan.index') }}" class="text-white text-decoration-none">Kembali</a>
     </button>
-  </div> 
+  </div>
 </div>
 @endsection
 

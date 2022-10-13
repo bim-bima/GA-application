@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -10,190 +10,176 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
   <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>General Affair</title>
-    @include('template.head')
-    <style> 
-        .fc-event-hover{
-          position: relative !important ;
-          height:   17px; 
-        }
-        .fc-event-hover .fc-content{
-          position: absolute !important ;
-          top: 1px;
-          left: 0;
-          z-index: 999999;
-          width:  auto;
-          overflow: visible !important;
-          background-color: rgba(0, 0, 0, 0.8);
-          padding: 15px;
-          border-radius: 5px;
-        }
-        .fc-content-skeleton tr td:last-child .fc-event-hover .fc-content {
-          left: auto;
-          right:  0;
-        }
+  <title>General Affair</title>
+  @include('template.head')
+  <style> 
+      .fc-event-hover{
+        position: relative !important ;
+        height:   17px; 
+      }
+      .fc-event-hover .fc-content{
+        position: absolute !important ;
+        top: 1px;
+        left: 0;
+        z-index: 999999;
+        width:  auto;
+        overflow: visible !important;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 15px;
+        border-radius: 5px;
+      }
+      .fc-content-skeleton tr td:last-child .fc-event-hover .fc-content {
+        left: auto;
+        right:  0;
+      }
 
-    </style>  
+  </style>  
 </head>
 <body id="page-top">
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-
-<!-- Modal -->
-<div class="modal fade centered" id="aktivitasmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-primary font-weight-bold" id="exampleModalLabel">Aktivitas</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Modal -->
+    <div class="modal fade centered" id="aktivitasmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-primary font-weight-bold" id="exampleModalLabel">Aktivitas</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body row">
+            <!-- <div class="mb-3 col-12">
+              <label for="title" class="form-label">Aktivitas</label>
+              <input type="text" class="form-control @error('nama') is-invalid @enderror" id="title" required>
+              @error('nama')
+                <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
+            </div> -->
+            <div class="col-12 mb-2">
+              <label for="title" class="form-label">Aktivitas</label>
+              <select name="title" id="title" class="form-control @error('title') is-invalid @enderror" required>
+                <option value="">Pilih Aktivitas</option>
+                @foreach ($maktivitas as $aktivitas)
+                <option value="{{ $aktivitas->ma_nama_aktivitas }}">{{ $aktivitas->ma_nama_aktivitas}}</option>
+                @endforeach    
+              </select>
+              @error('title')
+                <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
+            </div>
+            <div class="form-check mb-3 ml-3 col-6">
+              <input class="form-check-input" type="checkbox" value="reminder" id="reminder" >
+              <label class="form-check-label p-0" for="reminder">
+                Reminder
+              </label>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Ulangi</label>
+              <select name="ulangi" id="ulangi" class="custom-select custom-select-md mb-3">
+                <option value="oneday">Hanya Hari ini</option>
+                <option value="allday">Setiap Hari</option>
+                <option value="twodays">2Hari 1x</option>
+                <option value="threedays">3Hari 1x</option>
+                <option value="fourdays">4Hari 1x</option>
+                <option value="fivedays">5Hari 1x</option>
+                <option value="sixdays">6Hari 1x</option>
+                <option value="weekly">Seminngu 1x</option>
+              </select>
+            </div>
+            <div class="col-md-6 mb-1">
+              <label for="todate" class="form-label">Sampai Tanggal</label>
+              <input type="date" class="form-control" id="todate">
+              @error('nama')
+                <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
+            </div>
+            <div class="col-12">
+              <label class="form-label">Prioritas</label>
+              <select name="prioritas" id="prioritas" class="custom-select custom-select-md mb-3">
+                <option value="rendah" class="text-primary">Rendah</option>
+                <option value="sedang" class="text-success">Sedang</option>
+                <option value="utama" class="text-danger">Tinggi</option>
+              </select>
+            </div>
+            <div class="mb-1">
+              <label for="deskripsi" class="form-label">Deskripsi</label>
+              <textarea class="form-control" id="deskripsi" rows="3"></textarea>
+            </div>
+            <span id="titleError" class="text-danger"></span>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              <i class="fa fa-times"></i>
+              Tutup
+            </button>
+            <button type="button" id="saveBtn" class="btn btn-success">
+              <i class="fa fa-plus-circle"></i>
+              Tambah Aktivitas
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="modal-body row">
-        <!-- <div class="mb-3 col-12">
-          <label for="title" class="form-label">Aktivitas</label>
-          <input type="text" class="form-control @error('nama') is-invalid @enderror" id="title" required>
-          @error('nama')
-            <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div> -->
-        <div class="col-12 mb-2">
-          <label for="title" class="form-label">Aktivitas</label>
-          <select name="title" id="title" class="form-control @error('title') is-invalid @enderror" required>
-            <option value="">Pilih Aktivitas</option>
-            @foreach ($maktivitas as $aktivitas)
-            <option value="{{ $aktivitas->ma_nama_aktivitas }}">{{ $aktivitas->ma_nama_aktivitas}}</option>
-            @endforeach    
-          </select>
-          @error('title')
-            <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
+    </div>
+    <!-- Sidebar -->
+    @include('template.sidebar')
+    <!-- End of Sidebar -->
+    <!-- Sweet Alert -->
+    @include('sweetalert::alert')
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Topbar -->
+        @include('template.topbar')
+        <!-- End of Topbar -->
+        <!-- Begin Page Content -->
+        <div class="container-fluid p-2">
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Aktivitas</h6>
+            </div>
+            <div class="card-body">
+              <!-- <div id='caljump'>
+                  <label for='months'>Pergi ke</label>
+                  <select id='months'></select>
+              </div> -->
+              <div id='calendar'></div>
+            </div>
+          </div>
         </div>
-
-        <div class="form-check mb-3 ml-3 col-6">
-          <input class="form-check-input" type="checkbox" value="reminder" id="reminder" >
-          <label class="form-check-label p-0" for="reminder">
-            Reminder
-          </label>
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">Ulangi</label>
-          <select name="ulangi" id="ulangi" class="custom-select custom-select-md mb-3">
-            <option value="oneday">Hanya Hari ini</option>
-            <option value="allday">Setiap Hari</option>
-            <option value="twodays">2Hari 1x</option>
-            <option value="threedays">3Hari 1x</option>
-            <option value="fourdays">4Hari 1x</option>
-            <option value="fivedays">5Hari 1x</option>
-            <option value="sixdays">6Hari 1x</option>
-            <option value="weekly">Seminngu 1x</option>
-          </select>
-        </div>
-        
-        <div class="col-md-6 mb-1">
-          <label for="todate" class="form-label">Sampai Tanggal</label>
-          <input type="date" class="form-control" id="todate">
-          @error('nama')
-            <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div>
-        <div class="col-12">
-          <label class="form-label">Prioritas</label>
-          <select name="prioritas" id="prioritas" class="custom-select custom-select-md mb-3">
-            <option value="rendah" class="text-primary">Rendah</option>
-            <option value="sedang" class="text-success">Sedang</option>
-            <option value="utama" class="text-danger">Tinggi</option>
-          </select>
-        </div>
-        
-        <div class="mb-1">
-          <label for="deskripsi" class="form-label">Deskripsi</label>
-          <textarea class="form-control" id="deskripsi" rows="3"></textarea>
-        </div>
-        
-        <span id="titleError" class="text-danger"></span>
+        <!-- /.container-fluid -->
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          <i class="fa fa-times"></i>
-          Tutup
-        </button>
-        <button type="button" id="saveBtn" class="btn btn-success">
-          <i class="fa fa-plus-circle"></i>
-          Tambah Aktivitas
-        </button>
+      <!-- End of Main Content -->
+      <!-- Footer -->
+      @include('template.footer')
+      <!-- End of Footer -->
+    </div>
+    <!-- End of Content Wrapper -->
+  </div>
+  <!-- End of Page Wrapper -->
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Anda akan keluar dari halaman ini.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
+          <a class="btn btn-primary" href="login.html">Ya</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-        <!-- Sidebar -->
-        @include('template.sidebar')
-        <!-- End of Sidebar -->
-
-        {{-- sweet alert --}}
-        @include('sweetalert::alert')
-
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
-            <div id="content">
-                <!-- Topbar -->
-                @include('template.topbar')
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid p-2">
-                  <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                      <h6 class="m-0 font-weight-bold text-primary">Aktivitas</h6>
-                    </div>
-                    <div class="card-body">
-                      <!-- <div id='caljump'>
-                          <label for='months'>Pergi ke</label>
-                          <select id='months'></select>
-                      </div> -->
-                      <div id='calendar'></div>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
-            <!-- Footer -->
-            @include('template.footer')
-            <!-- End of Footer -->
-        </div>
-        <!-- End of Content Wrapper -->
-    </div>
-    <!-- End of Page Wrapper -->
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Anda akan keluar dari halaman ini.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
-                    <a class="btn btn-primary" href="login.html">Ya</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-
-    <script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  <script>
     $(document).ready(function() {
         $.ajaxSetup({
           headers: {
@@ -363,9 +349,13 @@
         $('.fc-agendaDay-button').css('color','blue');
         $('.fc-agendaWeek-button').css('coF#lor','blue');
         $('.fc-event').css('color','white');
+      });
+  </script>
+</body>
+@include('template.script')  
+</html>
 
-
-//     $(document).ready(function() {
+{{-- //     $(document).ready(function() {
 //     var $months = $('#months');
 //     var $calendar = $('#calendar');
 
@@ -395,15 +385,15 @@
 //             month.add(1, 'month');
 //         }
 //     }
-// });
+// }); --}}
 
 
-  });
+  {{-- });
     </script>
     </body>
     
    @include('template.script')  
-</html>
+</html> --}}
 
 <!-- <html lang="en">
 <head>

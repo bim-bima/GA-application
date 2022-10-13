@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-lg-6 p-0">
-    <div class="card shadow mb-4 mr-lg-2 ml-sm-2 ml-0">
+    <div class="card shadow-sm mb-4 mr-lg-2 ml-sm-2 ml-0">
       <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Data Kendaraan</h6>
       </div>
@@ -46,7 +46,7 @@
     </div>
   </div>
   <div class="col-lg-6 p-0">
-    <div class="card shadow mb-4 ml-lg-2 mr-sm-2 mr-0">
+    <div class="card shadow-sm mb-4 ml-lg-2 mr-sm-2 mr-0">
       <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Status Kendaraan</h6>
       </div>

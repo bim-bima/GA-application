@@ -18,7 +18,6 @@
       @error('jenis')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
-
       <div class="col-md-6">
         <label for="ap_mv_id" class="form-label">Vendor</label>
         <select name="ap_mv_id" class="form-control @error('ap_mv_id') is-invalid @enderror" required>
