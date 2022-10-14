@@ -1,6 +1,6 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark" id="accordionSidebar">
-
-  <!-- Sidebar - Brand -->
+  <div data-aos="fade-right" data-aos-delay="50">
+    <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
     <img class="template/img-profile" src="{{asset('template/img/icon.png') }}" width="35px">
     <div class="sidebar-brand-text">General Affair</div>
@@ -160,4 +160,7 @@
     <div class="text-center">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
+  </div>
+
+  
 </ul>

@@ -4,12 +4,12 @@
 
 @include('sweetalert::alert')
 
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   @if(auth()->user()->level == "management")
   @foreach ($ajuan as $pengajuan)
   <div class="card">
     <div class="card-header">
-      <h6 class="m-0 font-weight-bold text-primary">Persetujuan</h6>
+      <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="600">Persetujuan</h6>
     </div>
     <form action="{{ route('app_pengajuan.update',$pengajuan->id) }}" method="POST" enctype="multipart/form-data">
       @csrf
@@ -85,19 +85,19 @@
 
   @if(auth()->user()->level == "general-affair")
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary">Buat pengajuan</h6>
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="500">Buat pengajuan</h6>
   </div>
   <div class="card-body px-sm-3 px-2">
     <form action="{{ route('app_pengajuan.store') }}" method="POST" enctype="multipart/form-data" class="row">
       @csrf
-      <div class="col-md-6 mb-2">
+      <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="600">
         <label for="ap_nama_pengajuan" class="form-label">Nama Pengajuan</label>
         <input type="text" class="form-control @error('nama') is-invalid @enderror" name="ap_nama_pengajuan" required>
         @error('nama')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-md-6 mb-2">
+      <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="600">
         <label for="ap_mjp_id" class="form-label">Jenis Pengajuan</label>
         <select name="ap_mjp_id" class="form-control @error('jenis') is-invalid @enderror" required>
           <option value="">Jenis Pengajuan</option>
@@ -109,7 +109,7 @@
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-md-6 mb-2">
+      <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="700">
         <label for="ap_mv_id" class="form-label">Vendor</label>
         <select name="ap_mv_id" class="form-control @error('ap_mv_id') is-invalid @enderror" required>
           <option value="">Pilih Vendor</option>
@@ -121,21 +121,21 @@
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-md-6 mb-2">
+      <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="700">
         <label for="ap_biaya" class="form-label">Biaya</label>
         <input type="text" class="form-control @error('biaya') is-invalid @enderror" name="ap_biaya" required>
         @error('biaya')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-md-6 mb-2">
+      <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="800">
         <label for="ap_tanggal_pengadaan" class="form-label">Tanggal Dibutuhkan</label>
         <input type="date" class="form-control @error('pengadaan') is-invalid @enderror" name="ap_tanggal_pengadaan" >
         @error('pengadaan')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-md-6 mb-2">
+      <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="800">
         <label for="ap_mp_id" class="form-label">PIC</label>
         <select name="ap_mp_id" class="form-control @error('ap_mp_id') is-invalid @enderror" required>
           <option value="">Pilih PIC</option>
@@ -147,7 +147,7 @@
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-2" data-aos="zoom-in" data-aos-delay="800">
         <label for="ap_catatan" class="form-label">Catatan</label>
         <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="ap_catatan" required rows="3"></textarea>
         @error('catatan')
@@ -164,13 +164,13 @@
   </div>
   @endif
 </div>
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" data-aos="fade-down" data-aos-delay="100">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary">Riwayat Pengajuan</h6>
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="500">Riwayat Pengajuan</h6>
   </div>
   <div class="card-body px-sm-3 px-2">
     <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-aos="zoom-in" data-aos-delay="600">
         <thead>
           <tr>
             <th class="border border-secondary col-1 col-sm-3">Tanggal</th>

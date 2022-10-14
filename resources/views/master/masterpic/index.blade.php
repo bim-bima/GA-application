@@ -4,10 +4,10 @@
 
 @include('sweetalert::alert')
 
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="100">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary">Daftar PIC</h6>
-    <button class="btn btn-primary mt-2">
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="600">Daftar PIC</h6>
+    <button class="btn btn-primary mt-2" data-aos="fade-right" data-aos-delay="700">
       <i class="fa fa-plus"></i>
       <a href="{{ route('master_pic.create') }}" class="text-white text-decoration-none">Tambah</a>
     </button>
@@ -15,7 +15,7 @@
   <div class="card-body px-sm-3 px-1">
     <div class="row">
       <div class="table-responsive col-xl-7">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-aos="zoom-in" data-aos-delay="800">
           <thead class="">
             <tr>
               <th class="border border-secondary col-4 col-sm-7 col-md-9">Nama</th>

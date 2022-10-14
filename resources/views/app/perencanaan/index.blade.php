@@ -5,7 +5,7 @@
 <div class="container-fluid p-0">
   <div class="card">
     <div class="card-header px-3">
-      <h6 class="m-0 font-weight-bold text-primary">List Perencanaan Aktivitas</h6>
+      <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="600">List Perencanaan Aktivitas</h6>
     </div>
     <div class="row d-flex px-2 pb-0 pt-2">
       {{-- management --}}
@@ -51,7 +51,7 @@
       @if(auth()->user()->level == "general-affair")
       <div class="card-body col-lg-7 pb-2 px-3">
         @foreach ($dataperencanaan as $perencanaan)
-        <div class="card mb-3">
+        <div class="card mb-3" data-aos="fade-right" data-aos-delay="900">
           <div class="card-body pt-3 pb-2">
             <div class="row d-flex justify-content-between px-0">
               <div class="col-sm-5 px-1 py-1">
@@ -92,7 +92,7 @@
       </div>
       @endif
       @if(auth()->user()->level == "general-affair")
-      <div class="card-body col-lg-5 pb-2 pl-lg-1">
+      <div class="card-body col-lg-5 pb-2 pl-lg-1" data-aos="fade-left" data-aos-delay="900">
         <div class="card">
           <div class="card-header px-sm-3 px-2">
             <h6 class="font-weight-bold text-primary">Tambah List Perencanaan</h6>

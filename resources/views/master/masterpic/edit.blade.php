@@ -1,6 +1,6 @@
  @extends('layouts.main')
  @section('content')
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="100">
   <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">Edit PIC</h6>
   </div>

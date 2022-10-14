@@ -9,6 +9,12 @@
 <script src="{{ asset ('template/js/sb-admin-2.min.js') }}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+<!-- Animation -->
+<script src="{{ asset ('template-landing/vendor/aos/aos.js') }}"></script>
+<script src="{{ asset ('template-landing/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ asset ('template-landing/vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset ('template-landing/js/main.js') }}"></script>
+
 <!-- Alert Kendaraan -->
 <script>
 	$(document).ready(function () {
