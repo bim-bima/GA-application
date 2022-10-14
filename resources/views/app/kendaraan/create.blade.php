@@ -9,7 +9,7 @@
     <form action="{{ route('app_kendaraan.store') }}" method="POST" enctype="multipart/form-data" class="row">
       @csrf
       <div class="col-md-6 mb-2">
-        <label for="ak_mk_id" class="form-label">Nama Kendaraan</label>
+        <label for="ak_mk_id" class="form-label">Kendaraan</label>
         <select name="ak_mk_id" class="form-control @error('ak_mk_id') is-invalid @enderror" required>
           <option value="">Pilih Kendaraan</option>
           @foreach ($namaKendaraan as $kendaraan)
@@ -20,13 +20,31 @@
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
+
       <div class="col-md-6 mb-2">
+        <label for="ak_mp_id" class="form-label">PIC</label>
+        <select name="ak_mp_id" class="form-control @error('ak_mp_id') is-invalid @enderror" required>
+            <option value="">Pilih PIC</option>
+            @foreach ($datapic as $pic)
+            <option value="{{ $pic->id }}">{{ $pic->mp_nama }}</option>
+            @endforeach
+        </select>
+        @error('ak_mp_id')
+        <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+      </div>
+
+      <?php 
+          $pengguna = Auth::user()->name;
+       ?>
+        <input type="hidden" class="form-control @error('pengguna') is-invalid @enderror" name="ak_pengguna" value="{{ $pengguna }}">
+      <!-- <div class="col-md-6 mb-2">
         <label for="ak_pengguna" class="form-label">Pengguna</label>
-        <input type="text" class="form-control @error('pengguna') is-invalid @enderror" name="ak_pengguna" required>
         @error('pengguna')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
+ -->
       <div class="col-md-6 mb-2">
         <label for="ak_tanggal_mulai" class="form-label">Tanggal Mulai</label>
         <input type="date" class="form-control @error('tanggal') is-invalid @enderror" name="ak_tanggal_mulai"
@@ -42,26 +60,24 @@
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
+
       <div class="col-md-6 mb-2">
-        <label for="ak_mp_id" class="form-label">PIC</label>
-        <select name="ak_mp_id" class="form-control @error('ak_mp_id') is-invalid @enderror" required>
-            <option value="">Pilih PIC</option>
-            @foreach ($datapic as $pic)
-            <option value="{{ $pic->id }}">{{ $pic->mp_nama }}</option>
-            @endforeach
-        </select>
-        @error('ak_mp_id')
+        <label for="ak_tanggal_selesai" class="form-label">Tanggal Selesai</label>
+        <input type="date" class="form-control @error('tanggal_selesaiss') is-invalid @enderror" name="ak_tanggal_selesai"
+            required>
+        @error('tanggal_selesaiss')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
       <div class="col-md-6 mb-2">
-        <label for="ak_kondisi" class="form-label">Kondisi</label>
-        <input type="text" class="form-control @error('kondisi') is-invalid @enderror" name="ak_kondisi" required>
-        @error('kondisi')
+        <label for="ak_jam_selesai" class="form-label">Jam Selesai</label>
+        <input type="time" class="form-control @error('jam_selesai') is-invalid @enderror" name="ak_jam_selesai" required>
+        @error('jam_selesai')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-md-6 mb-2">
+
+            <div class="col-md-6 mb-2">
         <label for="ak_lokasi_tujuan" class="form-label">Lokasi Tujuan</label>
         <input type="text" class="form-control @error('lokasi_tujuan') is-invalid @enderror" name="ak_lokasi_tujuan"
             required>

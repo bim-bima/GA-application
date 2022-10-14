@@ -8,6 +8,7 @@ use App\Models\Kendaraan;
 use App\Models\MasterPic;
 use App\Models\MasterKendaraan;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Auth;
 
 class KendaraanController extends Controller
 {
@@ -47,7 +48,6 @@ class KendaraanController extends Controller
         //     'ak_pengguna'=>'required',
         //     'ak_tanggal_mulai'=>'min:2|max:100', 
         //     'as_harga'=>'required|min:2|max:100', 
-        //     'ak_kondisi'=>'min:2|max:100', 
         //     'ak_lokasi_tujuan'=>'min:2|max:100', 
         // ]);
 
@@ -56,17 +56,21 @@ class KendaraanController extends Controller
         $datakendaraan->ak_pengguna = $request->ak_pengguna;
         $datakendaraan->ak_tanggal_mulai = $request->ak_tanggal_mulai;
         $datakendaraan->ak_jam = $request->ak_jam;
+        $datakendaraan->ak_tanggal_selesai = $request->ak_tanggal_selesai;
+        $datakendaraan->ak_jam_selesai = $request->ak_jam_selesai;
         $datakendaraan->ak_mp_id = $request->ak_mp_id;
-        $datakendaraan->ak_kondisi = $request->ak_kondisi;
         $datakendaraan->ak_lokasi_tujuan = $request->ak_lokasi_tujuan;
         $datakendaraan->ak_tujuan_pemakaian = $request->ak_tujuan_pemakaian;
         $datakendaraan->save();
 
-        Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
+        Alert::success('Berhasil', 'Data Berhasil Dikirim');
         $namaKendaraan = MasterKendaraan::all();
         $datapic = Masterpic::all();
         if(auth()->user()->level == "pegawai"){
-            return view('app.kendaraan.create', compact(['namaKendaraan','datapic']));
+          $datakendaraan = MasterKendaraan::paginate(8);
+          $pengguna = Auth::user()->name;
+          $booking = Kendaraan::with('namaKendaraan','pic')->Where('ak_pengguna',$pengguna)->get(); 
+            return view('home',compact(['datakendaraan','booking']));
         }else{
             return redirect()->route('app_kendaraan.index');
         } 
@@ -80,7 +84,7 @@ class KendaraanController extends Controller
         */
         public function show($id)
         {
-            $kendaraan = MasterKendaraan::find($id);
+            $kendaraan = Kendaraan::find($id);
             return view('app.kendaraan.show', compact(['kendaraan']));
         }
         /**

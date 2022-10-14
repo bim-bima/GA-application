@@ -18,9 +18,12 @@
   <div class="card-body">
     <div class="table-responsive">
       <?php 
-      use App\Models\Aktivitas;
-      $listaktivitas = Aktivitas::paginate(10);
+      // use App\Models\Aktivitas;
+      // $listaktivitas = Aktivitas::paginate(10);
+          // echo $mytime->toDateString();
+      
       ?>        
+      
       <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
@@ -45,4 +48,3 @@
   </div>
 </div>
 @endsection
-{{-- {{ $listaktivitas ->links() }} --}}

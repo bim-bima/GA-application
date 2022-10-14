@@ -37,6 +37,9 @@
             <td>{{ $kendaraan->mk_warna }}</td>
             <td>{{ $kendaraan->mk_perlengkapan }}</td>
             <td>
+              <a class="btn-sm btn-success btn-circle mb-xl-0 mb-2" href="{{ route('master_kendaraan.show',$kendaraan->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
+                <i class="fa fa-edit"></i>
+              </a>
               <a class="btn-sm btn-warning btn-circle mb-xl-0 mb-2" href="{{ route('master_kendaraan.edit',$kendaraan->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
                 <i class="fa fa-edit"></i>
               </a>

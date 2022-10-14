@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('ak_pengguna');
             $table->date('ak_tanggal_mulai');
             $table->time('ak_jam');
+            $table->date('ak_tanggal_selesai');
+            $table->time('ak_jam_selesai');
             $table->unsignedInteger('ak_mp_id');
-            $table->string('ak_kondisi');
             $table->string('ak_lokasi_tujuan');
             $table->string('ak_tujuan_pemakaian');
             $table->timestamp('created_at',0)->useCurrent();

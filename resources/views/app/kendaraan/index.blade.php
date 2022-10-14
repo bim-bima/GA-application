@@ -6,12 +6,8 @@
 
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Cek Kendaraan</h6>
+    <h6 class="m-0 font-weight-bold text-primary"> Kendaraan</h6>
     @if(auth()->user()->level == "general-affair")
-    <!-- <button class="btn btn-primary mt-3"> 
-      <i class="fa fa-plus"></i>
-      <a href="{{ route('app_kendaraan.create') }}" class="text-white text-decoration-none">Tambah</a>
-    </button> -->
     @endif
   </div>
   <div class="card-body">
@@ -42,6 +38,12 @@
       </div>
       @endforeach
     </div>
+    @if(auth()->user()->level == "general-affair")
+    <button class="btn btn-primary mb-3"> 
+      <i class="fa fa-plus"></i>
+      <a href="{{ route('app_kendaraan.create') }}" class="text-white text-decoration-none">Tambah</a>
+    </button>
+    @endif
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
@@ -51,7 +53,6 @@
             <th>Tanggal</th>
             <th>Jam</th>
             <th>PIC</th>
-            <th>Kondisi</th>
             <th>Menuju</th>
             <th>Tujuan</th>
             @if(auth()->user()->level == "general-affair")
@@ -68,15 +69,14 @@
             <td>{{ $item->ak_tanggal_mulai }}</td>
             <td>{{ $item->ak_jam }}</td>
             <td>{{ $item->pic->mp_nama }}</td>
-            <td>{{ $item->ak_kondisi }}</td>
             <td>{{ $item->ak_lokasi_tujuan }}</td>
             <td>{{ $item->ak_tujuan_pemakaian }}</td>
             @if(auth()->user()->level == "general-affair")
             <td>
-              <!-- <a class="btn btn-warning btn-circle btn-sm mb-xxl-0 mb-2" href="{{ route('app_kendaraan.edit',$item->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit"> 
+              <a class="btn btn-success btn-circle btn-sm mb-xxl-0 mb-2" href="{{ route('app_kendaraan.show',$item->id) }}"  data-toggle="tooltip" data-placement="left" title="show"> 
                 <i class="fa fa-edit"></i>
               </a>
-              -->
+             
               <form action="{{ route('app_kendaraan.destroy',$item->id) }}" method="post" class="d-inline">
                 @csrf
                 @method('delete')
