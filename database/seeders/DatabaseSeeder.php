@@ -145,19 +145,15 @@ class DatabaseSeeder extends Seeder
         ]);
         MasterCategoryAsset::factory()->create([
             'mca_category' => 'elektronik',
-            'mca_id_category' => 'A'
         ]);
         MasterCategoryAsset::factory()->create([
             'mca_category' => 'Aksesories',
-            'mca_id_category' => 'B'
         ]);
         MasterCategoryAsset::factory()->create([
             'mca_category' => 'properti & furniture',
-            'mca_id_category' => 'C'
         ]);
         MasterCategoryAsset::factory()->create([
             'mca_category' => 'kendaraan',
-            'mca_id_category' => 'D'
         ]);
 
     }

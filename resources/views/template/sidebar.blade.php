@@ -127,7 +127,7 @@
             <i class="fa fa-shopping-cart"></i>
             <span>Vendor</span>
           </a>
-          <a class="nav-link" href="master_barang">
+          {{-- <a class="nav-link" href="master_barang">
             <i class="fa fa-wrench"></i>
             <span>Barang</span>
           </a>
@@ -138,7 +138,7 @@
           <a class="nav-link" href="master_statusfollowup">
             <i class="fa fa-table"></i>
             <span>Status Follow Up</span>
-          </a>
+          </a> --}}
           <a class="nav-link" href="master_lokasiasset">
             <i class="fa fa-map-marker"></i>
             <span>Lokasi Asset</span>

@@ -18,7 +18,6 @@ class MasterCategoryAssetFactory extends Factory
     {
         return [
             'mca_category' => $this->faker->name(),
-            'mca_id_category' => $this->faker->name()
         ];
     }
 }

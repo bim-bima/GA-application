@@ -192,7 +192,7 @@
             // left:'prev,next today',
             left:'month',
             center:'title',
-            right:'agendaWeek,agendaDay'
+            right:'month'
             },
             defaultDate: moment('{{ $perencanaan->ap_tahun.$perencanaan->ap_bulan }}'),
             events:aktivitas,

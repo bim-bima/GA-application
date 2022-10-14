@@ -17,10 +17,14 @@
   <div class="card-body">
     <div class="table-responsive">
       <?php 
-      use App\Models\Aktivitas;
-      $listaktivitas = Aktivitas::paginate(10);
+      // use App\Models\Aktivitas;
+      // $listaktivitas = Aktivitas::paginate(10);
+          // echo $mytime->toDateString();
+      
       ?>        
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-aos="zoom-in" data-aos-delay="650">
+
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th class="border border-secondary">Tanggal</th>

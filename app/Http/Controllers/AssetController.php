@@ -20,7 +20,7 @@ class AssetController extends Controller
 
     public function create()
     {
-        $lokasiAsset = MasterLokasiAsset::all();
+            $lokasiAsset = MasterLokasiAsset::all();
         $categoryasset = MasterCategoryAsset::all();
         return view('app.asset.create', compact(['lokasiAsset','categoryasset']));
         

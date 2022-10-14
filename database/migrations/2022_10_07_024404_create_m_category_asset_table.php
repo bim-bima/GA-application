@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('m_category_asset', function (Blueprint $table) {
             $table->increments('id');
             $table->string('mca_category');
-            $table->string('mca_id_category');
             $table->timestamp('created_at',0)->useCurrent();
             $table->timestamp('updated_at',0)->nullable();
         });

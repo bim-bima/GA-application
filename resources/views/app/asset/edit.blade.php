@@ -96,7 +96,6 @@
           <option value="12">12 tahun</option>
           <option value="16">16 tahun</option>
           <option value="20">20 tahun</option>
-          <option value="tanah">tanah</option>
         </select>
         @error('as_umur_manfaat')
           <div class="invalid-feedback">{{ $message }}</div>

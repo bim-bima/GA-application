@@ -70,7 +70,7 @@ class PerencanaanController extends Controller
             $listaktivitas = Aktivitas::all();
             $list = DB::table("app_aktivitas")->where("start_date", 'LIKE', '%'.$waktu.'%')->get();
 
-            return view('app.perencanaan.list',compact('list'));
+         return view('app.perencanaan.list',compact('list'));
         }
     
     public function destroy($id)

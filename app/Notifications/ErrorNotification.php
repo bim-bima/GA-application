@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Notifications;
+namespace AppNotifications;
 
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Notification;
+use IlluminateBusQueueable;
+use IlluminateNotificationsNotification;
+use IlluminateContractsQueueShouldQueue;
+use IlluminateNotificationsMessagesSlackMessage;
 
 class ErrorNotification extends Notification
 {
@@ -29,21 +29,21 @@ class ErrorNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['slack'];
     }
 
     /**
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
+     * @return IlluminateNotificationsMessagesMailMessage
      */
-    public function toMail($notifiable)
+    public function toSlack($notifiable)
     {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+        return (new SlackMessage)
+                    -&gt;from('laravel', ':ghost:')
+                    -&gt;to('#general')
+                    -&gt;content('Hello, my first slack message send from laravel.');
     }
 
     /**

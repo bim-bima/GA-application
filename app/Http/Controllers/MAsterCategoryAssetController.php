@@ -37,11 +37,10 @@ class MAsterCategoryAssetController extends Controller
         {
         $request->validate([
         'mca_category' => 'required|min:3|max:100',
-        'mca_id_category' => 'required|max:3|unique',
         ]);
         $mastercategoryasset = new Mastercategoryasset();
         $mastercategoryasset->mca_category = $request->mca_category;
-        $mastercategoryasset->mca_id_category = $request->mca_id_category;
+        // $mastercategoryasset->mca_id_category = $request->mca_id_category;
         $mastercategoryasset->save();
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
         return redirect()->route('master_categoryasset.index');
@@ -82,7 +81,6 @@ class MAsterCategoryAssetController extends Controller
         ]);
         $category = MasterCategoryAsset::find($id);
         $category->mca_category = $request->mca_category;
-        $category->mca_id_category = $request->mca_id_category;
         $category->save();
         Alert::success('Berhasil', 'Data Berhasil Diedit');
         return redirect()->route('master_categoryasset.index');

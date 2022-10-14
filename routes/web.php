@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SlackController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\RequestController;
@@ -51,6 +52,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::resource('app_aktivitas/index/{}', AktivitasController::class);
     Route::resource('app_perencanaan', PerencanaanController::class);
     Route::resource('app_request', RequestController::class);
+    Route::resource('master_kendaraan', MasterKendaraanController::class);
 });
 
 Route::group(['middleware' => ['auth', 'level:general-affair']], function(){
@@ -88,6 +90,7 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
 });
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('master_kendaraan', MasterKendaraanController::class);
     Route::resource('app_asset', AssetController::class);
     Route::resource('app_request', RequestController::class);
     Route::resource('app_pengajuan', PengajuanController::class);
@@ -103,6 +106,10 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
     Route::get('/perencanaan/list', function () {
         return view('/app/perencanaan/list');
     });
+
+    Route::resource('slack', SlackController::class)->only('index');
+
+
     Route::get('downloadlist', [AktivitasController::class,'download']);
 
     // Route::get('web', function () {

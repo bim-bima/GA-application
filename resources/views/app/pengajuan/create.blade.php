@@ -30,7 +30,7 @@
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <label for="ap_biaya" class="form-label">Biaya</label>
+      <label for="ap_biaya" class="form-label">Biaya (RP)</label>
       <input type="text" class="form-control @error('biaya') is-invalid @enderror" name="ap_biaya" required>
       @error('biaya')
       <div class="invalid-feedback">{{ $message }}</div>

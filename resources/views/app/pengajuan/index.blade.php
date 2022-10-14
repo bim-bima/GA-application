@@ -31,7 +31,7 @@
             </div>
             <div class="d-flex row mb-4">
               <div for="ap_biaya" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Biaya</div>
-              <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->ap_biaya }}</div>
+              <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">RP.{{ $pengajuan->ap_biaya }}</div>
             </div>
             <div class="d-flex row mb-4">
               <div for="ap_mp_id" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">PIC</div>
@@ -42,7 +42,7 @@
               <div class="card-text col-sm-8 col-md-8 col-lg-7 col-xl-8 col-12 pl-sm-0">{{ $pengajuan->ap_catatan }}</div>
             </div>
             <div class="d-flex row mb-4">
-              <div for="ap_tanggal_pengadaan" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Tanggal</div>
+              <div for="ap_tanggal_pengadaan" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Tanggal Estimasi</div>
               <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0 text-danger">{{ $pengajuan->ap_tanggal_pengadaan }}</div>
             </div>
           </div>
@@ -122,14 +122,14 @@
         @enderror
       </div>
       <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="700">
-        <label for="ap_biaya" class="form-label">Biaya</label>
+        <label for="ap_biaya" class="form-label">Biaya (RP)</label>
         <input type="text" class="form-control @error('biaya') is-invalid @enderror" name="ap_biaya" required>
         @error('biaya')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
       <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="800">
-        <label for="ap_tanggal_pengadaan" class="form-label">Tanggal Dibutuhkan</label>
+        <label for="ap_tanggal_pengadaan" class="form-label">Tanggal Estimasi</label>
         <input type="date" class="form-control @error('pengadaan') is-invalid @enderror" name="ap_tanggal_pengadaan" >
         @error('pengadaan')
         <div class="invalid-feedback">{{ $message }}</div>
@@ -164,13 +164,13 @@
   </div>
   @endif
 </div>
-<div class="card shadow mb-4" data-aos="fade-down" data-aos-delay="100">
+<div class="card shadow mb-4">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="500">Riwayat Pengajuan</h6>
+    <h6 class="m-0 font-weight-bold text-primary" >Riwayat Pengajuan</h6>
   </div>
   <div class="card-body px-sm-3 px-2">
     <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-aos="zoom-in" data-aos-delay="600">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th class="border border-secondary col-1 col-sm-3">Tanggal</th>
@@ -191,7 +191,7 @@
             <td class="border-secondary">{{ $pengajuan->ap_status }}</td>
             <td class="border-secondary">
               <a class="btn-sm btn-info btn-circle mb-xl-0 mb-2" href="{{ route('app_pengajuan.show',$pengajuan->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
-                <i class="fas fa-info-circle"></i>
+                <i class="fas fa-eye"></i>
               </a>
             </td>
           </tr>

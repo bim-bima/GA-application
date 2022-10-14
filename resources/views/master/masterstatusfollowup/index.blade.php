@@ -28,14 +28,14 @@
               <input type="hidden" class="delete_id" value="{{ $statusfollowup->id }}">
               <td class="border-secondary">{{ $statusfollowup->msf_status }}</td>
               <td class="border-secondary">
-                <a class="btn btn-warning btn-circle mb-sm-0 mb-1" href="{{ route('master_statusfollowup.edit',$statusfollowup->id) }}" data-toggle="tooltip" data-placement="left" title="Edit">
+                <a class="btn-sm btn-warning btn-circle mb-sm-0 mb-1" href="{{ route('master_statusfollowup.edit',$statusfollowup->id) }}" data-toggle="tooltip" data-placement="left" title="Edit">
                   <i class="fas fa-edit"></i>
                 </a>
                 <form action="{{ route('master_statusfollowup.destroy',$statusfollowup->id) }}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
                   {{-- <input class="btn btn-danger btndelete7" type="submit" value="Delete"> --}}
-                  <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-1 btndelete7" data-toggle="tooltip" data-placement="left" title="Delete">
+                  <a href="" class="btn-sm btn-danger btn-circle mb-sm-0 mb-1 btndelete7" data-toggle="tooltip" data-placement="left" title="Delete">
                     <i class="fas fa-trash"></i>
                   </a>
                 </form>
