@@ -1,5 +1,5 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark" id="accordionSidebar">
-  <div data-aos="fade-right" data-aos-delay="50">
+  <div>
     <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
     <img class="template/img-profile" src="{{asset('template/img/icon.png') }}" width="35px">

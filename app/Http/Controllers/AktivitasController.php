@@ -13,7 +13,7 @@ class AktivitasController extends Controller
     public function index()
     {
         // $events = array();
-        $dataAktivitas = Aktivitas::all();
+        $dataAktivitas = Aktivitas::paginate(8);
         foreach ($dataAktivitas as $aktivitas){
             $events[]=[
             'id'    => $aktivitas->id,
