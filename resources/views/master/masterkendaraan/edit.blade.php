@@ -2,13 +2,13 @@
 @section('content')
 
 <div class="row">
-  <div class="col-lg-6 p-0">
-    <div class="card shadow mb-4 mr-lg-2">
-      <div class="card-header py-3">
+  <div class="col-lg-6 pr-lg-2 pr-1">
+    <div class="card shadow-sm mb-4">
+      <div class="card-header py-3 px-sm-3 px-2">
         <h6 class="m-0 font-weight-bold text-primary">Status Kendaraan</h6>
       </div>
-      <div class="card-body">
-        <form action="{{ route('master_kendaraan.update',$kendaraan->id) }}" method="POST" enctype="multipart/form-data" class="row">
+      <div class="card-body px-sm-3 px-2">
+        <form action="{{ route('master_kendaraan.update',$kendaraan->id) }}" method="POST" enctype="multipart/form-data" class="row px-0">
           @csrf
           @method('put')
           <div class="col-12 mb-2">
@@ -49,9 +49,9 @@
     </div>
   </div>
   {{-- Status Kendaraan --}}
-  <div class="col-lg-6 p-0">
-    <div class="card shadow mb-4 ml-lg-2">
-      <div class="card-header py-3">
+  <div class="col-lg-6 px-lg-2 px-1">
+    <div class="card shadow-sm mb-4">
+      <div class="card-header py-3 px-3">
         <h6 class="m-0 font-weight-bold text-primary">Edit Kendaraan</h6>
       </div>
       <div class="card-body">

@@ -5,38 +5,37 @@
 @include('sweetalert::alert')
 
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Jenis jenis
-    Pengajuan</h6>
-    <button class="btn btn-primary mt-3">
+  <div class="card-header py-3 px-sm-3 px-2">
+    <h6 class="m-0 font-weight-bold text-primary">Jenis jenis Pengajuan</h6>
+    <button class="btn btn-primary mt-2">
       <i class="fa fa-plus"></i>
       <a href="{{ route('master_jenispengajuan.create') }}" class="text-white text-decoration-none">Tambah</a>
     </button>
   </div>
-  <div class="card-body">
+  <div class="card-body px-sm-3 px-1">
     <div class="row">
-      <div class="table-responsive col-md-8 border-dark">
+      <div class="table-responsive col-xl-7 border-dark">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead class="">
             <tr>
-              <th class="col-sm-5 col-3 ">Jenis Pengajuan</th>
-              <th class="col-3">Aksi</th>
+              <th class="border border-secondary col-4 col-sm-7 col-md-9">Jenis Pengajuan</th>
+              <th class="border border-secondary col-4 col-sm-2">Aksi</th>
             </tr>
           </thead>
           <tbody class="border-top-0">
             @foreach ($jenispengajuan as $jenis)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $jenis->id }}">
-              <td>{{ $jenis->mjp_jenis }}</td>
-              <td>
-                <a class="btn btn-warning btn-circle mb-sm-0 mb-2" href="{{ route('master_jenispengajuan.edit',$jenis->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
+              <td class="border-secondary">{{ $jenis->mjp_jenis }}</td>
+              <td class="border-secondary">
+                <a class="btn-sm btn-warning btn-circle mb-sm-0 mb-1" href="{{ route('master_jenispengajuan.edit',$jenis->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
                   <i class="fa fa-edit"></i>
                 </a>
                 <form action="{{ route('master_jenispengajuan.destroy',$jenis->id) }}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
                   {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
-                  <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndelete2" data-toggle="tooltip" data-placement="left" title="Delete">
+                  <a href="" class="btn-sm btn-danger btn-circle mb-sm-0 mb-1 btndelete2" data-toggle="tooltip" data-placement="left" title="Delete">
                     <i class="fas fa-trash"></i>
                   </a>
                 </form>

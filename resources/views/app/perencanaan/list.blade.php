@@ -5,12 +5,11 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">List Aktivitas</h6>
-
-    <button class="btn btn-success mt-3">
+    <button class="btn btn-info mt-3">
       <i class="fas fa-angle-left"></i>
       <a href="{{ route('app_perencanaan.index') }}" class="text-white text-decoration-none">Kembali</a>
     </button>
-    <button class="btn btn-primary mt-3">
+    <button class="btn btn-success mt-3">
       <i class="fas fa-download"></i>
       <a href="{{ url('downloadlist') }}" class="text-white text-decoration-none">Unduh</a>
     </button>
@@ -23,23 +22,27 @@
           // echo $mytime->toDateString();
       
       ?>        
+<<<<<<< HEAD
       
       <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
+=======
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+>>>>>>> ee66b3ebd4672cfc08fc12202fc669c27b3fed6e
         <thead>
           <tr>
-            <th>Tanggal</th>
-            <th>Aktivitas</th>
-            <th>Prioritas</th>
-            <th>Deskripsi</th>
+            <th class="border border-secondary">Tanggal</th>
+            <th class="border border-secondary">Aktivitas</th>
+            <th class="border border-secondary">Prioritas</th>
+            <th class="border border-secondary">Deskripsi</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($list as $listaktivitas)
           <tr>
-            <td>{{ $listaktivitas->start_date }}</td>
-            <td>{{ $listaktivitas->title }}</td>
-            <td>{{ $listaktivitas->prioritas }}</td>
-            <td>{{ $listaktivitas->deskripsi }}</td>
+            <td class="border-secondary">{{ $listaktivitas->start_date }}</td>
+            <td class="border-secondary">{{ $listaktivitas->title }}</td>
+            <td class="border-secondary">{{ $listaktivitas->prioritas }}</td>
+            <td class="border-secondary">{{ $listaktivitas->deskripsi }}</td>
           </tr>
           @endforeach
         </tbody>
@@ -47,4 +50,5 @@
     </div>
   </div>
 </div>
+{{-- {{ $listaktivitas -> links() }} --}}
 @endsection
