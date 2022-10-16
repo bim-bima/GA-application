@@ -36,7 +36,9 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
-                                    
+
+                                        <!-- level -->
+                                        <!-- <input type="text" class="form-control-user form-control" id="level" name="level" placeholder="Email" required value="pegawai"> -->
                                     
                                   </div>
                                   <div class="form-group row">
@@ -55,7 +57,7 @@
                                     </div>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <!-- <label for="password-confirm">{{ __('Confirm Password') }}</label> -->
-                                        <input type="password" class="form-control-user form-control @error('password-confirm') is-invalid @enderror" id="passwordConfirm" name="password_confirmation"  placeholder="Repeat Password" required autocomplete="new-password">
+                                        <input type="password" class="form-control-user form-control @error('password-confirm') is-invalid @enderror" id="passwordConfirm" name="password_confirmation"  placeholder="confirm Password" required autocomplete="new-password">
                                         <i class="fa fa-eye me-3 register-eye" id="togglePassword2"></i>
                                         @error('password-confirm')
                                             <span class="invalid-feedback" role="alert">

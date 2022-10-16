@@ -29,6 +29,7 @@
             </div>
             <div class="row justify-content-center">
               <a class="mt-3 btn btn-success mx-2 px-3" href="{{ route('master_kendaraan.show',$ken->id) }}">Detail</a>
+
               @if(auth()->user()->level == "general-affair")
               <a class="mt-3 btn btn-warning mx-2 px-3" href="{{ route('master_kendaraan.edit',$ken->id) }}">Update</a>
               @endif

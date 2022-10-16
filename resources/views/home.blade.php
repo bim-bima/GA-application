@@ -1,8 +1,5 @@
 @extends('layouts.main')
-
 @section('content')
-
-
 <div class="card shadow mb-4">
     @if(auth()->user()->level == "general-affair")
     <div class="card-header py-3">
@@ -12,6 +9,7 @@
       <div class="row px-sm-1">
         <h6 class="font-weight-bold text-primary">Aktivitas Hari Ini</h6>
           <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
+
           <thead>
             <tr>
               <th>Aktivitas</th>
@@ -56,7 +54,11 @@
                     </div>
                   </div>
                 </div>
+      @endif
               </div>
+              <div class="col-auto">
+                <a class="btn-sm btn-info btn-circle mb-xl-0 mb-1" href="{{ route('master_kendaraan.show',$kendaraan->id) }}"  data-toggle="tooltip" data-placement="left" title="Info"><i class="fas fa-info-circle"></i></a>
+               </div>
             </div>
             @endforeach
           </div>
