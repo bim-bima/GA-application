@@ -13,6 +13,7 @@
     @endif      
   </div>
   <div class="card-body px-sm-3 px-2">
+    
     @if($cek == 0)
     <div class="col-10 pr-0">
               <div class="card mb-3">
