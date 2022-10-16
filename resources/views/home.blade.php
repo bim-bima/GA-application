@@ -54,7 +54,6 @@
                     </div>
                   </div>
                 </div>
-      @endif
               </div>
               <div class="col-auto">
                 <a class="btn-sm btn-info btn-circle mb-xl-0 mb-1" href="{{ route('master_kendaraan.show',$kendaraan->id) }}"  data-toggle="tooltip" data-placement="left" title="Info"><i class="fas fa-info-circle"></i></a>
