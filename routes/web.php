@@ -116,7 +116,4 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
     //     Notification::route('slack',env('SLACK_URL'))
     //     ->notify(new AppNotificationsErrorNotification());
     // });
-    // Route::get( url: "send-log", function(){
-    //     \Illuminate\Support\Facades\Log::error ( message: "ini error dari server" );
-    // });
 

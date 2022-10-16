@@ -40,10 +40,10 @@ class HomeController extends Controller
 
     if(auth()->user()->level == "general-affair"){
             if($jumlah > 0){
-        Notification::route('slack', env('SLACK_WEBHOOK'))->notify(new SlackNotification());
+        // Notification::route('slack', env('SLACK_WEBHOOK'))->notify(new SlackNotification());
             }
      }
-          // echo $mytime->toDateString();
+
           $aktivitas = Aktivitas::where('start_date', '=', $tgl_sekarang)->get();
           $datakendaraan = MasterKendaraan::paginate(8);
 

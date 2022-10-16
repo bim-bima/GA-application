@@ -84,7 +84,7 @@ class KendaraanController extends Controller
         */
         public function show($id)
         {
-            $kendaraan = Kendaraan::find($id);
+            $kendaraan = MasterKendaraan::find($id);
             return view('app.kendaraan.show', compact(['kendaraan']));
         }
         /**

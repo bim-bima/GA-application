@@ -33,7 +33,7 @@
 <<<<<<< HEAD
             <td>{{ $kendaraan->mk_nama_kendaraan }}</td>
             <td>{{ $kendaraan->mk_no_polisi }}</td>
-            <td>{{ $kendaraan->mk_jenis }}</td>
+           <td>{{ $kendaraan->mk_jenis }}</td>
             <td>{{ $kendaraan->mk_merk }}</td>
             <td>{{ $kendaraan->mk_warna }}</td>
             <td>{{ $kendaraan->mk_perlengkapan }}</td>
