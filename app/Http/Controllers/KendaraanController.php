@@ -84,8 +84,10 @@ class KendaraanController extends Controller
         */
         public function show($id)
         {
-            $kendaraan = MasterKendaraan::find($id);
-            return view('app.kendaraan.show', compact(['kendaraan']));
+            $namaKendaraan = MasterKendaraan::all();
+            $pic = MasterPic::all();
+            $kendaraan = Kendaraan::find($id);
+            return view('app.kendaraan.show', compact(['kendaraan','namaKendaraan','pic']));
         }
         /**
         * Show the form for editing the specified resource.

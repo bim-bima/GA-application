@@ -93,7 +93,7 @@
       </div>
       <div class="col-md-6 mb-2">
         @if(auth()->user()->level == "general-affair")
-        <button class="btn btn-info my-3 mr-1">
+        <button class="btn btn-info mt-3 mr-1 mb-1">
           <i class="fa fa-angle-left"></i>
           <a href="{{ route('app_kendaraan.index') }}"class="text-white text-decoration-none">Kembali</a>
         </button>

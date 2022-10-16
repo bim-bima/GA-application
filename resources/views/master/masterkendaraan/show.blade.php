@@ -37,7 +37,7 @@
             @if(auth()->user()->level == "general-affair")
             <button class="btn btn-info mb-1 mr-1">
               <i class="fa fa-angle-left"></i>
-              <a href="{{ route('master_kendaraan.index') }}" class="text-white text-decoration-none">
+              <a href="{{ route('app_kendaraan.index') }}" class="text-white text-decoration-none">
                 Kembali
               </a>
             </button>
@@ -47,6 +47,15 @@
             <button class="btn btn-info mb-1 mr-1">
               <i class="fa fa-angle-left"></i>
               <a href="/home" class="text-white text-decoration-none">
+                Kembali
+              </a>
+            </button>
+            @endif
+
+            @if(auth()->user()->level == "management")
+            <button class="btn btn-info mb-1 mr-1">
+              <i class="fa fa-angle-left"></i>
+              <a href="{{ route('app_kendaraan.index') }}" class="text-white text-decoration-none">
                 Kembali
               </a>
             </button>

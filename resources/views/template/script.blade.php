@@ -9,6 +9,12 @@
 <script src="{{ asset ('template/js/sb-admin-2.min.js') }}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+<!-- Animation -->
+<script src="{{ asset ('template-landing/vendor/aos/aos.js') }}"></script>
+<script src="{{ asset ('template-landing/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ asset ('template-landing/vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset ('template-landing/js/main.js') }}"></script>
+
 <!-- Alert Kendaraan -->
 <script>
 	$(document).ready(function () {
@@ -778,6 +784,55 @@
 								$.ajax({
 										type: "DELETE",
 										url: 'app_request/' + deleterequest,
+
+										data: data,
+										success: function (response) {
+												swal(response.status, {
+																icon: "success",
+														})
+														.then((result) => {
+																location.reload();
+														});
+										}
+								});
+						}
+				});
+	});
+
+	});
+</script>
+{{-- Alert Jenis Pengajuan --}}
+<script>
+	$(document).ready(function () {
+
+	$.ajaxSetup({
+		headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
+
+	$('.btndeletejenis').click(function (e) {
+		e.preventDefault();
+
+		var deletepengajuan = $(this).closest("tr").find('.delete_id').val();
+
+		swal({
+						title: "Apakah anda yakin?",
+						text: "Pengajuan ini akan di hapus!",
+						icon: "warning",
+						buttons: true,
+						dangerMode: true,
+				})
+				.then((willDelete) => {
+						if (willDelete) {
+
+								var data = {
+										"_token": $('input[name=_token]').val(),
+										'id': deletepengajuan,
+								};
+								$.ajax({
+										type: "DELETE",
+										url: 'master_jenispengajuan/' + deletepengajuan,
 
 										data: data,
 										success: function (response) {

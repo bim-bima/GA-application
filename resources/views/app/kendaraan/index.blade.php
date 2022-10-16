@@ -4,14 +4,9 @@
 
 @include('sweetalert::alert')
 
-<div class="card shadow mb-4">
-<<<<<<< HEAD
-  <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary"> Kendaraan</h6>
-=======
+<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary">Cek Kendaraan</h6>
->>>>>>> ee66b3ebd4672cfc08fc12202fc669c27b3fed6e
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="900">Cek Kendaraan</h6>
     @if(auth()->user()->level == "general-affair")
     @endif
   </div>
@@ -19,7 +14,7 @@
     <div class="row">
       @foreach( $datakendaraan as $ken )
       <div class="col-xl-3 col-sm-6 mb-3 px-0 px-sm-2">
-        <div class="card">
+        <div class="card" data-aos="zoom-in" data-aos-delay="700">
           <div class="card-header py-2">
             <h6 class="m-0 font-weight-bold text-primary text-center">{{ $ken->mk_nama_kendaraan }}</h6>
           </div>
@@ -44,7 +39,6 @@
       </div>
       @endforeach
     </div>
-<<<<<<< HEAD
     @if(auth()->user()->level == "general-affair")
     <button class="btn btn-primary mb-3"> 
       <i class="fa fa-plus"></i>
@@ -52,6 +46,7 @@
     </button>
     @endif
     <div class="table-responsive">
+      @if(auth()->user()->level == "general-affair")
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
@@ -62,9 +57,7 @@
             <th>PIC</th>
             <th>Menuju</th>
             <th>Tujuan</th>
-            @if(auth()->user()->level == "general-affair")
             <th>Aksi</th>
-            @endif
           </tr>
         </thead>
         <tbody>
@@ -78,10 +71,9 @@
             <td>{{ $item->pic->mp_nama }}</td>
             <td>{{ $item->ak_lokasi_tujuan }}</td>
             <td>{{ $item->ak_tujuan_pemakaian }}</td>
-            @if(auth()->user()->level == "general-affair")
             <td>
               <a class="btn btn-success btn-circle btn-sm mb-xxl-0 mb-2" href="{{ route('app_kendaraan.show',$item->id) }}"  data-toggle="tooltip" data-placement="left" title="show"> 
-                <i class="fa fa-edit"></i>
+                <i class="fas fa-eye"></i>
               </a>
              
               <form action="{{ route('app_kendaraan.destroy',$item->id) }}" method="post" class="d-inline">
@@ -93,68 +85,12 @@
                 </a>
               </form>
             </td>
-            @endif
           </tr>
           @endforeach
         </tbody>
       </table>
       {{ $kendaraan->links() }}
-=======
-    <div class="row">
-      <div class="col-12 px-1 px-sm-2">
-        <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-              <tr>
-                <th class="border border-secondary">Kendaraan</th>
-                <th class="border border-secondary">Pengguna</th>
-                <th class="border border-secondary">Tanggal</th>
-                <th class="border border-secondary">Jam</th>
-                <th class="border border-secondary">PIC</th>
-                <th class="border border-secondary">Kondisi</th>
-                <th class="border border-secondary">Menuju</th>
-                <th class="border border-secondary">Tujuan</th>
-                @if(auth()->user()->level == "general-affair")
-                <th class="border border-secondary">Aksi</th>
-                @endif
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($kendaraan as $item)
-              <tr>
-                <input type="hidden" class="delete_id" value="{{ $item->id }}">
-                <td class="border-secondary">{{ $item->namaKendaraan->mk_nama_kendaraan }}</td>
-                <td class="border-secondary">{{ $item->ak_pengguna }}</td>
-                <td class="border-secondary">{{ $item->ak_tanggal_mulai }}</td>
-                <td class="border-secondary">{{ $item->ak_jam }}</td>
-                <td class="border-secondary">{{ $item->pic->mp_nama }}</td>
-                <td class="border-secondary">{{ $item->ak_kondisi }}</td>
-                <td class="border-secondary">{{ $item->ak_lokasi_tujuan }}</td>
-                <td class="border-secondary">{{ $item->ak_tujuan_pemakaian }}</td>
-                @if(auth()->user()->level == "general-affair")
-                <td class="border-secondary">
-                  <!-- <a class="btn btn-warning btn-circle btn-sm mb-xxl-0 mb-2" href="{{ route('app_kendaraan.edit',$item->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit"> 
-                    <i class="fa fa-edit"></i>
-                  </a>
-                  -->
-                  <form action="{{ route('app_kendaraan.destroy',$item->id) }}" method="post" class="d-inline">
-                    @csrf
-                    @method('delete')
-                    {{-- <input class="btn btn-danger btndeleteitem" type="submit" value="Delete"> --}}
-                    <a href="" class="btn btn-danger btn-circle btn-sm  btndeleteitem mb-xxl-0 mb-2" data-toggle="tooltip" data-placement="left" title="Delete">
-                      <i class="fas fa-trash"></i>
-                    </a>
-                  </form>
-                </td>
-                @endif
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-          {{ $kendaraan->links() }}
-        </div>
-      </div>
->>>>>>> ee66b3ebd4672cfc08fc12202fc669c27b3fed6e
+      @endif
     </div>
   </div>
 </div>

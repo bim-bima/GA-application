@@ -2,14 +2,14 @@
 @section('content')
 @include('sweetalert::alert')
 
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="100">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">List Aktivitas</h6>
-    <button class="btn btn-info mt-3">
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="600">List Aktivitas</h6>
+    <button class="btn btn-info mt-3" data-aos="fade-right" data-aos-delay="650">
       <i class="fas fa-angle-left"></i>
       <a href="{{ route('app_perencanaan.index') }}" class="text-white text-decoration-none">Kembali</a>
     </button>
-    <button class="btn btn-success mt-3">
+    <button class="btn btn-success mt-3" data-aos="fade-left" data-aos-delay="650">
       <i class="fas fa-download"></i>
       <a href="{{ url('downloadlist') }}" class="text-white text-decoration-none">Unduh</a>
     </button>
@@ -22,12 +22,9 @@
           // echo $mytime->toDateString();
       
       ?>        
-<<<<<<< HEAD
-      
-      <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
-=======
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-aos="zoom-in" data-aos-delay="650">
+
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
->>>>>>> ee66b3ebd4672cfc08fc12202fc669c27b3fed6e
         <thead>
           <tr>
             <th class="border border-secondary">Tanggal</th>
@@ -47,8 +44,8 @@
           @endforeach
         </tbody>
       </table>
+      {{-- {{ $listaktivitas->links() }} --}}
     </div>
   </div>
 </div>
-{{-- {{ $listaktivitas -> links() }} --}}
 @endsection

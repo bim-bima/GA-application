@@ -24,13 +24,8 @@
         for ( $i=$tahunawal;  $i<=$tahunakhir;  $i++ ){
             $tahun[] = array($i);
         }
-<<<<<<< HEAD
-        
-    ?>  
-=======
   ?>  
   <div class="container p-0">
->>>>>>> ee66b3ebd4672cfc08fc12202fc669c27b3fed6e
     <div class="row">
       <div class="card-body col-xl-9 pr-xl-1 px-3 pb-0">
         <canvas id="grafik"></canvas>
@@ -127,4 +122,3 @@
 <script></script>
 
 @endsection
-

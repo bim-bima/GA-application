@@ -3,14 +3,14 @@
 @include('sweetalert::alert')
 
 @if(auth()->user()->level == "general-affair")
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="100">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary">Daftar Request</h6>
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="600">Daftar Request</h6>
   </div>
   <div class="card-body px-sm-3 px-2">
     <div class="row">
       <div class="table-responsive col-md-12 border-dark">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-aos="zoom-in" data-aos-delay="600">
           <thead class="">
             <tr>
               <th class="border border-secondary col-sm-3 col-3">Tanggal</th>

@@ -4,11 +4,11 @@
 
 @include('sweetalert::alert')
 
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="100">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary">Daftar</h6>
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="600">Daftar Asset</h6>
     @if(auth()->user()->level == "general-affair")
-    <button class="btn btn-primary mt-2">
+    <button class="btn btn-primary mt-2" data-aos="fade-right" data-aos-delay="700">
       <i class="fa fa-plus"></i>
       <a href="{{ route('app_asset.create') }}" class="text-white text-decoration-none">Tambah</a>
     </button>
@@ -16,7 +16,7 @@
   </div>
   <div class="card-body px-sm-3 px-2">
     <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-aos="zoom-in" data-aos-delay="600">
         <thead>
           <tr>
             <th class="border border-secondary px-2">Nama Asset</th>
@@ -42,7 +42,7 @@
             <td class="border-secondary px-2">{{ $asset->as_umur_manfaat }} tahun</td>
             <td class="border-secondary px-2">
               <a class="btn-sm btn-info btn-circle mb-xl-0 mb-1" href="{{ route('app_asset.show',$asset->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
-                <i class="fas fa-info-circle"></i>
+                <i class="fas fa-eye"></i>
               </a>
               {{-- <a class="btn-sm btn-warning btn-circle mb-xl-0 mb-2" href="{{ route('app_asset.edit',$asset->id) }}"> --}}
               @if(auth()->user()->level == "general-affair")
