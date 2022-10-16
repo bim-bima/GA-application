@@ -1,7 +1,7 @@
 @extends('layouts.main')
+@section('content')
 @include('sweetalert::alert')
 
-@section('content')
 <div class="container-fluid p-0">
   <div class="card" data-aos="fade-up" data-aos-delay="100">
     <div class="card-header px-3">
@@ -114,7 +114,8 @@
             <form class="px-0" action="{{ route('app_perencanaan.store') }}" method="POST" enctype="multipart/form-data">
               @csrf
               <label class="form-label">Bulan</label>
-              <select name="ap_bulan" class="custom-select custom-select-md mb-3">
+              <select name="ap_bulan" required class="custom-select custom-select-md mb-3">
+                <option value="">Pilih Bulan</option>
                 <option value="-01">Januari</option>
                 <option value="-02">Februari</option>
                 <option value="-03">Maret</option>
@@ -129,7 +130,7 @@
                 <option value="-12">Desember</option>
               </select>
               <label class="form-label">Tahun</label>
-              <input name="ap_tahun" type="number" class="form-control @error('ap_tahun') is-invalid @enderror" required autofocus>
+              <input name="ap_tahun" type="number" class="form-control @error('ap_tahun') is-invalid @enderror" required autofocus value="{{ old('ap_tahun') }}">
               @error('ap_tahun')
                 <div class="invalid-feedback">
                   {{ $message }}

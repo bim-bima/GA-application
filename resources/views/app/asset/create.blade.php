@@ -9,55 +9,63 @@
       <form action="{{ route('app_asset.store') }}" method="POST" enctype="multipart/form-data" class="row">
         @csrf
         <div class="col-lg-6 mb-3 mb-sm-2">
-          <label for="as_nama_asset" class="form-label" data-aos="fade-right" data-aos-delay="550">Nama Asset</label>
-          <input type="text" class="form-control @error('nama') is-invalid @enderror" name="as_nama_asset" required data-aos="fade-right" data-aos-delay="600">
-          @error('nama')
+          <label for="nama_asset" class="form-label" data-aos="fade-right" data-aos-delay="550">Nama Asset</label>
+          <input type="text" class="form-control @error('nama_asset') is-invalid @enderror" name="nama_asset" required data-aos="fade-right" data-aos-delay="600" required autofocus value="{{ old('nama_asset') }}">
+          @error('nama_asset')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
         <div class="col-lg-6 mb-3 mb-sm-2">
-          <label for="as_jumlah" class="form-label" data-aos="fade-left" data-aos-delay="550">Jumlah Asset</label>
-          <input type="number" class="form-control @error('jumlah') is-invalid @enderror" name="as_jumlah" required data-aos="fade-left" data-aos-delay="600">
-          @error('jumlah')
+          <label for="jumlah_asset" class="form-label" data-aos="fade-left" data-aos-delay="550">Jumlah Asset</label>
+          <input type="number" class="form-control @error('jumlah_asset') is-invalid @enderror" name="jumlah_asset" required data-aos="fade-left" data-aos-delay="600" required autofocus value="{{ old('jumlah_asset') }}">
+          @error('jumlah_asset')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
 
         <div class="col-lg-6 mb-3 mb-sm-2">
-          <label for="as_mla_id" class="form-label" data-aos="fade-right" data-aos-delay="650">Lokasi Asset</label>
-          <select name="as_mla_id" class="form-control @error('as_mla_id') is-invalid @enderror" required data-aos="fade-right" data-aos-delay="700">
+          <label for="lokasi_asset" class="form-label" data-aos="fade-right" data-aos-delay="650">Lokasi Asset</label>
+          <select name="lokasi_asset" class="form-control @error('lokasi_asset') is-invalid @enderror" required data-aos="fade-right" data-aos-delay="700">
             <option value="">Pilih Lokasi</option>
             @foreach ($lokasiAsset as $la)
+            @if( old('lokasi_asset') == $la->id )
+            <option value="{{ $la->id }}" selected>{{ $la->mla_lokasi_asset}}</option>
+            @else
             <option value="{{ $la->id }}">{{ $la->mla_lokasi_asset}}</option>
+            @endif
             @endforeach    
           </select>
-          @error('as_mla_id')
+          @error('lokasi_asset')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <!-- format label -->
         <div class="col-lg-6 mb-3 mb-sm-2">
-          <label for="as_mca_id" class="form-label" data-aos="fade-left" data-aos-delay="650">Category Asset</label>
-          <select name="as_mca_id" class="form-control @error('as_mca_id') is-invalid @enderror" required data-aos="fade-left" data-aos-delay="700">
+          <label for="category_asset" class="form-label" data-aos="fade-left" data-aos-delay="650">Category Asset</label>
+          <select name="category_asset" class="form-control @error('category_asset') is-invalid @enderror" required data-aos="fade-left" data-aos-delay="700">
             <option value="">Pilih Category</option>
             @foreach ($categoryasset as $category)
+            @if( old('category_asset') == $category->id )
+            <option value="{{ $category->id }}" selected>{{ $category->mca_category}}</option>
+            @else
             <option value="{{ $category->id }}">{{ $category->mca_category}}</option>
+            @endif
             @endforeach    
           </select>
-          @error('as_mca_id')
+          @error('category_asset')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
         <div class="col-lg-6 mb-3 mb-sm-2">
-          <label for="as_tahun_kepemilikan" class="form-label" data-aos="fade-right" data-aos-delay="750">Tahun Pembelian</label>
-          <input type="number" class="form-control @error('tahun') is-invalid @enderror" name="as_tahun_kepemilikan" required data-aos="fade-right" data-aos-delay="800">
-          @error('tahun')
+          <label for="tahun_pembelian_asset" class="form-label" data-aos="fade-right" data-aos-delay="750">Tahun Pembelian</label>
+          <input type="number" class="form-control @error('tahun_pembelian_asset') is-invalid @enderror" name="tahun_pembelian_asset" required data-aos="fade-right" data-aos-delay="800" value="{{ old('tahun_pembelian_asset') }}" required autofocus>
+          @error('tahun_pembelian_asset')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
         <div class="col-lg-6 mb-3 mb-sm-2">
           <label class="form-label" data-aos="fade-left" data-aos-delay="750">Bulan Pembelian</label>
-          <select name="as_bulan" class="custom-select custom-select-md" data-aos="fade-left" data-aos-delay="800">
+          <select name="bulan_pembelian_asset" required class="custom-select custom-select-md" data-aos="fade-left" data-aos-delay="800">
+            <option value="">Pilih Bulan</option>
             <option value="-01">Januari</option>
             <option value="-02">Februari</option>
             <option value="-03">Maret</option>
@@ -73,22 +81,23 @@
           </select>
         </div>
         <div class="col-lg-6 mb-3 mb-sm-2">
-          <label for="as_harga" class="form-label" data-aos="fade-right" data-aos-delay="850">Harga Asset </label>
-          <input type="text" class="form-control @error('harga') is-invalid @enderror" name="as_harga" required data-aos="fade-right" data-aos-delay="900">
-          @error('harga')
+          <label for="harga_asset" class="form-label" data-aos="fade-right" data-aos-delay="850">Harga Asset </label>
+          <input type="number" class="form-control @error('harga_asset') is-invalid @enderror" name="harga_asset" required data-aos="fade-right" data-aos-delay="900" required autofocus value="{{ old('harga_asset') }}">
+          @error('harga_asset')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
         <div class="col-lg-6 mb-3 mb-sm-2">
-          <label for="as_umur_manfaat" class="form-label" data-aos="fade-left" data-aos-delay="850">Umur Manfaat Asset</label>
-          <select name="as_umur_manfaat" class="form-control @error('as_umur_manfaat') is-invalid @enderror" required data-aos="fade-left" data-aos-delay="900">
+          <label for="umur_manfaat_asset" class="form-label" data-aos="fade-left" data-aos-delay="850">Umur Manfaat Asset</label>
+          <select name="umur_manfaat_asset" required class="form-control @error('umur_manfaat_asset') is-invalid @enderror" required data-aos="fade-left" data-aos-delay="900">
+            <option value="">Pilih Umur Manfaat</option>
             <option value="4">4 tahun</option>
             <option value="8">8 tahun</option>
             <option value="12">12 tahun</option>
             <option value="16">16 tahun</option>
             <option value="20">20 tahun</option>
           </select>
-          @error('as_umur_manfaat')
+          @error('umur_manfaat_asset')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
