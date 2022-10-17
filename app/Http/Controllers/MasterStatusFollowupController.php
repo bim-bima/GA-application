@@ -15,8 +15,9 @@ class MasterStatusFollowupController extends Controller
         */
         public function index()
         {
+            $cek = MasterStatusFollowup::count();
             $datastatusfollowup = MasterStatusFollowup::paginate(8);
-            return view('master.masterstatusfollowup.index', compact(['datastatusfollowup']));
+            return view('master.masterstatusfollowup.index', compact(['datastatusfollowup','cek']));
         }
         /**
         * Show the form for creating a new resource.

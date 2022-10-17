@@ -15,8 +15,9 @@ class MasterVendorController extends Controller
         */
         public function index()
         {
+            $cek = MasterVendor::count();
             $datavendor = MasterVendor::paginate(8);
-            return view('master.mastervendor.index', compact(['datavendor']));
+            return view('master.mastervendor.index', compact(['datavendor','cek']));
         }
         /**
         * Show the form for creating a new resource.

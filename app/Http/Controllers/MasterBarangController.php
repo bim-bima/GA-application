@@ -15,8 +15,9 @@ class MasterBarangController extends Controller
         */
         public function index()
         {
+            $cek = MasterBarang::count();
             $databarang = MasterBarang::paginate(8);
-            return view('master.masterBarang.index', compact(['databarang']));
+            return view('master.masterBarang.index', compact(['databarang','cek']));
         }
         /**
         * Show the form for creating a new resource.

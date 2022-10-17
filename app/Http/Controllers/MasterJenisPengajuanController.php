@@ -15,8 +15,9 @@ class MasterJenisPengajuanController extends Controller
         */
         public function index()
         {
+            $cek = MasterJenisPengajuan::count();
             $jenispengajuan = MasterJenisPengajuan::paginate(8);
-            return view('master.masterjenispengajuan.index', compact(['jenispengajuan']));
+            return view('master.masterjenispengajuan.index', compact(['jenispengajuan','cek']));
         }
         /**
         * Show the form for creating a new resource.

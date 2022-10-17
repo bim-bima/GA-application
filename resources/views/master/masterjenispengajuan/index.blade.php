@@ -14,6 +14,25 @@
   </div>
   <div class="card-body px-sm-3 px-1">
     <div class="row">
+      @if($cek == 0)
+      <div class="col">
+        <div class="card border-danger mb-2">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="font-weight-bold text-primary text-uppercase text-center">
+                  <i class="fas fa-info-circle"></i>
+                  Belum Ada Data Disini
+                  <i class="fas fa-info-circle"></i>
+                </div>
+              </div>                      
+            </div>
+          </div>
+        </div>
+      </div>
+      @endif
+
+      @if($cek > 0)
       <div class="table-responsive col-xl-7 border-dark">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead class="">
@@ -46,6 +65,7 @@
         </table>
         {{ $jenispengajuan->links() }}
       </div>
+      @endif
     </div>
   </div>
 </div>

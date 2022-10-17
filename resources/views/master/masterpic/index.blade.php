@@ -14,8 +14,27 @@
   </div>
   <div class="card-body px-sm-3 px-1">
     <div class="row">
+      @if($cek == 0)
+      <div class="col">
+        <div class="card mb-3 border-danger">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 px-1">
+                <div class="font-weight-bold text-primary text-uppercase text-center">
+                  <i class="fas fa-info-circle"></i>
+                  Belum Ada Data Disini
+                  <i class="fas fa-info-circle"></i>
+                </div>
+              </div>                      
+            </div>
+          </div>
+        </div>
+      </div>
+      @endif
+
+      @if($cek > 0)
       <div class="table-responsive col-xl-7">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-aos="zoom-in" data-aos-delay="800">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead class="">
             <tr>
               <th class="border border-secondary col-4 col-sm-7 col-md-9">Nama</th>
@@ -46,6 +65,7 @@
         </table>
         {{ $datapic->links() }}
       </div>
+      @endif
    </div>
   </div>
 </div>

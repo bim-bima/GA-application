@@ -14,7 +14,26 @@
   </div>
   <div class="card-body px-sm-3 px-1">
     <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-aos="zoom-in" data-aos-delay="800">
+      @if($cek == 0)
+      <div class="col">
+        <div class="card border-danger mb-2">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="font-weight-bold text-primary text-uppercase text-center">
+                  <i class="fas fa-info-circle"></i>
+                  Belum Ada Data Disini
+                  <i class="fas fa-info-circle"></i>
+                </div>
+              </div>                      
+            </div>
+          </div>
+        </div>
+      </div>
+      @endif
+
+      @if($cek > 0)
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th class="border border-secondary">Nama Kendaraan</th>
@@ -30,18 +49,6 @@
           @foreach ($datakendaraan as $kendaraan)
           <tr>
             <input type="hidden" class="delete_id" value="{{ $kendaraan->id }}">
-            <td>{{ $kendaraan->mk_nama_kendaraan }}</td>
-            <td>{{ $kendaraan->mk_no_polisi }}</td>
-           <td>{{ $kendaraan->mk_jenis }}</td>
-            <td>{{ $kendaraan->mk_merk }}</td>
-            <td>{{ $kendaraan->mk_warna }}</td>
-            <td>{{ $kendaraan->mk_perlengkapan }}</td>
-            <td>
-              <a class="btn-sm btn-success btn-circle mb-xl-0 mb-2" href="{{ route('master_kendaraan.show',$kendaraan->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
-                <i class="fa fa-edit"></i>
-              </a>
-              <a class="btn-sm btn-warning btn-circle mb-xl-0 mb-2" href="{{ route('master_kendaraan.edit',$kendaraan->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
-
             <td class="border-secondary">{{ $kendaraan->mk_nama_kendaraan }}</td>
             <td class="border-secondary">{{ $kendaraan->mk_no_polisi }}</td>
             <td class="border-secondary">{{ $kendaraan->mk_jenis }}</td>
@@ -66,6 +73,7 @@
         </tbody>
       </table>
       {{ $datakendaraan->links() }}
+      @endif
     </div>
   </div>
 </div>
