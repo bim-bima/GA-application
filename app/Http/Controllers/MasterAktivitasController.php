@@ -37,7 +37,7 @@ class MasterAktivitasController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'ma_nama_aktivitas' => 'required|min:5|max:30',
+        'ma_nama_aktivitas' => 'required|max:200',
         ]);
         $masteraktivitas = new MasterAktivitas();
         $masteraktivitas->ma_nama_aktivitas = $request->ma_nama_aktivitas;
@@ -77,7 +77,7 @@ class MasterAktivitasController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-        'ma_nama_aktivitas' => 'required|min:5|max:50',
+        'ma_nama_aktivitas' => 'required|max:200',
         ]);
         $aktivitas = MasterAktivitas::find($id);
         $aktivitas->ma_nama_aktivitas = $request->ma_nama_aktivitas;

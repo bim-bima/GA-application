@@ -12,35 +12,46 @@
           @csrf
           @method('put')
           <div class="col-12 mb-2">
-            <label for="mk_perlengkapan" class="form-label">Status</label>
+            <label for="mk_status" class="form-label">Status</label>
             <select name="mk_status" class="form-control @error('mk_status') is-invalid @enderror" required>
               <option value="{{ $kendaraan->mk_status }}">{{ $kendaraan->mk_status }}</option>
               <option value="tersedia">Tersedia</option>
               <option value="sedang dipakai">Sedang Di Pakai</option>
-              <option value="akan dipakai">Akan Di Pakai</option>
             </select>
               @error('mk_status')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
           </div>
+
           <div class="col-12 mb-2">
-            <label for="mk_Bahan_bakar" class="form-label">Bahan Bakar Tersedia</label>
-            <input type="text" class="form-control @error('bahanbakar') is-invalid @enderror" name="mk_bahan_bakar" required  value="{{ $kendaraan->mk_bahan_bakar }}">
-            @error('bahanbakar')
+            <label for="Bahan_bakar" class="form-label">Bahan Bakar Tersedia</label>
+            <input type="number" class="form-control @error('bahan_bakar') is-invalid @enderror" name="bahan_bakar" required  value="{{ $kendaraan->mk_bahan_bakar }}">
+            @error('bahan_bakar')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
-          <div class="col-12 mb-2">
-            <label for="mk_kilometer" class="form-label">Kilometer</label>
-            <input type="text" class="form-control @error('kilometer') is-invalid @enderror" name="mk_kilometer" required  value="{{ $kendaraan->mk_kilometer }}">
+
+
+          <div class="col-12 mb-1">
+            <label for="kilometer" class="form-label">Kilometer</label>
+            <input type="number" min="1" class="form-control @error('kilometer') is-invalid @enderror" name="kilometer" required  value="{{ $kendaraan->mk_kilometer }}">
             @error('kilometer')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
+
+          <!-- <div class="col-12 mb-2">
+            <label for="kilometer" class="form-label">Kilometer (Km)</label>
+            <input type="number" class="form-control @error('kilometer') is-invalid @enderror" autofocus  name="kilometer"  value="{{ $kendaraan->mk_kilometer }}" >
+            @error('kilometer')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div> -->
+
           <div class="col-12 mb-1">
-            <label for="mk_kondisi_lain" class="form-label">Kondisi Lain</label>
-            <input type="text" class="form-control @error('kondisi') is-invalid @enderror" name="mk_kondisi_lain" required  value="{{ $kendaraan->mk_kondisi_lain }}">
-            @error('kondisi')
+            <label for="kondisi_lain" class="form-label">Kondisi Lain</label>
+            <input type="text" class="form-control @error('kondisi') is-invalid @enderror" name="kondisi_lain" required  value="{{ $kendaraan->mk_kondisi_lain }}">
+            @error('kondisi_lain')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
@@ -52,23 +63,23 @@
   <div class="col-lg-6 px-lg-2 px-1">
     <div class="card shadow-sm mb-4" data-aos="fade-left" data-aos-delay="50">
       <div class="card-header py-3 px-3">
-        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-left" data-aos-delay="100">Edit Kendaraan</h6>
+        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-left" data-aos-delay="100">Edit data Kendaraan</h6>
       </div>
       <div class="card-body">
         <form action="{{ route('master_kendaraan.update',$kendaraan->id) }}" method="POST" enctype="multipart/form-data" class="row">
           @csrf
           @method('put')
           <div class="col-md-6 mb-2">
-            <label for="mk_nama_kendaraan" class="form-label">Nama Kendaraan</label>
-            <input type="text" class="form-control @error('nama') is-invalid @enderror" name="mk_nama_kendaraan" value="{{ $kendaraan->mk_nama_kendaraan }}" required>
-            @error('nama')
+            <label for="nama_kendaraan" class="form-label">Nama Kendaraan</label>
+            <input type="text" class="form-control @error('nama_kendaraan') is-invalid @enderror" name="nama_kendaraan" value="{{ $kendaraan->mk_nama_kendaraan }}" required>
+            @error('nama_kendaraan')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
           <div class="col-md-6 mb-2">
-            <label for="mk_no_polisi" class="form-label">No Polisi</label>
-            <input type="text" class="form-control @error('nopolisi') is-invalid @enderror" name="mk_no_polisi" required value="{{ $kendaraan->mk_no_polisi }}">
-            @error('nopolisi')
+            <label for="no_polisi" class="form-label">No Polisi</label>
+            <input type="text" class="form-control @error('no_polisi') is-invalid @enderror" name="no_polisi" required value="{{ $kendaraan->mk_no_polisi }}">
+            @error('no_polisi')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
@@ -84,15 +95,15 @@
             @enderror
           </div>
           <div class="col-md-6 mb-2">
-            <label for="mk_merk" class="form-label">Merk Kendaraan</label>
-            <input type="text" class="form-control @error('merk') is-invalid @enderror" name="mk_merk" required  value="{{ $kendaraan->mk_merk }}">
+            <label for="merk" class="form-label">Merk Kendaraan</label>
+            <input type="text" class="form-control @error('merk') is-invalid @enderror" name="merk" required  value="{{ $kendaraan->mk_merk }}">
             @error('merk')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
           <div class="col-md-6 mb-2">
-            <label for="mk_warna" class="form-label">Warna Kendaraan</label>
-            <input type="text" class="form-control @error('warna') is-invalid @enderror" name="mk_warna" required  value="{{ $kendaraan->mk_warna }}">
+            <label for="warna" class="form-label">Warna Kendaraan</label>
+            <input type="text" class="form-control @error('warna') is-invalid @enderror" name="warna" required  value="{{ $kendaraan->mk_warna }}">
             @error('warna')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror

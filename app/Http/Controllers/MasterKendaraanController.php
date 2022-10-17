@@ -36,19 +36,28 @@ class MasterKendaraanController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'mk_nama_kendaraan' => 'required|min:3',
+        'mk_status' => 'required',
+        'bahan_bakar' => 'required|regex:/^[0-9]+$/|max:15',
+        'kilometer' => 'required|regex:/^[0-9]+$/|max:15',
+        'kondisi_lain' => 'required',
+        'nama_kendaraan' => 'required|min:3|max:100',
+        'no_polisi' => 'required|min:5|max:10',
+        'mk_jenis' => 'required',
+        'merk' => 'required|max:20',
+        'warna' => 'required|max:20',
+        'mk_perlengkapan' => 'required',
         ]);
         $kendaraan = new MasterKendaraan();
-        $kendaraan->mk_nama_kendaraan = $request->mk_nama_kendaraan;
-        $kendaraan->mk_no_polisi = $request->mk_no_polisi;
-        $kendaraan->mk_jenis = $request->mk_jenis;
-        $kendaraan->mk_merk = $request->mk_merk;
-        $kendaraan->mk_warna = $request->mk_warna;
-        $kendaraan->mk_perlengkapan = $request->mk_perlengkapan;
         $kendaraan->mk_status = $request->mk_status;
-        $kendaraan->mk_bahan_bakar = $request->mk_bahan_bakar;
-        $kendaraan->mk_kilometer = $request->mk_kilometer;
-        $kendaraan->mk_kondisi_lain = $request->mk_kondisi_lain;
+        $kendaraan->mk_bahan_bakar = $request->bahan_bakar;
+        $kendaraan->mk_kilometer = $request->kilometer;
+        $kendaraan->mk_kondisi_lain = $request->kondisi_lain;
+        $kendaraan->mk_nama_kendaraan = $request->nama_kendaraan;
+        $kendaraan->mk_no_polisi = $request->no_polisi;
+        $kendaraan->mk_jenis = $request->mk_jenis;
+        $kendaraan->mk_merk = $request->merk;
+        $kendaraan->mk_warna = $request->warna;
+        $kendaraan->mk_perlengkapan = $request->mk_perlengkapan;
         $kendaraan->save();
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
         return redirect()->route('app_kendaraan.index');
@@ -92,19 +101,27 @@ class MasterKendaraanController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-        'mk_nama_kendaraan' => 'required|min:3|max:15',
+        // 'bahan_bakar' => 'regex:/^[0-9]+$/|max:15',
+        // 'kilometer' => 'regex:/^[0-9]+$/|max:15',
+        // 'kondisi_lain' => 'required',
+        // 'nama_kendaraan' => 'required|min:3|max:100',
+        // 'no_polisi' => 'required|min:5|max:10',
+        // 'mk_jenis' => 'required',
+        // 'merk' => 'required|max:50',
+        // 'warna' => 'required|max:50',
+        // 'mk_perlengkapan' => 'required',
         ]);
         $kendaraan = MasterKendaraan::find($id);
-        $kendaraan->mk_nama_kendaraan = $request->mk_nama_kendaraan;
-        $kendaraan->mk_no_polisi = $request->mk_no_polisi;
-        $kendaraan->mk_jenis = $request->mk_jenis;
-        $kendaraan->mk_merk = $request->mk_merk;
-        $kendaraan->mk_warna = $request->mk_warna;
-        $kendaraan->mk_perlengkapan = $request->mk_perlengkapan;
         $kendaraan->mk_status = $request->mk_status;
-        $kendaraan->mk_bahan_bakar = $request->mk_bahan_bakar;
-        $kendaraan->mk_kilometer = $request->mk_kilometer;
-        $kendaraan->mk_kondisi_lain = $request->mk_kondisi_lain;
+        $kendaraan->mk_bahan_bakar = $request->bahan_bakar;
+        $kendaraan->mk_kilometer = $request->kilometer;
+        $kendaraan->mk_kondisi_lain = $request->kondisi_lain;
+        $kendaraan->mk_nama_kendaraan = $request->nama_kendaraan;
+        $kendaraan->mk_no_polisi = $request->no_polisi;
+        $kendaraan->mk_jenis = $request->mk_jenis;
+        $kendaraan->mk_merk = $request->merk;
+        $kendaraan->mk_warna = $request->warna;
+        $kendaraan->mk_perlengkapan = $request->mk_perlengkapan;
         $kendaraan->save();
         Alert::success('Berhasil', 'Data Berhasil Diedit');
         return redirect()->route('master_kendaraan.index');

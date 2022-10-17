@@ -37,7 +37,7 @@ class MasterJenisPengajuanController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'mjp_jenis' => 'required|min:5|max:100',
+        'mjp_jenis' => 'required|max:200',
         ]);
         $MasterJenisPengajuan = new MasterJenisPengajuan();
         $MasterJenisPengajuan->mjp_jenis = $request->mjp_jenis;
@@ -76,7 +76,7 @@ class MasterJenisPengajuanController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-        'mjp_jenis' => 'required|min:5|max:100',
+        'mjp_jenis' => 'required|max:200',
         ]);
         $jenispengajuan = MasterJenisPengajuan::find($id);
         $jenispengajuan->mjp_jenis = $request->mjp_jenis;
