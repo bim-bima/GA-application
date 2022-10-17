@@ -17,7 +17,7 @@
         </div>
         <div class="col-lg-6 mb-3 mb-sm-2">
           <label for="jumlah_asset" class="form-label" data-aos="fade-left" data-aos-delay="550">Jumlah Asset</label>
-          <input type="number" class="form-control @error('jumlah_asset') is-invalid @enderror" name="jumlah_asset" required data-aos="fade-left" data-aos-delay="600" required autofocus value="{{ old('jumlah_asset') }}">
+          <input type="number" min="1" class="form-control @error('jumlah_asset') is-invalid @enderror" name="jumlah_asset" required data-aos="fade-left" data-aos-delay="600" required autofocus value="{{ old('jumlah_asset') }}">
           @error('jumlah_asset')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -82,7 +82,7 @@
         </div>
         <div class="col-lg-6 mb-3 mb-sm-2">
           <label for="harga_asset" class="form-label" data-aos="fade-right" data-aos-delay="850">Harga Asset </label>
-          <input type="number" class="form-control @error('harga_asset') is-invalid @enderror" name="harga_asset" required data-aos="fade-right" data-aos-delay="900" required autofocus value="{{ old('harga_asset') }}">
+          <input type="number" min="1" class="form-control @error('harga_asset') is-invalid @enderror" name="harga_asset" required data-aos="fade-right" data-aos-delay="900" required autofocus value="{{ old('harga_asset') }}">
           @error('harga_asset')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror

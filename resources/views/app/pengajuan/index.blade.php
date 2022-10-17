@@ -130,7 +130,7 @@
         @enderror
       </div>
       <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="200">
-        <label for="biaya" class="form-label">Biaya (RP)</label>
+        <label for="biaya" min="1" class="form-label">Biaya (RP)</label>
         <input type="number" class="form-control @error('biaya') is-invalid @enderror" name="biaya" required autofocus value="{{ old('biaya') }}">
         @error('biaya')
         <div class="invalid-feedback">{{ $message }}</div>
@@ -206,7 +206,7 @@
             <th class="border border-secondary col-1 col-sm-3">Tanggal</th>
             <th class="border border-secondary col-2 col-sm-5">Nama Pengajuan</th>
             <th class="border border-secondary col-2 col-sm-3">Status</th>
-            <th class="border border-secondary col-1">Detail</th>
+            <th class="border border-secondary col-1">Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -223,6 +223,12 @@
               <a class="btn-sm btn-info btn-circle mb-xl-0 mb-2" href="{{ route('app_pengajuan.show',$pengajuan->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
                 <i class="fas fa-eye"></i>
               </a>
+              <form action="{{ route('app_pengajuan.destroy',$pengajuan->id) }}" method="post" class="d-inline">
+                @csrf
+                @method('delete')
+                <button class="btn btn-danger btn-circle btn-sm btndeleteasset" type="submit"><i class="fas fa-trash"></i>
+                </button>
+              </form>
             </td>
           </tr>
           @endforeach

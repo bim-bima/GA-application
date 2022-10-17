@@ -45,7 +45,7 @@
   <div class="col-lg-6 pl-sm-1 pl-0">
     <div class="card shadow-sm mb-4" data-aos="fade-left" data-aos-delay="50">
       <div class="card-header py-3 px-3">
-        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Tambah Kendaraan</h6>
+        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-left" data-aos-delay="100">Tambah Kendaraan</h6>
       </div>
       <div class="card-body px-sm-3">
         <div class="row">

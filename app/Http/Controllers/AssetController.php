@@ -31,7 +31,7 @@ class AssetController extends Controller
     {
         $request->validate([
             'nama_asset'            => 'required|min:2|max:150', 
-            'jumlah_asset'          => 'required', 
+            'jumlah_asset'          => 'required|regex:/^[0-9]+$/', 
             'lokasi_asset'          => 'required',
             'category_asset'        => 'required',
             'tahun_pembelian_asset' => 'required|min:4|max:4|after:1900|regex:/^[0-9]+$/',
@@ -98,47 +98,47 @@ class AssetController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'as_nama_asset' => 'required',
-            'as_mla_id' => 'required',
-            'as_mca_id' => 'required',
-            'as_kode_asset' => 'required',
-            'as_tahun_kepemilikan' => 'required',
-            'as_harga' => 'required',
-            'as_umur_manfaat' => 'required',
-            'as_bulan' => 'required',
+            'nama_asset'            => 'required|min:2|max:150', 
+            'lokasi_asset'          => 'required',
+            'category_asset'        => 'required',
+            'tahun_pembelian_asset' => 'required|min:4|max:4|after:1900|regex:/^[0-9]+$/',
+            'bulan_pembelian_asset' => 'required',
+            'harga_asset'           => 'required|min:4|max:11|regex:/^[0-9]+$/', 
+            'umur_manfaat_asset'    => 'required',
         ]);
         $dataasset = Asset::find($id);
         $prefik = "L9";
-         if( $request->as_umur_manfaat == 4){
+         if( $request->umur_manfaat_asset == 4){
             $masa = 1;
-         }elseif($request->as_umur_manfaat == 8){
+         }elseif($request->umur_manfaat_asset == 8){
             $masa = 2;
-         }elseif($request->as_umur_manfaat == 12){
+         }elseif($request->umur_manfaat_asset == 12){
             $masa = 3;
-         }elseif($request->as_umur_manfaat == 16){
+         }elseif($request->umur_manfaat_asset == 16){
             $masa = 4;
-         }elseif($request->as_umur_manfaat == 20){
+         }elseif($request->umur_manfaat_asset == 20){
             $masa = 5;
          }else{
             $masa = 5;
          }
          $kelompok = $masa;
-         $category = $request->as_mca_id;
-         $ambil2 = $request->as_nama_asset;
+         $category = $request->category_asset;
+         $ambil2 = $request->nama_asset;
          $subcategory = substr($ambil2,-0,3);
          $nourut = 001;
-         $bulan = $request->as_bulan; 
-         $tahun = $request->as_tahun_kepemilikan; 
+         $bulan = $request->bulan_pembelian_asset;
+         $ambil1 = $request->tahun_pembelian_asset; 
+         $tahun = substr($ambil1,-2,2);
          $kodeasset = $prefik.'.'.$kelompok.'.'.$category.'.'.$subcategory.'.'.$nourut.$bulan.'.'.$tahun;  
 
-        $dataasset->as_nama_asset = $request->as_nama_asset;
-        $dataasset->as_mla_id = $request->as_mla_id;
-        $dataasset->as_mca_id = $request->as_mca_id;
+        $dataasset->as_nama_asset = $request->nama_asset;
+        $dataasset->as_mla_id = $request->lokasi_asset;
+        $dataasset->as_mca_id = $request->category_asset;
         $dataasset->as_kode_asset = $kodeasset;
-        $dataasset->as_tahun_kepemilikan = $request->as_tahun_kepemilikan;
-        $dataasset->as_harga = $request->as_harga;
-        $dataasset->as_umur_manfaat = $request->as_umur_manfaat;
-        $dataasset->as_bulan = $request->as_bulan;
+        $dataasset->as_tahun_kepemilikan = $request->tahun_pembelian_asset;
+        $dataasset->as_harga = $request->harga_asset;
+        $dataasset->as_umur_manfaat = $request->umur_manfaat_asset;
+        $dataasset->as_bulan = $request->tahun_pembelian_asset;
         $dataasset->save();
         Alert::success('Berhasil', 'Data Berhasil Diedit');
         return redirect()->route('app_asset.index');

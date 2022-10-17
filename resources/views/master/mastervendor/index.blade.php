@@ -4,10 +4,10 @@
 
 @include('sweetalert::alert')
 
-<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
+<div class="card shadow mb-4">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Daftar Vendor</h6>
-    <button class="btn btn-primary mt-2" data-aos="fade-right" data-aos-delay="150">
+    <h6 class="m-0 font-weight-bold text-primary">Daftar Vendor</h6>
+    <button class="btn btn-primary mt-2">
       <i class="fa fa-plus"></i>
       <a href="{{ route('master_vendor.create') }}" class="text-white text-decoration-none">Tambah</a>
     </button>
