@@ -102,5 +102,14 @@ class PengajuanController extends Controller
         $pengajuan = Pengajuan::find($id);
         return view('app.pengajuan.show', compact(['pengajuan']));
         }
+
+        public function destroy($id)
+        {
+        $datapengajuan = Pengajuan::find($id);
+        $datapengajuan->delete();
+          //   Alert::success('Berhasil', 'Data Berhasil Dihapus');
+        //   return redirect()->route('app_asset.index'); 
+        return response()->json(['status' => 'Data Berhasil di hapus!']);   
+        }
 }
 

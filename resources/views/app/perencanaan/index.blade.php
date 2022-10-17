@@ -130,7 +130,7 @@
                 <option value="-12">Desember</option>
               </select>
               <label class="form-label">Tahun</label>
-              <input name="ap_tahun" type="number" class="form-control @error('ap_tahun') is-invalid @enderror" required autofocus value="{{ old('ap_tahun') }}">
+              <input name="ap_tahun" min="1" type="number" class="form-control @error('ap_tahun') is-invalid @enderror" required autofocus value="{{ old('ap_tahun') }}">
               @error('ap_tahun')
                 <div class="invalid-feedback">
                   {{ $message }}
