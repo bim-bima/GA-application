@@ -1,15 +1,14 @@
 @extends('layouts.main')
 @section('content')
 <div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
-    @if(auth()->user()->level == "general-affair")
+        @if(auth()->user()->level == "management")
     <div class="card-header py-3 px-sm-4 px-2">
       <h6 class="font-weight-bold text-primary">Dashboard</h6>
     </div>
     <div class="card-body px-sm-4">
       <div class="row px-sm-2">
-        <h6 class="font-weight-bold text-primary">Aktivitas Hari Ini</h6>
+        <h6 class="font-weight-bold text-primary">Aktivitas GA Hari Ini</h6>
         <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
-
           <thead>
             <tr>
               <th>Aktivitas</th>
@@ -28,6 +27,38 @@
       </div>
     </div>
     @endif
+
+
+
+
+
+    @if(auth()->user()->level == "general-affair")
+    <div class="card-header py-3 px-sm-4 px-2">
+      <h6 class="font-weight-bold text-primary">Dashboard</h6>
+    </div>
+    <div class="card-body px-sm-4">
+      <div class="row px-sm-2">
+        <h6 class="font-weight-bold text-primary">Aktivitas Hari Ini</h6>
+        <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Aktivitas</th>
+              <th>Prioritas</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($aktivitas as $today)
+            <tr>
+              <td>{{ $today->title }}</td>
+              <td>{{ $today->prioritas }}</td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    </div>
+    @endif
+
 
     @if(auth()->user()->level == "pegawai")
       <div class="card-header py-3">
@@ -62,7 +93,7 @@
         <div class="card-body col-lg-6 pl-lg-3 pr-lg-4">
           <div class="card" data-aos="fade-left" data-aos-delay="150">
             <div class="card-header px-sm-3 px-2">
-              <h6 class="font-weight-bold text-primary">Riwayat Booking</h6>
+              <h6 class="font-weight-bold text-primary">Riwayat Booking Kendaraan</h6>
             </div>
             <div class="card-body px-sm-3 px-2">
               <div class="row">

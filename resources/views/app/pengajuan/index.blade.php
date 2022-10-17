@@ -116,7 +116,7 @@
       <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="200">
         <label for="vendor" class="form-label">Vendor</label>
         <select name="vendor" class="form-control @error('vendor') is-invalid @enderror" required>
-          <option value="">Pilih PIC</option>
+          <option value="">Pilih Vendor</option>
           @foreach ($vendor as $ven)
           @if( old('vendor') == $ven->id )
           <option value="{{ $ven->id }}" selected>{{ $ven->mv_nama_vendor}}</option>
