@@ -135,31 +135,27 @@
         <div class="container-fluid p-2">
           <div class="card shadow mb-4">
             <div class="card-header py-3">
+              <button class="btn btn-info mb-1 mr-1">
+              <i class="fa fa-angle-left"></i>
+              <a href="{{ route('app_perencanaan.index') }}" class="text-white text-decoration-none">
+                Kembali
+              </a>
+            </button>
               <h6 class="m-0 font-weight-bold text-primary">Aktivitas</h6>
             </div>
             <div class="card-body">
-              <!-- <div id='caljump'>
-                  <label for='months'>Pergi ke</label>
-                  <select id='months'></select>
-              </div> -->
               <div id='calendar'></div>
             </div>
           </div>
         </div>
-        <!-- /.container-fluid -->
       </div>
-      <!-- End of Main Content -->
-      <!-- Footer -->
       @include('template.footer')
-      <!-- End of Footer -->
     </div>
-    <!-- End of Content Wrapper -->
   </div>
-  <!-- End of Page Wrapper -->
-  <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
+
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -179,6 +175,8 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+  <!-- Calendar -->
   <script>
     $(document).ready(function() {
         $.ajaxSetup({
@@ -189,7 +187,6 @@
         var aktivitas = @json($events);
         $('#calendar').fullCalendar({
             header:{
-            // left:'prev,next today',
             left:'month',
             center:'title',
             right:'month'
@@ -311,18 +308,8 @@
               }         
             },
             @endif
-
-            // eventMouseover: function(event, jsEvent, view) {
-            //   $('.fc-event-inner'. this).append('<div id=\"'+event.id+'\" class=\"hover-end\">'+$.fullCalendar.formatDate(event.end,'h:mmt')+'</div>');
-            // },
-            // eventMouseout: function(event, jsEvent, view){
-            //   $('#'+event.id).remove();
-            // },              
-            // selectAllow: function(event){
-            //   return moment(event.start).utcOffset(false).isSame(moment(event.end).subtract(1, 'second').utcOffset(false),'day');
-            // }  
-            
     });
+
         $('.fc-event').mouseenter(function() {
               $(this).addClass('fc-event-hover');
         });
@@ -331,8 +318,6 @@
         });
         $("#aktivitasmodal").on("hidden.bs.modal", function() {
           $('#title').val('');
-          // $('#reminder').val('');
-          // $('#repeat').val('');
            $('.fc-event').css('color','white');
            $('.fc-event').css('font-size','15px');
            $('.fc-event').css('font-weight','bold');
@@ -354,6 +339,12 @@
 </body>
 @include('template.script')  
 </html>
+
+
+        <!-- DONT DELETE THE TEXT BELOW -->
+        <!-- DONT DELETE THE TEXT BELOW -->
+        <!-- DONT DELETE THE TEXT BELOW -->
+
 
 {{-- //     $(document).ready(function() {
 //     var $months = $('#months');

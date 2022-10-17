@@ -8,7 +8,9 @@
       <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="600">List Perencanaan Aktivitas</h6>
     </div>
     <div class="row d-flex px-2 pb-0 pt-2">
-      {{-- management --}}
+
+      <!-- Management -->
+
       @if(auth()->user()->level == "management")
       <div class="card-body col-xl-7 pb-2 px-3">
         @foreach ($dataperencanaan as $perencanaan)
@@ -28,17 +30,7 @@
               </div>
               <div class="">
                 <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class="btn-sm btn-primary btn-circle">
-                  <i class="fas fa-eye"></i>
-                </a>
-                @if(auth()->user()->level == "general-affair")
-                <form action="{{ route('app_perencanaan.destroy',$perencanaan->id) }}" method="post" class="d-inline">
-                  @csrf
-                  @method('delete')
-                  <button class="btn-sm btn-danger btn-circle" type="submit">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </form>
-                @endif
+                  <i class="fas fa-eye"></i></a>
               </div>
             </div>
           </div>
@@ -48,8 +40,29 @@
         <input type="hidden" class="delete_id" value="{{ $perencanaan->id }}">
       </div>
       @endif
+      
+      <!-- End management -->
+
+
+      <!-- General Affair -->
+
       @if(auth()->user()->level == "general-affair")
       <div class="card-body col-lg-7 pb-2 px-3">
+        
+        @if($cek == 0)
+        <div class="col-10 pr-0">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-12 mb-1 px-1">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><i class="fas fa-info-circle"></i><i>Belum Ada Data Disini</i></div>
+                    </div>                      
+                  </div>
+                </div>
+              </div>
+            </div>
+        @endif
+
         @foreach ($dataperencanaan as $perencanaan)
         <div class="card mb-3" data-aos="fade-right" data-aos-delay="650">
           <div class="card-body pt-3 pb-2">
@@ -62,6 +75,9 @@
                 $monthnum = $result;
                 $dateObj = DateTime::createFromFormat('!m', $monthnum);
                 $monthName = $dateObj->format('F');
+                // use Carbon\Carbon;
+                // $bulan = Carbon::parse($result)->translatedFormat('F');
+                // $bulan = $result->translatedFormat('F');
                 ?>
                 <h5 class="card-title">{{ $monthName.'-'.$perencanaan->ap_tahun }}</h5>
               </div>
@@ -72,17 +88,15 @@
                 <a href="{{ route('app_perencanaan.edit',$perencanaan->id) }}" class="btn-sm btn-success btn-circle"  data-toggle="tooltip" data-placement="left" title="Unduh">
                   <i class="fas fa-download"></i>
                 </a>
-                @if(auth()->user()->level == "general-affair")
                 <form action="{{ route('app_perencanaan.destroy',$perencanaan->id) }}" method="post" class="d-inline">
                   @csrf
                   @method('delete')
-                  {{-- <a href="" class="delete" data-confirm="Are you sure to delete this item?">Delete</a> --}}
+                  
                   <button type="submit" class="btn-sm btn-circle btn-danger btn-flat show_confirm" data-toggle="tooltip" title="Delete">
                     <i class="fas fa-trash"></i>
                   </button>
-                  {{-- <button class="btn btn-danger btn-circle delete" type="submit"  data-toggle="tooltip" data-placement="left" title="Delete" data-confirm="Are you sure to delete this item?"> --}}
-                </form>
-                @endif
+                  
+                  </form>
               </div>
             </div>
           </div>
@@ -90,8 +104,7 @@
         @endforeach
         {{ $dataperencanaan->links() }}
       </div>
-      @endif
-      @if(auth()->user()->level == "general-affair")
+
       <div class="card-body col-lg-5 pb-2 pl-lg-1" data-aos="fade-left" data-aos-delay="650">
         <div class="card">
           <div class="card-header px-sm-3 px-2">
@@ -101,7 +114,8 @@
             <form class="px-0" action="{{ route('app_perencanaan.store') }}" method="POST" enctype="multipart/form-data">
               @csrf
               <label class="form-label">Bulan</label>
-              <select name="ap_bulan" class="custom-select custom-select-md mb-3">
+              <select name="ap_bulan" required class="custom-select custom-select-md mb-3">
+                <option value="">Pilih Bulan</option>
                 <option value="-01">Januari</option>
                 <option value="-02">Februari</option>
                 <option value="-03">Maret</option>
@@ -116,7 +130,12 @@
                 <option value="-12">Desember</option>
               </select>
               <label class="form-label">Tahun</label>
-              <input name="ap_tahun" type="text" class="form-control" required>                 
+              <input name="ap_tahun" type="number" class="form-control @error('ap_tahun') is-invalid @enderror" required autofocus value="{{ old('ap_tahun') }}">
+              @error('ap_tahun')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+              @enderror                 
               <button type="submit" class="btn btn-success mt-4">
                 <i class="fa fa-plus-circle"></i>
                 Tambah
@@ -130,5 +149,4 @@
   </div>
 </div>
 @endsection
-{{-- <input name="ap_tahun" type="number" class="form-control" required>                 
-<button type="submit" class="btn btn-primary my-3">Tambah</button> --}}
+

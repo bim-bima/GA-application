@@ -1,7 +1,5 @@
 @extends('layouts.main')
-
 @section('content')
-
 @include('sweetalert::alert')
 
 <div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="100">
@@ -15,6 +13,22 @@
     @endif      
   </div>
   <div class="card-body px-sm-3 px-2">
+    
+    @if($cek == 0)
+    <div class="col-10 pr-0">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-12 mb-1 px-1">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><i class="fas fa-info-circle"></i><i>Belum Ada Data Disini</i></div>
+                    </div>                      
+                  </div>
+                </div>
+              </div>
+            </div>
+    @endif
+
+    @if($cek > 0)
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-aos="zoom-in" data-aos-delay="600">
         <thead>
@@ -44,7 +58,6 @@
               <a class="btn-sm btn-info btn-circle mb-xl-0 mb-1" href="{{ route('app_asset.show',$asset->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
                 <i class="fas fa-eye"></i>
               </a>
-              {{-- <a class="btn-sm btn-warning btn-circle mb-xl-0 mb-2" href="{{ route('app_asset.edit',$asset->id) }}"> --}}
               @if(auth()->user()->level == "general-affair")
               <a class="btn-sm btn-warning btn-circle mb-1" href="{{ route('app_asset.edit',$asset->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
                 <i class="fa fa-edit"></i>
@@ -52,20 +65,9 @@
               <form action="{{ route('app_asset.destroy',$asset->id) }}" method="post" class="d-inline">
                 @csrf
                 @method('delete')
-                <button class="btn btn-danger btn-circle btn-sm btndeleteasset" type="submit">
-                  <i class="fas fa-trash"></i>
+                <button class="btn btn-danger btn-circle btn-sm btndeleteasset" type="submit"><i class="fas fa-trash"></i>
                 </button>
               </form>
-
-              <!-- <form action="{{ route('app_asset.destroy',$asset->id) }}" method="post" class="d-inline">
-                  @csrf
-                  @method('delete')
-                  {{-- <input class="btn btn-danger btn-circle btndeleteasset" type="submit" value="<i class="fas fa-trash"></i>"> --}}
-                  
-                  <a href="" class="btn-sm btn-danger btn-circle btndeleteasset mb-xl-0 mb-2" data-toggle="tooltip" data-placement="left" title="Delete">
-                    <i class="fas fa-trash"></i>
-                  </a>
-              </form> -->
               @endif
             </td>
           </tr>
@@ -74,6 +76,7 @@
       </table>
       {{ $dataasset->links() }}
     </div>
+    @endif
   </div>
 </div>
 @endsection

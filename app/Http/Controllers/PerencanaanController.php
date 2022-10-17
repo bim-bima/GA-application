@@ -15,13 +15,15 @@ class PerencanaanController extends Controller
 {
     public function index()
     {
+        $cek = Perencanaan::count();
         $dataperencanaan = Perencanaan::paginate(5);
-        return view('app.perencanaan.index', compact(['dataperencanaan']));
+        return view('app.perencanaan.index', compact(['dataperencanaan','cek']));
     }   
     public function store(Request $request)
     {
         $request->validate([
-        // 'mp_nama' => 'required|min:5|max:15',
+        'ap_tahun' => 'required',
+        'ap_tahun' => 'required|min:4|max:4|after:2021',
         ]);
         $dataperencanaan = new Perencanaan();
         $dataperencanaan->ap_bulan = $request->ap_bulan;

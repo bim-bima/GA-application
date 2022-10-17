@@ -91,65 +91,77 @@
     <form action="{{ route('app_pengajuan.store') }}" method="POST" enctype="multipart/form-data" class="row">
       @csrf
       <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="600">
-        <label for="ap_nama_pengajuan" class="form-label">Nama Pengajuan</label>
-        <input type="text" class="form-control @error('nama') is-invalid @enderror" name="ap_nama_pengajuan" required>
-        @error('nama')
+        <label for="nama_pengajuan" class="form-label">Nama Pengajuan</label>
+        <input type="text" class="form-control @error('nama_pengajuan') is-invalid @enderror" name="nama_pengajuan" required autofocus value="{{ old('nama_pengajuan') }}">
+        @error('nama_pengajuan')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
       <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="600">
-        <label for="ap_mjp_id" class="form-label">Jenis Pengajuan</label>
-        <select name="ap_mjp_id" class="form-control @error('jenis') is-invalid @enderror" required>
-          <option value="">Jenis Pengajuan</option>
+        <label for="jenis_pengajuan" class="form-label">Jenis Pengajuan</label>
+        <select name="jenis_pengajuan" required class="form-control @error('jenis_pengajuan') is-invalid @enderror" required>
+          <option value="">Pilih Jenis Pengajuan</option>
           @foreach ($jenispengajuan as $jenis)
+          @if( old('jenis_pengajuan') == $jenis->id  )
+          <option value="{{ $jenis->id }}" selected>{{ $jenis->mjp_jenis}}</option>
+          @else
           <option value="{{ $jenis->id }}">{{ $jenis->mjp_jenis}}</option>
+          @endif
           @endforeach    
         </select>
-        @error('jenis')
+        @error('jenis_pengajuan')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
       <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="700">
-        <label for="ap_mv_id" class="form-label">Vendor</label>
-        <select name="ap_mv_id" class="form-control @error('ap_mv_id') is-invalid @enderror" required>
-          <option value="">Pilih Vendor</option>
+        <label for="vendor" class="form-label">Vendor</label>
+        <select name="vendor" class="form-control @error('vendor') is-invalid @enderror" required>
+          <option value="">Pilih PIC</option>
           @foreach ($vendor as $ven)
+          @if( old('vendor') == $ven->id )
+          <option value="{{ $ven->id }}" selected>{{ $ven->mv_nama_vendor}}</option>
+          @else
           <option value="{{ $ven->id }}">{{ $ven->mv_nama_vendor}}</option>
+          @endif
           @endforeach    
         </select>
-        @error('ap_mv_id')
+        @error('vendor')
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
       <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="700">
-        <label for="ap_biaya" class="form-label">Biaya (RP)</label>
-        <input type="text" class="form-control @error('biaya') is-invalid @enderror" name="ap_biaya" required>
+        <label for="biaya" class="form-label">Biaya (RP)</label>
+        <input type="number" class="form-control @error('biaya') is-invalid @enderror" name="biaya" required autofocus value="{{ old('biaya') }}">
         @error('biaya')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
       <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="800">
-        <label for="ap_tanggal_pengadaan" class="form-label">Tanggal Estimasi</label>
-        <input type="date" class="form-control @error('pengadaan') is-invalid @enderror" name="ap_tanggal_pengadaan" >
-        @error('pengadaan')
+        <label for="tanggal_pengadaan" class="form-label">Tanggal Estimasi</label>
+        <input type="date" class="form-control @error('tanggal_pengadaan') is-invalid @enderror" name="tanggal_pengadaan" required autofocus value="{{ old('tanggal_pengadaan') }}" >
+        @error('tanggal_pengadaan')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
       <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="800">
-        <label for="ap_mp_id" class="form-label">PIC</label>
-        <select name="ap_mp_id" class="form-control @error('ap_mp_id') is-invalid @enderror" required>
+        <label for="pic" class="form-label">PIC</label>
+        <select name="pic" required class="form-control @error('pic') is-invalid @enderror" required>
           <option value="">Pilih PIC</option>
           @foreach ($pic as $pi)
+          @if( old('pic') == $pi->id )
+          <option value="{{ $pi->id }}" selected>{{ $pi->mp_nama}}</option>
+          @else
           <option value="{{ $pi->id }}">{{ $pi->mp_nama}}</option>
+          @endif
           @endforeach    
         </select>
-        @error('ap_mp_id')
+        @error('pic')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
       <div class="col-12 mb-2" data-aos="zoom-in" data-aos-delay="800">
-        <label for="ap_catatan" class="form-label">Catatan</label>
-        <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="ap_catatan" required rows="3"></textarea>
+        <label for="catatan" class="form-label">Catatan</label>
+        <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="catatan" required rows="3" ></textarea>
         @error('catatan')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
@@ -170,6 +182,21 @@
   </div>
   <div class="card-body px-sm-3 px-2">
     <div class="table-responsive">
+    @if($cek == 0)
+    <div class="col-10 pr-0">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-12 mb-1 px-1">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><i class="fas fa-info-circle"></i><i>Belum Ada Data Disini</i></div>
+                    </div>                      
+                  </div>
+                </div>
+              </div>
+            </div>
+    @endif
+
+    @if($cek > 0)
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
@@ -198,7 +225,8 @@
           @endforeach
         </tbody>
       </table>
-     <!-- {{ $datapengajuan->links() }} -->
+    @endif
+     {{ $datapengajuan->links() }}
     </div>
   </div>
 </div>
