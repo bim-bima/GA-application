@@ -89,17 +89,17 @@
             @enderror
       
             <label for="ar_catatan" class="form-label">Catatan</label>
-            <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="ar_catatan" required rows="3"></textarea>
+            <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="ar_catatan" required rows="4"></textarea>
             @error('catatan')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
             @if(auth()->user()->level == "pegawai")
-            <button class="btn btn-info mt-3 mr-1 mb-1">
+            <button class="btn btn-info mt-4 mr-1 mb-1">
               <i class="fa fa-angle-left"></i>
               <a href="/home" class="text-white text-decoration-none">Kembali</a>
             </button>
             @endif
-            <button type="submit" class="btn btn-success mt-3 mb-1">
+            <button type="submit" class="btn btn-success mt-4 mb-1">
               Kirim Request
               <i class="fa fa-paper-plane"></i>
             </button>

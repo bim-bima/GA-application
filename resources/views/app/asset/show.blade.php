@@ -4,9 +4,9 @@
 
 @include('sweetalert::alert')
 
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   <div class="card-header px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary">Asset</h6>
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Asset</h6>
   </div>
   <?php   
         $tahunawal = $asset->as_tahun_kepemilikan; 
@@ -27,7 +27,7 @@
   ?>  
   <div class="container p-0">
     <div class="row">
-      <div class="card-body col-xl-9 pr-xl-1 px-3 pb-0">
+      <div class="card-body col-xl-9 pr-xl-1 px-3 pb-0" data-aos="fade-right" data-aos-delay="150">
         <canvas id="grafik"></canvas>
         <script>
           var ctx = document.getElementById("grafik").getContext('2d');
@@ -57,7 +57,7 @@
           });
         </script> 
       </div>
-      <div class="card-body col-xl-3 mt-xl-4 pl-xl-0 pr-xl-4 pb-0">
+      <div class="card-body col-xl-3 mt-xl-4 pl-xl-0 pr-xl-4 pb-0" data-aos="fade-left" data-aos-delay="150">
         <ol class="list-group list-group-numbered">
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
             <div class="">

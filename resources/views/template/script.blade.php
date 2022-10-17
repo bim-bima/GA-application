@@ -15,7 +15,7 @@
 <script src="{{ asset ('template-landing/vendor/swiper/swiper-bundle.min.js') }}"></script>
 <script src="{{ asset ('template-landing/js/main.js') }}"></script>
 
-<!-- Alert Kendaraan -->
+<!-- Alert Master_Kendaraan -->
 <script>
 	$(document).ready(function () {
 		$.ajaxSetup({
@@ -27,8 +27,8 @@
 				e.preventDefault();
 				var deleteid = $(this).closest("tr").find('.delete_id').val();
 				swal({
-					title: "Apakah anda yakin ingin menghapus data kendaraan?",
-					text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
+					title: "Apakah anda yakin?",
+					text: "Data Kendaraan ini akan di Hapus!",
 					icon: "warning",
 					buttons: true,
 					dangerMode: true,
@@ -177,7 +177,7 @@
 
 				swal({
 								title: "Apakah anda yakin?",
-								text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
+								text: "Data PIC ini akan di Hapus!",
 								icon: "warning",
 								buttons: true,
 								dangerMode: true,
@@ -226,7 +226,7 @@
 
 				swal({
 								title: "Apakah anda yakin?",
-								text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
+								text: "Data Aktivitas ini akan di Hapus!",
 								icon: "warning",
 								buttons: true,
 								dangerMode: true,
@@ -275,7 +275,7 @@
 
 				swal({
 								title: "Apakah anda yakin?",
-								text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
+								text: "Data Vendor ini akan di Hapus!",
 								icon: "warning",
 								buttons: true,
 								dangerMode: true,
@@ -308,153 +308,6 @@
 	});
 
 </script>
-<!-- Alert Barang -->
-<script>
-	$(document).ready(function () {
-
-		$.ajaxSetup({
-				headers: {
-						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				}
-		});
-
-		$('.btndelete5').click(function (e) {
-				e.preventDefault();
-
-				var deleteid5 = $(this).closest("tr").find('.delete_id').val();
-
-				swal({
-								title: "Apakah anda yakin?",
-								text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
-								icon: "warning",
-								buttons: true,
-								dangerMode: true,
-						})
-						.then((willDelete) => {
-								if (willDelete) {
-
-										var data = {
-												"_token": $('input[name=_token]').val(),
-												'id': deleteid5,
-										};
-										$.ajax({
-												type: "DELETE",
-												url: 'master_barang/' + deleteid5,
-
-												data: data,
-												success: function (response) {
-														swal(response.status, {
-																		icon: "success",
-																})
-																.then((result) => {
-																		location.reload();
-																});
-												}
-										});
-								}
-						});
-		});
-
-	});
-</script>
-<!-- Alert Jenis Barang -->
-<script>
-	$(document).ready(function () {
-
-		$.ajaxSetup({
-				headers: {
-						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				}
-		});
-
-		$('.btndelete6').click(function (e) {
-				e.preventDefault();
-
-				var deleteid6 = $(this).closest("tr").find('.delete_id').val();
-
-				swal({
-								title: "Apakah anda yakin?",
-								text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
-								icon: "warning",
-								buttons: true,
-								dangerMode: true,
-						})
-						.then((willDelete) => {
-								if (willDelete) {
-
-										var data = {
-												"_token": $('input[name=_token]').val(),
-												'id': deleteid6,
-										};
-										$.ajax({
-												type: "DELETE",
-												url: 'master_jenisbarang/' + deleteid6,
-
-												data: data,
-												success: function (response) {
-														swal(response.status, {
-																		icon: "success",
-																})
-																.then((result) => {
-																		location.reload();
-																});
-												}
-										});
-								}
-						});
-		});
-
-	});
-
-</script>
-<!-- alert Status Follow Up -->
-<script>
-	$(document).ready(function () {
-
-		$.ajaxSetup({
-				headers: {
-						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				}
-		});
-
-		$('.btndelete7').click(function (e) {
-				e.preventDefault();
-
-				var deleteid7 = $(this).closest("tr").find('.delete_id').val();
-
-				swal({
-								title: "Apakah anda yakin?",
-								text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
-								icon: "warning",
-								buttons: true,
-								dangerMode: true,
-						})
-						.then((willDelete) => {
-								if (willDelete) {
-
-										var data = {
-												"_token": $('input[name=_token]').val(),
-												'id': deleteid7,
-										};
-										$.ajax({
-												type: "DELETE",
-												url: 'master_statusfollowup/' + deleteid7,
-
-												data: data,
-												success: function (response) {
-														swal(response.status, {
-																		icon: "success",
-																})
-																.then((result) => {
-																		location.reload();
-																});
-												}
-										});
-								}
-						});
-		});
-	});
-</script>
 <!-- Alert Lokasi Asset -->
 <script>
 	$(document).ready(function () {
@@ -472,7 +325,7 @@
 
 				swal({
 								title: "Apakah anda yakin?",
-								text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
+								text: "Data Lokasi Asset ini akan di Hapus!",
 								icon: "warning",
 								buttons: true,
 								dangerMode: true,
@@ -521,7 +374,7 @@
 
 				swal({
 								title: "Apakah anda yakin?",
-								text: "Setelah dihapus, Anda tidak dapat memulihkan Data ini lagi!",
+								text: "Data Asset ini akan di Hapus!",
 								icon: "warning",
 								buttons: true,
 								dangerMode: true,

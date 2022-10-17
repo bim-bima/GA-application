@@ -2,7 +2,7 @@
 @section('content')
 @include('sweetalert::alert')
 
-<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="100">
+<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Daftar Asset</h6>
     @if(auth()->user()->level == "general-affair")
