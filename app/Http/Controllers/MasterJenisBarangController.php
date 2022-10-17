@@ -15,8 +15,9 @@ class MasterJenisBarangController extends Controller
         */
         public function index()
         {
+            $cek = MasterJenisBarang::count();
             $datajenisbarang = MasterJenisBarang::paginate(8);
-            return view('master.masterJenisBarang.index', compact(['datajenisbarang']));
+            return view('master.masterJenisBarang.index', compact(['datajenisbarang','cek']));
         }
         /**
         * Show the form for creating a new resource.

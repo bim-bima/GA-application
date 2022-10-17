@@ -55,9 +55,6 @@
                   </div>
                 </div>
               </div>
-              <div class="col-auto">
-                <a class="btn-sm btn-info btn-circle mb-xl-0 mb-1" href="{{ route('master_kendaraan.show',$kendaraan->id) }}"  data-toggle="tooltip" data-placement="left" title="Info"><i class="fas fa-info-circle"></i></a>
-               </div>
             </div>
             @endforeach
           </div>
@@ -69,6 +66,25 @@
             </div>
             <div class="card-body">
               <div class="row">
+                @if($cek == 0)
+                <div class="col">
+                  <div class="card border-danger mb-2">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="font-weight-bold text-primary text-uppercase text-center">
+                            <i class="fas fa-info-circle"></i>
+                            Belum Ada Data Disini
+                            <i class="fas fa-info-circle"></i>
+                          </div>
+                        </div>                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                @endif
+
+                @if($cek > 0)
                 <table class="table table-bordered border" id="dataTable" cellspacing="0">
                   <thead>
                     <tr>
@@ -91,6 +107,7 @@
                     @endforeach
                   </tbody>
                 </table>
+                @endif
               </div>
             </div>
           </div> 

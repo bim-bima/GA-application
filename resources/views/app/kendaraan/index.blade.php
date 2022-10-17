@@ -72,7 +72,7 @@
             <td>{{ $item->ak_lokasi_tujuan }}</td>
             <td>{{ $item->ak_tujuan_pemakaian }}</td>
             <td>
-              <a class="btn btn-success btn-circle btn-sm mb-xxl-0 mb-2" href="{{ route('app_kendaraan.show',$item->id) }}"  data-toggle="tooltip" data-placement="left" title="show"> 
+              <a class="btn btn-primary btn-circle btn-sm mb-2" href="{{ route('app_kendaraan.show',$item->id) }}"  data-toggle="tooltip" data-placement="left" title="show"> 
                 <i class="fas fa-eye"></i>
               </a>
              
@@ -80,7 +80,7 @@
                 @csrf
                 @method('delete')
                 {{-- <input class="btn btn-danger btndeleteitem" type="submit" value="Delete"> --}}
-                <a href="" class="btn btn-danger btn-circle btn-sm  btndeleteitem mb-xxl-0 mb-2"  data-toggle="tooltip" data-placement="left" title="Delete">
+                <a href="" class="btn btn-danger btn-circle btn-sm  btndeleteitem mb-2"  data-toggle="tooltip" data-placement="left" title="Delete">
                   <i class="fas fa-trash"></i>
                 </a>
               </form>
