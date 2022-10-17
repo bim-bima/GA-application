@@ -34,9 +34,9 @@ class AssetController extends Controller
             'jumlah_asset'          => 'required', 
             'lokasi_asset'          => 'required',
             'category_asset'        => 'required',
-            'tahun_pembelian_asset' => 'required|min:4|max:4|after:1900',
+            'tahun_pembelian_asset' => 'required|min:4|max:4|after:1900|regex:/^[0-9]+$/',
             'bulan_pembelian_asset' => 'required',
-            'harga_asset'           => 'required|min:4|max:11', 
+            'harga_asset'           => 'required|min:4|max:11|regex:/^[0-9]+$/', 
             'umur_manfaat_asset'    => 'required', 
         ]);
          $prefik = "L9";
