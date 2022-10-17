@@ -17,23 +17,6 @@
       <span>Dashboard</span>
     </a>
   </li>
-
-  <hr class="sidebar-divider">
-
-  
-   
-  <!-- Heading -->
-  <div class="sidebar-heading">
-    @if(auth()->user()->level == "pegawai")
-      App
-    @endif
-    @if(auth()->user()->level == "general-affair")
-      App
-    @endif
-    @if(auth()->user()->level == "management")
-      GA System
-    @endif
-  </div>
   <li class="nav-item">
     <div class="text-white py-2 rounded">
       @if(auth()->user()->level == "general-affair")

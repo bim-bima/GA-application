@@ -37,10 +37,10 @@ class MasterPicController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'mp_nama' => 'required|min:3|max:15',
+        'nama_pic' => 'required|min:3|max:50|regex:/^[A-Za-z . ]+$/',
         ]);
         $masterpic = new MasterPic();
-        $masterpic->mp_nama = $request->mp_nama;
+        $masterpic->mp_nama = $request->nama_pic;
         $masterpic->save();
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
         return redirect()->route('master_pic.index');
@@ -77,10 +77,10 @@ class MasterPicController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-        'mp_nama' => 'required|min:3|max:50',
+        'nama_pic' => 'required|min:3|max:50|regex:/^[A-Za-z . ]+$/',
         ]);
         $pic = MasterPic::find($id);
-        $pic->mp_nama = $request->mp_nama;
+        $pic->mp_nama = $request->nama_pic;
         $pic->save();
         Alert::success('Berhasil', 'Data Berhasil Diedit');
         return redirect()->route('master_pic.index');
