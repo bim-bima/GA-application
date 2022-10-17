@@ -9,8 +9,9 @@ class RequestController extends Controller
 {
         public function index()
         {
+            $cek = AppRequest::count();
             $datarequest = AppRequest::paginate(5);
-            return view('app.request.index', compact(['datarequest']));
+            return view('app.request.index', compact(['datarequest','cek']));
         }
 
         public function store(Request $request)

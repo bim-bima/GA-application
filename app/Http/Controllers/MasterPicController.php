@@ -15,8 +15,9 @@ class MasterPicController extends Controller
         */
         public function index()
         {
+            $cek = MasterPic::count();
             $datapic = MasterPic::paginate(8);
-            return view('master.masterpic.index', compact(['datapic']));
+            return view('master.masterpic.index', compact(['datapic','cek']));
         }
         /**
         * Show the form for creating a new resource.

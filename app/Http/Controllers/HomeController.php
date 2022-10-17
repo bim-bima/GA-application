@@ -32,6 +32,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $cek = Kendaraan::count();
           $now = Carbon::now();
           $tgl_sekarang =  $now->toDateString();
           $tgl_besok = date('Y-m-d',strtotime("+1 day",strtotime(date("Y-m-d"))));
@@ -51,6 +52,6 @@ class HomeController extends Controller
           $booking = Kendaraan::with('namaKendaraan','pic')->Where('ak_pengguna',$pengguna)->get(); 
 
 
-          return view('home',compact(['datakendaraan','aktivitas','booking']));
+          return view('home',compact(['datakendaraan','aktivitas','booking','cek']));
     }
 }

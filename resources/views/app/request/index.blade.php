@@ -8,7 +8,26 @@
     <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="600">Daftar Request</h6>
   </div>
   <div class="card-body px-sm-3 px-2">
-    <div class="row">
+    <div class="row justify-content-center">
+      @if($cek == 0)
+      <div class="col-11">
+        <div class="card mb-3 border-danger">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 px-1">
+                <div class="font-weight-bold text-primary text-uppercase text-center">
+                  <i class="fas fa-info-circle"></i>
+                  Belum Ada Data Disini
+                  <i class="fas fa-info-circle"></i>
+                </div>
+              </div>                      
+            </div>
+          </div>
+        </div>
+      </div>
+      @endif
+
+      @if($cek > 0)
       <div class="table-responsive col-md-12 border-dark">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-aos="zoom-in" data-aos-delay="600">
           <thead class="">
@@ -35,7 +54,7 @@
                   @csrf
                   @method('delete')
                   {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
-                  <a href="" class="btn btn-danger btn-circle mb-sm-0 mb-2 btndeleterequest">
+                  <a href="" class="btn-sm btn-danger btn-circle mb-sm-0 mb-2 btndeleterequest">
                     <i class="fas fa-trash"></i>
                   </a>
                 </form>
@@ -46,6 +65,7 @@
         </table>
         {{ $datarequest->links() }}
       </div>
+      @endif
     </div>
   </div>
 </div>
