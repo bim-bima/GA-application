@@ -6,7 +6,7 @@
 
 <div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="900">Cek Kendaraan</h6>
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Cek Kendaraan</h6>
     @if(auth()->user()->level == "general-affair")
     @endif
   </div>
@@ -14,7 +14,7 @@
     <div class="row">
       @foreach( $datakendaraan as $ken )
       <div class="col-xl-3 col-sm-6 mb-3 px-0 px-sm-2">
-        <div class="card" data-aos="zoom-in" data-aos-delay="700">
+        <div class="card" data-aos="zoom-in" data-aos-delay="100">
           <div class="card-header py-2">
             <h6 class="m-0 font-weight-bold text-primary text-center">{{ $ken->mk_nama_kendaraan }}</h6>
           </div>

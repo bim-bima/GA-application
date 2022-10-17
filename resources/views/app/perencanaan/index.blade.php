@@ -3,9 +3,9 @@
 @include('sweetalert::alert')
 
 <div class="container-fluid p-0">
-  <div class="card">
+  <div class="card" data-aos="fade-up" data-aos-delay="50">
     <div class="card-header px-3">
-      <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="600">List Perencanaan Aktivitas</h6>
+      <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">List Perencanaan Aktivitas</h6>
     </div>
     <div class="row d-flex px-2 pb-0 pt-2">
 

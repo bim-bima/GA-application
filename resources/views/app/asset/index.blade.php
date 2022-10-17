@@ -2,11 +2,11 @@
 @section('content')
 @include('sweetalert::alert')
 
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="100">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="600">Daftar Asset</h6>
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Daftar Asset</h6>
     @if(auth()->user()->level == "general-affair")
-    <button class="btn btn-primary mt-2" data-aos="fade-right" data-aos-delay="700">
+    <button class="btn btn-primary mt-2" data-aos="fade-right" data-aos-delay="150">
       <i class="fa fa-plus"></i>
       <a href="{{ route('app_asset.create') }}" class="text-white text-decoration-none">Tambah</a>
     </button>
