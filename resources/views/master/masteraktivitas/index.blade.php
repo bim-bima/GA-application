@@ -7,7 +7,7 @@
     <h6 class="m-0 font-weight-bold text-primary">Daftar Aktivitas</h6>
     <button class="btn btn-primary mt-2">
       <i class="fa fa-plus"></i>
-      <a href="{{ route('master_aktivitas.create') }}" class="text-white text-decoration-none">Tambah</a>
+      <a href="{{ route('master_aktivitas.create') }}" class="text-white text-decoration-none" >Tambah</a>
     </button>
   </div>
   <div class="card-body px-sm-3 px-1">

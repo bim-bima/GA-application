@@ -101,7 +101,7 @@
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-lg-6" data-aos="fade-right" data-aos-delay="950">
+        <div class="col-lg-6">
           <button class="btn btn-info mr-1 mt-3 mb-1">
             <i class="fa fa-angle-left"></i>
             <a  href="{{ route('app_asset.index') }}" class="text-white text-decoration-none">Kembali</a>

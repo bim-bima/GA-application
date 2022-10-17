@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary">Tambah Jenis Pengajuan</h6>
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Tambah Jenis Pengajuan</h6>
   </div>
   <div class="card-body px-sm-3 px-2">
     <form action="{{ route('master_jenispengajuan.store') }}" method="POST" enctype="multipart/form-data" class="px-0 col-lg-6">

@@ -1,8 +1,8 @@
  @extends('layouts.main')
  @section('content')
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary">Edit Category Asset</h6>
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Edit Category Asset</h6>
   </div>
   <div class="card-body px-sm-3 px-2">
     <form action="{{ route('master_categoryasset.update',$mastercategory->id) }}" method="POST" enctype="multipart/form-data" class="col-lg-6 px-0">
@@ -13,7 +13,7 @@
       @error('nama')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
-      <button class="btn btn-info mt-3 mb-1 mr-1">
+      <button class="btn btn-info my-3 mr-1">
         <a  href="{{ route('master_categoryasset.index') }}" class="text-white text-decoration-none">
           <i class="fa fa-angle-left"></i>
           Kembali
