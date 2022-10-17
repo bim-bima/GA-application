@@ -22,11 +22,9 @@ class PengajuanController extends Controller
         {
             $cek = pengajuan::count();
             $datapengajuan = Pengajuan::with('vendor','pic','jenispengajuan')->paginate(10);
-            // $datapengajuan = Pengajuan::whereHas('vendor','pic','jenispengajuan', function($q){$q->where('ap_status', 'disetujui');})->get();
             $vendor = MasterVendor::all();
             $pic = MasterPic::all();
             $jenispengajuan = MasterJenisPengajuan::all();
-            // $datapengajuan = Pengajuan::where('ap_status', 'tidak setuju')->get();
             $ajuan = Pengajuan::where('ap_status', 'menunggu persetujuan')->get();
             $setuju = Pengajuan::where('ap_status', 'setujui')->with('vendor')->get();
             return view('app.pengajuan.index', compact(['datapengajuan','vendor','pic','jenispengajuan','setuju','ajuan','cek']));
@@ -52,7 +50,7 @@ class PengajuanController extends Controller
         'nama_pengajuan'     => 'required|min:5|max:200',
         'jenis_pengajuan'    => 'required',
         'vendor'             => 'required',
-        'biaya'              => 'required|min:4|max:11',
+        'biaya'              => 'required|min:4|max:11|regex:/^[0-9]+$/',
         'catatan'            => 'required',
         'tanggal_pengadaan'  => 'required|after:today',
         'pic'                => 'required',
