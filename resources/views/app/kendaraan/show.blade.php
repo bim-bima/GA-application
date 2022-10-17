@@ -5,39 +5,36 @@
 @include('sweetalert::alert')
 
 <div class="card shadow mb-4">
-  <div class="card-header py-3">
+  <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">Riwayat Booking Kendaraan</h6>
   </div>
-  <div class="card-body">
-    <div class="row">
-      
-    </div>
+  <div class="card-body px-sm-3 px-2">
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>Kendaraan</th>
-            <th>Pengguna</th>
-            <th>Tanggal Mulai</th>
-            <th>Jam Mulai</th>
-            <th>Tanggal Selesai</th>
-            <th>Jam Selesai</th>
-            <th>Nama PIC</th>
-            <th>Menuju</th>
-            <th>Tujuan</th>
+            <th class="border border-secondary px-sm-2">Kendaraan</th>
+            <th class="border border-secondary px-sm-2">Pengguna</th>
+            <th class="border border-secondary px-sm-2">Tanggal Mulai</th>
+            <th class="border border-secondary px-sm-2">Jam Mulai</th>
+            <th class="border border-secondary px-sm-2">Tanggal Selesai</th>
+            <th class="border border-secondary px-sm-2">Jam Selesai</th>
+            <th class="border border-secondary px-sm-2">Nama PIC</th>
+            <th class="border border-secondary px-sm-2">Menuju</th>
+            <th class="border border-secondary px-sm-2">Tujuan</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{{ $kendaraan->namaKendaraan->mk_nama_kendaraan }}</td>
-            <td>{{ $kendaraan->ak_pengguna }}</td>
-            <td>{{ $kendaraan->ak_tanggal_mulai }}</td>
-            <td>{{ $kendaraan->ak_jam }}</td>
-            <td>{{ $kendaraan->ak_tanggal_selesai }}</td>
-            <td>{{ $kendaraan->ak_jam_selesai }}</td>
-            <td>{{ $kendaraan->pic->mp_nama }}</td>
-            <td>{{ $kendaraan->ak_lokasi_tujuan }}</td>
-            <td>{{ $kendaraan->ak_tujuan_pemakaian }}</td>
+            <td class="border-secondary px-2">{{ $kendaraan->namaKendaraan->mk_nama_kendaraan }}</td>
+            <td class="border-secondary px-2">{{ $kendaraan->ak_pengguna }}</td>
+            <td class="border-secondary px-2">{{ $kendaraan->ak_tanggal_mulai }}</td>
+            <td class="border-secondary px-2">{{ $kendaraan->ak_jam }}</td>
+            <td class="border-secondary px-2">{{ $kendaraan->ak_tanggal_selesai }}</td>
+            <td class="border-secondary px-2">{{ $kendaraan->ak_jam_selesai }}</td>
+            <td class="border-secondary px-2">{{ $kendaraan->pic->mp_nama }}</td>
+            <td class="border-secondary px-2">{{ $kendaraan->ak_lokasi_tujuan }}</td>
+            <td class="border-secondary px-2">{{ $kendaraan->ak_tujuan_pemakaian }}</td>
           </tr>
         </tbody>
       </table>

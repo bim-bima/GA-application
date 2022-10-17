@@ -50,28 +50,28 @@
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>Kendaraan</th>
-            <th>Pengguna</th>
-            <th>Tanggal</th>
-            <th>Jam</th>
-            <th>PIC</th>
-            <th>Menuju</th>
-            <th>Tujuan</th>
-            <th>Aksi</th>
+            <th class="border border-secondary px-2">Kendaraan</th>
+            <th class="border border-secondary px-2">Pengguna</th>
+            <th class="border border-secondary px-2">Tanggal</th>
+            <th class="border border-secondary px-2">Jam</th>
+            <th class="border border-secondary px-2">PIC</th>
+            <th class="border border-secondary px-2">Menuju</th>
+            <th class="border border-secondary px-2">Tujuan</th>
+            <th class="border border-secondary px-2">Aksi</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($kendaraan as $item)
           <tr>
             <input type="hidden" class="delete_id" value="{{ $item->id }}">
-            <td>{{ $item->namaKendaraan->mk_nama_kendaraan }}</td>
-            <td>{{ $item->ak_pengguna }}</td>
-            <td>{{ $item->ak_tanggal_mulai }}</td>
-            <td>{{ $item->ak_jam }}</td>
-            <td>{{ $item->pic->mp_nama }}</td>
-            <td>{{ $item->ak_lokasi_tujuan }}</td>
-            <td>{{ $item->ak_tujuan_pemakaian }}</td>
-            <td>
+            <td class="border-secondary px-2">{{ $item->namaKendaraan->mk_nama_kendaraan }}</td>
+            <td class="border-secondary px-2">{{ $item->ak_pengguna }}</td>
+            <td class="border-secondary px-2">{{ $item->ak_tanggal_mulai }}</td>
+            <td class="border-secondary px-2">{{ $item->ak_jam }}</td>
+            <td class="border-secondary px-2">{{ $item->pic->mp_nama }}</td>
+            <td class="border-secondary px-2">{{ $item->ak_lokasi_tujuan }}</td>
+            <td class="border-secondary px-2">{{ $item->ak_tujuan_pemakaian }}</td>
+            <td class="border-secondary px-2">
               <a class="btn btn-primary btn-circle btn-sm mb-2" href="{{ route('app_kendaraan.show',$item->id) }}"  data-toggle="tooltip" data-placement="left" title="show"> 
                 <i class="fas fa-eye"></i>
               </a>
