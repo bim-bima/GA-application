@@ -9,14 +9,14 @@
   @foreach ($ajuan as $pengajuan)
   <div class="card">
     <div class="card-header">
-      <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Persetujuan</h6>
+      <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="150">Persetujuan</h6>
     </div>
     <form action="{{ route('app_pengajuan.update',$pengajuan->id) }}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('put')
       <div class="card-body">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
             <div class="d-flex row mb-4">
               <div for="ap_nama_pengajuan" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Nama Pengajuan</div>
               <div class="card-text col-sm-5 col-md-8 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->ap_nama_pengajuan }}</div>
@@ -46,7 +46,7 @@
               <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0 text-danger">{{ $pengajuan->ap_tanggal_pengadaan }}</div>
             </div>
           </div>
-          <div class="col-lg-6 pl-xl-4">
+          <div class="col-lg-6 pl-xl-4" data-aos="fade-left" data-aos-delay="200">
             <div class="mb-3">
               <label for="ap_reason" class="form-label">Catatan</label>
               <textarea type="text" class="form-control @error('reason') is-invalid @enderror" name="ap_reason" required rows="5"></textarea>
@@ -116,7 +116,7 @@
       <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="200">
         <label for="vendor" class="form-label">Vendor</label>
         <select name="vendor" class="form-control @error('vendor') is-invalid @enderror" required>
-          <option value="">Pilih PIC</option>
+          <option value="">Pilih Vendor</option>
           @foreach ($vendor as $ven)
           @if( old('vendor') == $ven->id )
           <option value="{{ $ven->id }}" selected>{{ $ven->mv_nama_vendor}}</option>

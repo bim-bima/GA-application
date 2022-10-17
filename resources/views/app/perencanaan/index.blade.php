@@ -12,7 +12,7 @@
       <!-- Management -->
 
       @if(auth()->user()->level == "management")
-      <div class="card-body col-xl-7 pb-2 px-3">
+      <div class="card-body col-xl-7 pb-2 px-3" data-aos="fade-left" data-aos-delay="150">
         @foreach ($dataperencanaan as $perencanaan)
         <div class="card mb-3">
           <div class="card-body pt-3 pb-2">
