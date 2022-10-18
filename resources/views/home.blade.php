@@ -28,10 +28,6 @@
   </div>
   @endif
 
-
-
-
-
   @if(auth()->user()->level == "general-affair")
   <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="font-weight-bold text-primary">Dashboard</h6>
@@ -53,10 +49,20 @@
             <td class="border-secondary px-2">{{ $today->prioritas }}</td>
           </tr>
           @endforeach
+        
+          @if($cekak == 0)
+          <tr>
+            <td colspan="2">
+              <i class="fas fa-info-circle"></i>
+              <i>Tidak Ada Aktifitas Untuk Hari Ini</i>
+            </td>
+          </tr>
+          @endif
         </tbody>
       </table>
     </div>
   </div>
+  
   @endif
 
 
