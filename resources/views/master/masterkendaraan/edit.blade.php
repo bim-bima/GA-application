@@ -138,19 +138,3 @@
   </div>
 </div>
 @endsection
-
-
-        <!-- <label class="form-label mt-3">Perlengkapan</label>
-      <select name="mk_perlengkapan" id="mk_perlengkapan" class="custom-select custom-select-md mb-3">
-        <option value="stnk_bpkb">STNK-BPKB</option>
-        <option value="stnk">STNK</option>
-        <option value="bpkb">BPKB</option>
-      </select> -->
-
-
-       <!-- <label class="form-label mt-3">Jenis Kendaraan</label>
-       <select name="mk_jenis" id="mk_jenis" class="custom-select custom-select-md mb-3">
-        <option value="Roda2">Roda dua (2)</option>
-        <option value="Roda3">Roda empat (4)</option>
-       </select> -->
-      
