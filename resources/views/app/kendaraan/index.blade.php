@@ -28,7 +28,7 @@
               </div>
             </div>
             <div class="row justify-content-center">
-              <a class="mt-3 btn btn-success mx-2 px-3" href="{{ route('master_kendaraan.show',$ken->id) }}">Detail</a>
+              <a class="mt-3 btn btn-info mx-2 px-3" href="{{ route('master_kendaraan.show',$ken->id) }}">Detail</a>
 
               @if(auth()->user()->level == "general-affair")
               <a class="mt-3 btn btn-warning mx-2 px-3" href="{{ route('master_kendaraan.edit',$ken->id) }}">Update</a>
@@ -46,6 +46,25 @@
     </button>
     @endif
     <div class="table-responsive">
+      @if($cek == 0)
+        <div class="col">
+          <div class="card border-danger mb-2">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12">
+                  <div class="font-weight-bold text-primary text-uppercase text-center">
+                    <i class="fas fa-info-circle"></i>
+                    Belum Ada Data Disini
+                    <i class="fas fa-info-circle"></i>
+                  </div>
+                </div>                      
+              </div>
+            </div>
+          </div>
+        </div>
+      @endif
+
+      @if($cek > 0)
       @if(auth()->user()->level == "general-affair")
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
@@ -72,7 +91,7 @@
             <td class="border-secondary px-2">{{ $item->ak_lokasi_tujuan }}</td>
             <td class="border-secondary px-2">{{ $item->ak_tujuan_pemakaian }}</td>
             <td class="border-secondary px-2">
-              <a class="btn btn-primary btn-circle btn-sm mb-2" href="{{ route('app_kendaraan.show',$item->id) }}"  data-toggle="tooltip" data-placement="left" title="show"> 
+              <a class="btn btn-info btn-circle btn-sm mb-2" href="{{ route('app_kendaraan.show',$item->id) }}"  data-toggle="tooltip" data-placement="left" title="show"> 
                 <i class="fas fa-eye"></i>
               </a>
              
@@ -90,6 +109,7 @@
         </tbody>
       </table>
       {{ $kendaraan->links() }}
+      @endif
       @endif
     </div>
   </div>

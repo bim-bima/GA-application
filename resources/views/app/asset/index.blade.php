@@ -68,7 +68,7 @@
               <form action="{{ route('app_asset.destroy',$asset->id) }}" method="post" class="d-inline">
                 @csrf
                 @method('delete')
-                <button class="btn btn-danger btn-circle btn-sm btndeleteasset" type="submit"><i class="fas fa-trash"></i>
+                <button class="btn-danger btn-circle btn-sm border-0 btndeleteasset" type="submit"><i class="fas fa-trash"></i>
                 </button>
               </form>
               @endif

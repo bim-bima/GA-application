@@ -8,8 +8,8 @@
     <form action="{{ route('master_pic.update',$pic->id) }}" method="POST" enctype="multipart/form-data" class="col-lg-6 px-0">
       @csrf
       @method('put')
-      <label for="nama_pic" class="form-label" data-aos="fade-right" data-aos-delay="700">Nama PIC</label>
-      <input type="text" class="mb-1 form-control @error('nama_pic') is-invalid @enderror" name="nama_pic" value="{{ $pic->mp_nama }}" required autofocus data-aos="fade-right" data-aos-delay="800">
+      <label for="nama_pic" class="form-label">Nama PIC</label>
+      <input type="text" class="mb-1 form-control @error('nama_pic') is-invalid @enderror" name="nama_pic" value="{{ $pic->mp_nama }}" required autofocus>
       @error('nama_pic')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror

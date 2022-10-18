@@ -104,7 +104,7 @@ class DatabaseSeeder extends Seeder
             'ma_nama_aktivitas' => 'memanaskan mobil'
         ]);
         MasterAktivitas::factory()->create([
-            'ma_nama_aktivitas' => 'membershkan area depan'
+            'ma_nama_aktivitas' => 'membersihkan area depan'
         ]);
         MasterAktivitas::factory()->create([
             'ma_nama_aktivitas' => 'membersihkan area kolam'
