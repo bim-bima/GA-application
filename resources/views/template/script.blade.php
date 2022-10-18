@@ -703,6 +703,56 @@
 
 	});
 </script>
+<!-- Alert Pengajuan -->
+<script>
+	$(document).ready(function () {
+
+		$.ajaxSetup({
+				headers: {
+						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+		});
+
+		$('.btndeletepengajuan').click(function (e) {
+				e.preventDefault();
+
+				var deletepengajuan = $(this).closest("div").find('.delete_id').val();
+
+				swal({
+								title: "Apakah anda yakin?",
+								text: "Pengajuan ini akan di Hapus!",
+								icon: "warning",
+								buttons: true,
+								dangerMode: true,
+						})
+						.then((willDelete) => {
+								if (willDelete) {
+
+										var data = {
+												"_token": $('input[name=_token]').val(),
+												'id': deletepengajuan,
+										};
+										$.ajax({
+												type: "DELETE",
+												url: 'app_pengajuan/' + deletepengajuan,
+
+												data: data,
+												success: function (response) {
+														swal(response.status, {
+																		icon: "success",
+																})
+																.then((result) => {
+																		location.reload();
+																});
+												}
+										});
+								}
+						});
+		});
+
+	});
+
+</script>
 {{-- Alert Perencanaan --}}
 <script>
 

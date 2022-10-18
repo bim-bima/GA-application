@@ -18,7 +18,7 @@
     </a>
   </li>
   <li class="nav-item">
-    <div class="text-white py-2 rounded">
+    <div class="text-white">
       @if(auth()->user()->level == "general-affair")
       <a class="nav-link" href="app_perencanaan" aria-labelledby="headingTwo">
         <i class="fa fa-calendar"></i>

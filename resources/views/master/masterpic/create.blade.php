@@ -8,15 +8,9 @@
   <div class="card-body px-sm-3 px-2">
     <form action="{{ route('master_pic.store') }}" method="POST" enctype="multipart/form-data" class="col-lg-6 px-0">
       @csrf
-<<<<<<< HEAD
-      <label for="nama_pic" class="form-label" data-aos="fade-right" data-aos-delay="700">Nama PIC</label>
-      <input type="text" class="mb-1 form-control @error('nama_pic') is-invalid @enderror" name="nama_pic" required autofocus data-aos="fade-right" data-aos-delay="800" value="{{ old('nama_pic') }}" >
+      <label for="nama_pic" class="form-label">Nama PIC</label>
+      <input type="text" class="mb-1 form-control @error('nama_pic') is-invalid @enderror" name="nama_pic" required autofocus value="{{ old('nama_pic') }}" >
       @error('nama_pic')
-=======
-      <label for="mp_nama" class="form-label">Nama PIC</label>
-      <input type="text" class="mb-1 form-control @error('nama') is-invalid @enderror" name="mp_nama" required>
-      @error('nama')
->>>>>>> 23a35dd975cbf61e394714f5d9c296881df76711
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
       <button class="btn btn-info mt-3 mb-1 mr-1">

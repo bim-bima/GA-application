@@ -1,16 +1,16 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary">Booking Kendaraan</h6>
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Booking Kendaraan</h6>
   </div>
   <div class="card-body px-sm-3 px-2">
     <form action="{{ route('app_kendaraan.store') }}" method="POST" enctype="multipart/form-data" class="row px-0">
       @csrf
       <div class="col-md-6 mb-2">
-        <label for="ak_mk_id" class="form-label">Kendaraan</label>
-        <select name="ak_mk_id" class="form-control @error('ak_mk_id') is-invalid @enderror" required>
+        <label for="ak_mk_id" class="form-label" data-aos="fade-right" data-aos-delay="100">Kendaraan</label>
+        <select name="ak_mk_id" class="form-control @error('ak_mk_id') is-invalid @enderror" required data-aos="fade-right" data-aos-delay="150">
           <option value="">Pilih Kendaraan</option>
           @foreach ($namaKendaraan as $kendaraan)
           <option value="{{ $kendaraan->id }}">{{ $kendaraan->mk_nama_kendaraan}}</option>
@@ -22,8 +22,8 @@
       </div>
 
       <div class="col-md-6 mb-2">
-        <label for="ak_mp_id" class="form-label">PIC</label>
-        <select name="ak_mp_id" class="form-control @error('ak_mp_id') is-invalid @enderror" required>
+        <label for="ak_mp_id" class="form-label" data-aos="fade-left" data-aos-delay="100">PIC</label>
+        <select name="ak_mp_id" class="form-control @error('ak_mp_id') is-invalid @enderror" required data-aos="fade-left" data-aos-delay="150">
             <option value="">Pilih PIC</option>
             @foreach ($datapic as $pic)
             <option value="{{ $pic->id }}">{{ $pic->mp_nama }}</option>
@@ -46,47 +46,47 @@
       </div>
  -->
       <div class="col-md-6 mb-2">
-        <label for="ak_tanggal_mulai" class="form-label">Tanggal Mulai</label>
+        <label for="ak_tanggal_mulai" class="form-label" data-aos="fade-right" data-aos-delay="200">Tanggal Mulai</label>
         <input type="date" class="form-control @error('tanggal') is-invalid @enderror" name="ak_tanggal_mulai"
-            required>
+            required data-aos="fade-right" data-aos-delay="250">
         @error('tanggal')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
       <div class="col-md-6 mb-2">
-        <label for="ak_jam" class="form-label">Jam</label>
-        <input type="time" class="form-control @error('jam') is-invalid @enderror" name="ak_jam" required>
+        <label for="ak_jam" class="form-label" data-aos="fade-left" data-aos-delay="200">Jam</label>
+        <input type="time" class="form-control @error('jam') is-invalid @enderror" name="ak_jam" required data-aos="fade-left" data-aos-delay="250">
         @error('jam')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
 
       <div class="col-md-6 mb-2">
-        <label for="ak_tanggal_selesai" class="form-label">Tanggal Selesai</label>
+        <label for="ak_tanggal_selesai" class="form-label" data-aos="fade-right" data-aos-delay="300">Tanggal Selesai</label>
         <input type="date" class="form-control @error('tanggal_selesaiss') is-invalid @enderror" name="ak_tanggal_selesai"
-            required>
+            required data-aos="fade-right" data-aos-delay="350">
         @error('tanggal_selesaiss')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
       <div class="col-md-6 mb-2">
-        <label for="ak_jam_selesai" class="form-label">Jam Selesai</label>
-        <input type="time" class="form-control @error('jam_selesai') is-invalid @enderror" name="ak_jam_selesai" required>
+        <label for="ak_jam_selesai" class="form-label" data-aos="fade-left" data-aos-delay="300">Jam Selesai</label>
+        <input type="time" class="form-control @error('jam_selesai') is-invalid @enderror" name="ak_jam_selesai" required data-aos="fade-left" data-aos-delay="350">
         @error('jam_selesai')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
 
             <div class="col-md-6 mb-2">
-        <label for="ak_lokasi_tujuan" class="form-label">Lokasi Tujuan</label>
-        <input type="text" class="form-control @error('lokasi_tujuan') is-invalid @enderror" name="ak_lokasi_tujuan" required>
+        <label for="ak_lokasi_tujuan" class="form-label" data-aos="fade-right" data-aos-delay="400">Lokasi Tujuan</label>
+        <input type="text" class="form-control @error('lokasi_tujuan') is-invalid @enderror" name="ak_lokasi_tujuan" required data-aos="fade-right" data-aos-delay="450">
         @error('lokasi_tujuan')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
       <div class="col-md-6 mb-2 mb-1">
-        <label for="ak_tujuan_pemakaian" class="form-label">Tujuan Pemakaian</label>
-        <input type="text" class="form-control @error('tujuan') is-invalid @enderror" name="ak_tujuan_pemakaian" required>
+        <label for="ak_tujuan_pemakaian" class="form-label" data-aos="fade-left" data-aos-delay="400">Tujuan Pemakaian</label>
+        <input type="text" class="form-control @error('tujuan') is-invalid @enderror" name="ak_tujuan_pemakaian" required data-aos="fade-left" data-aos-delay="450">
         @error('tujuan')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
