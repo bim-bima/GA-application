@@ -7,8 +7,8 @@
       <div class="card-header py-3 px-sm-3 px-2">
         <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Status Kendaraan</h6>
       </div>
-      <div class="card-body px-sm-3 px-2">
-        <form action="{{ route('master_kendaraan.update',$kendaraan->id) }}" method="POST" enctype="multipart/form-data" class="row px-0">
+      <div class="card-body px-sm-3 px-2">  
+          <form action="{{ route('master_kendaraan.update',$kendaraan->id) }}" method="POST" enctype="multipart/form-data" class="row">
           @csrf
           @method('put')
           <div class="col-12 mb-2">
@@ -40,35 +40,14 @@
             @enderror
           </div>
 
-          <!-- <div class="col-12 mb-2">
-            <label for="kilometer" class="form-label">Kilometer (Km)</label>
-            <input type="number" class="form-control @error('kilometer') is-invalid @enderror" autofocus  name="kilometer"  value="{{ $kendaraan->mk_kilometer }}" >
-            @error('kilometer')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-          </div> -->
-
-          <div class="col-12 mb-1">
+<div class="col-12 mb-1">
             <label for="kondisi_lain" class="form-label">Kondisi Lain</label>
             <input type="text" class="form-control @error('kondisi') is-invalid @enderror" name="kondisi_lain" required  value="{{ $kendaraan->mk_kondisi_lain }}">
             @error('kondisi_lain')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  {{-- Status Kendaraan --}}
-  <div class="col-lg-6 px-lg-2 px-1">
-    <div class="card shadow-sm mb-4" data-aos="fade-left" data-aos-delay="50">
-      <div class="card-header py-3 px-3">
-        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-left" data-aos-delay="100">Edit data Kendaraan</h6>
-      </div>
-      <div class="card-body">
-        <form action="{{ route('master_kendaraan.update',$kendaraan->id) }}" method="POST" enctype="multipart/form-data" class="row">
-          @csrf
-          @method('put')
+
           <div class="col-md-6 mb-2">
             <label for="nama_kendaraan" class="form-label">Nama Kendaraan</label>
             <input type="text" class="form-control @error('nama_kendaraan') is-invalid @enderror" name="nama_kendaraan" value="{{ $kendaraan->mk_nama_kendaraan }}" required>
@@ -131,10 +110,12 @@
               <i class="fa fa-edit"></i>
               Edit
             </button>
-          </div>
-        </form>
+          </div>          
+
       </div>
     </div>
   </div>
+
+        </form>
 </div>
 @endsection
