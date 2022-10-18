@@ -216,6 +216,7 @@
               $tanggal1 = $pengajuan->created_at;
               $tanggal = substr($tanggal1,-0,10);
             ?>
+            <input type="hidden" class="delete_id" value="{{ $pengajuan->id }}">
             <td class="border-secondary">{{ $tanggal }}</td>
             <td class="border-secondary">{{ $pengajuan->ap_nama_pengajuan }}</td>
             <td class="border-secondary">{{ $pengajuan->ap_status }}</td>
@@ -226,7 +227,8 @@
               <form action="{{ route('app_pengajuan.destroy',$pengajuan->id) }}" method="post" class="d-inline">
                 @csrf
                 @method('delete')
-                <button class="btn btn-danger btn-circle btn-sm btndeleteasset" type="submit"><i class="fas fa-trash"></i>
+                <button class="btn btn-danger btn-circle btn-sm btndeletepengajuan" type="submit">
+                  <i class="fas fa-trash"></i>
                 </button>
               </form>
             </td>

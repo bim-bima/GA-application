@@ -10,28 +10,28 @@
       <div class="card-body px-sm-3 px-2">
         <form action="#" method="POST" enctype="multipart/form-data" class="row">
           <div class="col-md-6 mb-2 pr-md-2">
-            <label for="mk_nama_kendaraan" class="form-label" data-aos="fade-right" data-aos-delay="150">Nama Kendaraan</label>
-            <input type="text" class="form-control @error('nama') is-invalid @enderror" name="mk_nama_kendaraan" value="{{ $kendaraan->mk_nama_kendaraan }}" readonly data-aos="fade-right" data-aos-delay="200">
+            <label for="mk_nama_kendaraan" class="form-label">Nama Kendaraan</label>
+            <input type="text" class="form-control @error('nama') is-invalid @enderror" name="mk_nama_kendaraan" value="{{ $kendaraan->mk_nama_kendaraan }}" readonly>
             </div>
           <div class="col-md-6 mb-2 pl-md-2">
-            <label for="mk_no_polisi" class="form-label" data-aos="fade-left" data-aos-delay="100">No Polisi</label>
-            <input type="text" class="form-control @error('nopolisi') is-invalid @enderror" name="mk_no_polisi" readonly value="{{ $kendaraan->mk_no_polisi }}" data-aos="fade-left" data-aos-delay="150">
+            <label for="mk_no_polisi" class="form-label">No Polisi</label>
+            <input type="text" class="form-control @error('nopolisi') is-invalid @enderror" name="mk_no_polisi" readonly value="{{ $kendaraan->mk_no_polisi }}">
           </div>
           <div class="col-md-6 mb-2 pr-md-2">
-            <label for="mk_jenis" class="form-label" data-aos="fade-right" data-aos-delay="250">Jenis Kendaraan</label>
-            <input type="text" class="form-control" name="mk_warna" readonly  value="{{ $kendaraan->mk_jenis }}" data-aos="fade-right" data-aos-delay="300">
+            <label for="mk_jenis" class="form-label">Jenis Kendaraan</label>
+            <input type="text" class="form-control" name="mk_warna" readonly  value="{{ $kendaraan->mk_jenis }}">
             </div>
           <div class="col-md-6 mb-2 pl-md-2">
-            <label for="mk_merk" class="form-label" data-aos="fade-left" data-aos-delay="200">Merk Kendaraan</label>
-            <input type="text" class="form-control @error('merk') is-invalid @enderror" name="mk_merk" readonly  value="{{ $kendaraan->mk_merk }}" data-aos="fade-left" data-aos-delay="250">
+            <label for="mk_merk" class="form-label">Merk Kendaraan</label>
+            <input type="text" class="form-control @error('merk') is-invalid @enderror" name="mk_merk" readonly  value="{{ $kendaraan->mk_merk }}">
             </div>
           <div class="col-md-6 mb-2 pr-md-2">
-            <label for="mk_warna" class="form-label" data-aos="fade-right" data-aos-delay="350">Warna Kendaraan</label>
-            <input type="text" class="form-control @error('warna') is-invalid @enderror" name="mk_warna" readonly  value="{{ $kendaraan->mk_warna }}" data-aos="fade-right" data-aos-delay="400">
+            <label for="mk_warna" class="form-label">Warna Kendaraan</label>
+            <input type="text" class="form-control @error('warna') is-invalid @enderror" name="mk_warna" readonly  value="{{ $kendaraan->mk_warna }}">
           </div>
           <div class="col-md-6 mb-3 pl-md-2">
-            <label for="mk_perlengkapan" class="form-label" data-aos="fade-left" data-aos-delay="300">Perlengkapan</label>
-            <input type="text" class="form-control" name="mk_warna" readonly  value="{{ $kendaraan->mk_perlengkapan }}" data-aos="fade-left" data-aos-delay="350">
+            <label for="mk_perlengkapan" class="form-label">Perlengkapan</label>
+            <input type="text" class="form-control" name="mk_warna" readonly  value="{{ $kendaraan->mk_perlengkapan }}">
           </div>
           <div class="col-12 mt-4 mb-1">
             @if(auth()->user()->level == "general-affair")
@@ -74,23 +74,23 @@
       <div class="card-body px-sm-3 px-2">
         <form action="#" method="POST" enctype="multipart/form-data" class="row">
           <div class="col-12 mb-2">
-            <label for="mk_perlengkapan" class="form-label" data-aos="fade-left" data-aos-delay="150">Status</label>
-            <input type="text" class="form-control"  readonly  value="{{ $kendaraan->mk_status }}" data-aos="fade-left" data-aos-delay="200">
+            <label for="mk_perlengkapan" class="form-label">Status</label>
+            <input type="text" class="form-control"  readonly  value="{{ $kendaraan->mk_status }}">
           </div>
           <div class="col-12 mb-2">
-            <label for="mk_Bahan_bakar" class="form-label" data-aos="fade-left" data-aos-delay="200">Bahan Bakar Tersedia</label>
+            <label for="mk_Bahan_bakar" class="form-label">Bahan Bakar Tersedia</label>
             <input type="text" class="form-control"  readonly  
-            value="{{ $kendaraan->mk_bahan_bakar }}" data-aos="fade-left" data-aos-delay="250">
+            value="{{ $kendaraan->mk_bahan_bakar }}">
             </div>
           <div class="col-12 mb-2">
-            <label for="mk_kilometer" class="form-label" data-aos="fade-left" data-aos-delay="250">Kilometer</label>
+            <label for="mk_kilometer" class="form-label">Kilometer</label>
             <input type="text" class="form-control" name="mk_kilometer" readonly  
-            value="{{ $kendaraan->mk_kilometer }} KM" data-aos="fade-left" data-aos-delay="300">
+            value="{{ $kendaraan->mk_kilometer }} KM">
           </div>
           <div class="col-12 mb-1">
-            <label for="mk_kondisi_lain" class="form-label" data-aos="fade-left" data-aos-delay="300">Kondisi Lain</label>
+            <label for="mk_kondisi_lain" class="form-label">Kondisi Lain</label>
             <input type="text" class="form-control" name="mk_kondisi_lain" readonly  
-            value="{{ $kendaraan->mk_kondisi_lain }}" data-aos="fade-left" data-aos-delay="350">
+            value="{{ $kendaraan->mk_kondisi_lain }}">
           </div>
         </form>
       </div>

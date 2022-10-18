@@ -85,7 +85,7 @@
                 <h5 class="card-title">{{ $monthName.'-'.$perencanaan->ap_tahun }}</h5>
               </div>
               <div class="py-1 px-1">
-                <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class="btn-sm btn-primary btn-circle"  data-toggle="tooltip" data-placement="left" title="Lihat">
+                <a href="{{ route('app_perencanaan.show',$perencanaan->id) }}" class="btn-sm btn-info btn-circle"  data-toggle="tooltip" data-placement="left" title="Lihat">
                   <i class="fas fa-eye"></i>
                 </a>
                 <a href="{{ route('app_perencanaan.edit',$perencanaan->id) }}" class="btn-sm btn-success btn-circle"  data-toggle="tooltip" data-placement="left" title="Unduh">
@@ -95,7 +95,7 @@
                   @csrf
                   @method('delete')
                   
-                  <button type="submit" class="btn-sm btn-circle btn-danger btn-flat show_confirm" data-toggle="tooltip" title="Delete">
+                  <button type="submit" class="btn-sm border-0 btn-circle btn-danger btn-flat show_confirm" data-toggle="tooltip" title="Delete">
                     <i class="fas fa-trash"></i>
                   </button>
                   
