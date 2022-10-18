@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SlackController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\RequestController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\MasterPicController;
 use App\Http\Controllers\MasterAktivitasController;
 use App\Http\Controllers\MasterVendorController;
 use App\Http\Controllers\MasterBarangController;
+use App\Http\Controllers\UpdatePasswordController;
 use App\Http\Controllers\MasterJenisBarangController;
 use App\Http\Controllers\MasterStatusFollowupController;
 use App\Http\Controllers\MasterLokasiAssetController;
@@ -85,9 +87,11 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
     Route::resource('app_aktivitas', AktivitasController::class);
     Route::resource('app_aktivitas/index/{}', AktivitasController::class);
     Route::resource('app_perencanaan', PerencanaanController::class);
-
     
 });
+
+    Route::get('edit', [UpdatePasswordController::class, 'edit'])->name('edit_password');
+    Route::put('update', [UpdatePasswordController::class, 'update'])->name('update_password');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('master_kendaraan', MasterKendaraanController::class);

@@ -97,7 +97,7 @@
           </div>
           <div class="card-body px-sm-3 px-2">
             <div class="row">
-              {{-- @if($cek == 0)
+              @if($cek == 0)
                 <div class="col">
                   <div class="card border-danger mb-2">
                     <div class="card-body">
@@ -115,7 +115,7 @@
                 </div>
               @endif
 
-              @if($cek > 0) --}}
+              @if($cek > 0)
               <div class="col-12" style="overflow-y: auto; max-height: 285px;">
                 <table class="table table-bordered border" id="dataTable" cellspacing="0">
                   <thead>
@@ -140,7 +140,7 @@
                   </tbody>
                 </table>
               </div>
-              {{-- @endif --}}
+              @endif
             </div>
           </div>
         </div> 

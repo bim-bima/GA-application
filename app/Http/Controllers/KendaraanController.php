@@ -65,13 +65,14 @@ class KendaraanController extends Controller
         $datakendaraan->save();
 
         Alert::success('Berhasil', 'Data Berhasil Dikirim');
+        $cek = Kendaraan::count();
         $namaKendaraan = MasterKendaraan::all();
         $datapic = Masterpic::all();
         if(auth()->user()->level == "pegawai"){
           $datakendaraan = MasterKendaraan::paginate(8);
           $pengguna = Auth::user()->name;
           $booking = Kendaraan::with('namaKendaraan','pic')->Where('ak_pengguna',$pengguna)->get(); 
-            return view('home',compact(['datakendaraan','booking']));
+            return view('home',compact(['datakendaraan','booking','cek']));
         }else{
             return redirect()->route('app_kendaraan.index');
         } 
