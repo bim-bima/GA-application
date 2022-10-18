@@ -32,10 +32,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cek = Kendaraan::count();
+          $cek = Kendaraan::count();
           $now = Carbon::now();
           $tgl_sekarang =  $now->toDateString();
           $tgl_besok = date('Y-m-d',strtotime("+1 day",strtotime(date("Y-m-d"))));
+          $today = date('Y-m-d');
+          $cekak = Aktivitas::where('start_date', '=', $today)->count();
           $jumlah = Aktivitas::where('reminder', '=', 'reminder', 'and')->where('start_date', '=', $tgl_besok)->count();
           $reminder = Aktivitas::where('reminder', '=', 'reminder', 'and')->where('start_date', '=', $tgl_besok)->get();
 
@@ -44,14 +46,12 @@ class HomeController extends Controller
     //     Notification::route('slack', env('SLACK_WEBHOOK'))->notify(new SlackNotification());
     //         }
     //  }
-          // echo $mytime->toDateString();
           $aktivitas = Aktivitas::where('start_date', '=', $tgl_sekarang)->get();
           $datakendaraan = MasterKendaraan::paginate(8);
 
           $pengguna = Auth::user()->name;
           $booking = Kendaraan::with('namaKendaraan','pic')->Where('ak_pengguna',$pengguna)->get(); 
 
-
-          return view('home',compact(['datakendaraan','aktivitas','booking','cek']));
+          return view('home',compact(['datakendaraan','aktivitas','booking','cek','today','cekak']));
     }
 }
