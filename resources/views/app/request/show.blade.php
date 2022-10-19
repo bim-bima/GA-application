@@ -11,6 +11,9 @@
           <thead class="">
             <tr>
               <th class="border border-secondary col-sm-3 col-3">Tanggal</th>
+              @if(auth()->user()->level == "general-affair")
+              <th class="border border-secondary col-sm-3 col-3">Perequest</th>
+              @endif
               <th class="border border-secondary col-sm-3 col-3">Request</th>
               <th class="border border-secondary col-sm-3 col-3">Tingkat Kebutuhan</th>
               <th class="border border-secondary col-sm-5 col-3">Catatan</th>
@@ -24,6 +27,9 @@
                 $tanggal = substr($tanggal1,-0,10);
                ?>
               <td class="border-secondary">{{ $tanggal }}</td>
+              @if(auth()->user()->level == "general-affair")
+              <td class="border-secondary">{{ $request->ar_perequest }}</td>
+              @endif
               <td class="border-secondary">{{ $request->ar_request }}</td>
               <td class="border-secondary">{{ $request->ar_kebutuhan }}</td>
               <td class="border-secondary">{{ $request->ar_catatan }}</td>

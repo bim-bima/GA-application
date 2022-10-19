@@ -62,6 +62,64 @@
           </tbody>
         </table>
 
+        <div class="card-body col-lg-6 pl-lg-3 py-0 px-sm-3 px-3">
+          <div class="card" data-aos="fade-left" data-aos-delay="150">
+            <div class="card-header px-sm-3 px-2">
+              <h6 class="font-weight-bold text-primary">Daftar Request</h6>
+            </div>
+            <div class="card-body px-sm-3 px-2">
+              <div class="row">
+                @if($cekrequest == 0)
+                  <div class="col">
+                    <div class="card border-danger mb-2">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="text-center">
+                              <i class="fas fa-info-circle"></i>
+                              <i>Tidak Ada request</i>
+                            </div>
+                          </div>                      
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                @endif
+  
+                @if($cekrequest > 0)
+                <div class="col-12" style="overflow-y: auto; max-height: 285px;">
+                  <table class="table table-bordered border" id="dataTable" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th class="col-6 border border-secondary px-2">Request</th>
+                        <th class="col-5 border border-secondary px-2">Tanggal Estimasi</th>
+                        <th class="col-1 border border-secondary px-2">Detail</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($listrequest as $list)
+                      <?php 
+                        $tanggal = substr($list->ar_tanggal_estimasi,-0,10);
+                        ?>
+                      <tr>
+                        <td class="border-secondary px-2">{{ $list->ar_request }}</td>
+                        <td class="border-secondary px-2">{{ $tanggal }}</td>
+                        <td class="border-secondary px-2"> 
+                          <a class="btn-sm btn-info btn-circle" href="{{ route('app_request.show',$list->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
+                          <i class="fas fa-info-circle"></i>
+                          </a>
+                        </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
+                @endif
+              </div>
+            </div>
+          </div> 
+        </div>
+
       </div>
     </div>
   </div>

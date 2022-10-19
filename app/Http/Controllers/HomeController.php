@@ -53,8 +53,10 @@ class HomeController extends Controller
           $booking = Kendaraan::with('namaKendaraan','pic')->Where('ak_pengguna',$pengguna)->get();
           $perequest = Auth::user()->name;
           $cek = AppRequest::where('ar_perequest', $perequest)->count();
+          $cekrequest = AppRequest::count();
+          $listrequest = AppRequest::all();
           $request = AppRequest::where('ar_perequest', $perequest)->get(); 
 
-          return view('home',compact(['datakendaraan','aktivitas','booking','cek','today','cekak','request']));
+          return view('home',compact(['datakendaraan','aktivitas','booking','cek','today','cekak','request','cekrequest','listrequest']));
     }
 }
