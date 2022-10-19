@@ -7,40 +7,43 @@
 <div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Pemakaian Kendaraan</h6>
-    @if(auth()->user()->level == "general-affair")
-    @endif
   </div>
   <div class="card-body px-sm-3 px-2">
-    {{-- <div class="row">
-      @foreach( $datakendaraan as $ken )
-      <div class="col-xl-3 col-sm-6 mb-3">
-      <!-- @foreach( $datakendaraan as $ken )
-      <div class="col-xl-3 col-sm-6 mb-3 px-0 px-sm-2">
-        <div class="card" data-aos="zoom-in" data-aos-delay="100">
-          <div class="card-header py-2">
-            <h6 class="m-0 font-weight-bold text-primary text-center">{{ $ken->mk_nama_kendaraan }}</h6>
-          </div>
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase ">Status</div>
-                <div class=" h5 mb-0 font-weight-bold text-gray-800">
-                {{$ken->mk_status}}
+  <div class="row">          
+    @foreach( $datakendaraan as $ken )
+      <div class="card mb-4 ml-3 col-4 p-0">
+                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                  <h6 class="m-0 font-weight-bold text-primary">{{ $ken->mk_nama_kendaraan }}</h6>
+                </a>
+                <div class="collapse show" id="collapseCardExample">
+                  <div class="card-body">
+                    <div class="row ml-3">
+                    <p class="small text-primary">Nama Kendaraan :</p> 
+                    <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_nama_kendaraan }}</p>
+                    </div>
+                    <div class="row ml-3">
+                    <p class="small text-primary">Kilometer Kendaraan :</p>
+                    <p class="ml-3 font-weight-bold text-lg"> {{ $ken->mk_kilometer }} Km</p>
+                    </div>
+                    <div class="row ml-3">
+                    <p class="small text-primary">Bbm Tersedia : </p> 
+                    <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_bahan_bakar }} Liter</p>
+                    </div>
+                    <!-- <div class="row ml-3">
+                    <p class="small text-primary">Kondisi Kendaraan : </p> 
+                    <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_kondisi_lain }}</p>
+                    </div> -->
+                    <a href="{{ route('master_kendaraan.show',$ken->id) }}" class="btn btn-info btn-block"></i>Detail</a>
+
+                  @if(auth()->user()->level == "general-affair")
+                  <a href="{{ route('master_kendaraan.edit',$ken->id) }}" class="btn btn-warning btn-block"></i>Update</a>
+                  @endif
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="row justify-content-center">
-              <a class="mt-3 btn btn-info mx-2 px-3" href="{{ route('master_kendaraan.show',$ken->id) }}">Detail</a>
-
-              @if(auth()->user()->level == "general-affair")
-              <a class="mt-3 btn btn-warning mx-2 px-3" href="{{ route('master_kendaraan.edit',$ken->id) }}">Update</a>
-              @endif
-            </div>
-          </div>
-        </div>
-      </div>
-      @endforeach -->
-    </div> --}}
+    @endforeach
+  </div>
+  <div class="row">          
     @if(auth()->user()->level == "general-affair")
     <button class="btn btn-primary mb-3"> 
       <i class="fa fa-plus"></i>

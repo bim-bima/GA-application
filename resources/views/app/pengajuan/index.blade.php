@@ -29,9 +29,13 @@
               <div for="ap_mv_id" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Vendor</div>
               <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->vendor->mv_nama_vendor }}</div>
             </div>
+            <?php 
+            $harga1 = $pengajuan->ap_biaya;
+            $biaya = number_format($harga1,0,",",",");
+            ?>
             <div class="d-flex row mb-4">
               <div for="ap_biaya" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Biaya</div>
-              <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">RP.{{ $pengajuan->ap_biaya }}</div>
+              <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">Rp.{{ $biaya }}</div>
             </div>
             <div class="d-flex row mb-4">
               <div for="ap_mp_id" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">PIC</div>
@@ -130,7 +134,7 @@
         @enderror
       </div>
       <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="200">
-        <label for="biaya" min="1" class="form-label">Biaya (RP)</label>
+        <label for="biaya" min="1" class="form-label">Biaya (Rp)</label>
         <input type="number" class="form-control @error('biaya') is-invalid @enderror" name="biaya" required autofocus value="{{ old('biaya') }}">
         @error('biaya')
         <div class="invalid-feedback">{{ $message }}</div>

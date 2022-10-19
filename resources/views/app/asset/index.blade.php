@@ -48,13 +48,17 @@
         </thead>
         <tbody>
           @foreach ($dataasset as $asset)
+          <?php 
+            $harga1 = $asset->as_harga;
+            $harga = number_format($harga1,0,",",",");
+           ?>
           <tr>
             <input type="hidden" class="delete_id" value="{{ $asset->id }}">
             <td class="border-secondary px-2">{{ $asset->as_nama_asset }}</td>
             <td class="border-secondary px-2">{{ $asset->lokasiAsset->mla_lokasi_asset }}</td>
             <td class="border-secondary px-2">{{ $asset->as_tahun_kepemilikan }}</td>
             <td class="border-secondary px-2">{{ $asset->as_kode_asset }}</td>
-            <td class="border-secondary px-2">{{ $asset->as_harga }}</td>
+            <td class="border-secondary px-2">{{ $harga }}</td>
             <td class="border-secondary px-2">{{ $asset->categoryasset->mca_category }}</td>
             <td class="border-secondary px-2">{{ $asset->as_umur_manfaat }} tahun</td>
             <td class="border-secondary px-2">

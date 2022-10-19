@@ -9,7 +9,13 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
     <!-- Sidebar -->
+    @if(auth()->user()->level == "general-affair")
     @include('template.sidebar')
+    @endif
+
+    @if(auth()->user()->level == "management")
+    @include('template.sidebar')
+    @endif
     <!-- End of Sidebar -->
 
     {{-- sweet alert --}}
