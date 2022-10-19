@@ -33,11 +33,11 @@
           <thead class="">
             <tr>
               <th class="border border-secondary col-sm-3 col-3">Tanggal</th>
+              <th class="border border-secondary col-sm-3 col-3">Perequest</th>
               <th class="border border-secondary col-sm-3 col-3">Request</th>
+              <th class="border border-secondary col-sm-5 col-3">Catatan</th>
               <th class="border border-secondary col-sm-3 col-3">Tingkat Kebutuhan</th>
               <th class="border border-secondary col-sm-3 col-3">Tanggal Estimasi</th>
-              <th class="border border-secondary col-sm-3 col-3">Perequest</th>
-              <th class="border border-secondary col-sm-5 col-3">Catatan</th>
               <th class="border border-secondary col-1">Aksi</th>
             </tr>
           </thead>
@@ -50,11 +50,11 @@
                 $tanggal = substr($tanggal1,-0,10);
                ?>
               <td class="border-secondary">{{ $tanggal }}</td>
-              <td class="border-secondary">{{ $request->ar_request }}</td>
               <td class="border-secondary">{{ $request->ar_perequest }}</td>
+              <td class="border-secondary">{{ $request->ar_request }}</td>
+              <td class="border-secondary">{{ $request->ar_catatan }}</td>
               <td class="border-secondary">{{ $request->ar_kebutuhan }}</td>
               <td class="border-secondary">{{ $request->ar_tanggal_estimasi }}</td>
-              <td class="border-secondary">{{ $request->ar_catatan }}</td>
               <td class="border-secondary">
                 <form action="{{ route('app_request.destroy',$request->id) }}" method="post" class="d-inline">
                   @csrf

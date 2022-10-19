@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SlackController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\RequestController;
@@ -90,11 +91,15 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
     
 });
 
+    Route::get('edit_profile', [ProfileController::class, 'edit'])->name('edit_profile');
+    Route::put('update_profile', [ProfileController::class, 'update'])->name('update_profile');
+
     Route::get('edit', [UpdatePasswordController::class, 'edit'])->name('edit_password');
     Route::put('update', [UpdatePasswordController::class, 'update'])->name('update_password');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('master_kendaraan', MasterKendaraanController::class);
+
     Route::resource('app_asset', AssetController::class);
     Route::resource('app_request', RequestController::class);
     Route::resource('app_pengajuan', PengajuanController::class);
