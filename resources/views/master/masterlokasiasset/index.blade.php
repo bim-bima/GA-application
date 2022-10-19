@@ -12,7 +12,7 @@
       <a href="{{ route('master_lokasiasset.create') }}" class="text-white text-decoration-none">Tambah</a>
     </button>
   </div>
-  <div class="card-body px-sm-3 px-1">
+  <div class="card-body px-sm-3 px-2">
     <div class="row">
       @if($cek == 0)
       <div class="col">
@@ -20,10 +20,9 @@
           <div class="card-body">
             <div class="row">
               <div class="col-12">
-                <div class="font-weight-bold text-primary text-uppercase text-center">
+                <div class="text-center">
                   <i class="fas fa-info-circle"></i>
-                  Belum Ada Data Disini
-                  <i class="fas fa-info-circle"></i>
+                  <i>Belum Ada Data Disini</i>
                 </div>
               </div>                      
             </div>

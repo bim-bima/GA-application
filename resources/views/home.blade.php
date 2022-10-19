@@ -3,7 +3,7 @@
 <div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   @if(auth()->user()->level == "management")
   <div class="card-header py-3 px-sm-4 px-2">
-    <h6 class="font-weight-bold text-primary">Dashboard</h6>
+    <h6 class="m-0 font-weight-bold text-primary">Dashboard</h6>
   </div>
   <div class="card-body px-sm-4">
     <div class="row px-sm-2">
@@ -30,36 +30,39 @@
 
   @if(auth()->user()->level == "general-affair")
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="font-weight-bold text-primary">Dashboard</h6>
+    <h6 class="m-0 font-weight-bold text-primary">Dashboard</h6>
   </div>
   <div class="card-body px-sm-4">
     <div class="row px-sm-1">
-      <h6 class="font-weight-bold text-primary">Aktivitas Hari Ini</h6>
-      <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-          <tr>
-            <th class="border border-secondary px-2">Aktivitas</th>
-            <th class="border border-secondary px-2 col-2">Prioritas</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($aktivitas as $today)
-          <tr>
-            <td class="border-secondary px-2">{{ $today->title }}</td>
-            <td class="border-secondary px-2">{{ $today->prioritas }}</td>
-          </tr>
-          @endforeach
-        
-          @if($cekak == 0)
-          <tr>
-            <td colspan="2">
-              <i class="fas fa-info-circle"></i>
-              <i>Tidak Ada Aktifitas Untuk Hari Ini</i>
-            </td>
-          </tr>
-          @endif
-        </tbody>
-      </table>
+      <div class="col-lg-6 px-0">
+        <h6 class="font-weight-bold text-primary">Aktivitas Hari Ini</h6>
+        <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th class="border border-secondary px-2 col-lg-6">Aktivitas</th>
+              <th class="border border-secondary px-2 col-2">Prioritas</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($aktivitas as $today)
+            <tr>
+              <td class="border-secondary px-2">{{ $today->title }}</td>
+              <td class="border-secondary px-2">{{ $today->prioritas }}</td>
+            </tr>
+            @endforeach
+          
+            @if($cekak == 0)
+            <tr class="text-center">
+              <td colspan="2">
+                <i class="fas fa-info-circle"></i>
+                <i>Tidak Ada Aktifitas Untuk Hari Ini</i>
+              </td>
+            </tr>
+            @endif
+          </tbody>
+        </table>
+
+      </div>
     </div>
   </div>
   
@@ -151,7 +154,7 @@
           </div>
         </div> 
       </div>             
-      <div class="card-body col-12 pt-2 pl-lg-4">
+      <div class="card-body col-4 pt-2 pl-lg-4">
         <button class="btn btn-info mr-1 mb-1">
           <i class="fa fa-angle-car"></i>
           <a href="{{ route('app_kendaraan.create') }}"class="text-white text-decoration-none">Booking Kendaraan</a>

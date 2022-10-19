@@ -2,9 +2,9 @@
 @section('content')
 @include('sweetalert::alert')
 
-<div class="container-fluid p-0">
+<div class="container-fluid px-0">
   <div class="card" data-aos="fade-up" data-aos-delay="50">
-    <div class="card-header px-3">
+    <div class="card-header px-sm-3 px-1">
       <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">List Perencanaan Aktivitas</h6>
     </div>
     <div class="row d-flex px-2 pb-0 pt-2">
@@ -47,17 +47,17 @@
       <!-- General Affair -->
 
       @if(auth()->user()->level == "general-affair")
-      <div class="card-body col-lg-7 pb-2 px-3">
+      <div class="card-body col-lg-7 pb-2 px-sm-3 px-2">
         
         @if($cek == 0)
-        <div class="col-12">
+        <div class="col-12 px-0">
           <div class="card mb-3 border-danger">
             <div class="card-body">
               <div class="row">
                 <div class="col-12 px-1">
-                  <div class="font-weight-bold text-primary text-uppercase text-center">
+                  <div class="text-center">
                     <i class="fas fa-info-circle"></i>
-                    Belum Ada Data Disini
+                    <i>Belum Ada Data Disini</i>
                   </div>
                 </div>                      
               </div>
@@ -108,7 +108,7 @@
         {{ $dataperencanaan->links() }}
       </div>
 
-      <div class="card-body col-lg-5 pb-2 pl-lg-1">
+      <div class="card-body col-lg-5 pb-2 mb-2 pr-sm-4 pr-2 pl-sm-2 pl-2">
         <div class="card">
           <div class="card-header px-sm-3 px-2">
             <h6 class="font-weight-bold text-primary">Tambah List Perencanaan</h6>
