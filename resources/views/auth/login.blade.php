@@ -47,7 +47,7 @@
                         </a>
                     @endif --}} -->
                   <div class="text-center mt-4">
-                    <a href="/register" class="small text-center mt-4">Not Registered ? Register now </a>
+                    <a href="/register" class="small text-center mt-4">Not Registered? Register now </a>
                   </div>
                 </div>                           
               </div> 
@@ -58,7 +58,7 @@
         <!-- foot -->
         <footer class="sticky-footer text-white p-0">
           <div class="container my-auto">
-            <div class="copyright text-center mb-3 pt-4">
+            <div class="copyright text-center pt-3">
               <span>Copyright &copy; 2022 . General Affair</span>
             </div>
           </div>

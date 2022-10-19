@@ -8,7 +8,7 @@
       <div class="card o-hidden border-0 shadow-lg my-5">
         <div class="card-body p-0">
           <div class="row justify-content-center">
-            <div class="register-image-right col-lg-4 mt-lg-5 mb-lg-0"></div>
+            <div class="register-image-right col-lg-4 mt-lg-5"></div>
             <div class="col-lg-4 px-lg-1 px-sm-5 px-3">
               <div class="py-5">
                 <!-- <main class="form-registration w-100 m-auto"> -->
@@ -62,10 +62,10 @@
                       @enderror
                     </div>
                   </div>
-                  <button class="w-100 btn btn-lg btn-primary mb-1" type="submit">{{ __('Register') }}</button>
+                  <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">{{ __('Register') }}</button>
                 </form>
                 <hr>
-                <div class="text-center mt-3">
+                <div class="text-center mt-4">
                   <a class="small" href="/login">Already have an account? Login!</a>
                 </div>
                 <!-- <small  class="d-block text-center mt-3">Allready registered ? <a href="/login"> login </a></small> -->
@@ -79,8 +79,8 @@
       <!-- footer -->
       <footer class="sticky-footer text-white p-0">
         <div class="container my-auto">
-          <div class="copyright text-center mb-3 pt-4">
-            <span>Copyright &copy; General Affair 2022</span>
+          <div class="copyright text-center pt-4">
+            <span>Copyright &copy; 2022 . General Affair</span>
           </div>
         </div>
       </footer>

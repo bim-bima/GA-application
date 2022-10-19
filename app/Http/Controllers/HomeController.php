@@ -9,6 +9,7 @@ use App\Models\MasterKendaraan;
 use App\Models\Aktivitas;
 use App\Models\AppRequest;
 use App\Models\Kendaraan;
+use App\Models\Pengajuan;
 use Illuminate\Support\Facades\DB;
 use App\Notifications\SlackNotification;
 use Illuminate\Support\Facades\Auth;
@@ -55,8 +56,13 @@ class HomeController extends Controller
           $cek = AppRequest::where('ar_perequest', $perequest)->count();
           $cekrequest = AppRequest::count();
           $listrequest = AppRequest::all();
-          $request = AppRequest::where('ar_perequest', $perequest)->get(); 
+          $request = AppRequest::where('ar_perequest', $perequest)->get();
+          
+          $cekpengajuan = pengajuan::count();
+          $datapengajuan = Pengajuan::with('vendor','pic','jenispengajuan')->paginate(10);
+          $ajuan = Pengajuan::where('ap_status', 'Menunggu Persetujuan')->get();
+          $setuju = Pengajuan::where('ap_status', 'setujui')->with('vendor')->get();
 
-          return view('home',compact(['datakendaraan','aktivitas','booking','cek','today','cekak','request','cekrequest','listrequest']));
+          return view('home',compact(['datakendaraan','aktivitas','booking','cek','today','cekak','request','cekrequest','listrequest','datapengajuan','cekpengajuan']));
     }
 }

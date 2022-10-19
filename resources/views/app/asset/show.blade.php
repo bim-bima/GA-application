@@ -57,41 +57,41 @@
           });
         </script> 
       </div>
-      <div class="card-body col-xl-3 mt-xl-4 pl-xl-0 pr-xl-4 pb-0" data-aos="fade-left" data-aos-delay="150">
+      <div class="card-body col-xl-3 mt-xl-2 pl-xl-0 pr-xl-4 pb-0" data-aos="fade-left" data-aos-delay="150">
         <ol class="list-group list-group-numbered">
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
-            <div class="">
-              <div class="fs-6"><small>Nama Asset :</small></div>
+          <div class="">
+              <div class="text-primary font-weight-bold">Nama Asset :</div>
               <b>{{ $asset->as_nama_asset }}</b>
             </div>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
+          <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
             <div class="mr-auto">
-              <div class="fs-6"><small>Lokasi Asset :</small></div>
+              <div class="text-primary font-weight-bold">Lokasi Asset :</div>
               <b>{{ $asset->lokasiAsset->mla_lokasi_asset }}</b>
             </div>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
+          <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
             <div class="mr-auto">
-              <div class="fs-6"><small>Category Asset :</small></div>
+              <div class="text-primary font-weight-bold">Category Asset :</div>
               <b>{{ $asset->categoryasset->mca_category }}</b>
             </div>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
+          <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
             <div class="mr-auto">
-              <div class="fs-6"><small>Tahun kepemilikan :</small></div>
+              <div class="text-primary font-weight-bold">Tahun Kepemilikan :</div>
               <b>{{ $asset->as_tahun_kepemilikan }}</b>
             </div>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
+          <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
             <div class="mr-auto">
-              <div class="fs-6"><small>Kode Asset :</small></div>
+              <div class="text-primary font-weight-bold">Kode Asset :</div>
               <b>{{ $asset->as_kode_asset }}</b>
             </div>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
+          <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
             <div class="mr-auto">
-              <div class="fs-6"><small>Harga Asset :</small></div>
+              <div class="text-primary font-weight-bold">Harga Asset :</div>
               <b>{{ $asset->as_harga }}</b>
             </div>
           </li> 
@@ -102,8 +102,8 @@
             </div>
           </li>-->
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
-            <div class="pb-4">
-              <div class="fs-6"><small>Umur Manfaat :</small></div>
+            <div class="pb-2">
+              <div class="text-primary font-weight-bold">Umur Manfaat :</div>
               <b>{{ $asset->as_umur_manfaat }} tahun</b>
             </div>
           </li>

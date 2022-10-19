@@ -58,7 +58,7 @@
       <div class="col-lg-6 mb-3 mb-sm-2">
         <label class="form-label" data-aos="fade-left" data-aos-delay="750">Bulan Pembelian</label>
         <select name="bulan_pembelian_asset" class="custom-select custom-select-md" data-aos="fade-left" data-aos-delay="800">
-          <option value="{{ $asset->as_bulan }}">pilih bulan</option>
+          <option value="{{ $asset->as_bulan }}">Pilih Bulan</option>
           <option value="-01">Januari</option>
           <option value="-02">Februari</option>
           <option value="-03">Maret</option>
