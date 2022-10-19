@@ -36,7 +36,7 @@
       </button>
       <button type="submit" class="btn btn-success mt-3 mb-1">
         <i class="fa fa-edit"></i>
-        Ubah
+        Update
       </button>
     </form>
   </div>
