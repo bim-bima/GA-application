@@ -12,18 +12,17 @@
       <a href="{{ route('master_pic.create') }}" class="text-white text-decoration-none">Tambah</a>
     </button>
   </div>
-  <div class="card-body px-sm-3 px-1">
+  <div class="card-body px-sm-3 px-2">
     <div class="row">
       @if($cek == 0)
       <div class="col">
         <div class="card mb-3 border-danger">
           <div class="card-body">
             <div class="row">
-              <div class="col-12 px-1">
-                <div class="font-weight-bold text-primary text-uppercase text-center">
+              <div class="col-12">
+                <div class="text-center">
                   <i class="fas fa-info-circle"></i>
-                  Belum Ada Data Disini
-                  <i class="fas fa-info-circle"></i>
+                  <i>Belum Ada Data Disini</i>
                 </div>
               </div>                      
             </div>
@@ -41,7 +40,7 @@
               <th class="border border-secondary col-4 col-sm-2">Aksi</th>
             </tr>
           </thead>
-          <tbody class="border-top-0">
+          <tbody>
             @foreach ($datapic as $pic)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $pic->id }}">
@@ -54,7 +53,7 @@
                   @csrf
                   @method('delete')
                   {{-- <input class="btn btn-danger btndelete2" type="submit" value="Delete"> --}}
-                  <a href="" class="btn-sm btn-danger btn-circle mb-sm-0 mb-1 btndelete2">
+                  <a href="" class="btn-sm btn-danger btn-circle mb-sm-0 mb-1 btndeletepic">
                     <i class="fas fa-trash"></i>
                   </a>
                 </form>

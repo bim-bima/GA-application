@@ -776,6 +776,57 @@
 
 </script>
 
+
+<!-- Alert Pic -->
+<script>
+	$(document).ready(function () {
+
+		$.ajaxSetup({
+				headers: {
+						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+		});
+
+		$('.btndeletepic').click(function (e) {
+				e.preventDefault();
+
+				var deleteid2 = $(this).closest("tr").find('.delete_id').val();
+
+				swal({
+								title: "Apakah anda yakin?",
+								text: "Data PIC ini akan di Hapus!",
+								icon: "warning",
+								buttons: true,
+								dangerMode: true,
+						})
+						.then((willDelete) => {
+								if (willDelete) {
+
+										var data = {
+												"_token": $('input[name=_token]').val(),
+												'id': deleteid2,
+										};
+										$.ajax({
+												type: "DELETE",
+												url: 'master_pic/' + deleteid2,
+
+												data: data,
+												success: function (response) {
+														swal(response.status, {
+																		icon: "success",
+																})
+																.then((result) => {
+																		location.reload();
+																});
+												}
+										});
+								}
+						});
+		});
+
+	});
+</script>
+
 {{-- <script type="text/javascript">
 
 $('.show_confirm_pic').click(function(event) {
