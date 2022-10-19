@@ -5,7 +5,6 @@
     <img class="template/img-profile" src="{{asset('template/img/icon.png') }}" width="35px">
     <div class="sidebar-brand-text">General Affair</div>
   </a>
-      
 
     <!-- Divider -->
   <hr class="sidebar-divider">
@@ -61,18 +60,16 @@
       </a>
       @endif
 
-
-
       @if(auth()->user()->level == "pegawai")
-      <a class="nav-link nav-item active" href="{{ route('app_kendaraan.create') }}">
+      <!-- <a class="nav-link nav-item active" href="{{ route('app_kendaraan.create') }}">
         <i class="fa fa-car"></i>
         <span>Booking Kendaraan</span>
-      </a>
-
+      </a> -->
+<!-- 
       <a class="nav-link nav-item active" href="app_request">
         <i class="fa fa-share"></i>
         <span>Request</span>
-      </a>
+      </a> -->
       @endif
     </div>
     <!-- Divider -->

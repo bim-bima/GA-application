@@ -6,13 +6,13 @@
 
 <div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Cek Kendaraan</h6>
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Pemakaian Kendaraan</h6>
     @if(auth()->user()->level == "general-affair")
     @endif
   </div>
   <div class="card-body">
     <div class="row">
-      @foreach( $datakendaraan as $ken )
+      <!-- @foreach( $datakendaraan as $ken )
       <div class="col-xl-3 col-sm-6 mb-3 px-0 px-sm-2">
         <div class="card" data-aos="zoom-in" data-aos-delay="100">
           <div class="card-header py-2">
@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-      @endforeach
+      @endforeach -->
     </div>
     @if(auth()->user()->level == "general-affair")
     <button class="btn btn-primary mb-3"> 
@@ -71,22 +71,26 @@
           <tr>
             <th class="border border-secondary px-2">Kendaraan</th>
             <th class="border border-secondary px-2">Pengguna</th>
-            <th class="border border-secondary px-2">Tanggal</th>
-            <th class="border border-secondary px-2">Jam</th>
+            <th class="border border-secondary px-2">Tanggal Mulai</th>
+            <th class="border border-secondary px-2">Jam Mulai</th>
             <th class="border border-secondary px-2">PIC</th>
-            <th class="border border-secondary px-2">Menuju</th>
-            <th class="border border-secondary px-2">Tujuan</th>
+            <th class="border border-secondary px-2">Lokasi Tujuan</th>
+            <th class="border border-secondary px-2">Tujuan Pemakaian</th>
             <th class="border border-secondary px-2">Aksi</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($kendaraan as $item)
+          <?php 
+             $jam_mulai = substr($item->ak_jam,-0,5);
+             $jam_selesai = substr($item->ak_jam_selesai,-0,5);
+           ?>
           <tr>
             <input type="hidden" class="delete_id" value="{{ $item->id }}">
             <td class="border-secondary px-2">{{ $item->namaKendaraan->mk_nama_kendaraan }}</td>
             <td class="border-secondary px-2">{{ $item->ak_pengguna }}</td>
             <td class="border-secondary px-2">{{ $item->ak_tanggal_mulai }}</td>
-            <td class="border-secondary px-2">{{ $item->ak_jam }}</td>
+            <td class="border-secondary px-2">{{ $jam_mulai }}</td>
             <td class="border-secondary px-2">{{ $item->pic->mp_nama }}</td>
             <td class="border-secondary px-2">{{ $item->ak_lokasi_tujuan }}</td>
             <td class="border-secondary px-2">{{ $item->ak_tujuan_pemakaian }}</td>

@@ -4,6 +4,12 @@
 
 @include('sweetalert::alert')
 
+<?php 
+
+$jam_mulai = substr($kendaraan->ak_jam,-0,5);
+$jam_selesai = substr($kendaraan->ak_jam_selesai,-0,5);
+
+ ?>
 <div class="card shadow mb-4">
   <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">Riwayat Booking Kendaraan</h6>
@@ -29,9 +35,9 @@
             <td class="border-secondary px-2">{{ $kendaraan->namaKendaraan->mk_nama_kendaraan }}</td>
             <td class="border-secondary px-2">{{ $kendaraan->ak_pengguna }}</td>
             <td class="border-secondary px-2">{{ $kendaraan->ak_tanggal_mulai }}</td>
-            <td class="border-secondary px-2">{{ $kendaraan->ak_jam }}</td>
+            <td class="border-secondary px-2">{{ $jam_mulai }}</td>
             <td class="border-secondary px-2">{{ $kendaraan->ak_tanggal_selesai }}</td>
-            <td class="border-secondary px-2">{{ $kendaraan->ak_jam_selesai }}</td>
+            <td class="border-secondary px-2">{{ $jam_selesai }}</td>
             <td class="border-secondary px-2">{{ $kendaraan->pic->mp_nama }}</td>
             <td class="border-secondary px-2">{{ $kendaraan->ak_lokasi_tujuan }}</td>
             <td class="border-secondary px-2">{{ $kendaraan->ak_tujuan_pemakaian }}</td>

@@ -34,6 +34,9 @@
             <tr>
               <th class="border border-secondary col-sm-3 col-3">Tanggal</th>
               <th class="border border-secondary col-sm-3 col-3">Request</th>
+              <th class="border border-secondary col-sm-3 col-3">Tingkat Kebutuhan</th>
+              <th class="border border-secondary col-sm-3 col-3">Tanggal Estimasi</th>
+              <th class="border border-secondary col-sm-3 col-3">Perequest</th>
               <th class="border border-secondary col-sm-5 col-3">Catatan</th>
               <th class="border border-secondary col-1">Aksi</th>
             </tr>
@@ -48,6 +51,9 @@
                ?>
               <td class="border-secondary">{{ $tanggal }}</td>
               <td class="border-secondary">{{ $request->ar_request }}</td>
+              <td class="border-secondary">{{ $request->ar_perequest }}</td>
+              <td class="border-secondary">{{ $request->ar_kebutuhan }}</td>
+              <td class="border-secondary">{{ $request->ar_tanggal_estimasi }}</td>
               <td class="border-secondary">{{ $request->ar_catatan }}</td>
               <td class="border-secondary">
                 <form action="{{ route('app_request.destroy',$request->id) }}" method="post" class="d-inline">
@@ -73,25 +79,23 @@
 
 @if(auth()->user()->level == "pegawai")
 <div class="row px-sm-3 px-0">
-  <div class="card shadow mb-4 col-12 px-0" data-aos="fade-up" data-aos-delay="50">
+  <div class="card shadow mb-4 col-12 px-0">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Buat Request</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Buat Request</h6>
     </div>
     <div class="card-body">
       <div class="row">
         <div class="col-6 border-dark">
           <form action="{{ route('app_request.store') }}" method="POST" enctype="multipart/form-data" class="">
             @csrf
-            <label for="ar_request" class="form-label" data-aos="fade-right" data-aos-delay="150">Request</label>
-            <input type="text" class="mb-2 form-control @error('request') is-invalid @enderror" name="ar_request" 
-            required data-aos="fade-right" data-aos-delay="200">
+            <label for="ar_request" class="form-label">Request</label>
+            <input type="text" class="mb-2 form-control @error('request') is-invalid @enderror" name="ar_request" required>
             @error('request')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
       
-            <label for="ar_catatan" class="form-label" data-aos="fade-right" data-aos-delay="250">Catatan</label>
-            <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="ar_catatan" required
-             rows="4" data-aos="fade-right" data-aos-delay="250"></textarea>
+            <label for="ar_catatan" class="form-label">Catatan</label>
+            <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="ar_catatan" required rows="4"></textarea>
             @error('catatan')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
