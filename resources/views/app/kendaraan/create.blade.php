@@ -34,17 +34,14 @@
         @enderror
       </div>
 
-      <?php 
-          $pengguna = Auth::user()->name;
-       ?>
-        <input type="hidden" class="form-control @error('pengguna') is-invalid @enderror" name="ak_pengguna" value="{{ $pengguna }}">
-      <!-- <div class="col-md-6 mb-2">
-        <label for="ak_pengguna" class="form-label">Pengguna</label>
-        @error('pengguna')
-        <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-      </div>
- -->
+        <div class="col-md-6 mb-2">
+          <label for="ak_pengguna" class="form-label">Pengguna</label>
+          <input type="text" class="form-control @error('ak_pengguna') is-invalid @enderror" name="ak_pengguna" required>
+          @error('ak_pengguna')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+
       <div class="col-md-6 mb-2">
         <label for="ak_tanggal_mulai" class="form-label" data-aos="fade-right" data-aos-delay="200">Tanggal Mulai</label>
         <input type="date" class="form-control @error('tanggal') is-invalid @enderror" name="ak_tanggal_mulai"

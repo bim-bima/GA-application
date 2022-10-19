@@ -71,8 +71,9 @@ class PerencanaanController extends Controller
             $waktu = $perencanaan->ap_tahun.$perencanaan->ap_bulan;
             $listaktivitas = Aktivitas::all();
             $list = DB::table("app_aktivitas")->where("start_date", 'LIKE', '%'.$waktu.'%')->get();
+            $cek = Aktivitas::where("start_date", 'LIKE', '%'.$waktu.'%')->count();
 
-         return view('app.perencanaan.list',compact('list'));
+         return view('app.perencanaan.list',compact('list','cek'));
         }
     
     public function destroy($id)

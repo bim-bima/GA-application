@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\MasterKendaraan;
 use App\Models\Aktivitas;
+use App\Models\AppRequest;
 use App\Models\Kendaraan;
 use Illuminate\Support\Facades\DB;
 use App\Notifications\SlackNotification;
@@ -32,9 +33,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-          $cek = Kendaraan::count();
           $now = Carbon::now();
-          $tgl_sekarang =  $now->toDateString();
+          $tgl_sekarang = $now->toDateString();
           $tgl_besok = date('Y-m-d',strtotime("+1 day",strtotime(date("Y-m-d"))));
           $today = date('Y-m-d');
           $cekak = Aktivitas::where('start_date', '=', $today)->count();
@@ -50,8 +50,11 @@ class HomeController extends Controller
           $datakendaraan = MasterKendaraan::paginate(8);
 
           $pengguna = Auth::user()->name;
-          $booking = Kendaraan::with('namaKendaraan','pic')->Where('ak_pengguna',$pengguna)->get(); 
+          $booking = Kendaraan::with('namaKendaraan','pic')->Where('ak_pengguna',$pengguna)->get();
+          $perequest = Auth::user()->name;
+          $cek = AppRequest::where('ar_perequest', $perequest)->count();
+          $request = AppRequest::where('ar_perequest', $perequest)->get(); 
 
-          return view('home',compact(['datakendaraan','aktivitas','booking','cek','today','cekak']));
+          return view('home',compact(['datakendaraan','aktivitas','booking','cek','today','cekak','request']));
     }
 }
