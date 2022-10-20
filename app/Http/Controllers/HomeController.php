@@ -42,11 +42,11 @@ class HomeController extends Controller
           $jumlah = Aktivitas::where('reminder', '=', 'reminder', 'and')->where('start_date', '=', $tgl_besok)->count();
           $reminder = Aktivitas::where('reminder', '=', 'reminder', 'and')->where('start_date', '=', $tgl_besok)->get();
 
-    // if(auth()->user()->level == "general-affair"){
-    //         if($jumlah > 0){
-    //     Notification::route('slack', env('SLACK_WEBHOOK'))->notify(new SlackNotification());
-    //         }
-    //  }
+    if(auth()->user()->level == "general-affair"){
+            if($jumlah > 0){
+        Notification::route('slack', env('SLACK_WEBHOOK'))->notify(new SlackNotification());
+            }
+     }
           $aktivitas = Aktivitas::where('start_date', '=', $tgl_sekarang)->get();
           $datakendaraan = MasterKendaraan::paginate(8);
 

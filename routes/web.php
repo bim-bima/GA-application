@@ -72,10 +72,10 @@ Route::group(['middleware' => ['auth', 'level:general-affair']], function(){
     Route::resource('master_jenispengajuan', MasterJenisPengajuanController::class);
     Route::resource('master_categoryasset', MAsterCategoryAssetController::class);
     Route::patch('app_aktivitas/update/{id}',[AktivitasController::class,'update']);
-      Route::get('web', function () {
-        Notification::route('slack',env('SLACK_URL'))
-        ->notify(new AppNotificationsErrorNotification());
-    });
+    //   Route::get('web', function () {
+    //     Notification::route('slack',env('SLACK_URL'))
+    //     ->notify(new AppNotificationsErrorNotification());
+    // });
 
 });
 
