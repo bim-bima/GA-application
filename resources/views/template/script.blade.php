@@ -15,6 +15,53 @@
 <script src="{{ asset ('template-landing/vendor/swiper/swiper-bundle.min.js') }}"></script>
 <script src="{{ asset ('template-landing/js/main.js') }}"></script>
 
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+        });
+        $('.btndeletepic').click(function (e) {
+                e.preventDefault();
+                var deleteidpic = $(this).closest("tr").find('.delete_id').val();
+                swal({
+                    title: "Apakah anda yakin?",
+                    text: "Data Kendaraan ini akan di Hapus!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                        .then((willDelete) => {
+                                if (willDelete) {
+
+                                        var data = {
+                                                "_token": $('input[name=_token]').val(),
+                                                'id': deleteidpic,
+                                        };
+                                        $.ajax({
+                                                type: "DELETE",
+
+                                                url: 'master_pic/' + deleteidpic,
+
+                                                data: data,
+                                                success: function (response) {
+                                                        swal(response.status, {
+                                                                        icon: "success",
+                                                                })
+                                                                .then((result) => {
+                                                                        location.reload();
+                                                                });
+                                                }
+                                        });
+                                }
+                        });
+        });
+
+    });
+
+</script>
+
 <!-- user -->
 <script>
     $(document).ready(function () {

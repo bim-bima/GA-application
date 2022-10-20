@@ -8,24 +8,18 @@
       @method('put')
     <div class="card shadow-sm mb-4" data-aos="fade-right" data-aos-delay="50">
       <div class="card-header py-3 px-sm-3 px-2">
-        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Status Kendaraan</h6>
+        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Kondisi Kendaraan</h6>
       </div>
       <div class="card-body px-0">  
-        <div class="col-12 mb-2 px-sm-3 px-2">
-          <label for="mk_status" class="form-label">Status</label>
-          <select name="mk_status" class="form-control @error('mk_status') is-invalid @enderror" required>
-            <option value="{{ $kendaraan->mk_status }}">{{ $kendaraan->mk_status }}</option>
-            <option value="tersedia">Tersedia</option>
-            <option value="sedang dipakai">Sedang Di Pakai</option>
-          </select>
-            @error('mk_status')
-              <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
+        <?php   
+          $bahan = $kendaraan->mk_bahan_bakar;
+          $bahanbakar = substr($bahan,-0,3);
+          $bahan_bakar = intval($bahanbakar);
+         ?>
 
         <div class="col-12 mb-2 px-sm-3 px-2">
           <label for="Bahan_bakar" class="form-label">Bahan Bakar Tersedia (L)</label>
-          <input type="number" class="form-control @error('bahan_bakar') is-invalid @enderror" name="bahan_bakar" required value="{{ $kendaraan->mk_bahan_bakar }}">
+          <input type="number" class="form-control @error('bahan_bakar') is-invalid @enderror" name="bahan_bakar" required value="{{ $bahan_bakar }}">
           @error('bahan_bakar')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror

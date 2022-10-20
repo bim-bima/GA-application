@@ -21,11 +21,11 @@
             </div>
             <div class="d-flex row mb-4">
               <div for="ap_mjp_id" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Jenis Pengajuan</div>
-              <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->jenispengajuan->mjp_jenis }}</div>
+              <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->ap_mjp_id }}</div>
             </div>
             <div class="d-flex row mb-4">
               <div for="ap_mv_id" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Vendor</div>
-              <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->vendor->mv_nama_vendor }}</div>
+              <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->ap_mv_id }}</div>
             </div>
             <?php 
             $harga1 = $pengajuan->ap_biaya;
@@ -37,7 +37,7 @@
             </div>
             <div class="d-flex row mb-4">
               <div for="ap_mp_id" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">PIC</div>
-              <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->pic->mp_nama }}</div>
+              <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->ap_mp_id }}</div>
             </div>
             <div class="d-flex row mb-4">
               <div for="ap_catatan" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Catatan</div>
@@ -105,10 +105,10 @@
           <select name="jenis_pengajuan" required class="form-control @error('jenis_pengajuan') is-invalid @enderror" required>
             <option value="">Pilih Jenis Pengajuan</option>
             @foreach ($jenispengajuan as $jenis)
-            @if( old('jenis_pengajuan') == $jenis->id  )
-            <option value="{{ $jenis->id }}" selected>{{ $jenis->mjp_jenis}}</option>
+            @if( old('jenis_pengajuan') == $jenis->mjp_jenis  )
+            <option value="{{ $jenis->mjp_jenis }}" selected>{{ $jenis->mjp_jenis}}</option>
             @else
-            <option value="{{ $jenis->id }}">{{ $jenis->mjp_jenis}}</option>
+            <option value="{{ $jenis->mjp_jenis }}">{{ $jenis->mjp_jenis}}</option>
             @endif
             @endforeach    
           </select>
@@ -121,10 +121,10 @@
           <select name="vendor" class="form-control @error('vendor') is-invalid @enderror" required>
             <option value="">Pilih Vendor</option>
             @foreach ($vendor as $ven)
-            @if( old('vendor') == $ven->id )
-            <option value="{{ $ven->id }}" selected>{{ $ven->mv_nama_vendor}}</option>
+            @if( old('vendor') == $ven->mv_nama_vendor )
+            <option value="{{ $ven->mv_nama_vendor }}" selected>{{ $ven->mv_nama_vendor}}</option>
             @else
-            <option value="{{ $ven->id }}">{{ $ven->mv_nama_vendor}}</option>
+            <option value="{{ $ven->mv_nama_vendor }}">{{ $ven->mv_nama_vendor}}</option>
             @endif
             @endforeach    
           </select>
@@ -151,10 +151,10 @@
           <select name="pic" required class="form-control @error('pic') is-invalid @enderror" required>
             <option value="">Pilih PIC</option>
             @foreach ($pic as $pi)
-            @if( old('pic') == $pi->id )
-            <option value="{{ $pi->id }}" selected>{{ $pi->mp_nama}}</option>
+            @if( old('pic') == $pi->mp_nama )
+            <option value="{{ $pi->mp_nama }}" selected>{{ $pi->mp_nama}}</option>
             @else
-            <option value="{{ $pi->id }}">{{ $pi->mp_nama}}</option>
+            <option value="{{ $pi->mp_nama }}">{{ $pi->mp_nama}}</option>
             @endif
             @endforeach    
           </select>

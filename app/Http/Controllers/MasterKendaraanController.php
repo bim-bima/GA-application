@@ -36,7 +36,6 @@ class MasterKendaraanController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'mk_status' => 'required',
         'bahan_bakar' => 'required|regex:/^[0-9]+$/|max:15',
         'kilometer' => 'required|regex:/^[0-9]+$/|max:15',
         'kondisi_lain' => 'required',
@@ -48,7 +47,6 @@ class MasterKendaraanController extends Controller
         'mk_perlengkapan' => 'required',
         ]);
         $kendaraan = new MasterKendaraan();
-        $kendaraan->mk_status = $request->mk_status;
         $kendaraan->mk_bahan_bakar = $request->bahan_bakar;
         $kendaraan->mk_kilometer = $request->kilometer;
         $kendaraan->mk_kondisi_lain = $request->kondisi_lain;
@@ -112,7 +110,6 @@ class MasterKendaraanController extends Controller
         // 'mk_perlengkapan' => 'required',
         ]);
         $kendaraan = MasterKendaraan::find($id);
-        $kendaraan->mk_status = $request->mk_status;
         $kendaraan->mk_bahan_bakar = $request->bahan_bakar;
         $kendaraan->mk_kilometer = $request->kilometer;
         $kendaraan->mk_kondisi_lain = $request->kondisi_lain;

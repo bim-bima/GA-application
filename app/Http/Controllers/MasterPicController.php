@@ -98,7 +98,5 @@ class MasterPicController extends Controller
         // Alert::success('Berhasil', 'Data Berhasil Dihapus');
         // return redirect()->route('master_pic.index');
         return response()->json(['status' => 'Data Berhasil di hapus!']);
-
-
         }
 }
