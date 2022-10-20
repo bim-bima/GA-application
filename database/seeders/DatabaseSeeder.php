@@ -100,6 +100,8 @@ class DatabaseSeeder extends Seeder
             'mla_lokasi_asset' => 'lantai atas'
         ]);
 
+
+
         MasterAktivitas::factory()->create([
             'ma_nama_aktivitas' => 'memanaskan mobil'
         ]);

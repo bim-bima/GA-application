@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SlackController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\AdduserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AssetController;
@@ -90,6 +91,8 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
     Route::resource('app_perencanaan', PerencanaanController::class);
     
 });
+
+    Route::resource('add_user', AdduserController::class);
 
     Route::get('edit_profile', [ProfileController::class, 'edit'])->name('edit_profile');
     Route::put('update_profile', [ProfileController::class, 'update'])->name('update_profile');

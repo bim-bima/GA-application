@@ -58,6 +58,10 @@
         <i class="fa fa-share-square"></i>
         <span>Pengajuan</span>
       </a>
+      <a class="nav-link nav-item active" href="add_user">
+        <i class="fa fa-user"></i>
+        <span>User</span>
+      </a>
       @endif
 
       @if(auth()->user()->level == "pegawai")

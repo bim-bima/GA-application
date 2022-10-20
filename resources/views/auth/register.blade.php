@@ -33,8 +33,7 @@
                       <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                      <!-- level -->
-                      <!-- <input type="text" class="form-control-user form-control" id="level" name="level" placeholder="Email" required value="pegawai"> -->
+                      
                   </div>
                   <div class="form-group row">
                     <div class="col-md-6 pr-md-1 mb-md-0 mb-3">
@@ -80,7 +79,7 @@
       <footer class="sticky-footer text-white p-0">
         <div class="container my-auto">
           <div class="copyright text-center mb-3 pt-4">
-            <span>Copyright &copy; General Affair 2022</span>
+            <span>Copyright &copy; 2022.General Affair </span>
           </div>
         </div>
       </footer>
