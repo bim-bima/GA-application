@@ -12,10 +12,10 @@
     <div class="row">          
       @foreach( $datakendaraan as $ken )
         <div class="card mb-4 ml-3 col-xl-4 px-0">
-          <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+          <a href="#collapseCardExample{{ $ken->id }}" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
             <h6 class="m-0 font-weight-bold text-primary">{{ $ken->mk_nama_kendaraan }}</h6>
           </a>
-          <div class="collapse show" id="collapseCardExample">
+          <div class="collapse show" id="collapseCardExample{{ $ken->id }}">
             <div class="card-body">
               <div class="row ml-3">
               <p class="small text-primary">Nama Kendaraan :</p> 
@@ -92,11 +92,11 @@
             ?>
             <tr>
               <input type="hidden" class="delete_id" value="{{ $item->id }}">
-              <td class="border-secondary px-2">{{ $item->namaKendaraan->mk_nama_kendaraan }}</td>
+              <td class="border-secondary px-2">{{ $item->ak_mk_id }}</td>
               <td class="border-secondary px-2">{{ $item->ak_pengguna }}</td>
               <td class="border-secondary px-2">{{ $item->ak_tanggal_mulai }}</td>
               <td class="border-secondary px-2">{{ $jam_mulai }}</td>
-              <td class="border-secondary px-2">{{ $item->pic->mp_nama }}</td>
+              <td class="border-secondary px-2">{{ $item->ak_mp_id }}</td>
               <td class="border-secondary px-2">{{ $item->ak_lokasi_tujuan }}</td>
               <td class="border-secondary px-2">{{ $item->ak_tujuan_pemakaian }}</td>
               <td class="border-secondary px-2">

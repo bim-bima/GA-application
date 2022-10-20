@@ -68,13 +68,13 @@
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
             <div class="mr-auto">
               <div class="text-primary font-weight-bold">Lokasi Asset :</div>
-              <b>{{ $asset->lokasiAsset->mla_lokasi_asset }}</b>
+              <b>{{ $asset->as_mla_id }}</b>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
             <div class="mr-auto">
               <div class="text-primary font-weight-bold">Category Asset :</div>
-              <b>{{ $asset->categoryasset->mca_category }}</b>
+              <b>{{ $asset->as_mca_id }}</b>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0">

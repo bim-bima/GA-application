@@ -28,16 +28,18 @@
         <?php 
             $harga1 = $pengajuan->ap_biaya;
             $harga = number_format($harga1,0,",",",");
-           ?>
+            $tanggal1 = $pengajuan->created_at;
+            $tanggal = substr($tanggal1,-0,10);
+        ?>
         <tr>
-          <td class="border-secondary px-2">{{ $pengajuan->created_at }}</td>
+          <td class="border-secondary px-2">{{ $tanggal }}</td>
           <td class="border-secondary px-2">{{ $pengajuan->ap_nama_pengajuan }}</td>
-          <td class="border-secondary px-2">{{ $pengajuan->jenispengajuan->mjp_jenis }}</td>
-          <td class="border-secondary px-2">{{ $pengajuan->vendor->mv_nama_vendor }}</td>
+          <td class="border-secondary px-2">{{ $pengajuan->ap_mjp_id }}</td>
+          <td class="border-secondary px-2">{{ $pengajuan->ap_mv_id }}</td>
           <td class="border-secondary px-2">{{ $harga }}</td>
           <td class="border-secondary px-2">{{ $pengajuan->ap_catatan }}</td>
           <td class="border-secondary px-2">{{ $pengajuan->ap_tanggal_pengadaan }}</td>
-          <td class="border-secondary px-2">{{ $pengajuan->pic->mp_nama }}</td>
+          <td class="border-secondary px-2">{{ $pengajuan->ap_mp_id }}</td>
           <td class="border-secondary px-2">{{ $pengajuan->ap_status }}</td>
           <td class="border-secondary px-2">{{ $pengajuan->ap_reason }}</td>
         </tr>

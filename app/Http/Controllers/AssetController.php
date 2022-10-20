@@ -54,7 +54,10 @@ class AssetController extends Controller
             $masa = 5;
          }
          $kelompok = $masa;
-         $category = $request->category_asset;
+
+         $category1 = $request->category_asset;
+         $category2 = MasterCategoryAsset::where('mca_category', $category1)->get('id');
+         $category = preg_replace("/[^0-9]/", "", $category2);
          $ambil2 = $request->nama_asset;
          $subcategory = substr($ambil2,-0,3);
          $nourut = 001;

@@ -55,11 +55,11 @@
           <tr>
             <input type="hidden" class="delete_id" value="{{ $asset->id }}">
             <td class="border-secondary px-2">{{ $asset->as_nama_asset }}</td>
-            <td class="border-secondary px-2">{{ $asset->lokasiAsset->mla_lokasi_asset }}</td>
+            <td class="border-secondary px-2">{{ $asset->as_mla_id }}</td>
             <td class="border-secondary px-2">{{ $asset->as_tahun_kepemilikan }}</td>
             <td class="border-secondary px-2">{{ $asset->as_kode_asset }}</td>
             <td class="border-secondary px-2">{{ $harga }}</td>
-            <td class="border-secondary px-2">{{ $asset->categoryasset->mca_category }}</td>
+            <td class="border-secondary px-2">{{ $asset->as_mca_id }}</td>
             <td class="border-secondary px-2">{{ $asset->as_umur_manfaat }} tahun</td>
             <td class="border-secondary px-2">
               <a class="btn-sm btn-info btn-circle mb-xl-0 mb-1" href="{{ route('app_asset.show',$asset->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">

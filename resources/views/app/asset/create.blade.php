@@ -28,10 +28,10 @@
           <select name="lokasi_asset" class="form-control @error('lokasi_asset') is-invalid @enderror" required data-aos="fade-right" data-aos-delay="700">
             <option value="">Pilih Lokasi</option>
             @foreach ($lokasiAsset as $la)
-            @if( old('lokasi_asset') == $la->id )
-            <option value="{{ $la->id }}" selected>{{ $la->mla_lokasi_asset}}</option>
+            @if( old('lokasi_asset') == $la->mla_lokasi_asset )
+            <option value="{{ $la->mla_lokasi_asset }}" selected>{{ $la->mla_lokasi_asset}}</option>
             @else
-            <option value="{{ $la->id }}">{{ $la->mla_lokasi_asset}}</option>
+            <option value="{{ $la->mla_lokasi_asset }}">{{ $la->mla_lokasi_asset}}</option>
             @endif
             @endforeach    
           </select>
@@ -44,10 +44,10 @@
           <select name="category_asset" class="form-control @error('category_asset') is-invalid @enderror" required data-aos="fade-left" data-aos-delay="700">
             <option value="">Pilih Category</option>
             @foreach ($categoryasset as $category)
-            @if( old('category_asset') == $category->id )
-            <option value="{{ $category->id }}" selected>{{ $category->mca_category}}</option>
+            @if( old('category_asset') == $category->mca_category )
+            <option value="{{ $category->mca_category }}" selected>{{ $category->mca_category}}</option>
             @else
-            <option value="{{ $category->id }}">{{ $category->mca_category}}</option>
+            <option value="{{ $category->mca_category }}">{{ $category->mca_category}}</option>
             @endif
             @endforeach    
           </select>
