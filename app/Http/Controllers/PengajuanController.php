@@ -21,7 +21,7 @@ class PengajuanController extends Controller
         public function index()
         {
             $cek = pengajuan::count();
-            $datapengajuan = Pengajuan::with('vendor','pic','jenispengajuan')->paginate(10);
+            $datapengajuan = Pengajuan::all();
             $vendor = MasterVendor::all();
             $pic = MasterPic::all();
             $jenispengajuan = MasterJenisPengajuan::all();

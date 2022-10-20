@@ -68,7 +68,7 @@
             @endforeach
           </tbody>
         </table>
-        {{ $datarequest->links() }}
+        {{-- {{ $datarequest->links() }} --}}
       </div>
       @endif
     </div>
