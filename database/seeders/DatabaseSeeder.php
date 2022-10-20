@@ -93,38 +93,131 @@ class DatabaseSeeder extends Seeder
         ]);
 
         MasterLokasiAsset::factory()->create([
-            'mla_lokasi_asset' => 'lantai bawah'
+            'mla_lokasi_asset' => 'Lantai Bawah'
         ]);
 
         MasterLokasiAsset::factory()->create([
-            'mla_lokasi_asset' => 'lantai atas'
+            'mla_lokasi_asset' => 'Lantai Atas'
         ]);
 
 
 
         MasterAktivitas::factory()->create([
-            'ma_nama_aktivitas' => 'memanaskan mobil'
+            'ma_nama_aktivitas' => 'Kerapian meja dan kursi'
         ]);
         MasterAktivitas::factory()->create([
-            'ma_nama_aktivitas' => 'membersihkan area depan'
+            'ma_nama_aktivitas' => 'Kebersihan meja kerja'
         ]);
         MasterAktivitas::factory()->create([
-            'ma_nama_aktivitas' => 'membersihkan area kolam'
+            'ma_nama_aktivitas' => 'Ban pijakan kembali ke posisinya'
         ]);
         MasterAktivitas::factory()->create([
-            'ma_nama_aktivitas' => 'membersihkan toilet'
+            'ma_nama_aktivitas' => 'Kebersihan meja panjang + taplak'
         ]);
         MasterAktivitas::factory()->create([
             'ma_nama_aktivitas' => 'membersihkan lantai atas'
         ]);
         MasterAktivitas::factory()->create([
-            'ma_nama_aktivitas' => 'perpanjang surat mobil'
+            'ma_nama_aktivitas' => 'Kebersihan lantai'
         ]);
         MasterAktivitas::factory()->create([
-            'ma_nama_aktivitas' => 'perpanjang surat motor'
+            'ma_nama_aktivitas' => 'Kebersihan & kerapian meja pantry (meja utama & lipat)'
         ]);
         MasterAktivitas::factory()->create([
-            'ma_nama_aktivitas' => 'menghidupkan hidropnik'
+            'ma_nama_aktivitas' => 'Kebersihan & kerapian kitchen set'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Pemberian pakan'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Monitoring kondisi ikan'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Monitoring & Evaluasi Pakan Ikan'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Pembersihan kotoran ikan'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Pergantian mesin besar dan kecil'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Monitoring kondisi air'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Perawatan harian mobil (menyalakan mesin & AC)'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Monitoring keberadaan (koordinasi dgn pengguna)'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Menutup & membuka cover'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Perawatan harian motor (menyalakan mesin)'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Mengeluarkan (pagi) dan memasukkan (malam) motor'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Cek bensin dan ban (isi bensin & tambah angin)'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Monitoring keberadaan (koordinasi dgn pengguna)'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Kerapian rak piring transit'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Monitoring petugas piket'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Kebersihan & kerapian karpet anak tangga'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Kebersihan lantai pantry'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Monitor kondisi lampu-lampu + ganti lampu mati'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Ketersediaan wipol'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Monitoring piket: Kebersihan toilet'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Monitor saluran air (floor drain) toilet'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Kerapian sabun-sabun cuci piring'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Kerapian gantungan: pel, sikat panjang, jala ikan, dll'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Kerapian batu-batu pijak'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Kebersihan & kerapian mushola'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Jemur rak mukena + sajadah + sarung'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Penyiraman tanaman'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Treatment tanaman: lap daun dan cabut daun kering'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Kebersihan area depan gerbang ringan (sapu)'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Penataan, penempatan, dan kebersihan alat-alat pertukangan'
+        ]);
+        MasterAktivitas::factory()->create([
+            'ma_nama_aktivitas' => 'Kerapian barang-barang bawah'
         ]);
 
         MasterVendor::factory()->create([

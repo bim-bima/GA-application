@@ -2,10 +2,10 @@
 @section('content')
 @include('sweetalert::alert')
 
-<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
+<div class="mb-4" data-aos="fade-up" data-aos-delay="50">
   @if(auth()->user()->level == "management")
   @foreach ($ajuan as $pengajuan)
-  <div class="card">
+  <div class="card mb-4">
     <div class="card-header">
       <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="150">Persetujuan</h6>
     </div>
@@ -86,95 +86,97 @@
   @endif
 
   @if(auth()->user()->level == "general-affair")
-  <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Buat pengajuan</h6>
-  </div>
-  <div class="card-body px-sm-3 px-2">
-    <form action="{{ route('app_pengajuan.store') }}" method="POST" enctype="multipart/form-data" class="row">
-      @csrf
-      <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="150">
-        <label for="nama_pengajuan" class="form-label">Nama Pengajuan</label>
-        <input type="text" class="form-control @error('nama_pengajuan') is-invalid @enderror" name="nama_pengajuan" required autofocus value="{{ old('nama_pengajuan') }}">
-        @error('nama_pengajuan')
-        <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-      </div>
-      <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="150">
-        <label for="jenis_pengajuan" class="form-label">Jenis Pengajuan</label>
-        <select name="jenis_pengajuan" required class="form-control @error('jenis_pengajuan') is-invalid @enderror" required>
-          <option value="">Pilih Jenis Pengajuan</option>
-          @foreach ($jenispengajuan as $jenis)
-          @if( old('jenis_pengajuan') == $jenis->id  )
-          <option value="{{ $jenis->id }}" selected>{{ $jenis->mjp_jenis}}</option>
-          @else
-          <option value="{{ $jenis->id }}">{{ $jenis->mjp_jenis}}</option>
-          @endif
-          @endforeach    
-        </select>
-        @error('jenis_pengajuan')
-        <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-      </div>
-      <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="200">
-        <label for="vendor" class="form-label">Vendor</label>
-        <select name="vendor" class="form-control @error('vendor') is-invalid @enderror" required>
-          <option value="">Pilih Vendor</option>
-          @foreach ($vendor as $ven)
-          @if( old('vendor') == $ven->id )
-          <option value="{{ $ven->id }}" selected>{{ $ven->mv_nama_vendor}}</option>
-          @else
-          <option value="{{ $ven->id }}">{{ $ven->mv_nama_vendor}}</option>
-          @endif
-          @endforeach    
-        </select>
-        @error('vendor')
+  <div class="card">
+    <div class="card-header py-3 px-sm-3 px-2">
+      <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Buat Pengajuan</h6>
+    </div>
+    <div class="card-body px-sm-3 px-2">
+      <form action="{{ route('app_pengajuan.store') }}" method="POST" enctype="multipart/form-data" class="row">
+        @csrf
+        <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="150">
+          <label for="nama_pengajuan" class="form-label">Nama Pengajuan</label>
+          <input type="text" class="form-control @error('nama_pengajuan') is-invalid @enderror" name="nama_pengajuan" required autofocus value="{{ old('nama_pengajuan') }}">
+          @error('nama_pengajuan')
           <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-      </div>
-      <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="200">
-        <label for="biaya" min="1" class="form-label">Biaya (Rp)</label>
-        <input type="number" class="form-control @error('biaya') is-invalid @enderror" name="biaya" required autofocus value="{{ old('biaya') }}">
-        @error('biaya')
-        <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-      </div>
-      <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="250">
-        <label for="tanggal_pengadaan" class="form-label">Tanggal Estimasi</label>
-        <input type="date" class="form-control @error('tanggal_pengadaan') is-invalid @enderror" name="tanggal_pengadaan" required autofocus value="{{ old('tanggal_pengadaan') }}" >
-        @error('tanggal_pengadaan')
-        <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-      </div>
-      <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="250">
-        <label for="pic" class="form-label">PIC</label>
-        <select name="pic" required class="form-control @error('pic') is-invalid @enderror" required>
-          <option value="">Pilih PIC</option>
-          @foreach ($pic as $pi)
-          @if( old('pic') == $pi->id )
-          <option value="{{ $pi->id }}" selected>{{ $pi->mp_nama}}</option>
-          @else
-          <option value="{{ $pi->id }}">{{ $pi->mp_nama}}</option>
-          @endif
-          @endforeach    
-        </select>
-        @error('pic')
-        <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-      </div>
-      <div class="col-12 mb-2" data-aos="zoom-in" data-aos-delay="300">
-        <label for="catatan" class="form-label">Catatan</label>
-        <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="catatan" required rows="3" ></textarea>
-        @error('catatan')
-        <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-      </div>
-      <div class="col-12">
-        <button type="submit" class="btn btn-success mt-3 mb-1">
-          Kirim Pengajuan
-          <i class="fa fa-paper-plane"></i>
-        </button>
-      </div>
-    </form>
+          @enderror
+        </div>
+        <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="150">
+          <label for="jenis_pengajuan" class="form-label">Jenis Pengajuan</label>
+          <select name="jenis_pengajuan" required class="form-control @error('jenis_pengajuan') is-invalid @enderror" required>
+            <option value="">Pilih Jenis Pengajuan</option>
+            @foreach ($jenispengajuan as $jenis)
+            @if( old('jenis_pengajuan') == $jenis->id  )
+            <option value="{{ $jenis->id }}" selected>{{ $jenis->mjp_jenis}}</option>
+            @else
+            <option value="{{ $jenis->id }}">{{ $jenis->mjp_jenis}}</option>
+            @endif
+            @endforeach    
+          </select>
+          @error('jenis_pengajuan')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="200">
+          <label for="vendor" class="form-label">Vendor</label>
+          <select name="vendor" class="form-control @error('vendor') is-invalid @enderror" required>
+            <option value="">Pilih Vendor</option>
+            @foreach ($vendor as $ven)
+            @if( old('vendor') == $ven->id )
+            <option value="{{ $ven->id }}" selected>{{ $ven->mv_nama_vendor}}</option>
+            @else
+            <option value="{{ $ven->id }}">{{ $ven->mv_nama_vendor}}</option>
+            @endif
+            @endforeach    
+          </select>
+          @error('vendor')
+            <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="200">
+          <label for="biaya" min="1" class="form-label">Biaya (Rp)</label>
+          <input type="number" class="form-control @error('biaya') is-invalid @enderror" name="biaya" required autofocus value="{{ old('biaya') }}">
+          @error('biaya')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="250">
+          <label for="tanggal_pengadaan" class="form-label">Tanggal Estimasi</label>
+          <input type="date" class="form-control @error('tanggal_pengadaan') is-invalid @enderror" name="tanggal_pengadaan" required autofocus value="{{ old('tanggal_pengadaan') }}" >
+          @error('tanggal_pengadaan')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="250">
+          <label for="pic" class="form-label">PIC</label>
+          <select name="pic" required class="form-control @error('pic') is-invalid @enderror" required>
+            <option value="">Pilih PIC</option>
+            @foreach ($pic as $pi)
+            @if( old('pic') == $pi->id )
+            <option value="{{ $pi->id }}" selected>{{ $pi->mp_nama}}</option>
+            @else
+            <option value="{{ $pi->id }}">{{ $pi->mp_nama}}</option>
+            @endif
+            @endforeach    
+          </select>
+          @error('pic')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="col-12 mb-2" data-aos="zoom-in" data-aos-delay="300">
+          <label for="catatan" class="form-label">Catatan</label>
+          <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="catatan" required rows="3" ></textarea>
+          @error('catatan')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-success mt-3 mb-1">
+            Kirim Pengajuan
+            <i class="fa fa-paper-plane"></i>
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
   @endif
 </div>

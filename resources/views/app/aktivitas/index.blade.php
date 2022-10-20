@@ -135,13 +135,16 @@
         <div class="container-fluid p-2">
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <button class="btn btn-info mb-1 mr-1">
-              <i class="fa fa-angle-left"></i>
-              <a href="{{ route('app_perencanaan.index') }}" class="text-white text-decoration-none">
-                Kembali
-              </a>
-            </button>
-              <h6 class="m-0 font-weight-bold text-primary">Aktivitas</h6>
+              <div class="row d-flex">
+                <div class="d-flex">
+                  <a href="{{ route('app_perencanaan.index') }}" class="text-light btn-sm text-decoration-none btn-circle btn-primary">
+                    <i class="fa fa-angle-left"></i>
+                  </a>
+                  <div class="mt-1 ml-1">
+                    <h6 class="font-weight-bold text-primary pt-1">Aktivitas</h6>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="card-body">
               <div id='calendar'></div>
