@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SlackController;
@@ -121,11 +122,6 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
 
     Route::resource('slack', SlackController::class)->only('index');
 
-
     Route::get('downloadlist', [AktivitasController::class,'download']);
 
-    // Route::get('web', function () {
-    //     Notification::route('slack',env('SLACK_URL'))
-    //     ->notify(new AppNotificationsErrorNotification());
-    // });
 

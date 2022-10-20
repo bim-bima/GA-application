@@ -16,9 +16,10 @@ class AdduserController extends Controller
     */
     public function index()
     {
-        // $cek = MasterPic::count();
-        // $datapic = MasterPic::paginate(8);
-        return view('app.adduser.index');
+        $cekuser = User::count();
+        $listuser = User::paginate(8);
+
+        return view('app.adduser.index', compact(['cekuser','listuser']));
     }
     public function store(Request $request)
     {
@@ -38,8 +39,18 @@ class AdduserController extends Controller
         $datauser->email_verified_at = $verified_at;
         $datauser->password = Hash::make($request->password);
         $datauser->save();
+
+        $cekuser = User::count();
+        $listuser = User::paginate(8);
+        
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
-        return redirect()->route('add_user.index');
-        dd('success');
+        return view('app.adduser.index', compact(['cekuser','listuser']));
+    }
+
+    public function destroy($id)
+    {
+        $datauser = User::find($id);
+        $datauser->delete();
+        return response()->json(['status' => 'Data Berhasil di hapus!']);   
     }
 }
