@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SlackController;
@@ -72,11 +73,7 @@ Route::group(['middleware' => ['auth', 'level:general-affair']], function(){
     Route::resource('master_jenispengajuan', MasterJenisPengajuanController::class);
     Route::resource('master_categoryasset', MAsterCategoryAssetController::class);
     Route::patch('app_aktivitas/update/{id}',[AktivitasController::class,'update']);
-      Route::get('web', function () {
-        Notification::route('slack',env('SLACK_URL'))
-        ->notify(new AppNotificationsErrorNotification());
-    });
-
+     
 });
 
     // ga
@@ -121,11 +118,6 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
 
     Route::resource('slack', SlackController::class)->only('index');
 
-
     Route::get('downloadlist', [AktivitasController::class,'download']);
 
-    // Route::get('web', function () {
-    //     Notification::route('slack',env('SLACK_URL'))
-    //     ->notify(new AppNotificationsErrorNotification());
-    // });
 
