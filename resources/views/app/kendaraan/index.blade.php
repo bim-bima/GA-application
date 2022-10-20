@@ -11,7 +11,7 @@
   <div class="card-body px-sm-3 px-2">
     <div class="row">          
       @foreach( $datakendaraan as $ken )
-
+      
         <div class="col-xl-4">
           <div class="card mb-3">
             <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">

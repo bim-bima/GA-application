@@ -20,7 +20,7 @@ class KendaraanController extends Controller
         public function index()
         {
             $cek = Kendaraan::count();
-            $kendaraan = Kendaraan::with('namaKendaraan','pic')->paginate(10);
+            $kendaraan = Kendaraan::with('namaKendaraan','pic')->get();
             $datakendaraan = MasterKendaraan::paginate(8);
             $now = Carbon::now()->toDAteString();
             return view('app.kendaraan.index', compact(['kendaraan','datakendaraan','now','cek']));
