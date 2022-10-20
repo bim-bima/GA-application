@@ -19,8 +19,8 @@
         <label for="category_asset" class="form-label" data-aos="fade-left" data-aos-delay="650">Category Asset</label>
         <select name="category_asset" class="form-control @error('category_asset') is-invalid @enderror" required data-aos="fade-left" data-aos-delay="700">
           @foreach ($categoryAsset as $category)
-          <option value="{{ $category->id }}" 
-          {{ $category->id == $asset->as_mca_id ? 'selected="selected"' : '' }}>
+          <option value="{{ $category->mca_category }}" 
+          {{ $category->mca_category == $asset->as_mca_id ? 'selected="selected"' : '' }}>
           {{ $category->mca_category}}</option>
           @endforeach    
         </select>
@@ -32,8 +32,8 @@
         <label for="lokasi_asset" class="form-label" data-aos="fade-right" data-aos-delay="650">Lokasi Asset</label>
         <select name="lokasi_asset" class="form-control @error('lokasi_asset') is-invalid @enderror" required data-aos="fade-right" data-aos-delay="700">
           @foreach ($lokasiAsset as $la)
-          <option value="{{ $la->id }}" 
-          {{ $la->id == $asset->as_mla_id ? 'selected="selected"' : '' }}>
+          <option value="{{ $la->mla_lokasi_asset }}" 
+          {{ $la->mla_lokasi_asset == $asset->as_mla_id ? 'selected="selected"' : '' }}>
           {{ $la->mla_lokasi_asset}}</option>
           @endforeach    
         </select>

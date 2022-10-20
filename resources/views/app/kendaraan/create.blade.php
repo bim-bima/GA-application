@@ -13,7 +13,7 @@
         <select name="ak_mk_id" class="form-control @error('ak_mk_id') is-invalid @enderror" required>
           <option value="">Pilih Kendaraan</option>
           @foreach ($namaKendaraan as $kendaraan)
-          <option value="{{ $kendaraan->id }}">{{ $kendaraan->mk_nama_kendaraan}}</option>
+          <option value="{{ $kendaraan->mk_nama_kendaraan }}">{{ $kendaraan->mk_nama_kendaraan}}</option>
           @endforeach      
         </select>
         @error('ak_mk_id')
@@ -26,7 +26,7 @@
         <select name="ak_mp_id" class="form-control @error('ak_mp_id') is-invalid @enderror" required>
             <option value="">Pilih PIC</option>
             @foreach ($datapic as $pic)
-            <option value="{{ $pic->id }}">{{ $pic->mp_nama }}</option>
+            <option value="{{ $pic->mp_nama }}">{{ $pic->mp_nama }}</option>
             @endforeach
         </select>
         @error('ak_mp_id')
@@ -62,7 +62,7 @@
         <label for="ak_tanggal_selesai" class="form-label">Tanggal Selesai</label>
         <input type="date" class="form-control @error('tanggal_selesaiss') is-invalid @enderror" name="ak_tanggal_selesai"
             required>
-        @error('tanggal_selesaiss')
+        @error('tanggal_selesai')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>

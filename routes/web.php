@@ -57,7 +57,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::resource('app_aktivitas/index/{}', AktivitasController::class);
     Route::resource('app_perencanaan', PerencanaanController::class);
     Route::resource('app_request', RequestController::class);
-    Route::resource('master_kendaraan', MasterKendaraanController::class);
 });
 
 Route::group(['middleware' => ['auth', 'level:general-affair']], function(){
@@ -90,17 +89,15 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
     Route::resource('app_aktivitas', AktivitasController::class);
     Route::resource('app_aktivitas/index/{}', AktivitasController::class);
     Route::resource('app_perencanaan', PerencanaanController::class);
+    Route::resource('add_user', AdduserController::class);
     
 });
 
-    Route::resource('add_user', AdduserController::class);
 
     Route::get('edit_profile', [ProfileController::class, 'edit'])->name('edit_profile');
     Route::put('update_profile', [ProfileController::class, 'update'])->name('update_profile');
-
     Route::get('edit', [UpdatePasswordController::class, 'edit'])->name('edit_password');
     Route::put('update', [UpdatePasswordController::class, 'update'])->name('update_password');
-
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('master_kendaraan', MasterKendaraanController::class);
 
@@ -119,9 +116,7 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
     Route::get('/perencanaan/list', function () {
         return view('/app/perencanaan/list');
     });
-
     Route::resource('slack', SlackController::class)->only('index');
-
     Route::get('downloadlist', [AktivitasController::class,'download']);
 
 

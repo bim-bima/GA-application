@@ -7,17 +7,9 @@
     @csrf
     <div class="card shadow-sm mb-4" data-aos="fade-right" data-aos-delay="50">
       <div class="card-header py-3 px-sm-3 px-2">
-        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Status Kendaraan</h6>
+        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Kondisi Kendaraan</h6>
       </div>
       <div class="card-body px-0">
-        <div class="col-12 mb-2 px-sm-3 px-2">
-          <label class="form-label">Status</label>
-          <select name="mk_status" class="custom-select custom-select-md">
-            <option value="">Status Kendaraan</option>
-            <option value="tersedia">Tersedia</option>
-            <option value="sedang dipakai">Sedang Di Pakai</option>
-          </select>
-        </div>
         <div class="col-12 mb-2 px-sm-3 px-2">
           <label for="bahan_bakar" class="form-label">Jumlah Bahan Bakar (Liter)</label>
           <input type="number" min="1" class="form-control @error('bahan_bakar') is-invalid @enderror" name="bahan_bakar" value="{{ old('bahan_bakar') }}" required>

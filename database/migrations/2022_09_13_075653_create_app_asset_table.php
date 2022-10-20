@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('app_asset', function (Blueprint $table) {
             $table->increments('id');
             $table->string('as_nama_asset');
-            $table->BigInteger('as_mla_id')->unsigned();
-            $table->BigInteger('as_mca_id')->unsigned();
+            $table->string('as_mla_id');
+            $table->string('as_mca_id');
+            // $table->BigInteger('as_mla_id')->unsigned();
+            // $table->BigInteger('as_mca_id')->unsigned();
             $table->integer('as_tahun_kepemilikan');
             $table->string('as_bulan');
             $table->string('as_kode_asset');

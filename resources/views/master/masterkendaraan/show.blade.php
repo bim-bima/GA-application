@@ -69,14 +69,14 @@
   <div class="col-lg-6 pl-lg-1">
     <div class="card shadow-sm mb-4" data-aos="fade-left" data-aos-delay="50">
       <div class="card-header py-3 px-sm-3 px-2">
-        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-left" data-aos-delay="100">Status Kendaraan</h6>
+        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-left" data-aos-delay="100">Kondisi Kendaraan</h6>
       </div>
       <div class="card-body px-sm-3 px-2">
         <form action="#" method="POST" enctype="multipart/form-data" class="row">
-          <div class="col-12 mb-2">
+          <!-- <div class="col-12 mb-2">
             <label for="mk_perlengkapan" class="form-label">Status</label>
             <input type="text" class="form-control"  readonly  value="{{ $kendaraan->mk_status }}">
-          </div>
+          </div> -->
           <div class="col-12 mb-2">
             <label for="mk_Bahan_bakar" class="form-label">Bahan Bakar Tersedia</label>
             <input type="text" class="form-control"  readonly  

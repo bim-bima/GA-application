@@ -11,6 +11,7 @@
   <div class="card-body px-sm-3 px-2">
     <div class="row">          
       @foreach( $datakendaraan as $ken )
+
         <div class="col-xl-4">
           <div class="card mb-3">
             <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
@@ -39,6 +40,9 @@
                 @if(auth()->user()->level == "general-affair")
                 <a href="{{ route('master_kendaraan.edit',$ken->id) }}" class="btn btn-warning btn-block"></i>Update</a>
                 @endif
+
+    
+
               </div>
             </div>
 
@@ -97,11 +101,11 @@
             ?>
             <tr>
               <input type="hidden" class="delete_id" value="{{ $item->id }}">
-              <td class="border-secondary px-2">{{ $item->namaKendaraan->mk_nama_kendaraan }}</td>
+              <td class="border-secondary px-2">{{ $item->ak_mk_id }}</td>
               <td class="border-secondary px-2">{{ $item->ak_pengguna }}</td>
               <td class="border-secondary px-2">{{ $item->ak_tanggal_mulai }}</td>
               <td class="border-secondary px-2">{{ $jam_mulai }}</td>
-              <td class="border-secondary px-2">{{ $item->pic->mp_nama }}</td>
+              <td class="border-secondary px-2">{{ $item->ak_mp_id }}</td>
               <td class="border-secondary px-2">{{ $item->ak_lokasi_tujuan }}</td>
               <td class="border-secondary px-2">{{ $item->ak_tujuan_pemakaian }}</td>
               <td class="border-secondary px-2">

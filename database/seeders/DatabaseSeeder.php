@@ -61,10 +61,9 @@ class DatabaseSeeder extends Seeder
             'mk_merk' => 'toyota',
             'mk_warna' => 'Merah maroon',
             'mk_perlengkapan' => 'STNK-BPKB',
-            'mk_status' => 'tersedia',
             'mk_bahan_bakar' => '10 liter',
             'mk_kilometer' => '277',
-            'mk_kondisi_lain' => 'tidak ada'
+            'mk_kondisi_lain' => 'aman'
         ]);
         MasterKendaraan::factory()->create([
             'mk_nama_kendaraan' => 'Honda Vario Old',
@@ -73,10 +72,9 @@ class DatabaseSeeder extends Seeder
             'mk_merk' => 'honda',
             'mk_warna' => 'putih',
             'mk_perlengkapan' => 'STNK-BPKB',
-            'mk_status' => 'tersedia',
             'mk_bahan_bakar' => '2 liter',
             'mk_kilometer' => '397',
-            'mk_kondisi_lain' => 'tidak ada'
+            'mk_kondisi_lain' => 'aman'
         ]);
         // Perencanaan::factory()->create([
         //     'ap_bulan' => '-11',
