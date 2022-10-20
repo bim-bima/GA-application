@@ -24,8 +24,8 @@
         </div>
 
         <div class="col-12 mb-2 px-sm-3 px-2">
-          <label for="Bahan_bakar" class="form-label">Bahan Bakar Tersedia</label>
-          <input type="number" class="form-control @error('bahan_bakar') is-invalid @enderror" name="bahan_bakar" required  value="{{ $kendaraan->mk_bahan_bakar }}">
+          <label for="Bahan_bakar" class="form-label">Bahan Bakar Tersedia (L)</label>
+          <input type="number" class="form-control @error('bahan_bakar') is-invalid @enderror" name="bahan_bakar" required value="{{ $kendaraan->mk_bahan_bakar }}">
           @error('bahan_bakar')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -33,7 +33,7 @@
 
 
         <div class="col-12 mb-2 px-sm-3 px-2">
-          <label for="kilometer" class="form-label">Kilometer</label>
+          <label for="kilometer" class="form-label">Kilometer (Km)</label>
           <input type="number" min="1" class="form-control @error('kilometer') is-invalid @enderror" name="kilometer" required  value="{{ $kendaraan->mk_kilometer }}">
           @error('kilometer')
           <div class="invalid-feedback">{{ $message }}</div>

@@ -208,6 +208,7 @@
   </div>
   @endif
 
+</div>
   @if(auth()->user()->level == "pegawai")
   <div class="card col-12 px-0">
     <div class="card-header py-3 px-sm-3 px-2">
@@ -321,5 +322,4 @@
     </div>
   </div>
   @endif
-</div>
 @endsection

@@ -16,7 +16,7 @@
           <th class="border border-secondary px-2">Nama Pengajuan</th>
           <th class="border border-secondary px-2">Jenis</th>
           <th class="border border-secondary px-2">Vendor</th>
-          <th class="border border-secondary px-2">Biaya</th>
+          <th class="border border-secondary px-2">Biaya (Rp)</th>
           <th class="border border-secondary px-2">Catatan</th>
           <th class="border border-secondary px-2">Tanggal Estimasi</th>
           <th class="border border-secondary px-2">PIC</th>
@@ -25,12 +25,16 @@
         </tr>
       </thead>
       <tbody>
+        <?php 
+            $harga1 = $pengajuan->ap_biaya;
+            $harga = number_format($harga1,0,",",",");
+           ?>
         <tr>
           <td class="border-secondary px-2">{{ $pengajuan->created_at }}</td>
           <td class="border-secondary px-2">{{ $pengajuan->ap_nama_pengajuan }}</td>
           <td class="border-secondary px-2">{{ $pengajuan->jenispengajuan->mjp_jenis }}</td>
           <td class="border-secondary px-2">{{ $pengajuan->vendor->mv_nama_vendor }}</td>
-          <td class="border-secondary px-2">{{ $pengajuan->ap_biaya }}</td>
+          <td class="border-secondary px-2">{{ $harga }}</td>
           <td class="border-secondary px-2">{{ $pengajuan->ap_catatan }}</td>
           <td class="border-secondary px-2">{{ $pengajuan->ap_tanggal_pengadaan }}</td>
           <td class="border-secondary px-2">{{ $pengajuan->pic->mp_nama }}</td>

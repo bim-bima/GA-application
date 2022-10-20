@@ -33,7 +33,7 @@
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-
+      
         <div class="col-md-6 mb-2">
           <label for="ak_pengguna" class="form-label">Pengguna</label>
           <input type="text" class="form-control @error('ak_pengguna') is-invalid @enderror" name="ak_pengguna" required>
@@ -51,7 +51,7 @@
         @enderror
       </div>
       <div class="col-md-6 mb-2">
-        <label for="ak_jam" class="form-label">Jam</label>
+        <label for="ak_jam" class="form-label">Jam mulai</label>
         <input type="time" class="form-control @error('jam') is-invalid @enderror" name="ak_jam" required>
         @error('jam')
         <div class="invalid-feedback">{{ $message }}</div>
@@ -103,7 +103,7 @@
         @endif
         <button type="submit" class="btn btn-success mt-3 mb-1">
           <i class="fa fa-plus-circle"></i>
-          Kirim
+          Tambah
         </button>
       </div>
     </form>

@@ -90,9 +90,13 @@
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
+            <?php 
+            $harga1 = $asset->as_harga;
+            $harga = number_format($harga1,0,",",",");
+           ?>
             <div class="mr-auto">
               <div class="text-primary font-weight-bold">Harga Asset :</div>
-              <b>{{ $asset->as_harga }}</b>
+              <b>{{ $harga }}</b>
             </div>
           </li> 
           <!-- <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
