@@ -33,8 +33,7 @@
                       <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                      <!-- level -->
-                      <!-- <input type="text" class="form-control-user form-control" id="level" name="level" placeholder="Email" required value="pegawai"> -->
+                      
                   </div>
                   <div class="form-group row">
                     <div class="col-md-6 pr-md-1 mb-md-0 mb-3">

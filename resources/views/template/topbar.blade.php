@@ -57,7 +57,7 @@
         <a class="dropdown-item text-center small text-grey-500" href="#"><i>Total Pengajuan : {{ $jumlah }} </i></a>
         @endif
           
-      </div>
+      </div>  
     </li>
     @endif
 
@@ -113,7 +113,7 @@
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown" style="z-index: 100">
 
         <a class="dropdown-item" href="{{ route('edit_profile') }}">
-        <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
+        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
         {{ __('Update Profile') }}
         </a>
 

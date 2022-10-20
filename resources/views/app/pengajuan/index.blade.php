@@ -1,7 +1,5 @@
 @extends('layouts.main')
-
 @section('content')
-
 @include('sweetalert::alert')
 
 <div class="mb-4" data-aos="fade-up" data-aos-delay="50">

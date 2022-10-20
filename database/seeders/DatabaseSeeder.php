@@ -100,6 +100,8 @@ class DatabaseSeeder extends Seeder
             'mla_lokasi_asset' => 'Lantai Atas'
         ]);
 
+
+
         MasterAktivitas::factory()->create([
             'ma_nama_aktivitas' => 'Kerapian meja dan kursi'
         ]);
