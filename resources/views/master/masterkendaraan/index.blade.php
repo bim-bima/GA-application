@@ -22,7 +22,7 @@
               <div class="col-12">
                 <div class="text-center">
                   <i class="fas fa-info-circle"></i>
-                  <i>Belum Ada Data Disini</i>
+                  <i>Belum Ada Data Kendaraan Disini</i>
                 </div>
               </div>                      
             </div>
@@ -32,7 +32,7 @@
       @endif
 
       @if($cek > 0)
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered" id="table" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th class="border border-secondary">Nama Kendaraan</th>
@@ -71,7 +71,7 @@
           @endforeach
         </tbody>
       </table>
-      {{ $datakendaraan->links() }}
+      {{-- {{ $datakendaraan->links() }} --}}
       @endif
     </div>
   </div>

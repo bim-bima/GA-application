@@ -17,7 +17,7 @@
               <div class="col-12">
                 <div class="text-center">
                   <i class="fas fa-info-circle"></i>
-                  <i>Belum Ada Data Disini</i>
+                  <i>Belum Ada Request</i>
                 </div>
               </div>                      
             </div>
@@ -28,7 +28,7 @@
 
       @if($cek > 0)
       <div class="table-responsive col-md-12 border-dark">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-bordered" id="table" width="100%" cellspacing="0">
           <thead class="">
             <tr>
               <th class="border border-secondary px-2 col-lg-2">Tanggal</th>

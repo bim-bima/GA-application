@@ -194,7 +194,7 @@
             <div class="col-12 px-1">
               <div class="text-center">
                 <i class="fas fa-info-circle"></i>
-                <i>Belum Ada Data Disini</i>
+                <i>Belum Ada Riwayat Pengajuan Disini</i>
               </div>
             </div>                      
           </div>
@@ -204,7 +204,7 @@
     @endif
 
     @if($cek > 0)
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered" id="table" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th class="border border-secondary col-1 col-sm-3">Tanggal</th>

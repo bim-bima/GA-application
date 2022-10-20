@@ -16,7 +16,7 @@ class MasterLokasiAssetController extends Controller
         public function index()
         {
             $cek = MasterLokasiAsset::count();
-            $datalokasiasset = MasterLokasiAsset::paginate(8);
+            $datalokasiasset = MasterLokasiAsset::all();
             return view('master.masterlokasiasset.index', compact(['datalokasiasset','cek']));
         }
         /**

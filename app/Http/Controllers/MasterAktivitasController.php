@@ -16,7 +16,7 @@ class MasterAktivitasController extends Controller
         public function index()
         {
             $cek = MasterAktivitas::count();
-            $dataaktivitas = MasterAktivitas::paginate(8);
+            $dataaktivitas = MasterAktivitas::all();
             return view('master.masteraktivitas.index', compact(['dataaktivitas','cek']));
         }
         /**

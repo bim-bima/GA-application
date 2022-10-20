@@ -77,7 +77,7 @@
 
               @if($cekuser > 0)
               <div class="col-12" style="overflow-y: auto; max-height: 285px;">
-                <table class="table table-bordered border" id="dataTable" cellspacing="0">
+                <table class="table table-bordered border" id="table" cellspacing="0">
                   <thead>
                     <tr>
                       <th class="col-6 border border-secondary px-2">Nama</th>

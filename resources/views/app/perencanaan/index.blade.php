@@ -22,7 +22,7 @@
                 <div class="col-12 px-1">
                   <div class="text-center">
                     <i class="fas fa-info-circle"></i>
-                    <i>Belum Ada Data Disini</i>
+                    <i>Belum Ada Data Perencanaan Disini</i>
                   </div>
                 </div>                      
               </div>
@@ -30,7 +30,7 @@
           </div>
         </div>
         @endif
-        
+
         @foreach ($dataperencanaan as $perencanaan)
         <div class="card mb-3">
           <div class="card-body pt-3 pb-2">
@@ -74,7 +74,7 @@
                 <div class="col-12 px-1">
                   <div class="text-center">
                     <i class="fas fa-info-circle"></i>
-                    <i>Belum Ada Data Disini</i>
+                    <i>Belum Ada List Perencanaan</i>
                   </div>
                 </div>                      
               </div>

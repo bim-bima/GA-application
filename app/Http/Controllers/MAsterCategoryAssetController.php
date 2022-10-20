@@ -16,7 +16,7 @@ class MAsterCategoryAssetController extends Controller
         public function index()
         {
             $cek = MasterCategoryAsset::count();
-            $datacategory = MasterCategoryAsset::paginate(5);
+            $datacategory = MasterCategoryAsset::all();
             return view('master.mastercategoryasset.index', compact(['datacategory','cek']));
         }
         /**

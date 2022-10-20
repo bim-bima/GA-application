@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
-<div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
-  @if(auth()->user()->level == "management")
+@if(auth()->user()->level == "management")
+<div class="card shadow mb-4">
   <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">Dashboard</h6>
   </div>
@@ -18,7 +18,7 @@
                   <div class="col-12 px-1">
                     <div class="text-center">
                       <i class="fas fa-info-circle"></i>
-                      <i>Belum Ada Data Disini</i>
+                      <i>Belum Ada Riwayat Pengajuan</i>
                     </div>
                   </div>                      
                 </div>
@@ -28,7 +28,7 @@
           @endif
       
           @if($cekpengajuan > 0)
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="tableriwayat" width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th class="border px-2 border-secondary col-lg-1 col-1 fs-6">Tanggal</th>
@@ -65,7 +65,7 @@
               </tbody>
             </table>
           @endif
-         {{ $datapengajuan->links() }}
+         {{-- {{ $datapengajuan->links() }} --}}
         </div>
       </div>
       <div class="col-xl-6 px-0 pl-xl-3">
@@ -76,8 +76,8 @@
           </a>
           <!-- Card Content - Collapse -->
           <div class="collapse show" id="Aktivitas">
-            <div class="card-body px-sm-3 px-2">
-              <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
+            <div class="card-body px-sm-3 px-2" style="overflow-y: auto; max-height: 285px;">
+              <table class="table table-bordered border" id="table" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th class="border border-secondary px-2 col-lg-5">Aktivitas</th>
@@ -95,7 +95,7 @@
                   <tr class="text-center">
                     <td colspan="2" class="border-secondary px-2">
                       <i class="fas fa-info-circle"></i>
-                      <i>Tidak Ada Aktifitas Untuk Hari Ini</i>
+                      <i>Tidak Ada Aktivitas Untuk Hari Ini</i>
                     </td>
                   </tr>
                   @endif
@@ -107,9 +107,11 @@
       </div>
     </div>
   </div>
-  @endif
+</div>
+@endif
 
-  @if(auth()->user()->level == "general-affair")
+@if(auth()->user()->level == "general-affair")
+<div class="card shadow mb-4">
   <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">Dashboard</h6>
   </div>
@@ -117,8 +119,8 @@
     <div class="row px-sm-1">
       <div class="col-lg-6 px-0">
         <h6 class="font-weight-bold text-primary">Aktivitas Hari Ini</h6>
-        <div class="col-12 px-0" style="overflow-y: auto; max-height: 285px;">
-          <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
+        <div class="col-12 px-0" >
+          <table class="table table-bordered border" id="table" width="100%" cellspacing="0">
             <thead>
               <tr>
                 <th class="border border-secondary px-2 col-lg-6">Aktivitas</th>
@@ -137,7 +139,7 @@
               <tr class="text-center">
                 <td colspan="2" class="border-secondary px-2">
                   <i class="fas fa-info-circle"></i>
-                  <i>Tidak Ada Aktifitas Untuk Hari Ini</i>
+                  <i>Tidak Ada Aktivitas Untuk Hari Ini</i>
                 </td>
               </tr>
               @endif
@@ -154,14 +156,14 @@
             <div class="card-body px-sm-3 px-2">
               <div class="row">
                 @if($cekrequest == 0)
-                  <div class="col">
+                  <div class="col"style="overflow-y: auto; max-height: 285px;">
                     <div class="card border-danger mb-2">
                       <div class="card-body">
                         <div class="row">
                           <div class="col-12">
                             <div class="text-center">
                               <i class="fas fa-info-circle"></i>
-                              <i>Tidak Ada request</i>
+                              <i>Belum Ada Request</i>
                             </div>
                           </div>                      
                         </div>
@@ -172,7 +174,7 @@
 
                 @if($cekrequest > 0)
                 <div class="col-12" style="overflow-y: auto; max-height: 285px;">
-                  <table class="table table-bordered border" id="dataTable" cellspacing="0">
+                  <table class="table table-bordered border" id="tableriwayat" cellspacing="0">
                     <thead>
                       <tr>
                         <th class="col-6 border border-secondary px-2">Request</th>
@@ -206,17 +208,18 @@
       </div>
     </div>
   </div>
-  @endif
-
 </div>
-  @if(auth()->user()->level == "pegawai")
-  <div class="card col-12 px-0">
-    <div class="card-header py-3 px-sm-3 px-2">
+@endif
+
+@if(auth()->user()->level == "pegawai")
+<div class="row justify-content-center">
+  <div class="card col-lg-10 px-0 mb-4 py-0" data-aos="fade-up" data-aos-delay="50">
+    <div class="card-header py-3 px-3">
       <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Buat Request</h6>
     </div>
-    <div class="card-body px-sm-3 px-2">
+    <div class="card-body px-3">
       <div class="row">
-        <div class="col-lg-6 border-dark">
+        <div class="col-lg-5 border-dark">
           <form action="{{ route('app_request.store') }}" method="POST" enctype="multipart/form-data" class="">
             @csrf
             <label for="ar_request" class="form-label" data-aos="fade-right" data-aos-delay="150">Request</label>
@@ -250,7 +253,7 @@
             <div class="mb-3 mb-sm-2">
             <label for="ar_catatan" class="form-label" data-aos="fade-right" data-aos-delay="300">Catatan</label>
             <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="ar_catatan" required
-             rows="4" data-aos="fade-right" data-aos-delay="350"></textarea>
+              rows="4" data-aos="fade-right" data-aos-delay="350"></textarea>
             @error('catatan')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -261,7 +264,7 @@
             </button>
           </form>
         </div>
-        <div class="card-body col-lg-6 pl-lg-3 py-0 px-sm-3 px-3">
+        <div class="card-body col-lg-7 pl-lg-3 py-0 px-sm-3 px-3">
           <div class="card" data-aos="fade-left" data-aos-delay="150">
             <div class="card-header py-3 px-sm-3 px-2">
               <h6 class="m-0 font-weight-bold text-primary">Riwayat Request</h6>
@@ -276,7 +279,7 @@
                           <div class="col-12">
                             <div class="text-center">
                               <i class="fas fa-info-circle"></i>
-                              <i>Tidak Ada Riwayat request</i>
+                              <i>Tidak Ada Riwayat Request</i>
                             </div>
                           </div>                      
                         </div>
@@ -287,7 +290,7 @@
   
                 @if($cek > 0)
                 <div class="col-12" style="overflow-y: auto; max-height: 285px;">
-                  <table class="table table-bordered border" id="dataTable" cellspacing="0">
+                  <table class="table table-bordered border" id="table" cellspacing="0">
                     <thead>
                       <tr>
                         <th class="col-6 border border-secondary px-2">Request</th>
@@ -321,5 +324,6 @@
       </div>
     </div>
   </div>
-  @endif
+</div>
+@endif
 @endsection

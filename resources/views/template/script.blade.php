@@ -7,6 +7,7 @@
 
 <!-- Custom scripts for all pages-->
 <script src="{{ asset ('template/js/sb-admin-2.min.js') }}"></script>
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <!-- Animation -->
@@ -14,6 +15,26 @@
 <script src="{{ asset ('template-landing/vendor/glightbox/js/glightbox.min.js') }}"></script>
 <script src="{{ asset ('template-landing/vendor/swiper/swiper-bundle.min.js') }}"></script>
 <script src="{{ asset ('template-landing/js/main.js') }}"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+
+
+<script>
+	$(document).ready(function (){
+		$('#table').DataTable();
+	});
+</script>
+<script>
+	$(document).ready(function (){
+		$('#tableriwayat').DataTable();
+	});
+</script>
+<script>
+	$(".theSelect").select2();
+</script>
 
 <!-- user -->
 <script>
@@ -28,7 +49,7 @@
                 var deleteiduser = $(this).closest("tr").find('.delete_id').val();
                 swal({
                     title: "Apakah anda yakin?",
-                    text: "Data Kendaraan ini akan di Hapus!",
+                    text: "Data User ini akan di Hapus!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
