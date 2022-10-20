@@ -59,7 +59,7 @@ class HomeController extends Controller
           $request = AppRequest::where('ar_perequest', $perequest)->get();
           
           $cekpengajuan = pengajuan::count();
-          $datapengajuan = Pengajuan::with('vendor','pic','jenispengajuan')->paginate(10);
+          $datapengajuan = Pengajuan::all();
           $ajuan = Pengajuan::where('ap_status', 'Menunggu Persetujuan')->get();
           $setuju = Pengajuan::where('ap_status', 'setujui')->with('vendor')->get();
 

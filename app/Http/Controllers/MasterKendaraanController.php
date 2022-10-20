@@ -15,7 +15,7 @@ class MasterKendaraanController extends Controller
         public function index()
         {
             $cek = MasterKendaraan::count();
-            $datakendaraan = MasterKendaraan::paginate(8);
+            $datakendaraan = MasterKendaraan::all();
             return view('master.masterkendaraan.index', compact(['datakendaraan','cek']));
         }
         /**

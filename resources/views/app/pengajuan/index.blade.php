@@ -241,7 +241,7 @@
         </tbody>
       </table>
     @endif
-     {{ $datapengajuan->links() }}
+     {{-- {{ $datapengajuan->links() }} --}}
     </div>
   </div>
 </div>
