@@ -53,7 +53,7 @@
             @endif
 
             @if(auth()->user()->level == "management")
-            <button class="btn btn-info mb-1">
+            <button class="btn btn-info mb-3">
               <i class="fa fa-angle-left"></i>
               <a href="{{ route('app_kendaraan.index') }}" class="text-white text-decoration-none">
                 Kembali

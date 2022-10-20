@@ -22,7 +22,7 @@
               <div class="col-12">
                 <div class="text-center">
                   <i class="fas fa-info-circle"></i>
-                  <i>Belum Ada Data Disini</i>
+                  <i>Belum Ada Data Jenis Pengajuan Disini</i>
                 </div>
               </div>                      
             </div>
@@ -33,7 +33,7 @@
 
       @if($cek > 0)
       <div class="table-responsive col-xl-7 border-dark">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-bordered" id="table" width="100%" cellspacing="0">
           <thead class="">
             <tr>
               <th class="border border-secondary col-4 col-sm-7 col-md-9">Jenis Pengajuan</th>
@@ -62,7 +62,7 @@
             @endforeach
           </tbody>
         </table>
-        {{ $jenispengajuan->links() }}
+        {{-- {{ $jenispengajuan->links() }} --}}
       </div>
       @endif
     </div>

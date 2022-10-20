@@ -22,7 +22,7 @@
             <div class="col-12 px-1">
               <div class="text-center">
                 <i class="fas fa-info-circle"></i>
-                <i>Belum Ada Data Disini</i>
+                <i>Belum Ada Data Asset Disini</i>
               </div>
             </div>                      
           </div>
@@ -33,7 +33,7 @@
 
     @if($cek > 0)
     <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered" id="table" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th class="border border-secondary px-2">Nama Asset</th>

@@ -11,34 +11,41 @@
   <div class="card-body px-sm-3 px-2">
     <div class="row">          
       @foreach( $datakendaraan as $ken )
-        <div class="card mb-4 ml-3 col-xl-4 px-0">
-          <a href="#collapseCardExample{{ $ken->id }}" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-            <h6 class="m-0 font-weight-bold text-primary">{{ $ken->mk_nama_kendaraan }}</h6>
-          </a>
-          <div class="collapse show" id="collapseCardExample{{ $ken->id }}">
-            <div class="card-body">
-              <div class="row ml-3">
-              <p class="small text-primary">Nama Kendaraan :</p> 
-              <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_nama_kendaraan }}</p>
-              </div>
-              <div class="row ml-3">
-              <p class="small text-primary">Kilometer Kendaraan :</p>
-              <p class="ml-3 font-weight-bold text-lg"> {{ $ken->mk_kilometer }} Km</p>
-              </div>
-              <div class="row ml-3">
-              <p class="small text-primary">Bbm Tersedia : </p> 
-              <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_bahan_bakar }} Liter</p>
-              </div>
-              <!-- <div class="row ml-3">
-              <p class="small text-primary">Kondisi Kendaraan : </p> 
-              <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_kondisi_lain }}</p>
-              </div> -->
-              <a href="{{ route('master_kendaraan.show',$ken->id) }}" class="btn btn-info btn-block"></i>Detail</a>
 
-              @if(auth()->user()->level == "general-affair")
-              <a href="{{ route('master_kendaraan.edit',$ken->id) }}" class="btn btn-warning btn-block"></i>Update</a>
-              @endif
+        <div class="col-xl-4">
+          <div class="card mb-3">
+            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+              <h6 class="m-0 font-weight-bold text-primary">{{ $ken->mk_nama_kendaraan }}</h6>
+            </a>
+            <div class="collapse show" id="collapseCardExample">
+              <div class="card-body">
+                <div class="row ml-3">
+                <p class="small text-primary">Nama Kendaraan :</p> 
+                <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_nama_kendaraan }}</p>
+                </div>
+                <div class="row ml-3">
+                <p class="small text-primary">Kilometer Kendaraan :</p>
+                <p class="ml-3 font-weight-bold text-lg"> {{ $ken->mk_kilometer }} Km</p>
+                </div>
+                <div class="row ml-3">
+                <p class="small text-primary">Bbm Tersedia : </p> 
+                <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_bahan_bakar }} Liter</p>
+                </div>
+                <!-- <div class="row ml-3">
+                <p class="small text-primary">Kondisi Kendaraan : </p> 
+                <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_kondisi_lain }}</p>
+                </div> -->
+                <a href="{{ route('master_kendaraan.show',$ken->id) }}" class="btn btn-info btn-block"></i>Detail</a>
+  
+                @if(auth()->user()->level == "general-affair")
+                <a href="{{ route('master_kendaraan.edit',$ken->id) }}" class="btn btn-warning btn-block"></i>Update</a>
+                @endif
+
+    
+
+              </div>
             </div>
+
           </div>
         </div>
       @endforeach
@@ -52,6 +59,7 @@
       @endif
 
       <div class="table-responsive">
+        @if(auth()->user()->level == "general-affair")
         @if($cek == 0)
           <div class="col px-0">
             <div class="card border-danger mb-2">
@@ -60,7 +68,7 @@
                   <div class="col-12 px-0">
                     <div class="text-center">
                       <i class="fas fa-info-circle"></i>
-                      <i>Belum Ada Data Disini</i>
+                      <i>Belum Ada Riwayat Booking Disini</i>
                     </div>
                   </div>                      
                 </div>
@@ -68,10 +76,11 @@
             </div>
           </div>
         @endif
+        @endif
 
         @if($cek > 0)
         @if(auth()->user()->level == "general-affair")
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-bordered" id="table" width="100%" cellspacing="0">
           <thead>
             <tr>
               <th class="border border-secondary px-2">Kendaraan</th>

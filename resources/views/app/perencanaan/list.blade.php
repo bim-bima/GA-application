@@ -40,7 +40,7 @@
       @endif
 
       @if($cek > 0)   
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered" id="table" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th class="border border-secondary">Tanggal</th>

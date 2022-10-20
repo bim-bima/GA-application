@@ -20,7 +20,7 @@
               <div class="col-12 px-1">
                 <div class="text-center">
                   <i class="fas fa-info-circle"></i>
-                  <i>Belum Ada Data Disini</i>
+                  <i>Belum Ada Data Aktivitas Disini</i>
                 </div>
               </div>                      
             </div>
@@ -31,7 +31,7 @@
 
       @if($cek > 0)
       <div class="table-responsive col-12">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-bordered" id="table" width="100%" cellspacing="0">
           <thead>
             <tr class="">
               <th class="border border-secondary col-5 col-sm-9">Nama Aktivitas</th>
@@ -60,7 +60,7 @@
             @endforeach
           </tbody>
         </table>
-        {{ $dataaktivitas->links() }}
+        {{-- {{ $dataaktivitas->links() }} --}}
       </div>
       @endif
     </div>

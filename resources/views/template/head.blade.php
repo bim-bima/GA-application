@@ -26,12 +26,17 @@
 <link href="{{asset ('template-landing/vendor/aos/aos.css') }}" rel="stylesheet">
 <link href="{{asset ('template-landing/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.css"/>
+
 <!--  -->
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
 
 
 <!-- fullCalendar Event -->
 <link rel="shortcut icon" href="{{asset ('template/img/icon.png') }}"/>
+
+{{-- select search --}}
+
 
 
 

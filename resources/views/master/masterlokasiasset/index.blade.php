@@ -22,7 +22,7 @@
               <div class="col-12">
                 <div class="text-center">
                   <i class="fas fa-info-circle"></i>
-                  <i>Belum Ada Data Disini</i>
+                  <i>Belum Ada Data Lokasi Asset Disini</i>
                 </div>
               </div>                      
             </div>
@@ -33,7 +33,7 @@
 
       @if($cek > 0)
       <div class="table-responsive col-xl-7">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-bordered" id="table" width="100%" cellspacing="0">
           <thead>
             <tr>
               <th class="border border-secondary col-4 col-sm-7 col-md-9">Nama Lokasi Asset</th>
@@ -62,7 +62,7 @@
             @endforeach
           </tbody>
         </table>
-        {{ $datalokasiasset->links() }}
+        {{-- {{ $datalokasiasset->links() }} --}}
       </div>
       @endif
     </div>
