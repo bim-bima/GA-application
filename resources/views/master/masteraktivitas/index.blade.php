@@ -35,6 +35,7 @@
           <thead>
             <tr class="bg-primary text-light">
               <th class="border col-5 col-sm-9">Nama Aktivitas</th>
+              <th class="border col-5 col-sm-9">Category Aktivitas</th>
               <th class="border col-3 col-sm-3 col-md-2 col-xl-1">Aksi</th>
             </tr>
           </thead>
@@ -43,6 +44,7 @@
             <tr>
               <input type="hidden" class="delete_id" value="{{ $aktivitas->id }}">
               <td class="border">{{ $aktivitas->ma_nama_aktivitas }}</td>
+              <td class="border">{{ $aktivitas->ma_category_aktivitas }}</td>
               <td class="border">
                 <a class="btn-sm btn-warning btn-circle mb-sm-0 mb-1" href="{{ route('master_aktivitas.edit',$aktivitas->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
                   <i class="fas fa-edit"></i>

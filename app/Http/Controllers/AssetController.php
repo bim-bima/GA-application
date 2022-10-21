@@ -34,8 +34,9 @@ class AssetController extends Controller
             'jumlah_asset'          => 'required|regex:/^[0-9]+$/', 
             'lokasi_asset'          => 'required',
             'category_asset'        => 'required',
-            'tahun_pembelian_asset' => 'required|min:4|max:4|after:1900|regex:/^[0-9]+$/',
-            'bulan_pembelian_asset' => 'required',
+            'tanggal'               => 'required',
+            // 'tahun_pembelian_asset' => 'required|min:4|max:4|after:1900|regex:/^[0-9]+$/',
+            // 'bulan_pembelian_asset' => 'required',
             'harga_asset'           => 'required|min:4|max:11|regex:/^[0-9]+$/', 
             'umur_manfaat_asset'    => 'required', 
         ]);
@@ -61,9 +62,12 @@ class AssetController extends Controller
          $ambil2 = $request->nama_asset;
          $subcategory = substr($ambil2,-0,3);
          $nourut = 001;
-         $bulan = $request->bulan_pembelian_asset; 
-         $ambil1 = $request->tahun_pembelian_asset; 
-         $tahun = substr($ambil1,-2,2);
+         // $ambil3 = $request->tanggal;
+         // $bulantahun = substr($ambil3,-0,7);
+         $tanggal22 = $request->tanggal;
+         $tahunbulan1 = substr($tanggal22,2);
+         $tahunbulan = substr($tahunbulan1,0,-3);
+
          $kodeasset = $prefik.'.'.$kelompok.'.'.$category.'.'.$subcategory;  
 
         for($c=1; $c<=$request->jumlah_asset; $c++){            
@@ -72,9 +76,9 @@ class AssetController extends Controller
         $dataasset->as_jumlah = $request->jumlah_asset;
         $dataasset->as_mla_id = $request->lokasi_asset;
         $dataasset->as_mca_id = $request->category_asset;
-        $dataasset->as_kode_asset = $kodeasset.'.'.$nourut++.$bulan.'.'.$tahun;;
-        $dataasset->as_tahun_kepemilikan = $request->tahun_pembelian_asset;
-        $dataasset->as_bulan = $request->bulan_pembelian_asset;
+        $dataasset->as_tanggal = $request->tanggal;
+        $dataasset->as_kode_asset = $kodeasset.'.'.$nourut++.'.'.$tahunbulan;
+        // $dataasset->as_kode_asset = 'kodeasset';
         $dataasset->as_harga = $request->harga_asset;
         $dataasset->as_umur_manfaat = $request->umur_manfaat_asset;
         $dataasset->save();
@@ -104,8 +108,7 @@ class AssetController extends Controller
             'nama_asset'            => 'required|min:2|max:150', 
             'lokasi_asset'          => 'required',
             'category_asset'        => 'required',
-            'tahun_pembelian_asset' => 'required|min:4|max:4|after:1900|regex:/^[0-9]+$/',
-            'bulan_pembelian_asset' => 'required',
+            'tanggal'        => 'required',
             'harga_asset'           => 'required|min:4|max:11|regex:/^[0-9]+$/', 
             'umur_manfaat_asset'    => 'required',
         ]);
@@ -132,7 +135,7 @@ class AssetController extends Controller
          $bulan = $request->bulan_pembelian_asset;
          $ambil1 = $request->tahun_pembelian_asset; 
          $tahun = substr($ambil1,-2,2);
-         $kodeasset = $prefik.'.'.$kelompok.'.'.$category.'.'.$subcategory.'.'.$nourut.$bulan.'.'.$tahun;  
+         $kodeasset = $prefik.'.'.$kelompok.'.'.$category.'.'.$subcategory.'.'.$nourut.$bulantahun;  
 
         $dataasset->as_nama_asset = $request->nama_asset;
         $dataasset->as_mla_id = $request->lokasi_asset;

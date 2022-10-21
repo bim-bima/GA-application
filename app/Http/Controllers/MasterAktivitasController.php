@@ -37,10 +37,12 @@ class MasterAktivitasController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'ma_nama_aktivitas' => 'required|max:200',
+        'ma_nama_aktivitas' => 'required',
+        'ma_category_aktivitas' => 'required|max:200',
         ]);
         $masteraktivitas = new MasterAktivitas();
         $masteraktivitas->ma_nama_aktivitas = $request->ma_nama_aktivitas;
+        $masteraktivitas->ma_category_aktivitas = $request->ma_category_aktivitas;
         $masteraktivitas->save();
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
         return redirect()->route('master_aktivitas.index');
@@ -77,10 +79,12 @@ class MasterAktivitasController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-        'ma_nama_aktivitas' => 'required|max:200',
+        'ma_nama_aktivitas' => 'required',
+        'ma_category_aktivitas' => 'required|max:200',
         ]);
         $aktivitas = MasterAktivitas::find($id);
         $aktivitas->ma_nama_aktivitas = $request->ma_nama_aktivitas;
+        $aktivitas->ma_category_aktivitas = $request->ma_category_aktivitas;
         $aktivitas->save();
         Alert::success('Berhasil', 'Data Berhasil Diedit');
         return redirect()->route('master_aktivitas.index');
