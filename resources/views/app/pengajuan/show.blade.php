@@ -19,7 +19,6 @@
           <th class="border px-2">Biaya (Rp)</th>
           <th class="border px-2">Catatan</th>
           <th class="border px-2">Tanggal Estimasi</th>
-          <th class="border px-2">PIC</th>
           <th class="border px-2">Status</th>
           <th class="border px-2">Alasan</th>
         </tr>
@@ -39,7 +38,6 @@
           <td class="border px-2">{{ $harga }}</td>
           <td class="border px-2">{{ $pengajuan->ap_catatan }}</td>
           <td class="border px-2">{{ $pengajuan->ap_tanggal_pengadaan }}</td>
-          <td class="border px-2">{{ $pengajuan->ap_mp_id }}</td>
           <td class="border px-2">{{ $pengajuan->ap_status }}</td>
           <td class="border px-2">{{ $pengajuan->ap_reason }}</td>
         </tr>

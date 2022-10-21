@@ -27,7 +27,7 @@
 
 
         <div class="col-12 mb-2 px-sm-3 px-2">
-          <label for="kilometer" class="form-label">Kilometer (Km)</label>
+          <label for="kilometer" class="form-label">Kilometer Kendaraan</label>
           <input type="number" min="1" class="form-control @error('kilometer') is-invalid @enderror" name="kilometer" required  value="{{ $kendaraan->mk_kilometer }}">
           @error('kilometer')
           <div class="invalid-feedback">{{ $message }}</div>
@@ -35,7 +35,7 @@
         </div>
 
         <div class="col-12 px-sm-3 px-2">
-          <label for="kondisi_lain" class="form-label">Kondisi Lain</label>
+          <label for="kondisi_lain" class="form-label">Catatan</label>
           <textarea type="text" class="form-control @error('kondisi') is-invalid @enderror" name="kondisi_lain" required value="{{ $kendaraan->mk_kondisi_lain }}" rows="3" >{{ $kendaraan->mk_kondisi_lain }}</textarea>
           @error('kondisi_lain')
           <div class="invalid-feedback">{{ $message }}</div>
@@ -69,8 +69,8 @@
             <label for="mk_jenis" class="form-label">Jenis Kendaraan</label>
             <select name="mk_jenis" class="form-control @error('mk_jenis') is-invalid @enderror" required>
               <option value="{{ $kendaraan->mk_jenis }}">{{ $kendaraan->mk_jenis }}</option>
-              <option value="Roda 2">Roda dua (2)</option>
-              <option value="Roda 4">Roda empat (4)</option>
+              <option value="Roda 2">Roda Dua (2)</option>
+              <option value="Roda 4">Roda Empat (4)</option>
             </select>
             @error('mk_jenis')
             <div class="invalid-feedback">{{ $message }}</div>
@@ -87,18 +87,6 @@
             <label for="warna" class="form-label">Warna Kendaraan</label>
             <input type="text" class="form-control @error('warna') is-invalid @enderror" name="warna" required  value="{{ $kendaraan->mk_warna }}">
             @error('warna')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-          </div>
-          <div class="col-md-6 mb-2 pl-md-1">
-            <label for="mk_perlengkapan" class="form-label">Perlengkapan</label>
-              <select name="mk_perlengkapan" class="mb-4 form-control @error('mk_perlengkapan') is-invalid @enderror" required>
-                <option value="{{ $kendaraan->mk_perlengkapan }}">{{ $kendaraan->mk_perlengkapan }}</option>
-                <option value="STNK-BPKB">STNK-BPKB</option>
-                <option value="STNK">STNK</option>
-                <option value="BPKB">BPKB</option>
-              </select>
-            @error('mk_perlengkapan')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>

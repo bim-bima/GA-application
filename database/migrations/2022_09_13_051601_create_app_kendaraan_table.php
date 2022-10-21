@@ -22,7 +22,7 @@ return new class extends Migration
             $table->time('ak_jam');
             $table->date('ak_tanggal_selesai');
             $table->time('ak_jam_selesai');
-            $table->string('ak_mp_id');
+            // $table->string('ak_mp_id');
             // $table->unsignedInteger('ak_mp_id');
             $table->string('ak_lokasi_tujuan');
             $table->string('ak_tujuan_pemakaian');

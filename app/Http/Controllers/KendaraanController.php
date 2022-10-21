@@ -59,7 +59,6 @@ class KendaraanController extends Controller
         $datakendaraan->ak_jam = $request->ak_jam;
         $datakendaraan->ak_tanggal_selesai = $request->ak_tanggal_selesai;
         $datakendaraan->ak_jam_selesai = $request->ak_jam_selesai;
-        $datakendaraan->ak_mp_id = $request->ak_mp_id;
         $datakendaraan->ak_lokasi_tujuan = $request->ak_lokasi_tujuan;
         $datakendaraan->ak_tujuan_pemakaian = $request->ak_tujuan_pemakaian;
         $datakendaraan->save();
@@ -121,7 +120,6 @@ class KendaraanController extends Controller
         $kendaraan->ak_pengguna = $request->ak_pengguna;
         $kendaraan->ak_tanggal_mulai = $request->ak_tanggal_mulai;
         $kendaraan->ak_jam = $request->ak_jam;
-        $kendaraan->ak_mp_id = $request->ak_mp_id;
         $kendaraan->ak_kondisi = $request->ak_kondisi;
         $kendaraan->ak_lokasi_tujuan = $request->ak_lokasi_tujuan;
         $kendaraan->ak_tujuan_pemakaian = $request->ak_tujuan_pemakaian;

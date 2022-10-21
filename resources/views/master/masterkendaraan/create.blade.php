@@ -25,7 +25,7 @@
           @enderror
         </div>
         <div class="col-12 px-sm-3 px-2">
-          <label for="kondisi_lain" class="form-label">Kondisi Lain</label>
+          <label for="kondisi_lain" class="form-label">Catatan</label>
           <textarea type="text" class="form-control @error('kondisi') is-invalid @enderror" name="kondisi_lain" required value="{{ old('kondisi_lain') }} " rows="3" >{{ old('kondisi_lain') }}</textarea>
           @error('kondisi_lain')
           <div class="invalid-feedback">{{ $message }}</div>
@@ -59,8 +59,8 @@
             <label class="form-label">Jenis Kendaraan</label>
             <select name="mk_jenis" id="mk_jenis" class="custom-select custom-select-md">
               <option value="">Pilih Jenis Kendaraan</option>
-              <option value="Roda 2">Roda dua (2)</option>
-              <option value="Roda 4">Roda empat (4)</option>
+              <option value="Roda 2">Roda Dua (2)</option>
+              <option value="Roda 4">Roda Empat (4)</option>
             </select>
           </div>
           <div class="col-md-6 mb-2 pl-md-1">
@@ -77,16 +77,7 @@
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
-          <div class="col-md-6 mb-2 pl-md-1">
-            <label class="form-label">Perlengkapan</label>
-            <select name="mk_perlengkapan" id="mk_perlengkapan" class="custom-select custom-select-md mb-4">
-              <option value="">Kelengkapan Surat</option>
-              <option value="STNK-BPKB">STNK-BPKB</option>
-              <option value="STNK">STNK</option>
-              <option value="BPKB">BPKB</option>
-            </select>
-          </div>
-          <div class="col-12">
+          <div class="col-12 mt-2 mb-5">
             <button class="btn btn-info mr-1">
               <i class="fa fa-angle-left"></i>
               <a href="{{ route('master_kendaraan.index') }}" class="text-white text-decoration-none">Kembali</a>

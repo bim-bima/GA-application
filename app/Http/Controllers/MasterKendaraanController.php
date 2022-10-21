@@ -55,7 +55,6 @@ class MasterKendaraanController extends Controller
         $kendaraan->mk_jenis = $request->mk_jenis;
         $kendaraan->mk_merk = $request->merk;
         $kendaraan->mk_warna = $request->warna;
-        $kendaraan->mk_perlengkapan = $request->mk_perlengkapan;
         $kendaraan->save();
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
         return redirect()->route('app_kendaraan.index');
@@ -118,7 +117,6 @@ class MasterKendaraanController extends Controller
         $kendaraan->mk_jenis = $request->mk_jenis;
         $kendaraan->mk_merk = $request->merk;
         $kendaraan->mk_warna = $request->warna;
-        $kendaraan->mk_perlengkapan = $request->mk_perlengkapan;
         $kendaraan->save();
         Alert::success('Berhasil', 'Data Berhasil Diedit');
         return redirect()->route('master_kendaraan.index');

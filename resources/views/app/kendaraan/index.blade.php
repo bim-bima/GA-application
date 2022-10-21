@@ -21,22 +21,22 @@
             </a>
             <div class="collapse hide" id="collapseCardExample{{ $id }}">
               <div class="card-body">
-                <div class="row ml-3">
+                <!-- <div class="row ml-3">
                 <p class="small text-primary">Nama Kendaraan :</p> 
                 <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_nama_kendaraan }}</p>
-                </div>
+                </div> -->
                 <div class="row ml-3">
                 <p class="small text-primary">Kilometer Kendaraan :</p>
                 <p class="ml-3 font-weight-bold text-lg"> {{ $ken->mk_kilometer }} Km</p>
                 </div>
                 <div class="row ml-3">
-                <p class="small text-primary">Bbm Tersedia : </p> 
+                <p class="small text-primary">Bahan Bakar Tersedia : </p> 
                 <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_bahan_bakar }} Liter</p>
                 </div>
-                <!-- <div class="row ml-3">
-                <p class="small text-primary">Kondisi Kendaraan : </p> 
+                <div class="row ml-3">
+                <p class="small text-primary">Catatan : </p> 
                 <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_kondisi_lain }}</p>
-                </div> -->
+                </div>
                 <a href="{{ route('master_kendaraan.show',$ken->id) }}" class="btn btn-info btn-block"></i>Detail</a>
   
                 @if(auth()->user()->level == "general-affair")
@@ -125,7 +125,6 @@
             @endforeach
           </tbody>
         </table>
-        {{-- {{ $kendaraan->links() }} --}}
         @endif
         @endif
       </div>

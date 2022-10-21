@@ -20,19 +20,6 @@
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-
-      <div class="col-md-6 mb-2">
-        <label for="ak_mp_id" class="form-label">PIC</label>
-        <select name="ak_mp_id" class="form-control @error('ak_mp_id') is-invalid @enderror" required>
-            <option value="">Pilih PIC</option>
-            @foreach ($datapic as $pic)
-            <option value="{{ $pic->mp_nama }}">{{ $pic->mp_nama }}</option>
-            @endforeach
-        </select>
-        @error('ak_mp_id')
-        <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-      </div>
       
         <div class="col-md-6 mb-2">
           <label for="ak_pengguna" class="form-label">Pengguna</label>
