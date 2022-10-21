@@ -42,20 +42,20 @@
       @if($cek > 0)   
       <table class="table table-bordered" id="table" width="100%" cellspacing="0">
         <thead>
-          <tr>
-            <th class="border border-secondary">Tanggal</th>
-            <th class="border border-secondary">Aktivitas</th>
-            <th class="border border-secondary">Prioritas</th>
-            <th class="border border-secondary">Deskripsi</th>
+          <tr class="bg-primary text-light">
+            <th class="border">Tanggal</th>
+            <th class="border">Aktivitas</th>
+            <th class="border">Prioritas</th>
+            <th class="border">Deskripsi</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($list as $listaktivitas)
           <tr>
-            <td class="border-secondary">{{ $listaktivitas->start_date }}</td>
-            <td class="border-secondary">{{ $listaktivitas->title }}</td>
-            <td class="border-secondary">{{ $listaktivitas->prioritas }}</td>
-            <td class="border-secondary">{{ $listaktivitas->deskripsi }}</td>
+            <td class="border">{{ $listaktivitas->start_date }}</td>
+            <td class="border">{{ $listaktivitas->title }}</td>
+            <td class="border">{{ $listaktivitas->prioritas }}</td>
+            <td class="border">{{ $listaktivitas->deskripsi }}</td>
           </tr>
           @endforeach
         </tbody>

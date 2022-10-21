@@ -86,7 +86,7 @@
               <option value="BPKB">BPKB</option>
             </select>
           </div>
-          <div class="col-12 mt-2 mb-5">
+          <div class="col-12">
             <button class="btn btn-info mr-1">
               <i class="fa fa-angle-left"></i>
               <a href="{{ route('master_kendaraan.index') }}" class="text-white text-decoration-none">Kembali</a>

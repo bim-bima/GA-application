@@ -33,17 +33,17 @@
       <div class="table-responsive col-12">
         <table class="table table-bordered" id="table" width="100%" cellspacing="0">
           <thead>
-            <tr class="">
-              <th class="border border-secondary col-5 col-sm-9">Nama Aktivitas</th>
-              <th class="border border-secondary col-3 col-sm-3 col-md-2 col-xl-1">Aksi</th>
+            <tr class="bg-primary text-light">
+              <th class="border col-5 col-sm-9">Nama Aktivitas</th>
+              <th class="border col-3 col-sm-3 col-md-2 col-xl-1">Aksi</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($dataaktivitas as $aktivitas)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $aktivitas->id }}">
-              <td class="border-secondary">{{ $aktivitas->ma_nama_aktivitas }}</td>
-              <td class="border-secondary">
+              <td class="border">{{ $aktivitas->ma_nama_aktivitas }}</td>
+              <td class="border">
                 <a class="btn-sm btn-warning btn-circle mb-sm-0 mb-1" href="{{ route('master_aktivitas.edit',$aktivitas->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
                   <i class="fas fa-edit"></i>
                 </a>

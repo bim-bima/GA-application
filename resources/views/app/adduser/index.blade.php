@@ -79,25 +79,25 @@
               <div class="col-12" style="overflow-y: auto; max-height: 285px;">
                 <table class="table table-bordered border" id="table" cellspacing="0">
                   <thead>
-                    <tr>
-                      <th class="col-6 border border-secondary px-2">Nama</th>
-                      <th class="col-6 border border-secondary px-2">Email</th>
-                      <th class="col-1 border border-secondary px-2">Aksi</th>
+                    <tr class="bg-primary text-light">
+                      <th class="col-6 border px-2">Nama</th>
+                      <th class="col-6 border px-2">Email</th>
+                      <th class="col-1 border px-2">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach ($listuser as $list)
                     <tr>
                     <input type="hidden" class="delete_id" value="{{ $list->id }}">
-                      <td class="border-secondary px-2">{{ $list->name }}</td>
-                      <td class="border-secondary px-2">{{ $list->email }}</td>
-                      <td class="border-secondary px-2 text-center"> 
+                      <td class="border px-2">{{ $list->name }}</td>
+                      <td class="border px-2">{{ $list->email }}</td>
+                      <td class="border px-2 text-center"> 
                         <form action="{{ route('add_user.destroy',$list->id) }}" method="post" class="d-inline">
-                        @csrf
-                        @method('delete')
-                        <button class="btn-danger btn-circle btn-sm border-0 btndeleteuser" type="submit"><i class="fas fa-trash"></i>
-                        </button>
-                      </form>
+                          @csrf
+                          @method('delete')
+                          <button class="btn-danger btn-circle btn-sm border-0 btndeleteuser" type="submit"><i class="fas fa-trash"></i>
+                          </button>
+                        </form>
                       </td>
                     </tr>
                     @endforeach

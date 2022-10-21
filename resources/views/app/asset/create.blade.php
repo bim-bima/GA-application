@@ -3,20 +3,20 @@
 @section('content')
   <div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="100">
     <div class="card-header py-3 px-sm-3 px-2">
-      <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="500">Tambah Asset</h6>
+      <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="500">Tambah Aset</h6>
     </div>
     <div class="card-body px-sm-3 px-2">
       <form action="{{ route('app_asset.store') }}" method="POST" enctype="multipart/form-data" class="row">
         @csrf
         <div class="col-lg-6 mb-3 mb-sm-2">
-          <label for="nama_asset" class="form-label" data-aos="fade-right" data-aos-delay="550">Nama Asset</label>
+          <label for="nama_asset" class="form-label" data-aos="fade-right" data-aos-delay="550">Nama Aset</label>
           <input type="text" class="form-control @error('nama_asset') is-invalid @enderror" name="nama_asset" required data-aos="fade-right" data-aos-delay="600" required autofocus value="{{ old('nama_asset') }}">
           @error('nama_asset')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
         <div class="col-lg-6 mb-3 mb-sm-2">
-          <label for="jumlah_asset" class="form-label" data-aos="fade-left" data-aos-delay="550">Jumlah Asset</label>
+          <label for="jumlah_asset" class="form-label" data-aos="fade-left" data-aos-delay="550">Jumlah Aset</label>
           <input type="number" min="1" class="form-control @error('jumlah_asset') is-invalid @enderror" name="jumlah_asset" required data-aos="fade-left" data-aos-delay="600" required autofocus value="{{ old('jumlah_asset') }}">
           @error('jumlah_asset')
           <div class="invalid-feedback">{{ $message }}</div>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="col-lg-6 mb-3 mb-sm-2">
-          <label for="lokasi_asset" class="form-label" data-aos="fade-right" data-aos-delay="650">Lokasi Asset</label>
+          <label for="lokasi_asset" class="form-label" data-aos="fade-right" data-aos-delay="650">Lokasi Aset</label>
           <select name="lokasi_asset" class="form-control @error('lokasi_asset') is-invalid @enderror" required data-aos="fade-right" data-aos-delay="700">
             <option value="">Pilih Lokasi</option>
             @foreach ($lokasiAsset as $la)
@@ -40,9 +40,9 @@
           @enderror
         </div>
         <div class="col-lg-6 mb-3 mb-sm-2">
-          <label for="category_asset" class="form-label" data-aos="fade-left" data-aos-delay="650">Category Asset</label>
+          <label for="category_asset" class="form-label" data-aos="fade-left" data-aos-delay="650">Kategori Aset</label>
           <select name="category_asset" class="form-control @error('category_asset') is-invalid @enderror" required data-aos="fade-left" data-aos-delay="700">
-            <option value="">Pilih Category</option>
+            <option value="">Pilih Kategori</option>
             @foreach ($categoryasset as $category)
             @if( old('category_asset') == $category->mca_category )
             <option value="{{ $category->mca_category }}" selected>{{ $category->mca_category}}</option>
@@ -81,14 +81,14 @@
           </select>
         </div>
         <div class="col-lg-6 mb-3 mb-sm-2">
-          <label for="harga_asset" class="form-label" data-aos="fade-right" data-aos-delay="850">Harga Asset </label>
+          <label for="harga_asset" class="form-label" data-aos="fade-right" data-aos-delay="850">Harga Aset </label>
           <input type="number" min="1" class="form-control @error('harga_asset') is-invalid @enderror" name="harga_asset" required data-aos="fade-right" data-aos-delay="900" required autofocus value="{{ old('harga_asset') }}">
           @error('harga_asset')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
         <div class="col-lg-6 mb-3 mb-sm-2">
-          <label for="umur_manfaat_asset" class="form-label" data-aos="fade-left" data-aos-delay="850">Umur Manfaat Asset</label>
+          <label for="umur_manfaat_asset" class="form-label" data-aos="fade-left" data-aos-delay="850">Umur Manfaat Aset</label>
           <select name="umur_manfaat_asset" required class="form-control @error('umur_manfaat_asset') is-invalid @enderror" required data-aos="fade-left" data-aos-delay="900">
             <option value="">Pilih Umur Manfaat</option>
             <option value="4">4 tahun</option>

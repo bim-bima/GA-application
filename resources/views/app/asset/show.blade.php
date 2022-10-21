@@ -6,7 +6,7 @@
 
 <div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   <div class="card-header px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Asset</h6>
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Aset</h6>
   </div>
   <?php   
         $tahunawal = $asset->as_tahun_kepemilikan; 
@@ -61,19 +61,19 @@
         <ol class="list-group list-group-numbered">
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
           <div class="">
-              <div class="text-primary font-weight-bold">Nama Asset :</div>
+              <div class="text-primary font-weight-bold">Nama Aset :</div>
               <b>{{ $asset->as_nama_asset }}</b>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
             <div class="mr-auto">
-              <div class="text-primary font-weight-bold">Lokasi Asset :</div>
+              <div class="text-primary font-weight-bold">Lokasi Aset :</div>
               <b>{{ $asset->as_mla_id }}</b>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
             <div class="mr-auto">
-              <div class="text-primary font-weight-bold">Category Asset :</div>
+              <div class="text-primary font-weight-bold">Kategori Aset :</div>
               <b>{{ $asset->as_mca_id }}</b>
             </div>
           </li>
@@ -85,7 +85,7 @@
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
             <div class="mr-auto">
-              <div class="text-primary font-weight-bold">Kode Asset :</div>
+              <div class="text-primary font-weight-bold">Kode Aset :</div>
               <b>{{ $asset->as_kode_asset }}</b>
             </div>
           </li>
@@ -95,7 +95,7 @@
             $harga = number_format($harga1,0,",",",");
            ?>
             <div class="mr-auto">
-              <div class="text-primary font-weight-bold">Harga Asset :</div>
+              <div class="text-primary font-weight-bold">Harga Aset :</div>
               <b>{{ $harga }}</b>
             </div>
           </li> 

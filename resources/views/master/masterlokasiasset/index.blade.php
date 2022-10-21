@@ -6,7 +6,7 @@
 
 <div class="card shadow mb-4">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary">Daftar Lokasi Asset</h6>
+    <h6 class="m-0 font-weight-bold text-primary">Daftar Lokasi Aset</h6>
     <button class="btn btn-primary mt-2">
       <i class="fa fa-plus"></i>
       <a href="{{ route('master_lokasiasset.create') }}" class="text-white text-decoration-none">Tambah</a>
@@ -22,7 +22,7 @@
               <div class="col-12">
                 <div class="text-center">
                   <i class="fas fa-info-circle"></i>
-                  <i>Belum Ada Data Lokasi Asset Disini</i>
+                  <i>Belum Ada Data Lokasi Aset Disini</i>
                 </div>
               </div>                      
             </div>
@@ -35,17 +35,17 @@
       <div class="table-responsive col-xl-7">
         <table class="table table-bordered" id="table" width="100%" cellspacing="0">
           <thead>
-            <tr>
-              <th class="border border-secondary col-4 col-sm-7 col-md-9">Nama Lokasi Asset</th>
-              <th class="border border-secondary col-4 col-sm-2">Aksi</th>
+            <tr class="bg-primary text-light">
+              <th class="border col-4 col-sm-7 col-md-9">Nama Lokasi Aset</th>
+              <th class="border col-4 col-sm-2">Aksi</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($datalokasiasset as $lokasiasset)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $lokasiasset->id }}">
-              <td class="border-secondary">{{ $lokasiasset->mla_lokasi_asset }}</td>
-              <td class="border-secondary">
+              <td class="border">{{ $lokasiasset->mla_lokasi_asset }}</td>
+              <td class="border">
                 <a class="btn-sm btn-warning btn-circle mb-sm-0 mb-1" href="{{ route('master_lokasiasset.edit',$lokasiasset->id) }}" data-toggle="tooltip" data-placement="left" title="Edit">
                   <i class="fas fa-edit"></i>
                 </a>

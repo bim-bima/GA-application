@@ -34,27 +34,27 @@
       @if($cek > 0)
       <table class="table table-bordered" id="table" width="100%" cellspacing="0">
         <thead>
-          <tr>
-            <th class="border border-secondary">Nama Kendaraan</th>
-            <th class="border border-secondary">No Polisi</th>
-            <th class="border border-secondary">Jenis</th>
-            <th class="border border-secondary">Merk</th>
-            <th class="border border-secondary">Warna</th>
-            <th class="border border-secondary">Perlengkapan</th>
-            <th class="border border-secondary">Aksi</th>
+          <tr class="bg-primary text-light">
+            <th class="border">Nama Kendaraan</th>
+            <th class="border">No Polisi</th>
+            <th class="border">Jenis</th>
+            <th class="border">Merk</th>
+            <th class="border">Warna</th>
+            <th class="border">Perlengkapan</th>
+            <th class="border">Aksi</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($datakendaraan as $kendaraan)
           <tr>
             <input type="hidden" class="delete_id" value="{{ $kendaraan->id }}">
-            <td class="border-secondary">{{ $kendaraan->mk_nama_kendaraan }}</td>
-            <td class="border-secondary">{{ $kendaraan->mk_no_polisi }}</td>
-            <td class="border-secondary">{{ $kendaraan->mk_jenis }}</td>
-            <td class="border-secondary">{{ $kendaraan->mk_merk }}</td>
-            <td class="border-secondary">{{ $kendaraan->mk_warna }}</td>
-            <td class="border-secondary">{{ $kendaraan->mk_perlengkapan }}</td>
-            <td class="border-secondary">
+            <td class="border">{{ $kendaraan->mk_nama_kendaraan }}</td>
+            <td class="border">{{ $kendaraan->mk_no_polisi }}</td>
+            <td class="border">{{ $kendaraan->mk_jenis }}</td>
+            <td class="border">{{ $kendaraan->mk_merk }}</td>
+            <td class="border">{{ $kendaraan->mk_warna }}</td>
+            <td class="border">{{ $kendaraan->mk_perlengkapan }}</td>
+            <td class="border">
               <a class="btn-sm btn-warning btn-circle mb-xl-0 mb-1" href="{{ route('master_kendaraan.edit',$kendaraan->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
                 <i class="fa fa-edit"></i>
               </a>

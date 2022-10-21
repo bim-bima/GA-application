@@ -34,18 +34,18 @@
       @if($cek > 0)
       <div class="table-responsive col-xl-7 border-dark">
         <table class="table table-bordered" id="table" width="100%" cellspacing="0">
-          <thead class="">
-            <tr>
-              <th class="border border-secondary col-4 col-sm-7 col-md-9">Jenis Pengajuan</th>
-              <th class="border border-secondary col-4 col-sm-2">Aksi</th>
+          <thead>
+            <tr class="bg-primary text-light">
+              <th class="border col-4 col-sm-7 col-md-9">Jenis Pengajuan</th>
+              <th class="border col-4 col-sm-2">Aksi</th>
             </tr>
           </thead>
           <tbody class="border-top-0">
             @foreach ($jenispengajuan as $jenis)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $jenis->id }}">
-              <td class="border-secondary">{{ $jenis->mjp_jenis }}</td>
-              <td class="border-secondary">
+              <td class="border">{{ $jenis->mjp_jenis }}</td>
+              <td class="border">
                 <a class="btn-sm btn-warning btn-circle mb-sm-0 mb-1" href="{{ route('master_jenispengajuan.edit',$jenis->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
                   <i class="fa fa-edit"></i>
                 </a>
