@@ -17,7 +17,7 @@ class AdduserController extends Controller
     public function index()
     {
         $cekuser = User::count();
-        $listuser = User::paginate(8);
+        $listuser = User::all();
 
         return view('app.adduser.index', compact(['cekuser','listuser']));
     }

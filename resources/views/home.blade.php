@@ -76,7 +76,7 @@
           </a>
           <!-- Card Content - Collapse -->
           <div class="collapse show" id="Aktivitas">
-            <div class="card-body px-sm-3 px-2" style="overflow-y: auto; max-height: 285px;">
+            <div class="card-body px-sm-3 px-2" style="overflow-y: auto; max-height: 500px;">
               <table class="table table-bordered border" id="table" width="100%" cellspacing="0">
                 <thead>
                   <tr>
@@ -156,7 +156,7 @@
             <div class="card-body px-sm-3 px-2">
               <div class="row">
                 @if($cekrequest == 0)
-                  <div class="col"style="overflow-y: auto; max-height: 285px;">
+                  <div class="col">
                     <div class="card border-danger mb-2">
                       <div class="card-body">
                         <div class="row">
@@ -173,7 +173,7 @@
                 @endif
 
                 @if($cekrequest > 0)
-                <div class="col-12" style="overflow-y: auto; max-height: 285px;">
+                <div class="col-12" style="overflow-y: auto; max-height: 500px;">
                   <table class="table table-bordered border" id="tableriwayat" cellspacing="0">
                     <thead>
                       <tr>

@@ -21,7 +21,7 @@ class PengajuanController extends Controller
         public function index()
         {
             $cek = pengajuan::count();
-            $datapengajuan = Pengajuan::with('vendor','pic','jenispengajuan')->paginate(10);
+            $datapengajuan = Pengajuan::all();
             $vendor = MasterVendor::all();
             $pic = MasterPic::all();
             $jenispengajuan = MasterJenisPengajuan::all();
@@ -53,7 +53,6 @@ class PengajuanController extends Controller
         'biaya'              => 'required|min:4|max:11|regex:/^[0-9]+$/',
         'catatan'            => 'required',
         'tanggal_pengadaan'  => 'required|after:today',
-        'pic'                => 'required',
         'ap_status'          => 'nullable',
         ]);
 
@@ -64,7 +63,6 @@ class PengajuanController extends Controller
         $pengajuan->ap_biaya = $request->biaya;
         $pengajuan->ap_catatan = $request->catatan;
         $pengajuan->ap_tanggal_pengadaan = $request->tanggal_pengadaan;
-        $pengajuan->ap_mp_id = $request->pic;
         $pengajuan->ap_status = 'Menunggu Persetujuan';
         $pengajuan->ap_reason = $request->ap_reason;
         $pengajuan->save();

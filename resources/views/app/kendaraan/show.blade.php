@@ -25,7 +25,6 @@ $jam_selesai = substr($kendaraan->ak_jam_selesai,-0,5);
             <th class="border border-secondary px-sm-2">Jam Mulai</th>
             <th class="border border-secondary px-sm-2">Tanggal Selesai</th>
             <th class="border border-secondary px-sm-2">Jam Selesai</th>
-            <th class="border border-secondary px-sm-2">Nama PIC</th>
             <th class="border border-secondary px-sm-2">Menuju</th>
             <th class="border border-secondary px-sm-2">Tujuan</th>
           </tr>
@@ -38,7 +37,6 @@ $jam_selesai = substr($kendaraan->ak_jam_selesai,-0,5);
             <td class="border-secondary px-2">{{ $jam_mulai }}</td>
             <td class="border-secondary px-2">{{ $kendaraan->ak_tanggal_selesai }}</td>
             <td class="border-secondary px-2">{{ $jam_selesai }}</td>
-            <td class="border-secondary px-2">{{ $kendaraan->pic->mp_nama }}</td>
             <td class="border-secondary px-2">{{ $kendaraan->ak_lokasi_tujuan }}</td>
             <td class="border-secondary px-2">{{ $kendaraan->ak_tujuan_pemakaian }}</td>
           </tr>

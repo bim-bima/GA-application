@@ -81,7 +81,7 @@
           @endforeach
         </tbody>
       </table>
-      {{ $dataasset->links() }}
+      {{-- {{ $dataasset->links() }} --}}
     </div>
     @endif
   </div>

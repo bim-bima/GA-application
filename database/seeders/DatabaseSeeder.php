@@ -26,8 +26,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        // Asset::factory(10)->create();
         User::factory()->create([
             'name' => 'general-affair',
             'email' => 'ga@gmail.com',
@@ -55,23 +53,31 @@ class DatabaseSeeder extends Seeder
             'prioritas' => 'rendah'
         ]);
         MasterKendaraan::factory()->create([
-            'mk_nama_kendaraan' => 'toyota avanza',
-            'mk_no_polisi' => 'AK 9811 OK',
+            'mk_nama_kendaraan' => 'Toyota Avanza',
+            'mk_no_polisi' => 'B 2934 STX',
             'mk_jenis' => 'Roda 4',
-            'mk_merk' => 'toyota',
+            'mk_merk' => 'Toyota',
             'mk_warna' => 'Merah maroon',
-            'mk_perlengkapan' => 'STNK-BPKB',
-            'mk_bahan_bakar' => '10 liter',
+            'mk_bahan_bakar' => '10',
             'mk_kilometer' => '277',
             'mk_kondisi_lain' => 'aman'
         ]);
         MasterKendaraan::factory()->create([
-            'mk_nama_kendaraan' => 'Honda Vario Old',
-            'mk_no_polisi' => 'EJ 7663 OK',
+            'mk_nama_kendaraan' => 'Honda Vario 125',
+            'mk_no_polisi' => 'B 3123 SOD',
             'mk_jenis' => 'Roda 2',
-            'mk_merk' => 'honda',
-            'mk_warna' => 'putih',
-            'mk_perlengkapan' => 'STNK-BPKB',
+            'mk_merk' => 'Honda',
+            'mk_warna' => 'Putih',
+            'mk_bahan_bakar' => '2',
+            'mk_kilometer' => '397',
+            'mk_kondisi_lain' => 'aman'
+        ]);
+        MasterKendaraan::factory()->create([
+            'mk_nama_kendaraan' => 'Toyota Rush',
+            'mk_no_polisi' => 'EJ 7663 OK',
+            'mk_jenis' => 'Roda 4',
+            'mk_merk' => 'Toyota',
+            'mk_warna' => 'Abu Abu Gelap',
             'mk_bahan_bakar' => '2 liter',
             'mk_kilometer' => '397',
             'mk_kondisi_lain' => 'aman'

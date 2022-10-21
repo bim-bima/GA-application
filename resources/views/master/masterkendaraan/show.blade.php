@@ -29,10 +29,6 @@
             <label for="mk_warna" class="form-label">Warna Kendaraan</label>
             <input type="text" class="form-control @error('warna') is-invalid @enderror" name="mk_warna" readonly  value="{{ $kendaraan->mk_warna }}">
           </div>
-          <div class="col-md-6 mb-2 pl-md-1">
-            <label for="mk_perlengkapan" class="form-label">Perlengkapan</label>
-            <input type="text" class="form-control mb-4" name="mk_warna" readonly  value="{{ $kendaraan->mk_perlengkapan }}">
-          </div>
           <div class="col-12 mt-2 mb-md-5">
             @if(auth()->user()->level == "general-affair")
             <button class="btn btn-info">
@@ -73,22 +69,18 @@
       </div>
       <div class="card-body px-sm-3 px-2">
         <form action="#" method="POST" enctype="multipart/form-data" class="row">
-          <!-- <div class="col-12 mb-2">
-            <label for="mk_perlengkapan" class="form-label">Status</label>
-            <input type="text" class="form-control"  readonly  value="{{ $kendaraan->mk_status }}">
-          </div> -->
           <div class="col-12 mb-2">
             <label for="mk_Bahan_bakar" class="form-label">Bahan Bakar Tersedia</label>
             <input type="text" class="form-control"  readonly  
             value="{{ $kendaraan->mk_bahan_bakar }}">
             </div>
           <div class="col-12 mb-2">
-            <label for="mk_kilometer" class="form-label">Kilometer</label>
+            <label for="mk_kilometer" class="form-label">Kilometer Kendaraan</label>
             <input type="text" class="form-control" name="mk_kilometer" readonly  
             value="{{ $kendaraan->mk_kilometer }} KM">
           </div>
           <div class="col-12">
-            <label for="mk_kondisi_lain" class="form-label">Kondisi Lain</label>
+            <label for="mk_kondisi_lain" class="form-label">Catatan</label>
             <textarea type="text" class="form-control" name="mk_kondisi_lain" readonly value="{{ $kendaraan->mk_kondisi_lain }}" rows="3" >{{ $kendaraan->mk_kondisi_lain }}</textarea>
           </div>
         </form>

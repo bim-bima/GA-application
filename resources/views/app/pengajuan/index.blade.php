@@ -36,10 +36,6 @@
               <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">Rp.{{ $biaya }}</div>
             </div>
             <div class="d-flex row mb-4">
-              <div for="ap_mp_id" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">PIC</div>
-              <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0">{{ $pengajuan->ap_mp_id }}</div>
-            </div>
-            <div class="d-flex row mb-4">
               <div for="ap_catatan" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Catatan</div>
               <div class="card-text col-sm-8 col-md-8 col-lg-7 col-xl-8 col-12 pl-sm-0">{{ $pengajuan->ap_catatan }}</div>
             </div>
@@ -146,22 +142,6 @@
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="250">
-          <label for="pic" class="form-label">PIC</label>
-          <select name="pic" required class="form-control @error('pic') is-invalid @enderror" required>
-            <option value="">Pilih PIC</option>
-            @foreach ($pic as $pi)
-            @if( old('pic') == $pi->mp_nama )
-            <option value="{{ $pi->mp_nama }}" selected>{{ $pi->mp_nama}}</option>
-            @else
-            <option value="{{ $pi->mp_nama }}">{{ $pi->mp_nama}}</option>
-            @endif
-            @endforeach    
-          </select>
-          @error('pic')
-          <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div>
         <div class="col-12 mb-2" data-aos="zoom-in" data-aos-delay="300">
           <label for="catatan" class="form-label">Catatan</label>
           <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="catatan" required rows="3" ></textarea>
@@ -241,7 +221,6 @@
         </tbody>
       </table>
     @endif
-     {{ $datapengajuan->links() }}
     </div>
   </div>
 </div>

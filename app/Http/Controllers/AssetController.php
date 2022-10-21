@@ -15,7 +15,7 @@ class AssetController extends Controller
     public function index()
         {
             $cek = Asset::count();
-            $dataasset = Asset::with('lokasiAsset','categoryasset')->paginate(5);
+            $dataasset = Asset::all();
             return view('app.asset.index', compact(['dataasset','cek']));
         }
 

@@ -43,19 +43,6 @@
         @enderror
       </div>
       <div class="col-md-6 mb-2">
-        <label for="ak_mp_id" class="form-label">PIC</label>
-        <select name="ak_mp_id" class="form-control @error('ak_mp_id') is-invalid @enderror" required>
-          @foreach ($pic as $item)
-          <option value="{{ $item->id }}" 
-          {{ $item->id == $kendaraan->ak_mp_id ? 'selected="selected"' : '' }}>
-          {{ $item->mp_nama}}</option>
-          @endforeach    
-        </select>
-        @error('ak_mp_id')
-        <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-      </div>
-      <div class="col-md-6 mb-2">
         <label for="ak_kondisi" class="form-label">Kondisi kendaraan</label>
         <input type="text" class="form-control @error('kondisi') is-invalid @enderror" name="ak_kondisi" value="{{ $kendaraan->ak_kondisi }}" required>
         @error('kondisi')
