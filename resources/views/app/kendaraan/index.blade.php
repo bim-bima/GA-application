@@ -19,23 +19,29 @@
             <a href="#collapseCardExample{{ $id }}" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample{{ $id }}">
               <h6 class="m-0 font-weight-bold text-primary">{{ $ken->mk_nama_kendaraan }}</h6>
             </a>
+            @if(auth()->user()->level == "general-affair")
             <div class="collapse hide" id="collapseCardExample{{ $id }}">
+            @endif
+            @if(auth()->user()->level == "management")
+            <div class="collapse show" id="collapseCardExample{{ $id }}">
+            @endif
+
               <div class="card-body">
                 <!-- <div class="row ml-3">
                 <p class="small text-primary">Nama Kendaraan :</p> 
                 <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_nama_kendaraan }}</p>
                 </div> -->
-                <div class="row ml-3">
+                <div class="row ml-2">
                 <p class="small text-primary">Kilometer Kendaraan :</p>
-                <p class="ml-3 font-weight-bold text-lg"> {{ $ken->mk_kilometer }} Km</p>
+                <p class="ml-3 font-weight-bold"> {{ $ken->mk_kilometer }} Km</p>
                 </div>
-                <div class="row ml-3">
+                <div class="row ml-2">
                 <p class="small text-primary">Bahan Bakar Tersedia : </p> 
-                <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_bahan_bakar }} Liter</p>
+                <p class="ml-3 font-weight-bold">{{ $ken->mk_bahan_bakar }} Liter</p>
                 </div>
-                <div class="row ml-3">
+                <div class="row ml-2">
                 <p class="small text-primary">Catatan : </p> 
-                <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_kondisi_lain }}</p>
+                <p class="ml-3 font-weight-bold">{{ $ken->mk_kondisi_lain }}</p>
                 </div>
                 <a href="{{ route('master_kendaraan.show',$ken->id) }}" class="btn btn-info btn-block"></i>Detail</a>
   
@@ -86,7 +92,6 @@
               <th class="border px-2">Pengguna</th>
               <th class="border px-2">Tanggal Mulai</th>
               <th class="border px-2">Jam Mulai</th>
-              <th class="border px-2">PIC</th>
               <th class="border px-2">Lokasi Tujuan</th>
               <th class="border px-2">Tujuan Pemakaian</th>
               <th class="border px-2">Aksi</th>
@@ -104,7 +109,6 @@
               <td class="border px-2">{{ $item->ak_pengguna }}</td>
               <td class="border px-2">{{ $item->ak_tanggal_mulai }}</td>
               <td class="border px-2">{{ $jam_mulai }}</td>
-              <td class="border px-2">{{ $item->ak_mp_id }}</td>
               <td class="border px-2">{{ $item->ak_lokasi_tujuan }}</td>
               <td class="border px-2">{{ $item->ak_tujuan_pemakaian }}</td>
               <td class="border px-2">

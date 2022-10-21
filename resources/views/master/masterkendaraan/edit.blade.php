@@ -18,7 +18,7 @@
          ?>
 
         <div class="col-12 mb-2 px-sm-3 px-2">
-          <label for="Bahan_bakar" class="form-label">Bahan Bakar Tersedia (L)</label>
+          <label for="Bahan_bakar" class="form-label">Jumlah Bahan Bakar (Liter)</label>
           <input type="number" class="form-control @error('bahan_bakar') is-invalid @enderror" name="bahan_bakar" required value="{{ $bahan_bakar }}">
           @error('bahan_bakar')
           <div class="invalid-feedback">{{ $message }}</div>
@@ -34,7 +34,7 @@
           @enderror
         </div>
 
-        <div class="col-12 px-sm-3 px-2">
+        <div class="col-12 px-sm-3 px-2 mb-3">
           <label for="kondisi_lain" class="form-label">Catatan</label>
           <textarea type="text" class="form-control @error('kondisi') is-invalid @enderror" name="kondisi_lain" required value="{{ $kendaraan->mk_kondisi_lain }}" rows="3" >{{ $kendaraan->mk_kondisi_lain }}</textarea>
           @error('kondisi_lain')
@@ -77,20 +77,20 @@
             @enderror
           </div>
           <div class="col-md-6 mb-2 pl-md-1">
-            <label for="merk" class="form-label">Merk Kendaraan</label>
-            <input type="text" class="form-control @error('merk') is-invalid @enderror" name="merk" required  value="{{ $kendaraan->mk_merk }}">
-            @error('merk')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-          </div>
-          <div class="col-md-6 mb-2 pr-md-1">
             <label for="warna" class="form-label">Warna Kendaraan</label>
             <input type="text" class="form-control @error('warna') is-invalid @enderror" name="warna" required  value="{{ $kendaraan->mk_warna }}">
             @error('warna')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
-          <div class="col-12 mt-2 mb-5">
+          <div class="col-md-12 mb-2">
+            <label for="merk" class="form-label">Merk Kendaraan</label>
+            <input type="text" class="form-control @error('merk') is-invalid @enderror" name="merk" required  value="{{ $kendaraan->mk_merk }}">
+            @error('merk')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+          <div class="col-12 mt-3 mb-1">
             <button class="btn btn-info mr-1">
               <i class="fa fa-angle-left"></i>
               <a href="{{ route('app_kendaraan.index') }}" class="text-white text-decoration-none">

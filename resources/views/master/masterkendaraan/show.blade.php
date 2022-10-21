@@ -5,7 +5,32 @@
   <div class="col-lg-6 pr-lg-1">
     <div class="card shadow-sm mb-4" data-aos="fade-right" data-aos-delay="50">
       <div class="card-header py-3 px-sm-3 px-2">
-        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Data Kendaraan</h6>
+        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Kondisi Kendaraan</h6>
+      </div>
+      <div class="card-body px-sm-3 px-2">
+        <form action="#" method="POST" enctype="multipart/form-data" class="row">
+          <div class="col-12 mb-2">
+            <label for="mk_Bahan_bakar" class="form-label">Jumlah Bahan Bakar (Liter)</label>
+            <input type="text" class="form-control"  readonly  
+            value="{{ $kendaraan->mk_bahan_bakar }}">
+            </div>
+          <div class="col-12 mb-2">
+            <label for="mk_kilometer" class="form-label">Kilometer Kendaraan</label>
+            <input type="text" class="form-control" name="mk_kilometer" readonly  
+            value="{{ $kendaraan->mk_kilometer }} KM">
+          </div>
+          <div class="col-12 mb-2">
+            <label for="mk_kondisi_lain" class="form-label">Catatan</label>
+            <textarea type="text" class="form-control" name="mk_kondisi_lain" readonly value="{{ $kendaraan->mk_kondisi_lain }}" rows="3" >{{ $kendaraan->mk_kondisi_lain }}</textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 pl-lg-1">
+    <div class="card shadow-sm mb-4" data-aos="fade-left" data-aos-delay="50">
+      <div class="card-header py-3 px-sm-3 px-2">
+        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-left" data-aos-delay="100">Data Kendaraan</h6>
       </div>
       <div class="card-body px-sm-3 px-2">
         <form action="#" method="POST" enctype="multipart/form-data" class="row">
@@ -22,14 +47,14 @@
             <input type="text" class="form-control" name="mk_warna" readonly  value="{{ $kendaraan->mk_jenis }}">
             </div>
           <div class="col-md-6 mb-2 pl-md-1">
-            <label for="mk_merk" class="form-label">Merk Kendaraan</label>
-            <input type="text" class="form-control @error('merk') is-invalid @enderror" name="mk_merk" readonly  value="{{ $kendaraan->mk_merk }}">
-            </div>
-          <div class="col-md-6 mb-2 pr-md-1">
             <label for="mk_warna" class="form-label">Warna Kendaraan</label>
             <input type="text" class="form-control @error('warna') is-invalid @enderror" name="mk_warna" readonly  value="{{ $kendaraan->mk_warna }}">
           </div>
-          <div class="col-12 mt-2 mb-md-5">
+          <div class="col-12 mb-2">
+            <label for="mk_merk" class="form-label">Merk Kendaraan</label>
+            <input type="text" class="form-control @error('merk') is-invalid @enderror" name="mk_merk" readonly  value="{{ $kendaraan->mk_merk }}">
+          </div>
+          <div class="col-12 mt-2 mb-1">
             @if(auth()->user()->level == "general-affair")
             <button class="btn btn-info">
               <i class="fa fa-angle-left"></i>
@@ -49,7 +74,7 @@
             @endif
 
             @if(auth()->user()->level == "management")
-            <button class="btn btn-info mb-3">
+            <button class="btn btn-info mt-2 mb-2">
               <i class="fa fa-angle-left"></i>
               <a href="{{ route('app_kendaraan.index') }}" class="text-white text-decoration-none">
                 Kembali
@@ -62,31 +87,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-6 pl-lg-1">
-    <div class="card shadow-sm mb-4" data-aos="fade-left" data-aos-delay="50">
-      <div class="card-header py-3 px-sm-3 px-2">
-        <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-left" data-aos-delay="100">Kondisi Kendaraan</h6>
-      </div>
-      <div class="card-body px-sm-3 px-2">
-        <form action="#" method="POST" enctype="multipart/form-data" class="row">
-          <div class="col-12 mb-2">
-            <label for="mk_Bahan_bakar" class="form-label">Bahan Bakar Tersedia</label>
-            <input type="text" class="form-control"  readonly  
-            value="{{ $kendaraan->mk_bahan_bakar }}">
-            </div>
-          <div class="col-12 mb-2">
-            <label for="mk_kilometer" class="form-label">Kilometer Kendaraan</label>
-            <input type="text" class="form-control" name="mk_kilometer" readonly  
-            value="{{ $kendaraan->mk_kilometer }} KM">
-          </div>
-          <div class="col-12">
-            <label for="mk_kondisi_lain" class="form-label">Catatan</label>
-            <textarea type="text" class="form-control" name="mk_kondisi_lain" readonly value="{{ $kendaraan->mk_kondisi_lain }}" rows="3" >{{ $kendaraan->mk_kondisi_lain }}</textarea>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+  
 </div>
 @endsection  
 

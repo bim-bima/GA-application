@@ -9,6 +9,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+
+ 
+  
   
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>General Affair</title>
@@ -55,9 +58,10 @@
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
             </div> -->
-            <div class="col-12 mb-2">
+            <div class="col-12 mb-2 search_aktivitas">
               <label for="title" class="form-label">Aktivitas</label>
-              <select name="title" id="title" class="form-control @error('title') is-invalid @enderror" required>
+              <select name="title" id="title" class="form-control @error('title') is-invalid @enderror " 
+              data-live-search="true" required>
                 <option value="">Pilih Aktivitas</option>
                 @foreach ($maktivitas as $aktivitas)
                 <option value="{{ $aktivitas->ma_nama_aktivitas }}">{{ $aktivitas->ma_nama_aktivitas}}</option>
@@ -178,6 +182,8 @@
       </div>
     </div>
   </div>
+  
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 
   <!-- Calendar -->

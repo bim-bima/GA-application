@@ -114,12 +114,12 @@
 
         <a class="dropdown-item" href="{{ route('edit_profile') }}">
         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-        {{ __('Update Profile') }}
+        {{ __('Ubah Profile') }}
         </a>
 
         <a class="dropdown-item" href="{{ route('edit_password') }}">
         <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
-        {{ __('Update Password') }}
+        {{ __('Ubah Password') }}
         </a>
 
         <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" 

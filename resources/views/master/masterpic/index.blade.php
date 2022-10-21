@@ -35,17 +35,17 @@
       <div class="table-responsive col-xl-7">
         <table class="table table-bordered mt-1" id="table" width="100%" cellspacing="0">
           <thead class="">
-            <tr>
-              <th class="border border-secondary col-4 col-sm-7 col-md-9">Nama</th>
-              <th class="border border-secondary col-4 col-sm-2">Aksi</th>
+            <tr class="bg-primary text-light">
+              <th class="border col-4 col-sm-7 col-md-9">Nama</th>
+              <th class="border col-4 col-sm-2">Aksi</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($datapic as $pic)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $pic->id }}">
-              <td class="border-secondary">{{ $pic->mp_nama }}</td>
-              <td class="border-secondary">
+              <td class="border">{{ $pic->mp_nama }}</td>
+              <td class="border">
                 <a class="btn-sm btn-warning btn-circle mb-sm-0 mb-1" href="{{ route('master_pic.edit',$pic->id) }}">
                   <i class="fa fa-edit"></i>
                 </a>

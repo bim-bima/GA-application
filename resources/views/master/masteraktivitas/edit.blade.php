@@ -9,15 +9,15 @@
       @csrf
       @method('put')
       <label for="ma_nama_aktivitas" class="form-label">Nama Aktivitas</label>
-      <input type="text" class="mb-1 form-control @error('nama') is-invalid @enderror" name="ma_nama_aktivitas" value="{{ $aktivitas->ma_nama_aktivitas }}" required>
+      <input type="text" class="mb-2 form-control @error('nama') is-invalid @enderror" name="ma_nama_aktivitas" value="{{ $aktivitas->ma_nama_aktivitas }}" required>
       @error('nama')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
-      <button class="btn mt-3 btn-info mr-1 mb-1">
+      <button class="btn mt-3 btn-info mr-1 mb-2">
       <i class="fa fa-angle-left"></i>
       <a href="{{ route('master_aktivitas.index') }}" class="text-white text-decoration-none">Kembali</a>
       </button>
-      <button type="submit" class="btn btn-success mt-3 mb-1">
+      <button type="submit" class="btn btn-success mt-3 mb-2">
         <i class="fa fa-edit"></i>
         Edit
       </button>
