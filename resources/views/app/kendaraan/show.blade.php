@@ -18,27 +18,27 @@ $jam_selesai = substr($kendaraan->ak_jam_selesai,-0,5);
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
-          <tr>
-            <th class="border border-secondary px-sm-2">Kendaraan</th>
-            <th class="border border-secondary px-sm-2">Pengguna</th>
-            <th class="border border-secondary px-sm-2">Tanggal Mulai</th>
-            <th class="border border-secondary px-sm-2">Jam Mulai</th>
-            <th class="border border-secondary px-sm-2">Tanggal Selesai</th>
-            <th class="border border-secondary px-sm-2">Jam Selesai</th>
-            <th class="border border-secondary px-sm-2">Menuju</th>
-            <th class="border border-secondary px-sm-2">Tujuan</th>
+          <tr class="bg-primary text-light">
+            <th class="border px-sm-2">Kendaraan</th>
+            <th class="border px-sm-2">Pengguna</th>
+            <th class="border px-sm-2">Tanggal Mulai</th>
+            <th class="border px-sm-2">Jam Mulai</th>
+            <th class="border px-sm-2">Tanggal Selesai</th>
+            <th class="border px-sm-2">Jam Selesai</th>
+            <th class="border px-sm-2">Menuju</th>
+            <th class="border px-sm-2">Tujuan</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="border-secondary px-2">{{ $kendaraan->namaKendaraan->mk_nama_kendaraan }}</td>
-            <td class="border-secondary px-2">{{ $kendaraan->ak_pengguna }}</td>
-            <td class="border-secondary px-2">{{ $kendaraan->ak_tanggal_mulai }}</td>
-            <td class="border-secondary px-2">{{ $jam_mulai }}</td>
-            <td class="border-secondary px-2">{{ $kendaraan->ak_tanggal_selesai }}</td>
-            <td class="border-secondary px-2">{{ $jam_selesai }}</td>
-            <td class="border-secondary px-2">{{ $kendaraan->ak_lokasi_tujuan }}</td>
-            <td class="border-secondary px-2">{{ $kendaraan->ak_tujuan_pemakaian }}</td>
+            <td class="border px-2">{{ $kendaraan->ak_mk_id }}</td>
+            <td class="border px-2">{{ $kendaraan->ak_pengguna }}</td>
+            <td class="border px-2">{{ $kendaraan->ak_tanggal_mulai }}</td>
+            <td class="border px-2">{{ $jam_mulai }}</td>
+            <td class="border px-2">{{ $kendaraan->ak_tanggal_selesai }}</td>
+            <td class="border px-2">{{ $jam_selesai }}</td>
+            <td class="border px-2">{{ $kendaraan->ak_lokasi_tujuan }}</td>
+            <td class="border px-2">{{ $kendaraan->ak_tujuan_pemakaian }}</td>
           </tr>
         </tbody>
       </table>

@@ -10,7 +10,7 @@
     <form action="{{ route('update_profile') }}" method="POST" enctype="multipart/form-data" class="col-lg-6 px-0">
       @csrf
       @method('put')
-      <label for="name" class="form-label" data-aos="fade-right" data-aos-delay="150">Name</label>
+      <label for="name" class="form-label" data-aos="fade-right" data-aos-delay="150">Nama</label>
       <input type="text" class="mb-3 form-control @error('name') is-invalid @enderror" name="name" required autofocus data-aos="fade-right" data-aos-delay="200" value="{{ $name }}" >
       @error('name')
       <div class="invalid-feedback">{{ $message }}</div>

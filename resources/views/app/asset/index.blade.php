@@ -4,7 +4,7 @@
 
 <div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Daftar Asset</h6>
+    <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Daftar Aset</h6>
     @if(auth()->user()->level == "general-affair")
     <button class="btn btn-primary mt-2" data-aos="fade-right" data-aos-delay="150">
       <i class="fa fa-plus"></i>
@@ -22,7 +22,7 @@
             <div class="col-12 px-1">
               <div class="text-center">
                 <i class="fas fa-info-circle"></i>
-                <i>Belum Ada Data Asset Disini</i>
+                <i>Belum Ada Data Aset Disini</i>
               </div>
             </div>                      
           </div>
@@ -35,15 +35,15 @@
     <div class="table-responsive">
       <table class="table table-bordered" id="table" width="100%" cellspacing="0">
         <thead>
-          <tr>
-            <th class="border border-secondary px-2">Nama Asset</th>
-            <th class="border border-secondary px-2">Lokasi Asset</th>
-            <th class="border border-secondary px-2">Tahun milikan</th>
-            <th class="border border-secondary px-2">Kode Asset</th>
-            <th class="border border-secondary px-2">Harga Asset</th>
-            <th class="border border-secondary px-2">Category</th>
-            <th class="border border-secondary px-2">Umur Manfaat</th>
-            <th class="border border-secondary px-2">Aksi</th>
+          <tr class="bg-primary text-light">
+            <th class="border px-2">Nama Aset</th>
+            <th class="border px-2">Lokasi Aset</th>
+            <th class="border px-2">Tahun Kepemilikan</th>
+            <th class="border px-2">Kode Aset</th>
+            <th class="border px-2">Harga Aset</th>
+            <th class="border px-2">Kategori</th>
+            <th class="border px-2">Umur Manfaat</th>
+            <th class="border px-2">Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -54,14 +54,14 @@
            ?>
           <tr>
             <input type="hidden" class="delete_id" value="{{ $asset->id }}">
-            <td class="border-secondary px-2">{{ $asset->as_nama_asset }}</td>
-            <td class="border-secondary px-2">{{ $asset->as_mla_id }}</td>
-            <td class="border-secondary px-2">{{ $asset->as_tahun_kepemilikan }}</td>
-            <td class="border-secondary px-2">{{ $asset->as_kode_asset }}</td>
-            <td class="border-secondary px-2">{{ $harga }}</td>
-            <td class="border-secondary px-2">{{ $asset->as_mca_id }}</td>
-            <td class="border-secondary px-2">{{ $asset->as_umur_manfaat }} tahun</td>
-            <td class="border-secondary px-2">
+            <td class="border px-2">{{ $asset->as_nama_asset }}</td>
+            <td class="border px-2">{{ $asset->as_mla_id }}</td>
+            <td class="border px-2">{{ $asset->as_tahun_kepemilikan }}</td>
+            <td class="border px-2">{{ $asset->as_kode_asset }}</td>
+            <td class="border px-2">{{ $harga }}</td>
+            <td class="border px-2">{{ $asset->as_mca_id }}</td>
+            <td class="border px-2">{{ $asset->as_umur_manfaat }} tahun</td>
+            <td class="border px-2">
               <a class="btn-sm btn-info btn-circle mb-xl-0 mb-1" href="{{ route('app_asset.show',$asset->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
                 <i class="fas fa-eye"></i>
               </a>

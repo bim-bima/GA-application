@@ -10,15 +10,15 @@
     <div class="table-responsive border-dark mb-2">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
-          <tr>
-            <th class="border border-secondary px-2 col-sm-1">Tanggal</th>
+          <tr class="bg-primary text-light">
+            <th class="border px-2 col-sm-1">Tanggal</th>
             @if(auth()->user()->level == "general-affair")
-            <th class="border border-secondary px-2 col-sm-1">Perequest</th>
+            <th class="border px-2 col-sm-1">Perequest</th>
             @endif
-            <th class="border border-secondary px-2 col-sm-1">Request</th>
-            <th class="border border-secondary px-2 col-sm-2">Tingkat Kebutuhan</th>
-            <th class="border border-secondary px-2 col-sm-2">Catatan</th>
-            <th class="border border-secondary px-2 col-sm-2">Tanggal Estimasi</th>
+            <th class="border px-2 col-sm-1">Request</th>
+            <th class="border px-2 col-sm-2">Tingkat Kebutuhan</th>
+            <th class="border px-2 col-sm-2">Catatan</th>
+            <th class="border px-2 col-sm-2">Tanggal Estimasi</th>
           </tr>
         </thead>
         <tbody>
@@ -27,14 +27,14 @@
               $tanggal1 = $request->created_at;
               $tanggal = substr($tanggal1,-0,10);
               ?>
-            <td class="border-secondary px-2">{{ $tanggal }}</td>
+            <td class="border px-2">{{ $tanggal }}</td>
             @if(auth()->user()->level == "general-affair")
-            <td class="border-secondary px-2">{{ $request->ar_perequest }}</td>
+            <td class="border px-2">{{ $request->ar_perequest }}</td>
             @endif
-            <td class="border-secondary px-2">{{ $request->ar_request }}</td>
-            <td class="border-secondary px-2">{{ $request->ar_kebutuhan }}</td>
-            <td class="border-secondary px-2">{{ $request->ar_catatan }}</td>
-            <td class="border-secondary px-2">{{ $request->ar_tanggal_estimasi }}</td>
+            <td class="border px-2">{{ $request->ar_request }}</td>
+            <td class="border px-2">{{ $request->ar_kebutuhan }}</td>
+            <td class="border px-2">{{ $request->ar_catatan }}</td>
+            <td class="border px-2">{{ $request->ar_tanggal_estimasi }}</td>
           </tr>
         </tbody>
       </table>

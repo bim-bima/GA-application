@@ -35,19 +35,19 @@
       <div class="table-responsive col-12">
         <table class="table table-bordered" id="table" width="100%" cellspacing="0">
           <thead>
-            <tr>
-              <th class="border border-secondary col-4 col-sm-5">Nama Vendor</th>
-              <th class="border border-secondary col-3 col-sm-4">Lokasi Vendor</th>
-              <th class="border border-secondary col-3 col-sm-3 col-md-2 col-xl-1">Aksi</th>
+            <tr class="bg-primary text-light">
+              <th class="border col-4 col-sm-5">Nama Vendor</th>
+              <th class="border col-3 col-sm-4">Lokasi Vendor</th>
+              <th class="border col-3 col-sm-3 col-md-2 col-xl-1">Aksi</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($datavendor as $vendor)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $vendor->id }}">
-              <td class="border-secondary">{{ $vendor->mv_nama_vendor }}</td>
-              <td class="border-secondary">{{ $vendor->mv_lokasi }}</td>
-              <td class="border-secondary">
+              <td class="border">{{ $vendor->mv_nama_vendor }}</td>
+              <td class="border">{{ $vendor->mv_lokasi }}</td>
+              <td class="border">
                 <a class="btn-sm btn-warning btn-circle mb-sm-0 mb-1" href="{{ route('master_vendor.edit',$vendor->id) }}" data-toggle="tooltip" data-placement="left" title="Edit">
                   <i class="fas fa-edit"></i>
                 </a>

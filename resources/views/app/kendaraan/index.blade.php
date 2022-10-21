@@ -42,6 +42,7 @@
                 @if(auth()->user()->level == "general-affair")
                 <a href="{{ route('master_kendaraan.edit',$ken->id) }}" class="btn btn-warning btn-block"></i>Update</a>
                 @endif
+
               </div>
             </div>
           </div>
@@ -80,15 +81,15 @@
         @if(auth()->user()->level == "general-affair")
         <table class="table table-bordered" id="table" width="100%" cellspacing="0">
           <thead>
-            <tr>
-              <th class="border border-secondary px-2">Kendaraan</th>
-              <th class="border border-secondary px-2">Pengguna</th>
-              <th class="border border-secondary px-2">Tanggal Mulai</th>
-              <th class="border border-secondary px-2">Jam Mulai</th>
-              <th class="border border-secondary px-2">PIC</th>
-              <th class="border border-secondary px-2">Lokasi Tujuan</th>
-              <th class="border border-secondary px-2">Tujuan Pemakaian</th>
-              <th class="border border-secondary px-2">Aksi</th>
+            <tr class="bg-primary text-light">
+              <th class="border px-2">Kendaraan</th>
+              <th class="border px-2">Pengguna</th>
+              <th class="border px-2">Tanggal Mulai</th>
+              <th class="border px-2">Jam Mulai</th>
+              <th class="border px-2">PIC</th>
+              <th class="border px-2">Lokasi Tujuan</th>
+              <th class="border px-2">Tujuan Pemakaian</th>
+              <th class="border px-2">Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -99,14 +100,14 @@
             ?>
             <tr>
               <input type="hidden" class="delete_id" value="{{ $item->id }}">
-              <td class="border-secondary px-2">{{ $item->ak_mk_id }}</td>
-              <td class="border-secondary px-2">{{ $item->ak_pengguna }}</td>
-              <td class="border-secondary px-2">{{ $item->ak_tanggal_mulai }}</td>
-              <td class="border-secondary px-2">{{ $jam_mulai }}</td>
-              <td class="border-secondary px-2">{{ $item->ak_mp_id }}</td>
-              <td class="border-secondary px-2">{{ $item->ak_lokasi_tujuan }}</td>
-              <td class="border-secondary px-2">{{ $item->ak_tujuan_pemakaian }}</td>
-              <td class="border-secondary px-2">
+              <td class="border px-2">{{ $item->ak_mk_id }}</td>
+              <td class="border px-2">{{ $item->ak_pengguna }}</td>
+              <td class="border px-2">{{ $item->ak_tanggal_mulai }}</td>
+              <td class="border px-2">{{ $jam_mulai }}</td>
+              <td class="border px-2">{{ $item->ak_mp_id }}</td>
+              <td class="border px-2">{{ $item->ak_lokasi_tujuan }}</td>
+              <td class="border px-2">{{ $item->ak_tujuan_pemakaian }}</td>
+              <td class="border px-2">
                 <a class="btn btn-info btn-circle btn-sm mb-2" href="{{ route('app_kendaraan.show',$item->id) }}"  data-toggle="tooltip" data-placement="left" title="show"> 
                   <i class="fas fa-eye"></i>
                 </a>

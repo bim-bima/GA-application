@@ -6,7 +6,7 @@
 
 <div class="card shadow mb-4">
   <div class="card-header py-3 px-sm-3 px-2">
-    <h6 class="m-0 font-weight-bold text-primary">Category Asset</h6>
+    <h6 class="m-0 font-weight-bold text-primary">Kategori Aset</h6>
     <button class="btn btn-primary mt-2">
       <i class="fa fa-plus"></i>
       <a href="{{ route('master_categoryasset.create') }}" class="text-white text-decoration-none">Tambah</a>
@@ -34,20 +34,20 @@
       @if($cek > 0)
       <div class="table-responsive col-12 border-dark">
         <table class="table table-bordered" id="table" width="100%" cellspacing="0">
-          <thead class="">
-            <tr>
-              <th class="border border-secondary col-4 col-sm-5">Nama Category</th>
-              <th class="border border-secondary col-3 col-sm-4">Id Category</th>
-              <th class="border border-secondary col-3 col-sm-3 col-md-2 col-xl-1">Aksi</th>
+          <thead>
+            <tr class="bg-primary text-light">
+              <th class="border col-4 col-sm-5">Nama Kategori</th>
+              <th class="border col-3 col-sm-4">Id Kategori</th>
+              <th class="border col-3 col-sm-3 col-md-2 col-xl-1">Aksi</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($datacategory as $category)
             <tr>
               <input type="hidden" class="delete_id" value="{{ $category->id }}">
-              <td class="border-secondary">{{ $category->mca_category }}</td>
-              <td class="border-secondary">{{ $category->id }}</td>
-              <td class="border-secondary">
+              <td class="border">{{ $category->mca_category }}</td>
+              <td class="border">{{ $category->id }}</td>
+              <td class="border">
                 <a class="btn-sm btn-warning btn-circle mb-sm-0 mb-1" href="{{ route('master_categoryasset.edit',$category->id) }}">
                   <i class="fa fa-edit"></i>
                 </a>

@@ -30,11 +30,11 @@
           @if($cekpengajuan > 0)
             <table class="table table-bordered" id="tableriwayat" width="100%" cellspacing="0">
               <thead>
-                <tr>
-                  <th class="border px-2 border-secondary col-lg-1 col-1 fs-6">Tanggal</th>
-                  <th class="border px-2 border-secondary col-lg-2 col-2 fs-6">Nama Pengajuan</th>
-                  <th class="border px-2 border-secondary col-lg-2 col-2 fs-6">Status</th>
-                  <th class="border px-2 border-secondary col-lg-1 col-1 fs-6">Aksi</th>
+                <tr class="bg-primary text-light">
+                  <th class="border px-2 col-lg-1 col-1 fs-6">Tanggal</th>
+                  <th class="border px-2 col-lg-2 col-2 fs-6">Nama Pengajuan</th>
+                  <th class="border px-2 col-lg-2 col-2 fs-6">Status</th>
+                  <th class="border px-2 col-lg-1 col-1 fs-6">Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -45,10 +45,10 @@
                     $tanggal = substr($tanggal1,-0,10);
                   ?>
                   <input type="hidden" class="delete_id" value="{{ $pengajuan->id }}">
-                  <td class="px-2 border-secondary"><small>{{ $tanggal }}</small></td>
-                  <td class="px-2 border-secondary"><small>{{ $pengajuan->ap_nama_pengajuan }}</small></td>
-                  <td class="px-2 border-secondary"><small>{{ $pengajuan->ap_status }}</small></td>
-                  <td class="px-2 border-secondary">
+                  <td class="px-2 border">{{ $tanggal }}</td>
+                  <td class="px-2 border">{{ $pengajuan->ap_nama_pengajuan }}</td>
+                  <td class="px-2 border">{{ $pengajuan->ap_status }}</td>
+                  <td class="px-2 border">
                     <a class="btn-sm btn-info btn-circle mb-2" href="{{ route('app_pengajuan.show',$pengajuan->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
                       <i class="fas fa-eye"></i>
                     </a>
@@ -79,21 +79,21 @@
             <div class="card-body px-sm-3 px-2" style="overflow-y: auto; max-height: 500px;">
               <table class="table table-bordered border" id="table" width="100%" cellspacing="0">
                 <thead>
-                  <tr>
-                    <th class="border border-secondary px-2 col-lg-5">Aktivitas</th>
-                    <th class="border border-secondary px-2 col-lg-2 col-3">Prioritas</th>
+                  <tr class="bg-primary text-light">
+                    <th class="border px-2 col-lg-5">Aktivitas</th>
+                    <th class="border px-2 col-lg-2 col-3">Prioritas</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach ($aktivitas as $today)
                   <tr>
-                    <td class="border-secondary px-2">{{ $today->title }}</td>
-                    <td class="border-secondary px-2">{{ $today->prioritas }}</td>
+                    <td class="border px-2">{{ $today->title }}</td>
+                    <td class="border px-2">{{ $today->prioritas }}</td>
                   </tr>
                   @endforeach
                   @if($cekak == 0)
                   <tr class="text-center">
-                    <td colspan="2" class="border-secondary px-2">
+                    <td colspan="2" class="border px-2">
                       <i class="fas fa-info-circle"></i>
                       <i>Tidak Ada Aktivitas Untuk Hari Ini</i>
                     </td>
@@ -122,22 +122,22 @@
         <div class="col-12 px-0" >
           <table class="table table-bordered border" id="table" width="100%" cellspacing="0">
             <thead>
-              <tr>
-                <th class="border border-secondary px-2 col-lg-6">Aktivitas</th>
-                <th class="border border-secondary px-2 col-2">Prioritas</th>
+              <tr class="bg-primary text-light">
+                <th class="border px-2 col-lg-6">Aktivitas</th>
+                <th class="border px-2 col-2">Prioritas</th>
               </tr>
             </thead>
             <tbody>
               @foreach ($aktivitas as $today)
               <tr>
-                <td class="border-secondary px-2">{{ $today->title }}</td>
-                <td class="border-secondary px-2">{{ $today->prioritas }}</td>
+                <td class="border px-2">{{ $today->title }}</td>
+                <td class="border px-2">{{ $today->prioritas }}</td>
               </tr>
               @endforeach
             
               @if($cekak == 0)
               <tr class="text-center">
-                <td colspan="2" class="border-secondary px-2">
+                <td colspan="2" class="px-2">
                   <i class="fas fa-info-circle"></i>
                   <i>Tidak Ada Aktivitas Untuk Hari Ini</i>
                 </td>
@@ -147,7 +147,7 @@
           </table>
         </div>
       </div>
-      <div class="card-body col-lg-6 px-0 pl-lg-3 mt-lg-2">
+      <div class="card-body col-lg-6 px-0 pl-lg-3 py-0">
         <div class="card">
             <a href="#DaftarRequest" class="d-block card-header m-0 px-sm-3 px-2" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="DaftarRequest">
               <h6 class="m-0 font-weight-bold text-primary">Daftar Request</h6>
@@ -176,10 +176,10 @@
                 <div class="col-12" style="overflow-y: auto; max-height: 500px;">
                   <table class="table table-bordered border" id="tableriwayat" cellspacing="0">
                     <thead>
-                      <tr>
-                        <th class="col-6 border border-secondary px-2">Request</th>
-                        <th class="col-5 border border-secondary px-2">Tanggal Estimasi</th>
-                        <th class="col-1 border border-secondary px-2">Detail</th>
+                      <tr class="bg-primary text-light">
+                        <th class="col-6 border px-2">Request</th>
+                        <th class="col-5 border px-2">Tanggal Estimasi</th>
+                        <th class="col-1 border px-2">Detail</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -188,9 +188,9 @@
                         $tanggal = substr($list->ar_tanggal_estimasi,-0,10);
                         ?>
                       <tr>
-                        <td class="border-secondary px-2">{{ $list->ar_request }}</td>
-                        <td class="border-secondary px-2">{{ $tanggal }}</td>
-                        <td class="border-secondary px-2 text-center"> 
+                        <td class="border px-2">{{ $list->ar_request }}</td>
+                        <td class="border px-2">{{ $tanggal }}</td>
+                        <td class="border px-2 text-center"> 
                           <a class="btn-sm btn-info btn-circle" href="{{ route('app_request.show',$list->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
                           <i class="fas fa-info-circle"></i>
                           </a>
@@ -292,10 +292,10 @@
                 <div class="col-12" style="overflow-y: auto; max-height: 285px;">
                   <table class="table table-bordered border" id="table" cellspacing="0">
                     <thead>
-                      <tr>
-                        <th class="col-6 border border-secondary px-2">Request</th>
-                        <th class="col-5 border border-secondary px-2">Tanggal</th>
-                        <th class="col-1 border border-secondary px-2">Detail</th>
+                      <tr class="bg-primary text-light">
+                        <th class="col-6 border px-2">Request</th>
+                        <th class="col-5 border px-2">Tanggal</th>
+                        <th class="col-1 border px-2">Detail</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -304,9 +304,9 @@
                         $tanggal = substr($req->created_at,-0,10);
                         ?>
                       <tr>
-                        <td class="border-secondary px-2">{{ $req->ar_request }}</td>
-                        <td class="border-secondary px-2">{{ $tanggal }}</td>
-                        <td class="border-secondary px-2"> 
+                        <td class="border px-2">{{ $req->ar_request }}</td>
+                        <td class="border px-2">{{ $tanggal }}</td>
+                        <td class="border px-2"> 
                           <a class="btn-sm btn-info btn-circle" href="{{ route('app_request.show',$req->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
                           <i class="fas fa-info-circle"></i>
                           </a>

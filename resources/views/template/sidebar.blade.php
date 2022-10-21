@@ -25,7 +25,7 @@
       </a>
       <a class="nav-link" href="app_asset">
         <i class="fa fa-cube"></i>
-        <span>Asset</span>
+        <span>Aset</span>
       </a>
       <a class="nav-link nav-item active" href="app_kendaraan">
         <i class="fa fa-car"></i>
@@ -125,7 +125,7 @@
           </a> --}}
           <a class="nav-link" href="master_lokasiasset">
             <i class="fa fa-map-marker"></i>
-            <span>Lokasi Asset</span>
+            <span>Lokasi Aset</span>
           </a>
           <a class="nav-link" href="master_jenispengajuan">
             <i class="fa fa-list-alt"></i>
@@ -133,7 +133,7 @@
           </a>
           <a class="nav-link" href="master_categoryasset">
             <i class="fa fa-cog"></i>
-            <span>Category Asset</span>
+            <span>Kategori Aset</span>
           </a>
         </ul>
       </div>

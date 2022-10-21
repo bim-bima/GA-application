@@ -186,11 +186,11 @@
     @if($cek > 0)
       <table class="table table-bordered" id="table" width="100%" cellspacing="0">
         <thead>
-          <tr>
-            <th class="border border-secondary col-1 col-sm-3">Tanggal</th>
-            <th class="border border-secondary col-2 col-sm-5">Nama Pengajuan</th>
-            <th class="border border-secondary col-2 col-sm-3">Status</th>
-            <th class="border border-secondary col-1">Aksi</th>
+          <tr class="bg-primary text-light">
+            <th class="border col-1 col-sm-3">Tanggal</th>
+            <th class="border col-2 col-sm-5">Nama Pengajuan</th>
+            <th class="border col-2 col-sm-3">Status</th>
+            <th class="border col-1">Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -201,10 +201,10 @@
               $tanggal = substr($tanggal1,-0,10);
             ?>
             <input type="hidden" class="delete_id" value="{{ $pengajuan->id }}">
-            <td class="border-secondary">{{ $tanggal }}</td>
-            <td class="border-secondary">{{ $pengajuan->ap_nama_pengajuan }}</td>
-            <td class="border-secondary">{{ $pengajuan->ap_status }}</td>
-            <td class="border-secondary">
+            <td class="border">{{ $tanggal }}</td>
+            <td class="border">{{ $pengajuan->ap_nama_pengajuan }}</td>
+            <td class="border">{{ $pengajuan->ap_status }}</td>
+            <td class="border">
               <a class="btn-sm btn-info btn-circle mb-xl-0 mb-2" href="{{ route('app_pengajuan.show',$pengajuan->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
                 <i class="fas fa-eye"></i>
               </a>

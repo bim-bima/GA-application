@@ -38,7 +38,7 @@
         @enderror
       </div>
       <div class="col-md-6 mb-2">
-        <label for="ak_jam" class="form-label">Jam mulai</label>
+        <label for="ak_jam" class="form-label">Jam Mulai</label>
         <input type="time" class="form-control @error('jam') is-invalid @enderror" name="ak_jam" required>
         @error('jam')
         <div class="invalid-feedback">{{ $message }}</div>

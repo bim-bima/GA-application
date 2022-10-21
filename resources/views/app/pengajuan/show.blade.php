@@ -11,16 +11,16 @@
   <div class="card-body px-sm-3 px-2">
     <table class="table table-bordered border" id="dataTable" width="100%" cellspacing="0">
       <thead>
-        <tr>
-          <th class="border border-secondary px-2">Tanggal</th>
-          <th class="border border-secondary px-2">Nama Pengajuan</th>
-          <th class="border border-secondary px-2">Jenis</th>
-          <th class="border border-secondary px-2">Vendor</th>
-          <th class="border border-secondary px-2">Biaya (Rp)</th>
-          <th class="border border-secondary px-2">Catatan</th>
-          <th class="border border-secondary px-2">Tanggal Estimasi</th>
-          <th class="border border-secondary px-2">Status</th>
-          <th class="border border-secondary px-2">Alasan</th>
+        <tr class="bg-primary text-light">
+          <th class="border px-2">Tanggal</th>
+          <th class="border px-2">Nama Pengajuan</th>
+          <th class="border px-2">Jenis</th>
+          <th class="border px-2">Vendor</th>
+          <th class="border px-2">Biaya (Rp)</th>
+          <th class="border px-2">Catatan</th>
+          <th class="border px-2">Tanggal Estimasi</th>
+          <th class="border px-2">Status</th>
+          <th class="border px-2">Alasan</th>
         </tr>
       </thead>
       <tbody>
@@ -31,15 +31,15 @@
             $tanggal = substr($tanggal1,-0,10);
         ?>
         <tr>
-          <td class="border-secondary px-2">{{ $tanggal }}</td>
-          <td class="border-secondary px-2">{{ $pengajuan->ap_nama_pengajuan }}</td>
-          <td class="border-secondary px-2">{{ $pengajuan->ap_mjp_id }}</td>
-          <td class="border-secondary px-2">{{ $pengajuan->ap_mv_id }}</td>
-          <td class="border-secondary px-2">Rp {{ $harga }}</td>
-          <td class="border-secondary px-2">{{ $pengajuan->ap_catatan }}</td>
-          <td class="border-secondary px-2">{{ $pengajuan->ap_tanggal_pengadaan }}</td>
-          <td class="border-secondary px-2">{{ $pengajuan->ap_status }}</td>
-          <td class="border-secondary px-2">{{ $pengajuan->ap_reason }}</td>
+          <td class="border px-2">{{ $tanggal }}</td>
+          <td class="border px-2">{{ $pengajuan->ap_nama_pengajuan }}</td>
+          <td class="border px-2">{{ $pengajuan->ap_mjp_id }}</td>
+          <td class="border px-2">{{ $pengajuan->ap_mv_id }}</td>
+          <td class="border px-2">{{ $harga }}</td>
+          <td class="border px-2">{{ $pengajuan->ap_catatan }}</td>
+          <td class="border px-2">{{ $pengajuan->ap_tanggal_pengadaan }}</td>
+          <td class="border px-2">{{ $pengajuan->ap_status }}</td>
+          <td class="border px-2">{{ $pengajuan->ap_reason }}</td>
         </tr>
       </tbody>
     </table>
