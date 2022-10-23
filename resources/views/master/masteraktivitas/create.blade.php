@@ -14,7 +14,7 @@
 			<div class="invalid-feedback">{{ $message }}</div>
 			@enderror
 
-			<label for="ma_category_aktivitas" class="form-label">Nama Aktivitas</label>
+			<label for="ma_category_aktivitas" class="form-label">Kategori Aktivitas</label>
 			<input type="text" class="mb-1 form-control @error('ma_category_aktivitas') is-invalid @enderror" name="ma_category_aktivitas" required>
 			@error('ma_category_aktivitas')
 			<div class="invalid-feedback">{{ $message }}</div>
