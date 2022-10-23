@@ -17,7 +17,7 @@
         </div>
         <div class="col-lg-6 mb-3 mb-sm-2 pl-lg-2">
           <label for="jumlah_asset" class="form-label" data-aos="fade-left" data-aos-delay="200">Jumlah Aset</label>
-          <input type="number" min="1" class="form-control @error('jumlah_asset') is-invalid @enderror" name="jumlah_asset" required data-aos="fade-left" data-aos-delay="250" required autofocus value="{{ old('jumlah_asset') }}">
+          <input type="number" min="1" class="form-control @error('jumlah_asset') is-invalid @enderror" name="jumlah_asset" required data-aos="fade-left" data-aos-delay="250" required autofocus value="1">
           @error('jumlah_asset')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -64,31 +64,6 @@
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-        <!-- <div class="col-lg-6 mb-3 mb-sm-2">
-          <label for="tahun_pembelian_asset" class="form-label" data-aos="fade-right" data-aos-delay="750">Tahun Pembelian</label>
-          <input type="number" class="form-control @error('tahun_pembelian_asset') is-invalid @enderror" name="tahun_pembelian_asset" required data-aos="fade-right" data-aos-delay="800" value="{{ old('tahun_pembelian_asset') }}" required autofocus>
-          @error('tahun_pembelian_asset')
-          <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div> -->
-        <!-- <div class="col-lg-6 mb-3 mb-sm-2">
-          <label class="form-label" data-aos="fade-left" data-aos-delay="750">Bulan Pembelian</label>
-          <select name="bulan_pembelian_asset" required class="custom-select custom-select-md" data-aos="fade-left" data-aos-delay="800">
-            <option value="">Pilih Bulan</option>
-            <option value="-01">Januari</option>
-            <option value="-02">Februari</option>
-            <option value="-03">Maret</option>
-            <option value="-04">April</option>
-            <option value="-05">Mei</option>
-            <option value="-06">Juni</option>
-            <option value="-07">Juli</option>
-            <option value="-08">Agustus</option>
-            <option value="-09">September</option>
-            <option value="-10">Oktober</option>
-            <option value="-11">November</option>
-            <option value="-12">Desember</option>
-          </select>
-        </div> -->
         <div class="col-lg-6 mb-3 mb-sm-2">
           <label for="harga_asset" class="form-label" data-aos="fade-right" data-aos-delay="850">Harga Aset </label>
           <input type="number" min="1" class="form-control @error('harga_asset') is-invalid @enderror" name="harga_asset" required data-aos="fade-right" data-aos-delay="900" required autofocus value="{{ old('harga_asset') }}">
