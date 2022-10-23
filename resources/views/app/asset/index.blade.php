@@ -91,6 +91,9 @@
       </table>
       {{-- {{ $dataasset->links() }} --}}
     </div>
+
+      
+
     @endif
   </div>
 </div>

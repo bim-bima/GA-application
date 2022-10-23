@@ -48,14 +48,20 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body row">
-            <!-- <div class="mb-3 col-12">
-              <label for="title" class="form-label">Aktivitas</label>
-              <input type="text" class="form-control @error('nama') is-invalid @enderror" id="title" required>
-              @error('nama')
+            <!-- <div class="col-12 mb-2">
+              <label for="category" class="form-label">Category Aktivitas</label>
+              <select name="category" id="category" class="form-control @error('category') is-invalid @enderror" required>
+                <option value="">Pilih Category Aktivitas</option>
+                @foreach ($maktivitas as $aktivitas)
+                <option value="{{ $aktivitas->ma_category_aktivitas }}">{{ $aktivitas->ma_category_aktivitas }}</option>
+                @endforeach    
+              </select>
+              @error('category')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
             </div> -->
-            <div class="col-12 mb-2">
+
+            <!-- <div class="col-12 mb-2">
               <label for="title" class="form-label">Aktivitas</label>
               <select name="title" id="title" class="form-control @error('title') is-invalid @enderror" required>
                 <option value="">Pilih Aktivitas</option>
@@ -66,7 +72,28 @@
               @error('title')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
-            </div>
+            </div> -->
+
+
+      <div class="col-md-12">  
+          <div class="form-group">  
+              <label for="title">Aktivitas</label>
+              <input type="text" id="title" name="title" list="list_title" class="form-control">
+             <datalist id="list_title" class="select2">  
+                @foreach ($maktivitas as $aktivitas)
+                  <option value="{{ $aktivitas->ma_nama_aktivitas }}">{{ $aktivitas->ma_nama_aktivitas}} <p class="hidden"> Category : {{ $aktivitas->ma_category_aktivitas}}</p></option>
+                @endforeach
+              </datalist> 
+          </div>  
+      </div>
+
+    <script>
+      $(document).ready(function() {
+        $('.select2').select2();
+      });
+    </script>
+
+
             <div class="form-check mb-3 ml-3 col-6">
               <input class="form-check-input" type="checkbox" value="reminder" id="reminder" >
               <label class="form-check-label p-0" for="reminder">
