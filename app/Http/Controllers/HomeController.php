@@ -34,6 +34,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+            $cekken = Kendaraan::count();
+            $kendaraan = Kendaraan::all();
+
           $now = Carbon::now();
           $tgl_sekarang = $now->toDateString();
           $tgl_besok = date('Y-m-d',strtotime("+1 day",strtotime(date("Y-m-d"))));
@@ -63,6 +66,6 @@ class HomeController extends Controller
           $ajuan = Pengajuan::where('ap_status', 'Menunggu Persetujuan')->get();
           $setuju = Pengajuan::where('ap_status', 'setujui')->with('vendor')->get();
 
-          return view('home',compact(['datakendaraan','aktivitas','booking','cek','today','cekak','request','cekrequest','listrequest','datapengajuan','cekpengajuan']));
+          return view('home',compact(['datakendaraan','aktivitas','booking','cek','today','cekak','request','cekrequest','listrequest','datapengajuan','cekpengajuan','kendaraan','cekken']));
     }
 }

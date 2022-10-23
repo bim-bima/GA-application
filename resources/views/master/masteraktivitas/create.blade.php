@@ -13,7 +13,14 @@
 			@error('nama')
 			<div class="invalid-feedback">{{ $message }}</div>
 			@enderror
-			<button class="btn btn-info mt-3 mb-2 mr-1">
+
+			<label for="ma_category_aktivitas" class="form-label">Nama Aktivitas</label>
+			<input type="text" class="mb-1 form-control @error('ma_category_aktivitas') is-invalid @enderror" name="ma_category_aktivitas" required>
+			@error('ma_category_aktivitas')
+			<div class="invalid-feedback">{{ $message }}</div>
+			@enderror
+
+			<button class="btn btn-info mt-3 mb-1 mr-1">
 				<i class="fa fa-angle-left"></i>
 				<a href="{{ route('master_aktivitas.index') }}" class="text-white text-decoration-none">Kembali</a>
 			</button>

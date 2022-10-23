@@ -55,16 +55,25 @@
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-lg-6 mb-3 mb-sm-2 pr-lg-2">
-          <label for="tahun_pembelian_asset" class="form-label" data-aos="fade-right" data-aos-delay="300">Tahun Pembelian</label>
-          <input type="number" class="form-control @error('tahun_pembelian_asset') is-invalid @enderror" name="tahun_pembelian_asset" required data-aos="fade-right" data-aos-delay="350" value="{{ old('tahun_pembelian_asset') }}" required autofocus>
+
+        <div class="col-md-6 mb-2">
+        <label for="tanggal" class="form-label">Tanggal Kepemilikan</label>
+        <input type="date" class="form-control @error('tanggal') is-invalid @enderror" name="tanggal"
+            required>
+        @error('tanggal')
+        <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+      </div>
+        <!-- <div class="col-lg-6 mb-3 mb-sm-2">
+          <label for="tahun_pembelian_asset" class="form-label" data-aos="fade-right" data-aos-delay="750">Tahun Pembelian</label>
+          <input type="number" class="form-control @error('tahun_pembelian_asset') is-invalid @enderror" name="tahun_pembelian_asset" required data-aos="fade-right" data-aos-delay="800" value="{{ old('tahun_pembelian_asset') }}" required autofocus>
           @error('tahun_pembelian_asset')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
-        </div>
-        <div class="col-lg-6 mb-3 mb-sm-2 pl-lg-2">
-          <label class="form-label" data-aos="fade-left" data-aos-delay="300">Bulan Pembelian</label>
-          <select name="bulan_pembelian_asset" required class="custom-select custom-select-md" data-aos="fade-left" data-aos-delay="350">
+        </div> -->
+        <!-- <div class="col-lg-6 mb-3 mb-sm-2">
+          <label class="form-label" data-aos="fade-left" data-aos-delay="750">Bulan Pembelian</label>
+          <select name="bulan_pembelian_asset" required class="custom-select custom-select-md" data-aos="fade-left" data-aos-delay="800">
             <option value="">Pilih Bulan</option>
             <option value="-01">Januari</option>
             <option value="-02">Februari</option>
@@ -79,10 +88,10 @@
             <option value="-11">November</option>
             <option value="-12">Desember</option>
           </select>
-        </div>
-        <div class="col-lg-6 mb-3 mb-sm-2 pr-lg-2">
-          <label for="harga_asset" class="form-label" data-aos="fade-right" data-aos-delay="350">Harga Aset </label>
-          <input type="number" min="1" class="form-control @error('harga_asset') is-invalid @enderror" name="harga_asset" required data-aos="fade-right" data-aos-delay="400" required autofocus value="{{ old('harga_asset') }}">
+        </div> -->
+        <div class="col-lg-6 mb-3 mb-sm-2">
+          <label for="harga_asset" class="form-label" data-aos="fade-right" data-aos-delay="850">Harga Aset </label>
+          <input type="number" min="1" class="form-control @error('harga_asset') is-invalid @enderror" name="harga_asset" required data-aos="fade-right" data-aos-delay="900" required autofocus value="{{ old('harga_asset') }}">
           @error('harga_asset')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror

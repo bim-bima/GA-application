@@ -51,16 +51,24 @@
           <?php 
             $harga1 = $asset->as_harga;
             $harga = number_format($harga1,0,",",",");
+            $tgl1 = $asset->as_tanggal;
+            $umur =  $asset->as_umur_manfaat;
+            $tgl2 = date('y-m-d',strtotime('+'.$umur.'years',strtotime($tgl1))); 
+            $tgl_kepemilikan = $asset->as_tanggal;
+            $tgl_kep = date('d M, Y',strtotime($tgl_kepemilikan));
+            $tgl_lep = date('d M, Y',strtotime($tgl2));
+
            ?>
           <tr>
             <input type="hidden" class="delete_id" value="{{ $asset->id }}">
             <td class="border px-2">{{ $asset->as_nama_asset }}</td>
             <td class="border px-2">{{ $asset->as_mla_id }}</td>
-            <td class="border px-2">{{ $asset->as_tahun_kepemilikan }}</td>
+            <td class="border px-2">{{ $tgl_kep }}</td>
             <td class="border px-2">{{ $asset->as_kode_asset }}</td>
             <td class="border px-2">{{ $harga }}</td>
             <td class="border px-2">{{ $asset->as_mca_id }}</td>
-            <td class="border px-2">{{ $asset->as_umur_manfaat }} tahun</td>
+            <td class="border px-2">{{ $asset->as_umur_manfaat }} tahun
+              <br><p class="small">( {{ $tgl_lep }} )</p></td>
             <td class="border px-2">
               <a class="btn-sm btn-info btn-circle mb-xl-0 mb-1" href="{{ route('app_asset.show',$asset->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
                 <i class="fas fa-eye"></i>

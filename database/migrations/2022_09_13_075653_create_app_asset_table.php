@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('as_mca_id');
             // $table->BigInteger('as_mla_id')->unsigned();
             // $table->BigInteger('as_mca_id')->unsigned();
-            $table->integer('as_tahun_kepemilikan');
-            $table->string('as_bulan');
+            // $table->integer('as_tahun_kepemilikan');
+            // $table->string('as_bulan');
+            $table->date('as_tanggal');
             $table->string('as_kode_asset');
             $table->integer('as_harga');
             // $table->integer('as_nilai_residu');

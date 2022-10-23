@@ -208,6 +208,70 @@
       </div>
     </div>
   </div>
+
+
+
+
+
+<div class="col-lg-6 px-0">
+        <h6 class="font-weight-bold text-primary">Riwayat Pemakaian Kendaraan</h6>
+        <div class="col-12 px-0" >
+          <table class="table table-bordered border" id="table" width="100%" cellspacing="0">
+            <thead>
+              <tr class="bg-primary text-light">
+              <th class="border px-2">Kendaraan</th>
+              <th class="border px-2">Pengguna</th>
+              <th class="border px-2">Tanggal Mulai</th>
+              <th class="border px-2">Jam Mulai</th>
+              <th class="border px-2">PIC</th>
+              <th class="border px-2">Lokasi Tujuan</th>
+              <th class="border px-2">Tujuan Pemakaian</th>
+              <th class="border px-2">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($kendaraan as $item)
+            <?php 
+              $jam_mulai = substr($item->ak_jam,-0,5);
+              $jam_selesai = substr($item->ak_jam_selesai,-0,5);
+            ?>
+            <tr>
+              <input type="hidden" class="delete_id" value="{{ $item->id }}">
+              <td class="border px-2">{{ $item->ak_mk_id }}</td>
+              <td class="border px-2">{{ $item->ak_pengguna }}</td>
+              <td class="border px-2">{{ $item->ak_tanggal_mulai }}</td>
+              <td class="border px-2">{{ $jam_mulai }}</td>
+              <td class="border px-2">{{ $item->ak_mp_id }}</td>
+              <td class="border px-2">{{ $item->ak_lokasi_tujuan }}</td>
+              <td class="border px-2">{{ $item->ak_tujuan_pemakaian }}</td>
+              <td class="border px-2">
+                <a class="btn btn-info btn-circle btn-sm mb-2" href="{{ route('app_kendaraan.show',$item->id) }}"  data-toggle="tooltip" data-placement="left" title="show"> 
+                  <i class="fas fa-eye"></i>
+                </a>
+              
+                <form action="{{ route('app_kendaraan.destroy',$item->id) }}" method="post" class="d-inline">
+                  @csrf
+                  @method('delete')
+                  {{-- <input class="btn btn-danger btndeleteitem" type="submit" value="Delete"> --}}
+                  <a href="" class="btn btn-danger btn-circle btn-sm  btndeleteitem mb-2"  data-toggle="tooltip" data-placement="left" title="Delete">
+                    <i class="fas fa-trash"></i>
+                  </a>
+                </form>
+              </td>
+            </tr>
+            @endforeach
+            
+              @if($cekken == 0)
+              <tr class="text-center">
+                <td colspan="2" class="px-2">
+                  <i class="fas fa-info-circle"></i>
+                  <i>Tidak Ada Aktivitas Untuk Hari Ini</i>
+                </td>
+              </tr>
+              @endif
+            </tbody>
+          </table>
+
 </div>
 @endif
 
