@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
             'mk_no_polisi' => 'B 2934 STX',
             'mk_jenis' => 'Roda 4',
             'mk_merk' => 'Toyota',
-            'mk_warna' => 'Merah maroon',
+            'mk_warna' => 'Merah Maroon',
             'mk_bahan_bakar' => '10',
             'mk_kilometer' => '277',
             'mk_kondisi_lain' => 'aman'
@@ -78,7 +78,7 @@ class DatabaseSeeder extends Seeder
             'mk_jenis' => 'Roda 4',
             'mk_merk' => 'Toyota',
             'mk_warna' => 'Abu Abu Gelap',
-            'mk_bahan_bakar' => '2 liter',
+            'mk_bahan_bakar' => '2',
             'mk_kilometer' => '397',
             'mk_kondisi_lain' => 'aman'
         ]);
@@ -709,34 +709,38 @@ class DatabaseSeeder extends Seeder
         ]);
 
         MasterVendor::factory()->create([
-            'mv_nama_vendor' => 'Toko komputer',
-            'mv_lokasi' => 'tangsel'
+            'mv_nama_vendor' => 'Toko Komputer',
+            'mv_lokasi' => 'Tangsel'
+        ]);
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => 'Toko Online',
+            'mv_lokasi' => ''
         ]);
         MasterVendor::factory()->create([
             'mv_nama_vendor' => 'Toko Matrial',
-            'mv_lokasi' => 'tangsel'
+            'mv_lokasi' => 'Tangsel'
         ]);
         MasterVendor::factory()->create([
             'mv_nama_vendor' => 'Toko Mable',
-            'mv_lokasi' => 'tangsel'
+            'mv_lokasi' => 'Tangsel'
         ]);
         MasterJenisPengajuan::factory()->create([
-            'mjp_jenis' => 'pengadaan barang',
+            'mjp_jenis' => 'Pengadaan Barang',
         ]);
         MasterJenisPengajuan::factory()->create([
-            'mjp_jenis' => 'pengadaan jasa',
+            'mjp_jenis' => 'Pengadaan Jasa',
         ]);
         MasterCategoryAsset::factory()->create([
-            'mca_category' => 'elektronik',
+            'mca_category' => 'Elektronik',
         ]);
         MasterCategoryAsset::factory()->create([
             'mca_category' => 'Aksesories',
         ]);
         MasterCategoryAsset::factory()->create([
-            'mca_category' => 'properti & furniture',
+            'mca_category' => 'Properti & Furniture',
         ]);
         MasterCategoryAsset::factory()->create([
-            'mca_category' => 'kendaraan',
+            'mca_category' => 'Kendaraan',
         ]);
 
     }

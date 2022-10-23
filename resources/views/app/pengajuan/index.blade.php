@@ -53,7 +53,7 @@
               @enderror
             </div>
             <fieldset class="d-flex row">
-              <legend class="col-form-label col-12 col-sm-6 col-md-5 col-lg-6 col-xl-5 text-primary font-weight-bold float-sm-left pt-0">Setujui pengajuan ?</legend>
+              <legend class="col-form-label col-12 col-sm-6 col-md-5 col-lg-6 col-xl-5 text-primary font-weight-bold float-sm-left pt-0">Setujui Pengajuan ?</legend>
               <div class="col-sm-4 col-lg-5 col-xl-4 col-12 pl-sm-0">
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="ap_status" id="gridRadios1" value="setujui" checked>
@@ -136,16 +136,16 @@
           @enderror
         </div>
         <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="250">
-          <label for="tanggal_pengadaan" class="form-label">Tanggal Estimasi</label>
-          <input type="date" class="form-control @error('tanggal_pengadaan') is-invalid @enderror" name="tanggal_pengadaan" required autofocus value="{{ old('tanggal_pengadaan') }}" >
-          @error('tanggal_pengadaan')
-          <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div>
-        <div class="col-12 mb-2" data-aos="zoom-in" data-aos-delay="300">
           <label for="catatan" class="form-label">Catatan</label>
           <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="catatan" required rows="3" ></textarea>
           @error('catatan')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="250">
+          <label for="tanggal_pengadaan" class="form-label">Tanggal Estimasi</label>
+          <input type="date" class="form-control @error('tanggal_pengadaan') is-invalid @enderror" name="tanggal_pengadaan" required autofocus value="{{ old('tanggal_pengadaan') }}" >
+          @error('tanggal_pengadaan')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>

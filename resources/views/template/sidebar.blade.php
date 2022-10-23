@@ -48,7 +48,7 @@
       </a>
       <a class="nav-link" href="app_asset">
         <i class="fa fa-cube"></i>
-        <span>Asset</span>
+        <span>Aset</span>
       </a>
       <a class="nav-link nav-item active" href="app_kendaraan">
         <i class="fa fa-car"></i>

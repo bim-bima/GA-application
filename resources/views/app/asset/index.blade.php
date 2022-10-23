@@ -36,14 +36,14 @@
       <table class="table table-bordered" id="table" width="100%" cellspacing="0">
         <thead>
           <tr class="bg-primary text-light">
-            <th class="border px-2">Nama Aset</th>
-            <th class="border px-2">Lokasi Aset</th>
-            <th class="border px-2">Tanggal Kepemilikan</th>
-            <th class="border px-2">Kode Aset</th>
-            <th class="border px-2">Harga Aset</th>
-            <th class="border px-2">Kategori</th>
-            <th class="border px-2">Umur Manfaat</th>
-            <th class="border px-2">Aksi</th>
+            <th class="border col-lg-1 px-2">Nama Aset</th>
+            <th class="border col-lg-1 px-2">Lokasi Aset</th>
+            <th class="border col-lg-1 px-2">Tahun Kepemilikan</th>
+            <th class="border col-lg-1 px-2">Kode Aset</th>
+            <th class="border col-lg-1 px-2">Harga Aset</th>
+            <th class="border col-lg-1 px-2">Kategori</th>
+            <th class="border col-lg-1 px-2">Umur Manfaat</th>
+            <th class="border col-lg-1 px-2">Aksi</th>
           </tr>
         </thead>
         <tbody>

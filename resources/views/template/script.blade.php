@@ -18,6 +18,22 @@
 
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.js"></script>
 
+
+
+{{-- search dropdown --}}
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+      $('.search_aktivitas').selectpicker()
+    });
+  </script>
+
 <script>
 	$(document).ready(function (){
 		$('#table').DataTable();
@@ -27,6 +43,54 @@
 	$(document).ready(function (){
 		$('#tableriwayat').DataTable();
 	});
+</script>
+
+{{-- alert home management pengajuan --}}
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+        });
+        $('.btndeletepengajuan').click(function (e) {
+                e.preventDefault();
+                var deleteidpengajuan = $(this).closest("tr").find('.delete_id').val();
+                swal({
+                    title: "Apakah anda yakin?",
+                    text: "Pengajuan ini akan di Hapus!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                        .then((willDelete) => {
+                                if (willDelete) {
+
+                                        var data = {
+                                                "_token": $('input[name=_token]').val(),
+                                                'id': deleteidpengajuan,
+                                        };
+                                        $.ajax({
+                                                type: "DELETE",
+
+                                                url: 'master_pic/' + deleteidpengajuan,
+
+                                                data: data,
+                                                success: function (response) {
+                                                        swal(response.status, {
+                                                                        icon: "success",
+                                                                })
+                                                                .then((result) => {
+                                                                        location.reload();
+                                                                });
+                                                }
+                                        });
+                                }
+                        });
+        });
+
+    });
+
 </script>
 
 <script>

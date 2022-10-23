@@ -18,11 +18,11 @@
       @error('idcategory')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror --}}
-      <button class="btn btn-info mt-3 mb-1 mr-1">
+      <button class="btn btn-info mt-3 mb-2 mr-1">
         <i class="fa fa-angle-left"></i>
         <a href="{{ route('master_categoryasset.index') }}" class="text-white text-decoration-none">Kembali</a>
       </button>
-      <button type="submit" class="btn btn-success mt-3 mb-1">
+      <button type="submit" class="btn btn-success mt-3 mb-2">
         <i class="fa fa-plus-circle"></i>
         Tambah
       </button>

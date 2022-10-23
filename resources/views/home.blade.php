@@ -213,7 +213,7 @@
 
 
 
-<div class="col-lg-6 px-0">
+<div class="col-12 px-sm-3 px-2">
         <h6 class="font-weight-bold text-primary">Riwayat Pemakaian Kendaraan</h6>
         <div class="col-12 px-0" >
           <table class="table table-bordered border" id="table" width="100%" cellspacing="0">
@@ -263,7 +263,7 @@
             
               @if($cekken == 0)
               <tr class="text-center">
-                <td colspan="2" class="px-2">
+                <td colspan="8" class="px-2 text-center">
                   <i class="fas fa-info-circle"></i>
                   <i>Tidak Ada Aktivitas Untuk Hari Ini</i>
                 </td>
@@ -272,6 +272,7 @@
             </tbody>
           </table>
 
+</div>
 </div>
 @endif
 

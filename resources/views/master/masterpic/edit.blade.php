@@ -9,17 +9,17 @@
       @csrf
       @method('put')
       <label for="nama_pic" class="form-label">Nama PIC</label>
-      <input type="text" class="mb-1 form-control @error('nama_pic') is-invalid @enderror" name="nama_pic" value="{{ $pic->mp_nama }}" required autofocus>
+      <input type="text" class="mb-2 form-control @error('nama_pic') is-invalid @enderror" name="nama_pic" value="{{ $pic->mp_nama }}" required autofocus>
       @error('nama_pic')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
-      <button class="btn btn-info mt-3 mb-1 mr-1">
+      <button class="btn btn-info mt-3 mb-2 mr-1">
         <a href="{{ route('master_pic.index') }}" class="text-white text-decoration-none">
           <i class="fa fa-angle-left"></i>
           Kembali
         </a>
       </button>
-      <button type="submit" class="btn btn-success mt-3 mb-1">
+      <button type="submit" class="btn btn-success mt-3 mb-2">
         <i class="fa fa-edit"></i>
         Edit
       </button>

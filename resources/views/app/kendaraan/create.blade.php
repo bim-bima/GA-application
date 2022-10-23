@@ -68,27 +68,27 @@
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-md-6 mb-2 mb-1">
+      <div class="col-md-6 mb-2">
         <label for="ak_tujuan_pemakaian" class="form-label">Tujuan Pemakaian</label>
         <input type="text" class="form-control @error('tujuan') is-invalid @enderror" name="ak_tujuan_pemakaian" required>
         @error('tujuan')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-md-6 mb-2 mt-3">
+      <div class="col-md-6 mt-2 mb-1">
         @if(auth()->user()->level == "general-affair")
-        <button class="btn btn-info mt-3 mr-1 mb-1">
+        <button class="btn btn-info mr-1">
           <i class="fa fa-angle-left"></i>
           <a href="{{ route('app_kendaraan.index') }}"class="text-white text-decoration-none">Kembali</a>
         </button>
         @endif
         @if(auth()->user()->level == "pegawai")
-        <button class="btn btn-info mt-4 mr-1 mb-1">
+        <button class="btn btn-info mt-4 mr-1">
           <i class="fa fa-angle-left"></i>
           <a href="/home" class="text-white text-decoration-none">Kembali</a>
         </button>
         @endif
-        <button type="submit" class="btn btn-success mt-3 mb-1">
+        <button type="submit" class="btn btn-success">
           <i class="fa fa-plus-circle"></i>
           Tambah
         </button>
