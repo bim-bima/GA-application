@@ -50,27 +50,27 @@ Auth::routes();
 Route::group(['middleware' => ['auth', 'level:pegawai']], function(){
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     // app routes
-    Route::resource('app_asset', AssetController::class);
-    Route::resource('app_pengajuan', PengajuanController::class);
-    Route::resource('app_kendaraan', KendaraanController::class);
-    Route::resource('app_aktivitas', AktivitasController::class);
-    Route::resource('app_aktivitas/index/{}', AktivitasController::class);
-    Route::resource('app_perencanaan', PerencanaanController::class);
-    Route::resource('app_request', RequestController::class);
+    Route::resource('/app_asset', AssetController::class);
+    Route::resource('/app_pengajuan', PengajuanController::class);
+    Route::resource('/app_kendaraan', KendaraanController::class);
+    Route::resource('/app_aktivitas', AktivitasController::class);
+    Route::resource('/app_aktivitas/index/{}', AktivitasController::class);
+    Route::resource('/app_perencanaan', PerencanaanController::class);
+    Route::resource('/app_request', RequestController::class);
 });
 
 Route::group(['middleware' => ['auth', 'level:general-affair']], function(){
-    Route::resource('master_pic', MasterPicController::class);
-    Route::resource('master_kendaraan', MasterKendaraanController::class);
-    Route::resource('master_aktivitas', MasterAktivitasController::class);
-    Route::resource('master_vendor', MasterVendorController::class);
-    Route::resource('master_barang', MasterBarangController::class);
-    Route::resource('master_jenisbarang', MasterJenisBarangController::class);
-    Route::resource('master_categorybarang', MasterCategoryBarangController::class);
-    Route::resource('master_statusfollowup', MasterStatusFollowupController::class);
-    Route::resource('master_lokasiasset', MasterLokasiAssetController::class);
-    Route::resource('master_jenispengajuan', MasterJenisPengajuanController::class);
-    Route::resource('master_categoryasset', MAsterCategoryAssetController::class);
+    Route::resource('/master_pic', MasterPicController::class);
+    Route::resource('/master_kendaraan', MasterKendaraanController::class);
+    Route::resource('/master_aktivitas', MasterAktivitasController::class);
+    Route::resource('/master_vendor', MasterVendorController::class);
+    Route::resource('/master_barang', MasterBarangController::class);
+    Route::resource('/master_jenisbarang', MasterJenisBarangController::class);
+    Route::resource('/master_categorybarang', MasterCategoryBarangController::class);
+    Route::resource('/master_statusfollowup', MasterStatusFollowupController::class);
+    Route::resource('/master_lokasiasset', MasterLokasiAssetController::class);
+    Route::resource('/master_jenispengajuan', MasterJenisPengajuanController::class);
+    Route::resource('/master_categoryasset', MAsterCategoryAssetController::class);
     Route::patch('app_aktivitas/update/{id}',[AktivitasController::class,'update']);
     //   Route::get('web', function () {
     //     Notification::route('slack',env('SLACK_URL'))
@@ -83,12 +83,12 @@ Route::group(['middleware' => ['auth', 'level:general-affair']], function(){
 Route::group(['middleware' => ['auth', 'level:management']], function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     // app routes
-    Route::resource('app_asset', AssetController::class);
-    Route::resource('app_pengajuan', PengajuanController::class);
-    Route::resource('app_kendaraan', KendaraanController::class);
-    Route::resource('app_aktivitas', AktivitasController::class);
-    Route::resource('app_aktivitas/index/{}', AktivitasController::class);
-    Route::resource('app_perencanaan', PerencanaanController::class);
+    Route::resource('/app_asset', AssetController::class);
+    Route::resource('/app_pengajuan', PengajuanController::class);
+    Route::resource('/app_kendaraan', KendaraanController::class);
+    Route::resource('/app_aktivitas', AktivitasController::class);
+    Route::resource('/app_aktivitas/index/{}', AktivitasController::class);
+    Route::resource('/app_perencanaan', PerencanaanController::class);
     Route::resource('add_user', AdduserController::class);
     
 });
@@ -101,18 +101,18 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('master_kendaraan', MasterKendaraanController::class);
 
-    Route::resource('app_asset', AssetController::class);
-    Route::resource('app_request', RequestController::class);
-    Route::resource('app_pengajuan', PengajuanController::class);
-    Route::resource('app_kendaraan', KendaraanController::class);
-    Route::resource('app_aktivitas', AktivitasController::class);
+    Route::resource('/app_asset', AssetController::class);
+    Route::resource('/app_request', RequestController::class);
+    Route::resource('/app_pengajuan', PengajuanController::class);
+    Route::resource('/app_kendaraan', KendaraanController::class);
+    Route::resource('/app_aktivitas', AktivitasController::class);
     Route::resource('app_aktivitas/index/{}', AktivitasController::class);
     Route::post('app_aktivitas/store',[AktivitasController::class,'store']);
     Route::patch('app_aktivitas/update/{id}',[AktivitasController::class,'update']);
     Route::delete('app_aktivitas/destroy/{id}',[AktivitasController::class,'destroy']);
     Route::delete('app_perencanaan/destroy/{id}',[AktivitasController::class,'destroy']);
-    Route::resource('app_perencanaan', PerencanaanController::class);
-    Route::resource('app_request', RequestController::class);
+    Route::resource('/app_perencanaan', PerencanaanController::class);
+    Route::resource('/app_request', RequestController::class);
     Route::get('/perencanaan/list', function () {
         return view('/app/perencanaan/list');
     });

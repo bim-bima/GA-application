@@ -193,7 +193,7 @@
                       <tr>
                         <td class="border px-2">{{ $list->ar_request }}</td>
                         <td class="border px-2">{{ $tanggal_request }}</td>
-                        <td class="border px-2 text-center"> 
+                        <td class="border px-2"> 
                           <a class="btn-sm btn-info btn-circle" href="{{ route('app_request.show',$list->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
                           <i class="fas fa-eye"></i>
                           </a>
@@ -270,7 +270,7 @@
               <tr class="text-center">
                 <td colspan="8" class="px-2 text-center">
                   <i class="fas fa-info-circle"></i>
-                  <i>Tidak Ada Aktivitas Untuk Hari Ini</i>
+                  <i>Belum Ada Riwayat Pemakaian Kendaraan</i>
                 </td>
               </tr>
               @endif
