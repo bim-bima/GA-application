@@ -114,7 +114,7 @@
               <div class="text-primary font-weight-bold">Umur Manfaat :</div>
               <b>{{ $asset->as_umur_manfaat }} tahun
               </b>
-              <b>( {{ $tgl_lep }} )</b>
+              <b><small>( {{ $tgl_lep }} )</small></b>
             </div>
           </li>
         </ol>
