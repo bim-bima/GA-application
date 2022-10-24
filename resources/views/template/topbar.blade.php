@@ -33,7 +33,7 @@
           Pemberitahuan Pengajuan
         </h6>
         @foreach( $pengajuan as $list)
-        <a class="dropdown-item d-flex align-items-center" href="#">
+        <a class="dropdown-item d-flex align-items-center" href="{{ route('app_pengajuan.show',$list->id) }}">
           <div class="mr-3">
             <div class="icon-circle bg-success">
               <i class="fas fa-donate text-white"></i>
@@ -52,11 +52,11 @@
         </a>
         @endforeach
         @if($jumlah == 0)
-        <a class="dropdown-item text-center small text-grey-500" href="#"><i>Tidak Ada Pengajuan</i></a>
+        <p class="dropdown-item text-center small text-grey-500"><i>Tidak Ada Pengajuan</i></p>
         @endif
 
         @if($jumlah > 0)
-        <a class="dropdown-item text-center small text-grey-500" href="#"><i>Total Pengajuan : {{ $jumlah }} </i></a>
+        <a class="dropdown-item text-center small text-grey-500" href="/app_pengajuan"><i>Total Pengajuan : {{ $jumlah }} </i></a>
         @endif
           
       </div>  
@@ -78,7 +78,7 @@
           Pesan Request
         </h6>
         @foreach( $pesan as $item)
-        <a class="dropdown-item d-flex align-items-center" href="#">
+        <a class="dropdown-item d-flex align-items-center" href="{{ route('app_request.show',$item->id) }}">
           <div class="mr-3">
             <div class="icon-circle bg-success">
               <i class="fas fa-donate text-white"></i>
@@ -101,11 +101,11 @@
         @endforeach
 
         @if($jumlahpesan == 0)
-        <a class="dropdown-item text-center small text-gray-500" href="#"><i>Tidak Ada Pesan</i></a>
+        <p class="dropdown-item text-center small text-gray-500"><i>Tidak Ada Pesan</i></p>
         @endif
 
         @if($jumlahpesan > 0)
-        <a class="dropdown-item text-center small text-gray-500" href="#"><i>Total Pesan : {{ $jumlahpesan }} </i></a>
+        <a class="dropdown-item text-center small text-gray-500" href="/app_request"><i>Total Pesan : {{ $jumlahpesan }} </i></a>
         @endif
       </div>
     </li>
