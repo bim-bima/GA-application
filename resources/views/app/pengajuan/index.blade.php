@@ -30,6 +30,11 @@
             <?php 
             $harga1 = $pengajuan->ap_biaya;
             $biaya = number_format($harga1,0,",",",");
+
+            $tanggal1 = $pengajuan->ap_tanggal_pengadaan;
+            $tanggal = substr($tanggal1,-0,10);
+            $tanggal_estimasi = date('d M, Y',strtotime($tanggal1));
+                
             ?>
             <div class="d-flex row mb-4">
               <div for="ap_biaya" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Biaya</div>
@@ -41,7 +46,7 @@
             </div>
             <div class="d-flex row mb-4">
               <div for="ap_tanggal_pengadaan" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Tanggal Estimasi</div>
-              <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0 text-danger">{{ $pengajuan->ap_tanggal_pengadaan }}</div>
+              <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0 text-danger">{{ $tanggal_estimasi }}</div>
             </div>
           </div>
           <div class="col-lg-6 pl-xl-4" data-aos="fade-left" data-aos-delay="200">
@@ -199,9 +204,14 @@
             <?php 
               $tanggal1 = $pengajuan->created_at;
               $tanggal = substr($tanggal1,-0,10);
+              $tanggal_pengajuan = date('d M, Y',strtotime($tanggal1));
+
+              // $tanggal2 = $request->ar_tanggal_estimasi;
+              //   $tanggal = substr($tanggal2,-0,10);
+              //   $tanggal_estimasi = date('d M, Y',strtotime($tanggal2));
             ?>
             <input type="hidden" class="delete_id" value="{{ $pengajuan->id }}">
-            <td class="border">{{ $tanggal }}</td>
+            <td class="border">{{ $tanggal_pengajuan }}</td>
             <td class="border">{{ $pengajuan->ap_nama_pengajuan }}</td>
             <td class="border">{{ $pengajuan->ap_status }}</td>
             <td class="border">

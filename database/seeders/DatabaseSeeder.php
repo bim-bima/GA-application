@@ -649,7 +649,7 @@ class DatabaseSeeder extends Seeder
         ]);
         MasterAktivitas::factory()->create([
             'ma_category_aktivitas' => 'Basmi Tikus,Semut,Kecoa',
-            'ma_nama_aktivitas' => 'Basmi kecoa di area wudhu dan '
+            'ma_nama_aktivitas' => 'Basmi kecoa di area wudhu dan toilet'
         ]);
         MasterAktivitas::factory()->create([
             'ma_category_aktivitas' => 'Basmi Tikus,Semut,Kecoa',

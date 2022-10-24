@@ -44,6 +44,11 @@
 		$('#tableriwayat').DataTable();
 	});
 </script>
+<script>
+	$(document).ready(function (){
+		$('#table_kendaraan').DataTable();
+	});
+</script>
 
 {{-- alert home management pengajuan --}}
 <script>

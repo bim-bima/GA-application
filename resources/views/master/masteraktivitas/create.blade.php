@@ -20,7 +20,7 @@
 			<div class="invalid-feedback">{{ $message }}</div>
 			@enderror
 
-			<button class="btn btn-info mt-3 mb-1 mr-1">
+			<button class="btn btn-info mt-3 mb-2 mr-1">
 				<i class="fa fa-angle-left"></i>
 				<a href="{{ route('master_aktivitas.index') }}" class="text-white text-decoration-none">Kembali</a>
 			</button>

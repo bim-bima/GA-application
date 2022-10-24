@@ -27,17 +27,23 @@
         <?php 
             $harga1 = $pengajuan->ap_biaya;
             $harga = number_format($harga1,0,",",",");
+
             $tanggal1 = $pengajuan->created_at;
             $tanggal = substr($tanggal1,-0,10);
+            $tanggal_pengajuan = date('d M, Y',strtotime($tanggal1));
+
+            $tanggal2 = $pengajuan->ap_tanggal_pengadaan;
+            $tanggal = substr($tanggal2,-0,10);
+            $tanggal_estimasi = date('d M, Y',strtotime($tanggal2));
         ?>
         <tr>
-          <td class="border px-2">{{ $tanggal }}</td>
+          <td class="border px-2">{{ $tanggal_pengajuan }}</td>
           <td class="border px-2">{{ $pengajuan->ap_nama_pengajuan }}</td>
           <td class="border px-2">{{ $pengajuan->ap_mjp_id }}</td>
           <td class="border px-2">{{ $pengajuan->ap_mv_id }}</td>
           <td class="border px-2">{{ $harga }}</td>
           <td class="border px-2">{{ $pengajuan->ap_catatan }}</td>
-          <td class="border px-2">{{ $pengajuan->ap_tanggal_pengadaan }}</td>
+          <td class="border px-2">{{ $tanggal_estimasi }}</td>
           <td class="border px-2">{{ $pengajuan->ap_status }}</td>
           <td class="border px-2">{{ $pengajuan->ap_reason }}</td>
         </tr>
