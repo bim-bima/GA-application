@@ -152,7 +152,7 @@
             <a href="#DaftarRequest" class="d-block card-header m-0 px-sm-3 px-2" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="DaftarRequest">
               <h6 class="m-0 font-weight-bold text-primary">Daftar Request</h6>
             </a>
-          <div class="collapse show" id="DaftarRequest">
+          <div class="collapse hide" id="DaftarRequest">
             <div class="card-body px-sm-3 px-2">
               <div class="row">
                 @if($cekrequest == 0)

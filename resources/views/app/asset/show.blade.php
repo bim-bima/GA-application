@@ -1,15 +1,15 @@
 @extends('layouts.main')
-
 @section('content')
-
 @include('sweetalert::alert')
 
 <div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   <div class="card-header px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Aset</h6>
   </div>
-  <?php   
-        $tahunawal = $asset->as_tahun_kepemilikan; 
+  <?php  
+        $tahuntahun = $asset->as_tanggal;
+        $tahunawall = date('Y',strtotime($tahuntahun));
+        $tahunawal = intval($tahunawall);
         $tahunakhir = $tahunawal + $asset->as_umur_manfaat;
         $harga = $asset->as_harga;
         $umur = $asset->as_umur_manfaat;
@@ -78,9 +78,13 @@
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
+            <?php   
+                $tgl_kepemilikan = $asset->as_tanggal;
+                $tgl_kep = date('d M, Y',strtotime($tgl_kepemilikan));
+             ?>
             <div class="mr-auto">
-              <div class="text-primary font-weight-bold">Tahun Kepemilikan :</div>
-              <b>{{ $asset->as_tahun_kepemilikan }}</b>
+              <div class="text-primary font-weight-bold">Tanggal Kepemilikan :</div>
+              <b>{{ $tgl_kep }}</b>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0">
@@ -93,22 +97,24 @@
             <?php 
             $harga1 = $asset->as_harga;
             $harga = number_format($harga1,0,",",",");
+            $tgl1 = $asset->as_tanggal;
+            $tgl2 = date('y-m-d',strtotime('+'.$umur.'years',strtotime($tgl1))); 
+            $tgl_kepemilikan = $asset->as_tanggal;
+            $tgl_kep = date('d M, Y',strtotime($tgl_kepemilikan));
+            $tgl_lep = date('d M, Y',strtotime($tgl2));
+
            ?>
             <div class="mr-auto">
               <div class="text-primary font-weight-bold">Harga Aset :</div>
               <b>{{ $harga }}</b>
             </div>
           </li> 
-          <!-- <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
-            <div class="ms-2 me-auto">
-              <div class="fs-6"><small>Nilai Residu :</small></div>
-              <b>{{ $asset->as_nilai_residu }}</b>
-            </div>
-          </li>-->
           <li class="list-group-item d-flex justify-content-between align-items-start pb-0 pt-1">
             <div class="pb-2">
               <div class="text-primary font-weight-bold">Umur Manfaat :</div>
-              <b>{{ $asset->as_umur_manfaat }} tahun</b>
+              <b>{{ $asset->as_umur_manfaat }} tahun
+              </b>
+              <b>( {{ $tgl_lep }} )</b>
             </div>
           </li>
         </ol>
