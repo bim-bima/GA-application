@@ -57,6 +57,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::resource('/app_aktivitas/index/{}', AktivitasController::class);
     Route::resource('/app_perencanaan', PerencanaanController::class);
     Route::resource('/app_request', RequestController::class);
+
 });
 
 Route::group(['middleware' => ['auth', 'level:general-affair']], function(){
