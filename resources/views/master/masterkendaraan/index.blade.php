@@ -40,7 +40,6 @@
             <th class="border">Jenis</th>
             <th class="border">Merk</th>
             <th class="border">Warna</th>
-            <th class="border">Perlengkapan</th>
             <th class="border">Aksi</th>
           </tr>
         </thead>
@@ -53,7 +52,6 @@
             <td class="border">{{ $kendaraan->mk_jenis }}</td>
             <td class="border">{{ $kendaraan->mk_merk }}</td>
             <td class="border">{{ $kendaraan->mk_warna }}</td>
-            <td class="border">{{ $kendaraan->mk_perlengkapan }}</td>
             <td class="border">
               <a class="btn-sm btn-warning btn-circle mb-xl-0 mb-1" href="{{ route('master_kendaraan.edit',$kendaraan->id) }}"  data-toggle="tooltip" data-placement="left" title="Edit">
                 <i class="fa fa-edit"></i>

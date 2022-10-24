@@ -31,10 +31,10 @@
             <table class="table table-bordered" id="tableriwayat" width="100%" cellspacing="0">
               <thead>
                 <tr class="bg-primary text-light">
-                  <th class="border px-2 col-lg-1 col-1 fs-6">Tanggal</th>
-                  <th class="border px-2 col-lg-2 col-2 fs-6">Nama Pengajuan</th>
-                  <th class="border px-2 col-lg-2 col-2 fs-6">Status</th>
-                  <th class="border px-2 col-lg-1 col-1 fs-6">Aksi</th>
+                  <th class="border px-2 col-lg-2 col-1">Tanggal</th>
+                  <th class="border px-2 col-lg-2 col-2">Nama Pengajuan</th>
+                  <th class="border px-2 col-lg-3 col-2">Status</th>
+                  <th class="border px-2 col-lg-2 col-1">Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -43,9 +43,10 @@
                   <?php 
                     $tanggal1 = $pengajuan->created_at;
                     $tanggal = substr($tanggal1,-0,10);
+                    $tanggal_pengajuan = date('d M, Y',strtotime($tanggal1));
                   ?>
                   <input type="hidden" class="delete_id" value="{{ $pengajuan->id }}">
-                  <td class="px-2 border">{{ $tanggal }}</td>
+                  <td class="px-2 border">{{ $tanggal_pengajuan }}</td>
                   <td class="px-2 border">{{ $pengajuan->ap_nama_pengajuan }}</td>
                   <td class="px-2 border">{{ $pengajuan->ap_status }}</td>
                   <td class="px-2 border">
@@ -185,14 +186,16 @@
                     <tbody>
                       @foreach ($listrequest as $list)
                       <?php 
+                        $tanggal2 = $list->ar_tanggal_estimasi;
                         $tanggal = substr($list->ar_tanggal_estimasi,-0,10);
+                        $tanggal_request = date('d M, Y',strtotime($tanggal));
                         ?>
                       <tr>
                         <td class="border px-2">{{ $list->ar_request }}</td>
-                        <td class="border px-2">{{ $tanggal }}</td>
+                        <td class="border px-2">{{ $tanggal_request }}</td>
                         <td class="border px-2 text-center"> 
                           <a class="btn-sm btn-info btn-circle" href="{{ route('app_request.show',$list->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
-                          <i class="fas fa-info-circle"></i>
+                          <i class="fas fa-eye"></i>
                           </a>
                         </td>
                       </tr>
@@ -216,14 +219,13 @@
 <div class="col-12 px-sm-3 px-2">
         <h6 class="font-weight-bold text-primary">Riwayat Pemakaian Kendaraan</h6>
         <div class="col-12 px-0" >
-          <table class="table table-bordered border" id="table" width="100%" cellspacing="0">
+          <table class="table table-bordered border" id="table_kendaraan" width="100%" cellspacing="0">
             <thead>
               <tr class="bg-primary text-light">
               <th class="border px-2">Kendaraan</th>
               <th class="border px-2">Pengguna</th>
               <th class="border px-2">Tanggal Mulai</th>
               <th class="border px-2">Jam Mulai</th>
-              <th class="border px-2">PIC</th>
               <th class="border px-2">Lokasi Tujuan</th>
               <th class="border px-2">Tujuan Pemakaian</th>
               <th class="border px-2">Aksi</th>
@@ -232,6 +234,10 @@
             <tbody>
               @foreach ($kendaraan as $item)
             <?php 
+              $tanggal1 = $item->ak_tanggal_mulai;
+              $tanggal = substr($tanggal1,-0,10);
+              $tanggal_mulai = date('d M, Y',strtotime($tanggal1));
+
               $jam_mulai = substr($item->ak_jam,-0,5);
               $jam_selesai = substr($item->ak_jam_selesai,-0,5);
             ?>
@@ -239,9 +245,8 @@
               <input type="hidden" class="delete_id" value="{{ $item->id }}">
               <td class="border px-2">{{ $item->ak_mk_id }}</td>
               <td class="border px-2">{{ $item->ak_pengguna }}</td>
-              <td class="border px-2">{{ $item->ak_tanggal_mulai }}</td>
+              <td class="border px-2">{{ $tanggal_mulai }}</td>
               <td class="border px-2">{{ $jam_mulai }}</td>
-              <td class="border px-2">{{ $item->ak_mp_id }}</td>
               <td class="border px-2">{{ $item->ak_lokasi_tujuan }}</td>
               <td class="border px-2">{{ $item->ak_tujuan_pemakaian }}</td>
               <td class="border px-2">
@@ -366,11 +371,13 @@
                     <tbody>
                       @foreach ($request as $req)
                       <?php 
-                        $tanggal = substr($req->created_at,-0,10);
+                        $tanggal1 = $req->created_at;
+                        $tanggal = substr($tanggal1,-0,10);
+                        $tanggal_req2 = date('d M, Y',strtotime($tanggal1));
                         ?>
                       <tr>
                         <td class="border px-2">{{ $req->ar_request }}</td>
-                        <td class="border px-2">{{ $tanggal }}</td>
+                        <td class="border px-2">{{ $tanggal_req2 }}</td>
                         <td class="border px-2"> 
                           <a class="btn-sm btn-info btn-circle" href="{{ route('app_request.show',$req->id) }}"  data-toggle="tooltip" data-placement="left" title="Info">
                           <i class="fas fa-info-circle"></i>

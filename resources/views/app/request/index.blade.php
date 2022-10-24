@@ -33,9 +33,9 @@
             <tr class="bg-primary text-light">
               <th class="border px-2 col-lg-2">Tanggal</th>
               <th class="border px-2 col-lg-2">Perequest</th>
-              <th class="border px-2 col-lg-1">Request</th>
-              <th class="border px-2 col-lg-3">Catatan</th>
-              <th class="border px-2 col-lg-1">Tingkat Kebutuhan</th>
+              <th class="border px-2 col-lg-2">Request</th>
+              <th class="border px-2 col-lg-2">Catatan</th>
+              <th class="border px-2 col-lg-2">Tingkat Kebutuhan</th>
               <th class="border px-2 col-lg-2">Tanggal Estimasi</th>
               <th class="border px-2 col-lg-1">Aksi</th>
             </tr>
@@ -47,13 +47,18 @@
               <?php 
                 $tanggal1 = $request->created_at;
                 $tanggal = substr($tanggal1,-0,10);
+                $tanggal_req = date('d M, Y',strtotime($tanggal1));
+
+                $tanggal2 = $request->ar_tanggal_estimasi;
+                $tanggal = substr($tanggal2,-0,10);
+                $tanggal_estimasi = date('d M, Y',strtotime($tanggal2));
                ?>
-              <td class="border px-2">{{ $tanggal }}</td>
+              <td class="border px-2">{{ $tanggal_req }}</td>
               <td class="border px-2">{{ $request->ar_perequest }}</td>
               <td class="border px-2">{{ $request->ar_request }}</td>
               <td class="border px-2">{{ $request->ar_catatan }}</td>
               <td class="border px-2">{{ $request->ar_kebutuhan }}</td>
-              <td class="border px-2">{{ $request->ar_tanggal_estimasi }}</td>
+              <td class="border px-2">{{ $tanggal_estimasi }}</td>
               <td class="border px-2">
                 <form action="{{ route('app_request.destroy',$request->id) }}" method="post" class="d-inline">
                   @csrf

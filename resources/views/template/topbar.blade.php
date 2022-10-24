@@ -43,8 +43,10 @@
             <?php  
             $tanggal1 = $list->created_at;
             $tanggal = substr($tanggal1,-0,10);
+            $tanggal_pengajuan = date('d M, Y',strtotime($tanggal1));
+
             ?>
-            <div class="small text-red-500">{{ $tanggal }}</div>
+            <div class="small text-red-500">{{ $tanggal_pengajuan }}</div>
               {{ $list->ap_nama_pengajuan }}
           </div>
         </a>
@@ -86,8 +88,13 @@
           <?php  
           $tanggal1 = $item->created_at;
           $tanggal = substr($tanggal1,-0,10);
+          $tanggal_req = date('d M, Y',strtotime($tanggal1));
+
+          // $tanggal2 = $request->ar_tanggal_estimasi;
+          //       $tanggal = substr($tanggal2,-0,10);
+          //       $tanggal_estimasi = date('d M, Y',strtotime($tanggal2));
           ?>
-            <div class="small text-red-500">{{ $tanggal }}</div>
+            <div class="small text-red-500">{{ $tanggal_req }}</div>
               {{ $item->ar_request }}
           </div>
         </a>

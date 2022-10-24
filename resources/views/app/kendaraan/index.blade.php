@@ -31,15 +31,15 @@
                 <p class="small text-primary">Nama Kendaraan :</p> 
                 <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_nama_kendaraan }}</p>
                 </div> -->
-                <div class="row ml-2">
+                <div class="row ml-1">
                 <p class="small text-primary">Kilometer Kendaraan :</p>
                 <p class="ml-3 font-weight-bold"> {{ $ken->mk_kilometer }} Km</p>
                 </div>
-                <div class="row ml-2">
+                <div class="row ml-1">
                 <p class="small text-primary">Bahan Bakar Tersedia : </p> 
                 <p class="ml-3 font-weight-bold">{{ $ken->mk_bahan_bakar }} Liter</p>
                 </div>
-                <div class="row ml-2">
+                <div class="row ml-1">
                 <p class="small text-primary">Catatan : </p> 
                 <p class="ml-3 font-weight-bold">{{ $ken->mk_kondisi_lain }}</p>
                 </div>
@@ -102,12 +102,16 @@
             <?php 
               $jam_mulai = substr($item->ak_jam,-0,5);
               $jam_selesai = substr($item->ak_jam_selesai,-0,5);
+
+              $tanggal1 = $item->ak_tanggal_mulai;
+              $tanggal = substr($tanggal1,-0,10);
+              $tanggal_mulai = date('d M, Y',strtotime($tanggal1));
             ?>
             <tr>
               <input type="hidden" class="delete_id" value="{{ $item->id }}">
               <td class="border px-2">{{ $item->ak_mk_id }}</td>
               <td class="border px-2">{{ $item->ak_pengguna }}</td>
-              <td class="border px-2">{{ $item->ak_tanggal_mulai }}</td>
+              <td class="border px-2">{{ $tanggal_mulai }}</td>
               <td class="border px-2">{{ $jam_mulai }}</td>
               <td class="border px-2">{{ $item->ak_lokasi_tujuan }}</td>
               <td class="border px-2">{{ $item->ak_tujuan_pemakaian }}</td>

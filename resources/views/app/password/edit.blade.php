@@ -2,6 +2,10 @@
  @section('content')
  @include('sweetalert::alert')
 
+ @if(auth()->user()->level == "pegawai")
+ <div style="margin-block-end: 75px">
+@endif
+
 <div class="card shadow mb-4" data-aos="fade-up" data-aos-delay="50">
   <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Ubah Password</h6>
@@ -41,5 +45,9 @@
     </form>
   </div>
 </div>
+
+@if(auth()->user()->level == "pegawai")
+</div>
+@endif
 @endsection
 

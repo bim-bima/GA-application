@@ -34,8 +34,8 @@
         <table class="table table-bordered" id="table" width="100%" cellspacing="0">
           <thead>
             <tr class="bg-primary text-light">
-              <th class="border col-5 col-sm-9">Nama Aktivitas</th>
-              <th class="border col-5 col-sm-9">Category Aktivitas</th>
+              <th class="border col-5 col-sm-5">Nama Aktivitas</th>
+              <th class="border col-5 col-sm-4">Kategori Aktivitas</th>
               <th class="border col-3 col-sm-3 col-md-2 col-xl-1">Aksi</th>
             </tr>
           </thead>
