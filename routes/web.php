@@ -50,12 +50,6 @@ Auth::routes();
 Route::group(['middleware' => ['auth', 'level:pegawai']], function(){
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     // app routes
-    Route::resource('app_asset', AssetController::class);
-    Route::resource('app_pengajuan', PengajuanController::class);
-    Route::resource('app_kendaraan', KendaraanController::class);
-    Route::resource('app_aktivitas', AktivitasController::class);
-    Route::resource('app_aktivitas/index/{}', AktivitasController::class);
-    Route::resource('app_perencanaan', PerencanaanController::class);
     Route::resource('app_request', RequestController::class);
 });
 
@@ -100,7 +94,6 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
     Route::put('update', [UpdatePasswordController::class, 'update'])->name('update_password');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('master_kendaraan', MasterKendaraanController::class);
-
     Route::resource('app_asset', AssetController::class);
     Route::resource('app_request', RequestController::class);
     Route::resource('app_pengajuan', PengajuanController::class);
