@@ -66,7 +66,7 @@
                     <div class="col-12">
                       <div class="text-center">
                         <i class="fas fa-info-circle"></i>
-                        <i>Tidak Ada User</i>
+                        <i>Tidak Ada Data User</i>
                       </div>
                     </div>                      
                   </div>
