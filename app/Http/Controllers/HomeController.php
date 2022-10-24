@@ -34,8 +34,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-            $cekken = Kendaraan::count();
-            $kendaraan = Kendaraan::all();
+        $cekken = Kendaraan::count();
+        // $kendaraan = Kendaraan::latest()->first();
+        $kendaraan = Kendaraan::all();
 
           $now = Carbon::now();
           $tgl_sekarang = $now->toDateString();

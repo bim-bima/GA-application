@@ -38,7 +38,7 @@
           <tr class="bg-primary text-light">
             <th class="border col-lg-1 px-2">Nama Aset</th>
             <th class="border col-lg-1 px-2">Lokasi Aset</th>
-            <th class="border col-lg-1 px-2">Tahun Kepemilikan</th>
+            <th class="border col-lg-1 px-2">Tanggal Kepemilikan</th>
             <th class="border col-lg-1 px-2">Kode Aset</th>
             <th class="border col-lg-1 px-2">Harga Aset</th>
             <th class="border col-lg-1 px-2">Kategori</th>
@@ -57,7 +57,6 @@
             $tgl_kepemilikan = $asset->as_tanggal;
             $tgl_kep = date('d M, Y',strtotime($tgl_kepemilikan));
             $tgl_lep = date('d M, Y',strtotime($tgl2));
-
            ?>
           <tr>
             <input type="hidden" class="delete_id" value="{{ $asset->id }}">

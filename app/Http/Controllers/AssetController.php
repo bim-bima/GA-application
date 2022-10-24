@@ -128,23 +128,25 @@ class AssetController extends Controller
             $masa = 5;
          }
          $kelompok = $masa;
-         $category = $request->category_asset;
+         $category1 = $request->category_asset;
+         $category2 = MasterCategoryAsset::where('mca_category', $category1)->get('id');
+         $category = preg_replace("/[^0-9]/", "", $category2);
          $ambil2 = $request->nama_asset;
          $subcategory = substr($ambil2,-0,3);
-         $nourut = 001;
-         $bulan = $request->bulan_pembelian_asset;
-         $ambil1 = $request->tahun_pembelian_asset; 
-         $tahun = substr($ambil1,-2,2);
-         $kodeasset = $prefik.'.'.$kelompok.'.'.$category.'.'.$subcategory.'.'.$nourut.$bulantahun;  
+         $no = $request->as_kode_asset;
+         $urut = substr($no,11);
+         $nourut = substr($urut,0,-6);        
+         $tanggal22 = $request->tanggal;
+         $tahunbulan1 = substr($tanggal22,2);
+         $tahunbulan = substr($tahunbulan1,0,-3);
+         $kodeasset = $prefik.'.'.$kelompok.'.'.$category.'.'.$subcategory;  
 
         $dataasset->as_nama_asset = $request->nama_asset;
         $dataasset->as_mla_id = $request->lokasi_asset;
         $dataasset->as_mca_id = $request->category_asset;
-        $dataasset->as_kode_asset = $kodeasset;
-        $dataasset->as_tahun_kepemilikan = $request->tahun_pembelian_asset;
+        $dataasset->as_kode_asset = $kodeasset.'.'.$nourut.'.'.$tahunbulan;
         $dataasset->as_harga = $request->harga_asset;
         $dataasset->as_umur_manfaat = $request->umur_manfaat_asset;
-        $dataasset->as_bulan = $request->tahun_pembelian_asset;
         $dataasset->save();
         Alert::success('Berhasil', 'Data Berhasil Diedit');
         return redirect()->route('app_asset.index');
