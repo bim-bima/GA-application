@@ -8,7 +8,7 @@
   <div class="card-body px-sm-3 px-2">
     <form action="{{ route('app_kendaraan.store') }}" method="POST" enctype="multipart/form-data" class="row px-0">
       @csrf
-      <div class="col-md-6 mb-2">
+      <!-- <div class="col-md-6 mb-2">
         <label for="ak_mk_id" class="form-label">Kendaraan</label>
         <select name="ak_mk_id" class="form-control @error('ak_mk_id') is-invalid @enderror" required>
           <option value="">Pilih Kendaraan</option>
@@ -19,7 +19,30 @@
         @error('ak_mk_id')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
+      </div> -->
+
+        <div class="col-md-6 mb-2">  
+          <div class="form-group">  
+              <label for="ak_mk_id">Kendaraan</label>
+              <input type="text" id="ak_mk_id" name="ak_mk_id" list="list_kendaraan" class="form-control" placeholder="pilih Kendaraan">
+             <datalist id="list_kendaraan" class="select2">  
+                @foreach ($namaKendaraan as $kendaraan)
+                @if( old('category_asset') == $kendaraan->mca_category )
+                <option value="{{ $kendaraan->mk_nama_kendaraan }}" selected>{{ $kendaraan->mk_nama_kendaraan}}</option>
+                @else
+                <option value="{{ $kendaraan->mk_nama_kendaraan }}">{{ $kendaraan->mk_nama_kendaraan}}</option>
+                @endif
+                @endforeach    
+              </datalist> 
+          </div>  
       </div>
+
+    <script>
+      $(document).ready(function() {
+        $('.select2').select2();
+      });
+    </script>
+
       
         <div class="col-md-6 mb-2">
           <label for="ak_pengguna" class="form-label">Pengguna</label>

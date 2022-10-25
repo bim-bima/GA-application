@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 use App\Models\MasterPic;
+use App\Models\AppRequest;
 use App\Models\MasterVendor;
 use App\Models\User;
 use App\Models\Asset;
@@ -25,7 +26,81 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => 'Toko Amanah Komputer',
+            'mv_lokasi' => 'jln.cemara pamulang',
+        ]);
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => 'Toko Matrial Budi',
+            'mv_lokasi' => 'jln.cemara pamulang',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => 'Toko Fatwa Elektronik',
+            'mv_lokasi' => 'jln.cemara pamulang',
+        ]);
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => 'Toko Mega Baja',
+            'mv_lokasi' => 'jln.cemara pamulang',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => 'Toko Online',
+            'mv_lokasi' => '-',
+        ]); 
+        Asset::factory()->create([
+            'as_nama_asset' => 'Avanza Toyota',
+            'as_mla_id' => 'Lantai Bawah',
+            'as_mca_id' => 'Kendaraan',
+            'as_tanggal' => '2016-07-02 00:00:00',
+            'as_kode_asset' => 'L9.5.4.ava.1.16-07',
+            'as_harga' => '150000000',
+            'as_umur_manfaat' => '20',
+            'as_jumlah' => '1',
+        ]); 
+        Asset::factory()->create([
+            'as_nama_asset' => 'Hardisk',
+            'as_mla_id' => 'Lantai Atas',
+            'as_mca_id' => 'Aksesories',
+            'as_tanggal' => '2020-12-09 00:00:00',
+            'as_kode_asset' => 'L9.1.2.har.1.20-12',
+            'as_harga' => '500000',
+            'as_umur_manfaat' => '4',
+            'as_jumlah' => '1',
+        ]); 
+        Asset::factory()->create([
+            'as_nama_asset' => 'Laptop',
+            'as_mla_id' => 'Lantai Atas',
+            'as_mca_id' => 'Elektronik',
+            'as_tanggal' => '2018-10-25 00:00:00',
+            'as_kode_asset' => 'L9.1.1.Lap.1.18-01',
+            'as_harga' => '6000000',
+            'as_umur_manfaat' => '4',
+            'as_jumlah' => '1',
+        ]); 
+        Asset::factory()->create([
+            'as_nama_asset' => 'Sofa',
+            'as_mla_id' => 'Lantai Atas',
+            'as_mca_id' => 'Properti & Furniture',
+            'as_tanggal' => '2021-10-20 00:00:00',
+            'as_kode_asset' => 'L9.2.4.sof.1.21-10',
+            'as_harga' => '3000000',
+            'as_umur_manfaat' => '8',
+            'as_jumlah' => '1',
+        ]); 
+        AppRequest::factory()->create([
+            'ar_request' => 'adain kipas di area mushola',
+            'ar_perequest' => '-',
+            'ar_kebutuhan' => 'rendah',
+            'ar_catatan' => 'dimushola klo shola kerasa panas klo ada kipas kan adem',
+            'ar_tanggal_estimasi' => '28-10-2022',
+        ]);
+        AppRequest::factory()->create([
+            'ar_request' => 'adain microwave',
+            'ar_perequest' => '-',
+            'ar_kebutuhan' => 'rendah',
+            'ar_catatan' => 'microwave buat panasin makanan di pantry',
+            'ar_tanggal_estimasi' => '05-11-2022',
+        ]);
         User::factory()->create([
             'name' => 'general-affair',
             'email' => 'ga@gmail.com',
@@ -82,10 +157,18 @@ class DatabaseSeeder extends Seeder
             'mk_kilometer' => '397',
             'mk_kondisi_lain' => 'aman'
         ]);
-        // Perencanaan::factory()->create([
-        //     'ap_bulan' => '-11',
-        //     'ap_tahun' => '2022'
-        // ]);
+        Perencanaan::factory()->create([
+            'ap_bulan' => '-11',
+            'ap_tahun' => '2022'
+        ]);
+        Perencanaan::factory()->create([
+            'ap_bulan' => '-10',
+            'ap_tahun' => '2022'
+        ]);
+        Perencanaan::factory()->create([
+            'ap_bulan' => '-12',
+            'ap_tahun' => '2022'
+        ]);
         MasterPic::factory()->create([
             'mp_nama' => 'PIC 1'
         ]);
