@@ -112,13 +112,13 @@
 @endif
 
 @if(auth()->user()->level == "general-affair")
-<div class="card shadow mb-4">
+<div class="card shadow mb-4 pb-3">
   <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary">Dashboard</h6>
   </div>
   <div class="card-body px-sm-4">
     <div class="row px-sm-1">
-      <div class="col-lg-6 px-0">
+      <div class="col-xl-6 px-0">
         <h6 class="font-weight-bold text-primary mb-2">Aktivitas Hari Ini</h6>
         <div class="col-12 px-0" >
           <table class="table table-bordered border" id="table" width="100%" cellspacing="0">
@@ -148,7 +148,7 @@
           </table>
         </div>
       </div>
-      <div class="card-body col-lg-6 px-0 pl-lg-3 py-0">
+      <div class="card-body col-xl-6 px-0 pl-xl-3 py-0 mt-xl-0 mt-4">
         <div class="card">
             <a href="#DaftarRequest" class="d-block card-header m-0 px-sm-3 px-2" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="DaftarRequest">
               <h6 class="m-0 font-weight-bold text-primary">Daftar Request</h6>
@@ -178,9 +178,9 @@
                   <table class="table table-bordered border" id="tableriwayat" cellspacing="0">
                     <thead>
                       <tr class="bg-primary text-light">
-                        <th class="col-6 border px-2">Request</th>
-                        <th class="col-5 border px-2">Tanggal Estimasi</th>
-                        <th class="col-1 border px-2">Detail</th>
+                        <th class="border px-2">Request</th>
+                        <th class="border px-2">Tanggal Estimasi</th>
+                        <th class="border px-2">Detail</th>
                       </tr>
                     </thead>
                     <tbody>
