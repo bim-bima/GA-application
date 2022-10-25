@@ -39,6 +39,29 @@
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
+
+        <!-- <div class="col-lg-6">  
+          <div class="form-group">  
+              <label for="category_asset">kategori Aset</label>
+              <input type="text" id="category_asset" name="category_asset" list="list_category" class="form-control" placeholder="pilih Kategori">
+             <datalist id="list_category" class="select2">  
+                @foreach ($categoryasset as $category)
+                @if( old('category_asset') == $category->mca_category )
+                <option value="{{ $category->mca_category }}" selected>{{ $category->mca_category}}</option>
+                @else
+                <option value="{{ $category->mca_category }}">{{ $category->mca_category}}</option>
+                @endif
+                @endforeach    
+              </datalist> 
+          </div>  
+      </div>
+
+    <script>
+      $(document).ready(function() {
+        $('.select2').select2();
+      });
+    </script> -->
+
         <div class="col-lg-6 mb-3 mb-sm-2 pl-lg-2">
           <label for="category_asset" class="form-label">Kategori Aset</label>
           <select name="category_asset" class="form-control @error('category_asset') is-invalid @enderror" required>

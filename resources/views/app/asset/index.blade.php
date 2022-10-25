@@ -64,7 +64,7 @@
             <td class="border px-2">{{ $asset->as_mla_id }}</td>
             <td class="border px-2">{{ $tgl_kep }}</td>
             <td class="border px-2">{{ $asset->as_kode_asset }}</td>
-            <td class="border px-2">{{ $harga }}</td>
+            <td class="border px-2">Rp {{ $harga }}</td>
             <td class="border px-2">{{ $asset->as_mca_id }}</td>
             <td class="border px-2">{{ $asset->as_umur_manfaat }} tahun
               <br><p class="small">( {{ $tgl_lep }} )</p></td>
