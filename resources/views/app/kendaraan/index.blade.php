@@ -18,7 +18,7 @@
         ?>
         <div class="col-xl-4">
           <div class="card mb-3">
-            <a href="#collapseCardExample{{ $id }}" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample{{ $id }}">
+            <a href="#collapseCardExample{{ $id }}" class="d-block card-header py-3 px-sm-3 px-2" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample{{ $id }}">
               <h6 class="m-0 font-weight-bold text-primary">{{ $ken->mk_nama_kendaraan }}</h6>
             </a>
             @if(auth()->user()->level == "general-affair")
@@ -33,15 +33,15 @@
                 <p class="small text-primary">Nama Kendaraan :</p> 
                 <p class="ml-3 font-weight-bold text-lg">{{ $ken->mk_nama_kendaraan }}</p>
                 </div> -->
-                <div class="row ml-1">
+                <div class="row ml-sm-1">
                 <p class="small text-primary">Kilometer Kendaraan :</p>
                 <p class="ml-3 font-weight-bold"> {{ $ken->mk_kilometer }} Km</p>
                 </div>
-                <div class="row ml-1">
+                <div class="row ml-sm-1">
                 <p class="small text-primary">Bahan Bakar Tersedia : </p> 
                 <p class="ml-3 font-weight-bold">{{ $ken->mk_bahan_bakar }} Liter</p>
                 </div>
-                <div class="row ml-1">
+                <div class="row ml-sm-1">
                 <p class="small text-primary">Catatan : </p> 
                 <p class="ml-3 font-weight-bold">{{ $ken->mk_kondisi_lain }}</p>
                 </div>

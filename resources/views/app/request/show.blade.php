@@ -9,6 +9,7 @@
   <div class="card-header py-3 px-sm-3 px-2">
     <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">Detail Request</h6>
   </div>
+  
   <div class="card-body px-sm-3 px-2">
     <div class="table-responsive border-dark mb-2">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -46,6 +47,7 @@
           </tr>
         </tbody>
       </table>
+      
     </div>
     <div class="">
       <button class="btn btn-info mb-2">

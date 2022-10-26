@@ -1,8 +1,15 @@
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow px-1">
   <!-- Sidebar Toggle (Topbar) -->
+  @if(auth()->user()->level == "general-affair")
   <button id="sidebarToggleTop" class="btn btn-link rounded-circle">
     <i class="fa fa-bars"></i>
   </button>
+  @endif
+  @if(auth()->user()->level == "management")
+  <button id="sidebarToggleTop" class="btn btn-link rounded-circle">
+    <i class="fa fa-bars"></i>
+  </button>
+  @endif
   <!-- Topbar Navbar -->
   <ul class="navbar-nav ml-auto">
     <!-- Nav Item - Alerts -->
@@ -78,7 +85,7 @@
           Pesan Request
         </h6>
         @foreach( $pesan as $item)
-        <a class="dropdown-item d-flex align-items-center" href="{{ route('app_request.show',$item->id) }}">
+        <a class="dropdown-item d-flex align-items-center" href="{{ route('app_request.show',$item->id) }}" >
           <div class="mr-3">
             <div class="icon-circle bg-success">
               <i class="fas fa-donate text-white"></i>

@@ -32,7 +32,7 @@
       @endif
 
       @if($cek > 0)
-      <table class="table table-bordered" id="table" width="100%" cellspacing="0">
+      <table class="table table-bordered shadow-0" id="table" width="100%" cellspacing="0">
         <thead>
           <tr class="bg-primary text-light">
             <th class="border">Nama Kendaraan</th>

@@ -94,14 +94,14 @@
     <div class="card-body px-sm-3 px-2">
       <form action="{{ route('app_pengajuan.store') }}" method="POST" enctype="multipart/form-data" class="row">
         @csrf
-        <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="150">
+        <div class="col-md-6 mb-sm-2 mb-3" data-aos="fade-right" data-aos-delay="150">
           <label for="nama_pengajuan" class="form-label">Nama Pengajuan</label>
           <input type="text" class="form-control @error('nama_pengajuan') is-invalid @enderror" name="nama_pengajuan" required autofocus value="{{ old('nama_pengajuan') }}">
           @error('nama_pengajuan')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="150">
+        <div class="col-md-6 mb-sm-2 mb-3" data-aos="fade-left" data-aos-delay="150">
           <label for="jenis_pengajuan" class="form-label">Jenis Pengajuan</label>
           <select name="jenis_pengajuan" required class="form-control @error('jenis_pengajuan') is-invalid @enderror" required>
             <option value="">Pilih Jenis Pengajuan</option>
@@ -117,7 +117,7 @@
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="200">
+        <div class="col-md-6 mb-sm-2 mb-3" data-aos="fade-right" data-aos-delay="200">
           <label for="vendor" class="form-label">Vendor</label>
           <select name="vendor" class="form-control @error('vendor') is-invalid @enderror" required>
             <option value="">Pilih Vendor</option>
@@ -133,21 +133,21 @@
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="200">
+        <div class="col-md-6 mb-sm-2 mb-3" data-aos="fade-left" data-aos-delay="200">
           <label for="biaya" min="1" class="form-label">Biaya (Rp)</label>
           <input type="number" class="form-control @error('biaya') is-invalid @enderror" name="biaya" required autofocus value="{{ old('biaya') }}">
           @error('biaya')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="250">
+        <div class="col-md-6 mb-sm-2 mb-3" data-aos="fade-right" data-aos-delay="250">
           <label for="catatan" class="form-label">Catatan</label>
           <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="catatan" required rows="3" ></textarea>
           @error('catatan')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="250">
+        <div class="col-md-6 mb-sm-2 mb-3" data-aos="fade-left" data-aos-delay="250">
           <label for="tanggal_pengadaan" class="form-label">Tanggal Estimasi</label>
           <input type="date" class="form-control @error('tanggal_pengadaan') is-invalid @enderror" name="tanggal_pengadaan" required autofocus value="{{ old('tanggal_pengadaan') }}" >
           @error('tanggal_pengadaan')

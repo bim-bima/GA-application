@@ -8,7 +8,7 @@
   <div class="card-body px-sm-3 px-2">
     <form action="{{ route('app_kendaraan.store') }}" method="POST" enctype="multipart/form-data" class="row px-0">
       @csrf
-      <!-- <div class="col-md-6 mb-2">
+      <!-- <div class="col-md-6 mb-sm-2 mb-3">
         <label for="ak_mk_id" class="form-label">Kendaraan</label>
         <select name="ak_mk_id" class="form-control @error('ak_mk_id') is-invalid @enderror" required>
           <option value="">Pilih Kendaraan</option>
@@ -21,20 +21,18 @@
         @enderror
       </div> -->
 
-        <div class="col-md-6 mb-2">  
-          <div class="form-group">  
-              <label for="ak_mk_id">Kendaraan</label>
-              <input type="text" id="ak_mk_id" name="ak_mk_id" list="list_kendaraan" class="form-control" placeholder="pilih Kendaraan">
-             <datalist id="list_kendaraan" class="select2">  
-                @foreach ($namaKendaraan as $kendaraan)
-                @if( old('category_asset') == $kendaraan->mca_category )
-                <option value="{{ $kendaraan->mk_nama_kendaraan }}" selected>{{ $kendaraan->mk_nama_kendaraan}}</option>
-                @else
-                <option value="{{ $kendaraan->mk_nama_kendaraan }}">{{ $kendaraan->mk_nama_kendaraan}}</option>
-                @endif
-                @endforeach    
-              </datalist> 
-          </div>  
+        <div class="col-md-6 mb-sm-2 mb-3">  
+          <label for="ak_mk_id">Kendaraan</label>
+          <input type="text" id="ak_mk_id" name="ak_mk_id" list="list_kendaraan" class="form-control" placeholder="Pilih Kendaraan">
+          <datalist id="list_kendaraan" class="select2">  
+            @foreach ($namaKendaraan as $kendaraan)
+            @if( old('category_asset') == $kendaraan->mca_category )
+            <option value="{{ $kendaraan->mk_nama_kendaraan }}" selected>{{ $kendaraan->mk_nama_kendaraan}}</option>
+            @else
+            <option value="{{ $kendaraan->mk_nama_kendaraan }}">{{ $kendaraan->mk_nama_kendaraan}}</option>
+            @endif
+            @endforeach    
+          </datalist> 
       </div>
 
     <script>
@@ -44,7 +42,7 @@
     </script>
 
       
-        <div class="col-md-6 mb-2">
+        <div class="col-md-6 mb-sm-2 mb-3">
           <label for="ak_pengguna" class="form-label">Pengguna</label>
           <input type="text" class="form-control @error('ak_pengguna') is-invalid @enderror" name="ak_pengguna" required>
           @error('ak_pengguna')
@@ -52,7 +50,7 @@
           @enderror
         </div>
 
-      <div class="col-md-6 mb-2">
+      <div class="col-md-6 mb-sm-2 mb-3">
         <label for="ak_tanggal_mulai" class="form-label">Tanggal Mulai</label>
         <input type="date" class="form-control @error('tanggal') is-invalid @enderror" name="ak_tanggal_mulai"
             required>
@@ -60,7 +58,7 @@
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-md-6 mb-2">
+      <div class="col-md-6 mb-sm-2 mb-3">
         <label for="ak_jam" class="form-label">Jam Mulai</label>
         <input type="time" class="form-control @error('jam') is-invalid @enderror" name="ak_jam" required>
         @error('jam')
@@ -68,7 +66,7 @@
         @enderror
       </div>
 
-      <div class="col-md-6 mb-2">
+      <div class="col-md-6 mb-sm-2 mb-3">
         <label for="ak_tanggal_selesai" class="form-label">Tanggal Selesai</label>
         <input type="date" class="form-control @error('tanggal_selesaiss') is-invalid @enderror" name="ak_tanggal_selesai"
             required>
@@ -76,7 +74,7 @@
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-md-6 mb-2">
+      <div class="col-md-6 mb-sm-2 mb-3">
         <label for="ak_jam_selesai" class="form-label">Jam Selesai</label>
         <input type="time" class="form-control @error('jam_selesai') is-invalid @enderror" name="ak_jam_selesai" required>
         @error('jam_selesai')
@@ -84,14 +82,14 @@
         @enderror
       </div>
 
-            <div class="col-md-6 mb-2">
+            <div class="col-md-6 mb-sm-2 mb-3">
         <label for="ak_lokasi_tujuan" class="form-label">Lokasi Tujuan</label>
         <input type="text" class="form-control @error('lokasi_tujuan') is-invalid @enderror" name="ak_lokasi_tujuan" required>
         @error('lokasi_tujuan')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
       </div>
-      <div class="col-md-6 mb-2">
+      <div class="col-md-6 mb-sm-2 mb-3">
         <label for="ak_tujuan_pemakaian" class="form-label">Tujuan Pemakaian</label>
         <input type="text" class="form-control @error('tujuan') is-invalid @enderror" name="ak_tujuan_pemakaian" required>
         @error('tujuan')
