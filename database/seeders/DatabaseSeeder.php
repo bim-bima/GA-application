@@ -791,22 +791,6 @@ class DatabaseSeeder extends Seeder
             'ma_nama_aktivitas' => 'Menerima tamu (klien & partner)'
         ]);
 
-        MasterVendor::factory()->create([
-            'mv_nama_vendor' => 'Toko Komputer',
-            'mv_lokasi' => 'Tangsel'
-        ]);
-        MasterVendor::factory()->create([
-            'mv_nama_vendor' => 'Toko Online',
-            'mv_lokasi' => ''
-        ]);
-        MasterVendor::factory()->create([
-            'mv_nama_vendor' => 'Toko Matrial',
-            'mv_lokasi' => 'Tangsel'
-        ]);
-        MasterVendor::factory()->create([
-            'mv_nama_vendor' => 'Toko Mable',
-            'mv_lokasi' => 'Tangsel'
-        ]);
         MasterJenisPengajuan::factory()->create([
             'mjp_jenis' => 'Pengadaan Barang',
         ]);

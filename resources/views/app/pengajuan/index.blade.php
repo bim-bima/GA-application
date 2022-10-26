@@ -117,7 +117,30 @@
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="200">
+
+        <div class="col-md-6 mb-2">  
+          <div class="form-group">  
+              <label for="vendor">Vendor</label>
+              <input type="text" id="vendor" name="vendor" list="list_vendor" class="form-control" placeholder="pilih Vendor">
+             <datalist id="list_vendor" class="select2">
+             @foreach ($vendor as $ven)
+            @if( old('vendor') == $ven->mv_nama_vendor )
+            <option value="{{ $ven->mv_nama_vendor }}" selected>{{ $ven->mv_nama_vendor}}</option>
+            @else
+            <option value="{{ $ven->mv_nama_vendor }}">{{ $ven->mv_nama_vendor}}</option>
+            @endif
+            @endforeach  
+            </datalist> 
+          </div>  
+      </div>
+
+    <script>
+      $(document).ready(function() {
+        $('.select2').select2();
+      });
+    </script>
+
+        <!-- <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="200">
           <label for="vendor" class="form-label">Vendor</label>
           <select name="vendor" class="form-control @error('vendor') is-invalid @enderror" required>
             <option value="">Pilih Vendor</option>
@@ -132,7 +155,7 @@
           @error('vendor')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
-        </div>
+        </div> -->
         <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="200">
           <label for="biaya" min="1" class="form-label">Biaya (Rp)</label>
           <input type="number" class="form-control @error('biaya') is-invalid @enderror" name="biaya" required autofocus value="{{ old('biaya') }}">
