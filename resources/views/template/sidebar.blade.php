@@ -46,7 +46,7 @@
         <i class="fa fa-calendar"></i>
         <span>Perencanaan Aktivitas</span>
       </a>
-      <a class="nav-link" href="app_asset">
+      <a class="nav-link" href="/app_asset">
         <i class="fa fa-cube"></i>
         <span>Aset</span>
       </a>

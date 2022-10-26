@@ -119,7 +119,7 @@
   <div class="card-body px-sm-4">
     <div class="row px-sm-1">
       <div class="col-lg-6 px-0">
-        <h6 class="font-weight-bold text-primary">Aktivitas Hari Ini</h6>
+        <h6 class="font-weight-bold text-primary mb-2">Aktivitas Hari Ini</h6>
         <div class="col-12 px-0" >
           <table class="table table-bordered border" id="table" width="100%" cellspacing="0">
             <thead>
@@ -215,9 +215,9 @@
 
 
 
-
+<hr>
 <div class="col-12 px-sm-3 px-2">
-        <h6 class="font-weight-bold text-primary">Riwayat Pemakaian Kendaraan</h6>
+        <h6 class="font-weight-bold text-primary mb-2">Riwayat Pemakaian Kendaraan</h6>
         <div class="col-12 px-0" >
           <table class="table table-bordered border" id="table_kendaraan" width="100%" cellspacing="0">
             <thead>
