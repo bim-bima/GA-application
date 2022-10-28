@@ -16,7 +16,7 @@
         @enderror
       </div>
       <label for="mv_lokasi" class="form-label">Lokasi Vendor</label>
-      <input type="text" class="mb-1 form-control @error('lokasi') is-invalid @enderror" name="mv_lokasi" required>
+      <textarea class="mb-1 form-control @error('lokasi') is-invalid @enderror" name="mv_lokasi" required rows="3"></textarea>
       @error('lokasi')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror

@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\Asset;
 use App\Models\MasterLokasiAsset;
 use App\Models\MasterCategoryAsset;
+use App\Models\MasterVendor;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -23,7 +24,8 @@ class AssetController extends Controller
     {
             $lokasiAsset = MasterLokasiAsset::all();
         $categoryasset = MasterCategoryAsset::all();
-        return view('app.asset.create', compact(['lokasiAsset','categoryasset']));
+        $vendor = MasterVendor::all();
+        return view('app.asset.create', compact(['lokasiAsset','categoryasset','vendor']));
         
     }
     

@@ -37,7 +37,6 @@
           <thead>
             <tr class="bg-primary text-light">
               <th class="border col-4 col-sm-5">Nama Kategori</th>
-              <th class="border col-3 col-sm-4">Id Kategori</th>
               <th class="border col-3 col-sm-3 col-md-2 col-xl-1">Aksi</th>
             </tr>
           </thead>
@@ -46,7 +45,6 @@
             <tr>
               <input type="hidden" class="delete_id" value="{{ $category->id }}">
               <td class="border">{{ $category->mca_category }}</td>
-              <td class="border">{{ $category->id }}</td>
               <td class="border">
                 <a class="btn-sm btn-warning btn-circle mb-sm-0 mb-1" href="{{ route('master_categoryasset.edit',$category->id) }}">
                   <i class="fa fa-edit"></i>

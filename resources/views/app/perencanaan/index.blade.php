@@ -7,7 +7,7 @@
     <div class="card-header px-sm-3 px-1">
       <h6 class="m-0 font-weight-bold text-primary" data-aos="fade-right" data-aos-delay="100">List Perencanaan Aktivitas</h6>
     </div>
-    <div class="row d-flex px-2 pb-0 pt-2">
+    <div class="row d-flex px-2 pb-0">
 
       <!-- Management -->
 
@@ -125,7 +125,7 @@
         {{ $dataperencanaan->links() }}
       </div>
 
-      <div class="card-body col-lg-5 pb-2 mb-2 pr-sm-4 pr-2 pl-sm-2 pl-2">
+      <div class="card-body col-lg-5 pb-2 mb-2 px-sm-3 px-2">
         <div class="card">
           <div class="card-header px-sm-3 px-2">
             <h6 class="font-weight-bold text-primary">Tambah List Perencanaan</h6>

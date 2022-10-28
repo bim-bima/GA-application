@@ -80,7 +80,7 @@
 
 
       <div class="col-md-12">  
-          <div class="form-group">  
+          <div class="form-group">
               <label for="title">Aktivitas</label>
               <input type="text" id="title" name="title" list="list_title" class="form-control">
              <datalist id="list_title" class="select2">  
@@ -175,7 +175,12 @@
                     </a>
                   </div>
                   <div class="ml-1 mt-1">
+                    @if(auth()->user()->level == "general-affair")
                     <h6 class="font-weight-bold text-primary">Aktivitas</h6>
+                    @endif
+                    @if(auth()->user()->level == "management")
+                    <h6 class="font-weight-bold text-primary">Aktivitas GA hari ini</h6>
+                    @endif
                   </div>
                 </div>
               </div>
