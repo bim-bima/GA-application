@@ -95,10 +95,6 @@
       <div id="collapseDataMaster" class="collapse" aria-labelledby="headingPages"
         data-parent="#accordionSidebar" style="z-index: 100">
         <ul class="text-white bg-primary p-0 rounded">
-          <a class="nav-link" href="/master_pic" aria-expanded="true">
-            <i class="fa fa-user"></i>
-            <span>PIC</span>
-          </a>
           <a class="nav-link" href="/master_kendaraan" >
             <i href="master_kendaraan" class="fa fa-car"></i>
             <span>Kendaraan</span>

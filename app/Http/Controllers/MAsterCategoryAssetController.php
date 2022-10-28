@@ -37,7 +37,7 @@ class MAsterCategoryAssetController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'mca_category' => 'required|max:100',
+        'mca_category' => 'required|min:3|max:250|regex:/^[A-Za-z . ]+$/',
         ]);
         $mastercategoryasset = new Mastercategoryasset();
         $mastercategoryasset->mca_category = $request->mca_category;
