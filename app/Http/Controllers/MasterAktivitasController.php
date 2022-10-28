@@ -79,8 +79,8 @@ class MasterAktivitasController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-        'ma_nama_aktivitas' => 'required',
-        'ma_category_aktivitas' => 'required|max:200',
+        'ma_nama_aktivitas' => 'required|min:3|max:250|regex:/^[A-Za-z . ]+$/',
+        'ma_category_aktivitas' => 'required|min:3|max:250|regex:/^[A-Za-z . ]+$/',
         ]);
         $aktivitas = MasterAktivitas::find($id);
         $aktivitas->ma_nama_aktivitas = $request->ma_nama_aktivitas;

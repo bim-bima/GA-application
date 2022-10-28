@@ -77,7 +77,7 @@ class MasterLokasiAssetController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-        'mla_lokasi_asset' => 'required|max:200',
+        'mla_lokasi_asset' => 'required|min:3|max:250|regex:/^[A-Za-z . ]+$/',
         ]);
         $lokasiasset = MasterLokasiAsset::find($id);
         $lokasiasset->mla_lokasi_asset = $request->mla_lokasi_asset;

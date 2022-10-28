@@ -37,8 +37,8 @@ class MasterVendorController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'mv_nama_vendor' => 'required|max:200',
-        'mv_lokasi' => 'required|max:200',
+        'mv_nama_vendor' => 'required|min:3|max:250|regex:/^[A-Za-z . ]+$/',
+        'mv_lokasi' => 'required|min:3|max:250|regex:/^[A-Za-z . ]+$/',
         ]);
         $mastervendor = new MasterVendor();
         $mastervendor->mv_nama_vendor = $request->mv_nama_vendor;

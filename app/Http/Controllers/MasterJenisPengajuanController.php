@@ -37,7 +37,7 @@ class MasterJenisPengajuanController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-        'mjp_jenis' => 'required|max:200',
+        'mjp_jenis' => 'required|min:3|max:250|regex:/^[A-Za-z . ]+$/',
         ]);
         $MasterJenisPengajuan = new MasterJenisPengajuan();
         $MasterJenisPengajuan->mjp_jenis = $request->mjp_jenis;
