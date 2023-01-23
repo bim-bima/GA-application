@@ -34,13 +34,24 @@
           @enderror
         </div>
 
-        <div class="col-12 px-sm-3 px-2 mb-3">
+           <div class="col-md-12 mb-2 pr-md-1">
+            <label class="form-label">Catatan kondisi</label>
+            <select  name="kondisi_lain" class="custom-select custom-select-md">
+              <option value="{{ $kendaraan->mk_kondisi_lain }}">{{ $kendaraan->mk_kondisi_lain }}</option>
+              <option value="aman aman saja">aman aman saja</option>
+              <option value="perlu perbaikan">perlu perbaikan</option>
+              <option value="Sedang diperbaiki">Sedang diperbaiki</o>
+ption            </select>
+          </div>
+
+
+       <!--  <div class="col-12 px-sm-3 px-2 mb-3">
           <label for="kondisi_lain" class="form-label">Catatan</label>
           <textarea type="text" class="form-control @error('kondisi') is-invalid @enderror" name="kondisi_lain" required value="{{ $kendaraan->mk_kondisi_lain }}" rows="3" >{{ $kendaraan->mk_kondisi_lain }}</textarea>
           @error('kondisi_lain')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

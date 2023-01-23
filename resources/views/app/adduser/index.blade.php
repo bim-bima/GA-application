@@ -11,7 +11,7 @@
       <form action="{{ route('add_user.store') }}" method="POST" enctype="multipart/form-data" class="">
         @csrf
         <label for="name" class="form-label">Nama</label>
-        <input type="text" class="mb-2 form-control @error('name') is-invalid @enderror" name="name" required autofocus>
+        <input type="text" min="4" class="mb-2 form-control @error('name') is-invalid @enderror" name="name" required autofocus>
         @error('name')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
@@ -27,13 +27,18 @@
           <option value="">Pilih Level</option>
           <option value="general-affair">general-affair</option>
           <option value="management">management</option>
+          <option value="pegawai">pegawai</option>
         </select>
         @error('level')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror
   
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="mb-2 form-control @error('password') is-invalid @enderror" name="password" required autofocus>
+        <br>
+        <small class="text-danger">kombinasi password harus mengandung
+               huruf besar | huruf kecil | angka
+        </small>
+        <input type="password" min="8" class="mb-2 form-control @error('password') is-invalid @enderror" name="password" required autofocus>
         @error('password')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror

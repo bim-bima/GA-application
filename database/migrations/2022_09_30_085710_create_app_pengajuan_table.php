@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('ap_biaya');
             $table->string('ap_catatan');
             $table->date('ap_tanggal_pengadaan');
+            $table->string('ap_file');
             // $table->string('ap_mp_id');
             // $table->unsignedInteger('ap_mp_id');
             $table->string('ap_status')->nullable();

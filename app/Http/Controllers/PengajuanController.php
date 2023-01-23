@@ -53,8 +53,37 @@ class PengajuanController extends Controller
         'biaya'              => 'required|min:4|max:11|regex:/^[0-9]+$/',
         'catatan'            => 'required',
         'tanggal_pengadaan'  => 'required|after:today',
+        'file'               => 'required|file|mimes:xlsx|max:5048',
         'ap_status'          => 'nullable',
         ]);
+
+        // menyimpan data file yang diupload ke variabel $file
+        $file = $request->file('file');
+ 
+                // nama file
+        // echo 'File Name: '.$file->getClientOriginalName();
+        // echo '<br>';
+ 
+                // ekstensi file
+        // echo 'File Extension: '.$file->getClientOriginalExtension();
+        // echo '<br>';
+ 
+                // real path
+        // echo 'File Real Path: '.$file->getRealPath();
+        // echo '<br>';
+ 
+                // ukuran file
+        // echo 'File Size: '.$file->getSize();
+        // echo '<br>';
+ 
+                // tipe mime
+        // echo 'File Mime Type: '.$file->getMimeType();
+ 
+                // isi dengan nama folder tempat kemana file diupload
+        $tujuan_upload = 'data_file';
+ 
+                // upload file
+        $file->move($tujuan_upload,$file->getClientOriginalName());
 
         $pengajuan = new Pengajuan();
         $pengajuan->ap_nama_pengajuan = $request->nama_pengajuan;
@@ -63,6 +92,7 @@ class PengajuanController extends Controller
         $pengajuan->ap_biaya = $request->biaya;
         $pengajuan->ap_catatan = $request->catatan;
         $pengajuan->ap_tanggal_pengadaan = $request->tanggal_pengadaan;
+        $pengajuan->ap_file = $file->getClientOriginalName();
         $pengajuan->ap_status = 'Menunggu Persetujuan';
         $pengajuan->ap_reason = $request->ap_reason;
         $pengajuan->save();
@@ -108,6 +138,19 @@ class PengajuanController extends Controller
           //   Alert::success('Berhasil', 'Data Berhasil Dihapus');
         //   return redirect()->route('app_asset.index'); 
         return response()->json(['status' => 'Data Berhasil di hapus!']);   
+        }
+
+        public function download($file_name)
+        {
+        // $filePath = public_path("dummy.pdf");
+        $filePath= public_path(). "/data_file/".$file_name;
+        // $headers = ['Content-Type: application/png'];
+        // $fileName = time().'.png';  $fileName, $headers
+
+        return response()->download($filePath,);
+        
+        // echo "kopi";
+        // echo $file_name;
         }
 }
 

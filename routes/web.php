@@ -119,5 +119,6 @@ Route::group(['middleware' => ['auth', 'level:management']], function(){
     });
     Route::resource('slack', SlackController::class)->only('index');
     Route::get('downloadlist', [AktivitasController::class,'download']);
+    Route::get('downloadfile/{file}', [PengajuanController::class,'download']);
 
 

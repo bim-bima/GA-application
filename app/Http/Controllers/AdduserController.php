@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
 
 class AdduserController extends Controller
 {
@@ -23,12 +24,14 @@ class AdduserController extends Controller
     }
     public function store(Request $request)
     {
-        // $request->validate([
-        // 'name' => 'required|string|max:255',
-        // 'level' => 'required|string',
-        // 'email' => 'required|string|email|max:255|unique:users',
-        // 'password' => 'required|string|min:8|confirmed',
-        // ]);
+        $request->validate([
+        'name' => 'required|string|max:255',
+        'level' => 'required|string',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|min:8|confirmed|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/',
+        ]);
+
+
         $verified = Carbon::now();
         $verified_at = $verified->toDateTimeString(); 
 
