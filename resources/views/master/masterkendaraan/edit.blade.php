@@ -16,7 +16,6 @@
           $bahanbakar = substr($bahan,-0,3);
           $bahan_bakar = intval($bahanbakar);
          ?>
-
         <div class="col-12 mb-sm-2 mb-3 px-sm-3 px-2">
           <label for="Bahan_bakar" class="form-label">Jumlah Bahan Bakar (Liter)</label>
           <input type="number" class="form-control @error('bahan_bakar') is-invalid @enderror" name="bahan_bakar" required value="{{ $bahan_bakar }}">

@@ -62,6 +62,13 @@ class HomeController extends Controller
           $ajuan = Pengajuan::where('ap_status', 'Menunggu Persetujuan')->get();
           $setuju = Pengajuan::where('ap_status', 'setujui')->with('vendor')->get();
 
+    if(auth()->user()->level == "general-affair"){
+        Notification::route('slack', env('SLACK_WEBHOOK'))->notify(new SlackNotification());
+    }
+    
+    
+
+
           return view('home',compact(['datakendaraan','aktivitas','booking','cek','today','cekak','request','cekrequest','listrequest','datapengajuan','cekpengajuan','kendaraan','cekken']));
     }
 }

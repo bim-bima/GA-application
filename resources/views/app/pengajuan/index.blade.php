@@ -67,7 +67,7 @@
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="ap_status" id="gridRadios2" value="tidak setuju">
+                  <input class="form-check-input" type="radio" name="ap_status" id="gridRadios2" value="Tidak Setuju">
                   <label class="form-check-label p-sm-0" for="gridRadios2">
                     Tidak Setujui
                   </label>

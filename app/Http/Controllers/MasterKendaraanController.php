@@ -35,17 +35,17 @@ class MasterKendaraanController extends Controller
         */
         public function store(Request $request)
         {
-        $request->validate([
-        'bahan_bakar' => 'required|regex:/^[0-9]+$/|max:15',
-        'kilometer' => 'required|regex:/^[0-9]+$/|max:15',
-        'kondisi_lain' => 'required',
-        'nama_kendaraan' => 'required|min:3|max:100',
-        'no_polisi' => 'required|min:5|max:10',
-        'mk_jenis' => 'required',
-        'merk' => 'required|max:20',
-        'warna' => 'required|max:20',
-        'mk_perlengkapan' => 'required',
-        ]);
+        // $request->validate([
+        // 'bahan_bakar' => 'required|regex:/^[0-9]+$/|max:15',
+        // 'kilometer' => 'required|regex:/^[0-9]+$/|max:15',
+        // 'kondisi_lain' => 'required',
+        // 'nama_kendaraan' => 'required|min:3|max:100',
+        // 'no_polisi' => 'required|min:5|max:10',
+        // 'mk_jenis' => 'required',
+        // 'merk' => 'required|max:20',
+        // 'warna' => 'required|max:20',
+        // 'mk_perlengkapan' => 'required',
+        // ]);
         $kendaraan = new MasterKendaraan();
         $kendaraan->mk_bahan_bakar = $request->bahan_bakar;
         $kendaraan->mk_kilometer = $request->kilometer;
