@@ -9,8 +9,8 @@
     <form action="{{ route('master_categoryasset.store') }}" method="POST" enctype="multipart/form-data" class="col-lg-6 px-0">
       @csrf
       <label for="mca_category" class="form-label">Nama Kategori</label>
-      <input type="text" class="mb-2 form-control @error('nama') is-invalid @enderror" name="mca_category" required>
-      @error('nama')
+      <input type="text" class="mb-2 form-control @error('mca_category') is-invalid @enderror" name="mca_category" required>
+      @error('mca_category')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror
       {{-- <label for="mca_id_category" class="form-label">Id Category</label>

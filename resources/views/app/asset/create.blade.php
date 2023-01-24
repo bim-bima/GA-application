@@ -108,7 +108,28 @@
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-lg-6 mt-sm-4 mt-2 pl-lg-2">
+        {{-- <div class="col-lg-6 mb-3 mb-sm-2 pl-lg-2">  
+          <div class="form-group">  
+              <label for="vendor">Vendor</label>
+              <input type="text" id="vendor" name="vendor" list="list_vendor" class="form-control" placeholder="Pilih Vendor">
+             <datalist id="list_vendor" class="select2">
+             @foreach ($vendor as $ven)
+            @if( old('vendor') == $ven->mv_nama_vendor )
+            <option value="{{ $ven->mv_nama_vendor }}" selected>{{ $ven->mv_nama_vendor}}</option>
+            @else
+            <option value="{{ $ven->mv_nama_vendor }}">{{ $ven->mv_nama_vendor}}</option>
+            @endif
+            @endforeach  
+            </datalist> 
+          </div>  
+      </div>
+
+    <script>
+      $(document).ready(function() {
+        $('.select2').select2();
+      });
+    </script> --}}
+        <div class="col-lg-6 pl-lg-2 mt-sm-4 mt-2">
           <button class="btn btn-info mr-1 mt-sm-2">
             <i class="fa fa-angle-left"></i>
             <a  href="{{ route('app_asset.index') }}" class="text-white text-decoration-none">Kembali</a>

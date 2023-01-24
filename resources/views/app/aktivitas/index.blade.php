@@ -80,7 +80,7 @@
 
 
       <div class="col-md-12">  
-          <div class="form-group">  
+          <div class="form-group">
               <label for="title">Aktivitas</label>
               <input type="text" id="title" name="title" list="list_title" class="form-control">
              <datalist id="list_title" class="select2">  
@@ -164,21 +164,28 @@
         @include('template.topbar')
         <!-- End of Topbar -->
         <!-- Begin Page Content -->
-        <div class="container-fluid p-2">
+        <div class="container-fluid p-sm-2 p-0">
           <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <div class="row d-flex">
+            <div class="card-header px-sm-3 px-2 py-3">
+              <div class="align-items-center">
                 <div class="d-flex">
-                  <a href="{{ route('app_perencanaan.index') }}" class="text-light btn-sm text-decoration-none btn-circle btn-primary">
-                    <i class="fa fa-angle-left"></i>
-                  </a>
-                  <div class="mt-1 ml-1">
-                    <h6 class="font-weight-bold text-primary pt-1">Aktivitas</h6>
+                  <div class="">
+                    <a href="{{ route('app_perencanaan.index') }}" class="text-light btn-sm text-decoration-none btn-circle btn-primary">
+                      <i class="fa fa-angle-left"></i>
+                    </a>
+                  </div>
+                  <div class="ml-1 mt-1">
+                    @if(auth()->user()->level == "general-affair")
+                    <h6 class="font-weight-bold text-primary">Aktivitas</h6>
+                    @endif
+                    @if(auth()->user()->level == "management")
+                    <h6 class="font-weight-bold text-primary">Aktivitas GA hari ini</h6>
+                    @endif
                   </div>
                 </div>
               </div>
             </div>
-            <div class="card-body">
+            <div class="card-body px-sm-3 px-2">
               <div id='calendar'></div>
             </div>
           </div>

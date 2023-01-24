@@ -16,8 +16,7 @@
           $bahanbakar = substr($bahan,-0,3);
           $bahan_bakar = intval($bahanbakar);
          ?>
-
-        <div class="col-12 mb-2 px-sm-3 px-2">
+        <div class="col-12 mb-sm-2 mb-3 px-sm-3 px-2">
           <label for="Bahan_bakar" class="form-label">Jumlah Bahan Bakar (Liter)</label>
           <input type="number" class="form-control @error('bahan_bakar') is-invalid @enderror" name="bahan_bakar" required value="{{ $bahan_bakar }}">
           @error('bahan_bakar')
@@ -26,7 +25,7 @@
         </div>
 
 
-        <div class="col-12 mb-2 px-sm-3 px-2">
+        <div class="col-12 mb-sm-2 mb-3 px-sm-3 px-2">
           <label for="kilometer" class="form-label">Kilometer Kendaraan</label>
           <input type="number" min="1" class="form-control @error('kilometer') is-invalid @enderror" name="kilometer" required  value="{{ $kendaraan->mk_kilometer }}">
           @error('kilometer')
@@ -62,21 +61,21 @@ ption            </select>
       </div>
       <div class="card-body px-sm-3 px-2">
         <div class="row">
-          <div class="col-md-6 mb-2 pr-md-1">
+          <div class="col-md-6 mb-sm-2 mb-3 pr-md-1">
             <label for="nama_kendaraan" class="form-label">Nama Kendaraan</label>
             <input type="text" class="form-control @error('nama_kendaraan') is-invalid @enderror" name="nama_kendaraan" value="{{ $kendaraan->mk_nama_kendaraan }}" required>
             @error('nama_kendaraan')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
-          <div class="col-md-6 mb-2 pl-md-1">
+          <div class="col-md-6 mb-sm-2 mb-3 pl-md-1">
             <label for="no_polisi" class="form-label">No Polisi</label>
             <input type="text" class="form-control @error('no_polisi') is-invalid @enderror" name="no_polisi" required value="{{ $kendaraan->mk_no_polisi }}">
             @error('no_polisi')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
-          <div class="col-md-6 mb-2 pr-md-1">
+          <div class="col-md-6 mb-sm-2 mb-3 pr-md-1">
             <label for="mk_jenis" class="form-label">Jenis Kendaraan</label>
             <select name="mk_jenis" class="form-control @error('mk_jenis') is-invalid @enderror" required>
               <option value="{{ $kendaraan->mk_jenis }}">{{ $kendaraan->mk_jenis }}</option>
@@ -87,14 +86,14 @@ ption            </select>
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
-          <div class="col-md-6 mb-2 pl-md-1">
+          <div class="col-md-6 mb-sm-2 mb-3 pl-md-1">
             <label for="warna" class="form-label">Warna Kendaraan</label>
             <input type="text" class="form-control @error('warna') is-invalid @enderror" name="warna" required  value="{{ $kendaraan->mk_warna }}">
             @error('warna')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
-          <div class="col-md-12 mb-2">
+          <div class="col-md-12 mb-sm-2 mb-3">
             <label for="merk" class="form-label">Merk Kendaraan</label>
             <input type="text" class="form-control @error('merk') is-invalid @enderror" name="merk" required  value="{{ $kendaraan->mk_merk }}">
             @error('merk')

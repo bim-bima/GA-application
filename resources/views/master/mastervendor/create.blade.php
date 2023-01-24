@@ -8,7 +8,7 @@
   <div class="card-body px-sm-3 px-2">
     <form action="{{ route('master_vendor.store') }}" method="POST" enctype="multipart/form-data" class="col-lg-6 px-0">
       @csrf
-      <div class="mb-2">
+      <div class="mb-sm-2 mb-3">
         <label for="mv_nama_vendor" class="form-label">Nama Vendor</label>
         <input type="text" class="form-control @error('nama') is-invalid @enderror" name="mv_nama_vendor" required>
         @error('nama')
@@ -16,7 +16,7 @@
         @enderror
       </div>
       <label for="mv_lokasi" class="form-label">Lokasi Vendor</label>
-      <input type="text" class="mb-1 form-control @error('lokasi') is-invalid @enderror" name="mv_lokasi" required>
+      <textarea class="mb-1 form-control @error('lokasi') is-invalid @enderror" name="mv_lokasi" required rows="3"></textarea>
       @error('lokasi')
       <div class="invalid-feedback">{{ $message }}</div>
       @enderror

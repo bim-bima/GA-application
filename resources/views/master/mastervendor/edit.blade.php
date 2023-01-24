@@ -8,7 +8,7 @@
     <form action="{{ route('master_vendor.update',$vendor->id) }}" method="POST" enctype="multipart/form-data" class="col-lg-6 px-0">
       @csrf
       @method('put')
-      <div class="mb-2">
+      <div class="mb-sm-2 mb-3">
         <label for="mv_nama_vendor" class="form-label">Nama Vendor</label>
         <input type="text" class="form-control @error('nama') is-invalid @enderror" name="mv_nama_vendor" value="{{ $vendor->mv_nama_vendor }}" required>
         @error('nama')
@@ -17,7 +17,7 @@
       </div>
       <div>
         <label for="mv_lokasi" class="form-label">Lokasi Vendor</label>
-        <input type="text" class="mb-1 form-control @error('lokasi') is-invalid @enderror" name="mv_lokasi" value="{{ $vendor->mv_lokasi }}" required>
+        <textarea class="mb-1 form-control @error('lokasi') is-invalid @enderror" name="mv_lokasi" required rows="3">{{ $vendor->mv_lokasi }}</textarea>
         @error('lokasi')
         <div class="invalid-feedback">{{ $message }}</div>
         @enderror

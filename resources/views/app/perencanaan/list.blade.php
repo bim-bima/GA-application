@@ -51,8 +51,13 @@
         </thead>
         <tbody>
           @foreach ($list as $listaktivitas)
+          <?php
+          $tanggal1 = $listaktivitas->start_date;
+          $tanggal = substr($tanggal1,-0,10);
+          $tanggal_aktivitas = date('d M, Y',strtotime($tanggal1));
+          ?>
           <tr>
-            <td class="border">{{ $listaktivitas->start_date }}</td>
+            <td class="border">{{ $tanggal_aktivitas }}</td>
             <td class="border">{{ $listaktivitas->title }}</td>
             <td class="border">{{ $listaktivitas->prioritas }}</td>
             <td class="border">{{ $listaktivitas->deskripsi }}</td>

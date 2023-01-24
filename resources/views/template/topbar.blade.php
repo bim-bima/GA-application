@@ -1,8 +1,23 @@
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow px-1">
+  @if(auth()->user()->level == "pegawai")
+  <li class="nav-item px-5">
+    <a class="nav-link" href="/home">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Dashboard</span>
+    </a>
+  </li>
+  @endif
   <!-- Sidebar Toggle (Topbar) -->
-  <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle">
+  @if(auth()->user()->level == "general-affair")
+  <button id="sidebarToggleTop" class="btn btn-link rounded-circle">
     <i class="fa fa-bars"></i>
   </button>
+  @endif
+  @if(auth()->user()->level == "management")
+  <button id="sidebarToggleTop" class="btn btn-link rounded-circle">
+    <i class="fa fa-bars"></i>
+  </button>
+  @endif
   <!-- Topbar Navbar -->
   <ul class="navbar-nav ml-auto">
     <!-- Nav Item - Alerts -->
@@ -78,7 +93,7 @@
           Pesan Request
         </h6>
         @foreach( $pesan as $item)
-        <a class="dropdown-item d-flex align-items-center" href="{{ route('app_request.show',$item->id) }}">
+        <a class="dropdown-item d-flex align-items-center" href="{{ route('app_request.show',$item->id) }}" >
           <div class="mr-3">
             <div class="icon-circle bg-success">
               <i class="fas fa-donate text-white"></i>
@@ -94,8 +109,9 @@
           //       $tanggal = substr($tanggal2,-0,10);
           //       $tanggal_estimasi = date('d M, Y',strtotime($tanggal2));
           ?>
-            <div class="small text-red-500">{{ $tanggal_req }}</div>
-              {{ $item->ar_request }}
+          <span class="">{{ $item->ar_perequest }}</span>
+            <div class="small text-danger mt-0">{{ $tanggal_req }}</div>
+            <div class="">{{ $item->ar_request }}</div>   
           </div>
         </a>
         @endforeach

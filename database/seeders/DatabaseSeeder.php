@@ -28,65 +28,157 @@ class DatabaseSeeder extends Seeder
     public function run()
     {   
         MasterVendor::factory()->create([
-            'mv_nama_vendor' => 'Toko Amanah Komputer',
-            'mv_lokasi' => 'jln.cemara pamulang',
+            'mv_nama_vendor' => '(Komputer) Sentral Komputer',
+            'mv_lokasi' => 'Taman Pulo Indah Jl. Manggis Blom M 34 Penggilingan Jakarta Timur 13940',
         ]);
         MasterVendor::factory()->create([
-            'mv_nama_vendor' => 'Toko Matrial Budi',
-            'mv_lokasi' => 'jln.cemara pamulang',
+            'mv_nama_vendor' => '(Komputer dan Laptop) PT. Yabes Mega Utama',
+            'mv_lokasi' => 'Jl.Daan Mogot Raya No.47, Jakarta Barat',
         ]); 
         MasterVendor::factory()->create([
-            'mv_nama_vendor' => 'Toko Fatwa Elektronik',
-            'mv_lokasi' => 'jln.cemara pamulang',
+            'mv_nama_vendor' => '(Komputer dan Laptop) PT. Lintas Virtual Globalindo',
+            'mv_lokasi' => 'Komplek Ruko Mutiara Bekasi Center Blok B10 No. 1 Bekasi DKI Jakarta',
         ]);
         MasterVendor::factory()->create([
-            'mv_nama_vendor' => 'Toko Mega Baja',
-            'mv_lokasi' => 'jln.cemara pamulang',
+            'mv_nama_vendor' => '(Komputer dan Laptop) PT. Sukses Mandiri Cemerlang',
+            'mv_lokasi' => 'Ruko Pasar Laris B NO.7 RT.005 RW.013 Duri Kosambi, Cengkareng, Jakarta Barat, DKI Jakarta 11750',
         ]); 
         MasterVendor::factory()->create([
-            'mv_nama_vendor' => 'Toko Online',
-            'mv_lokasi' => '-',
+            'mv_nama_vendor' => '(Komputer dan Laptop) Netsolusi Teknologi',
+            'mv_lokasi' => 'Mangga Dua Square Lt. 2 Blok B.10-12 Jl. Gunung Sahari Raya No. 1 - 14420 Jakarta Utara',
+        ]);
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Komputer dan Laptop) PT. Trimitra Data Teknologi',
+            'mv_lokasi' => 'Apartemen Sudirman Park AGF AHAK1, Jl. KH Mas Mansyur Kav.35, Tanah Abang, Jakarta Pusat',
         ]); 
-        Asset::factory()->create([
-            'as_nama_asset' => 'Avanza Toyota',
-            'as_mla_id' => 'Lantai Bawah',
-            'as_mca_id' => 'Kendaraan',
-            'as_tanggal' => '2016-07-02 00:00:00',
-            'as_kode_asset' => 'L9.5.4.ava.1.16-07',
-            'as_harga' => '150000000',
-            'as_umur_manfaat' => '20',
-            'as_jumlah' => '1',
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Komputer dan Laptop) PT. Trikomindo Kharis Utama',
+            'mv_lokasi' => 'Ruko Permata Ancol Blok G no 16, Jakarta Utara',
         ]); 
-        Asset::factory()->create([
-            'as_nama_asset' => 'Hardisk',
-            'as_mla_id' => 'Lantai Atas',
-            'as_mca_id' => 'Aksesories',
-            'as_tanggal' => '2020-12-09 00:00:00',
-            'as_kode_asset' => 'L9.1.2.har.1.20-12',
-            'as_harga' => '500000',
-            'as_umur_manfaat' => '4',
-            'as_jumlah' => '1',
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Komputer dan Laptop) PT. Bangun Selaras Solusindo',
+            'mv_lokasi' => 'Kawasan Neo Soho lt 20 unit 2011 Jalan Letjen S Parman Kav 28 Jakarta, Jakarta Barat',
         ]); 
-        Asset::factory()->create([
-            'as_nama_asset' => 'Laptop',
-            'as_mla_id' => 'Lantai Atas',
-            'as_mca_id' => 'Elektronik',
-            'as_tanggal' => '2018-10-25 00:00:00',
-            'as_kode_asset' => 'L9.1.1.Lap.1.18-01',
-            'as_harga' => '6000000',
-            'as_umur_manfaat' => '4',
-            'as_jumlah' => '1',
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Komputer dan Laptop) PT. Columbindo Citra Indah',
+            'mv_lokasi' => 'Ged Orion Dusit mangga dua lt 1 no 10, Jakarta Pusat',
         ]); 
-        Asset::factory()->create([
-            'as_nama_asset' => 'Sofa',
-            'as_mla_id' => 'Lantai Atas',
-            'as_mca_id' => 'Properti & Furniture',
-            'as_tanggal' => '2021-10-20 00:00:00',
-            'as_kode_asset' => 'L9.2.4.sof.1.21-10',
-            'as_harga' => '3000000',
-            'as_umur_manfaat' => '8',
-            'as_jumlah' => '1',
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Komputer dan Laptop) PT. Vervetama Technology',
+            'mv_lokasi' => 'Komplek Ruko Wijaya Kusuma No 6 AH, JL. Daan Mogot km 2, Grogol Petamburan, Jakarta Barat',
         ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(AC) Bintang Technic',
+            'mv_lokasi' => 'Jl. Sukasari ll Rt 003 Rw 003 No.07C Serua Indah Ciputat – Tangerang Selatan',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(AC) Indo Jaya Technikal',
+            'mv_lokasi' => 'Jl. H. Abdul Aziz Kel. Kedaung Kec. Pamulang RT/RW 005/001 No. 023 Tangerang Selatan, Banten 15415',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(AC) Fortune AC',
+            'mv_lokasi' => 'Jl. Pejaten Raya No. 31, Pejaten Barat, Kec. Ps. Minggu, Kota Jakarta Selatan',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(AC) PT. Daikin Airconditioning Indonesia',
+            'mv_lokasi' => 'Jl. Jalur Sutera Kav 29 d No. 36-37, Alam Sutera, Tangerang Banten 15320',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(AC) CV. Era Teknik',
+            'mv_lokasi' => 'Ruko Mega Grosir Cempaka Mas Blok K No.3, Jakarta Pusat',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Alat Elektronik) Citra Karya Teknik',
+            'mv_lokasi' => 'Ruko Taman Buaya :Jl. Bandengan Utara Raya No. 27-29, RT.7/RW.11, Pekojan, Tambora - 11240 Jakarta Barat',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Alat Elektronik) PT. Lintas Solusi Perkasa',
+            'mv_lokasi' => 'Ruko Mutiara Bekasi Center Blok B 10 NO.1 Bekasi',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Alat Elektronik) PT. Visindo Global Teknologi',
+            'mv_lokasi' => 'Mangga Dua Square Lantai 2 Blok B No. 010 - 012 Jln. Gunung Sahari Raya No. 1 Jakarta Utara',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Alat Elektronik) PT. Station Sarana Mulya',
+            'mv_lokasi' => 'Ruko Metro Sunter Jl. Danau Sunter Utara Blok A1 No. 5 A-6 Sunter Jakarta Utara Jakarta Utara 14350',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Alat Elektronik) Terang Abadi Jaya',
+            'mv_lokasi' => 'Jl. Mayjend Hr. Muhammad No. 140 Kavling C 15-16, Surabaya',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Furniture dan Aksesoris Kantor) Branded Furniture Outlet',
+            'mv_lokasi' => 'Jl. Pluit Permai No.24 RT.1/RW.6, Pluit, Penjaringan, Jakarta Utara',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Furniture dan Aksesoris Kantor) Xanli Furnishing',
+            'mv_lokasi' => 'Rukan Danau Sunter Blok C7, Jl Danau Sunter Selatan Raya, Sunter - Jakarta Utara',
+        ]);  
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Furniture dan Aksesoris Kantor) Mitrakantor',
+            'mv_lokasi' => 'Jl. I Gusti Ngurah Rai No. 10 RT 001 RW 010 (Samping Johan Motor), Klender, Duren Sawit, Jakarta Timur, DKI Jakarta 13470',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Furniture dan Aksesoris Kantor) PT. Wildes Sukses Indonesia',
+            'mv_lokasi' => 'Rukan Mutiara Blok I NO 28 Cengkareng Jakarta Barat',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Furniture dan Aksesoris Kantor) Jakarta Alkes',
+            'mv_lokasi' => 'JL. Meruya Ilir Raya No.88 Business Park Kencana Tower Ruko Blok G 5 Jakarta Barat',
+        ]);  
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Toko Material) PT. Sahabat Ana Grup',
+            'mv_lokasi' => 'JL. Raya DK Jerawat No.31 Surabaya, Sawahan, Surabaya, Jawa Timur',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Toko Material)PT. Inori Indonesia',
+            'mv_lokasi' => 'Jl. Raya Inspeksi Kalimalang, Niaga Kalimas 2 Blok C No. 15-16, Tambun Sel, Bekasi, Jawa Barat 17510, Bekasi',
+        ]); 
+        MasterVendor::factory()->create([
+            'mv_nama_vendor' => '(Toko Material) Toko Bangunan Putra Jaya',
+            'mv_lokasi' => 'Jl. Alaydrus No. 14 A Petojo Utara Gambir Jakarta Pusat',
+        ]);  
+        // Asset::factory()->create([
+        //     'as_nama_asset' => 'Avanza Toyota',
+        //     'as_mla_id' => 'Lantai Bawah',
+        //     'as_mca_id' => 'Kendaraan',
+        //     'as_tanggal' => '2016-07-02 00:00:00',
+        //     'as_kode_asset' => 'L9.5.4.ava.1.16-07',
+        //     'as_harga' => '150000000',
+        //     'as_umur_manfaat' => '20',
+        //     'as_jumlah' => '1',
+        // ]); 
+        // Asset::factory()->create([
+        //     'as_nama_asset' => 'Hardisk',
+        //     'as_mla_id' => 'Lantai Atas',
+        //     'as_mca_id' => 'Aksesories',
+        //     'as_tanggal' => '2020-12-09 00:00:00',
+        //     'as_kode_asset' => 'L9.1.2.har.1.20-12',
+        //     'as_harga' => '500000',
+        //     'as_umur_manfaat' => '4',
+        //     'as_jumlah' => '1',
+        // ]); 
+        // Asset::factory()->create([
+        //     'as_nama_asset' => 'Laptop',
+        //     'as_mla_id' => 'Lantai Atas',
+        //     'as_mca_id' => 'Elektronik',
+        //     'as_tanggal' => '2018-10-25 00:00:00',
+        //     'as_kode_asset' => 'L9.1.1.Lap.1.18-01',
+        //     'as_harga' => '6000000',
+        //     'as_umur_manfaat' => '4',
+        //     'as_jumlah' => '1',
+        // ]); 
+        // Asset::factory()->create([
+        //     'as_nama_asset' => 'Sofa',
+        //     'as_mla_id' => 'Lantai Atas',
+        //     'as_mca_id' => 'Properti & Furniture',
+        //     'as_tanggal' => '2021-10-20 00:00:00',
+        //     'as_kode_asset' => 'L9.2.4.sof.1.21-10',
+        //     'as_harga' => '3000000',
+        //     'as_umur_manfaat' => '8',
+        //     'as_jumlah' => '1',
+        // ]); 
         AppRequest::factory()->create([
             'ar_request' => 'adain kipas di area mushola',
             'ar_perequest' => '-',
@@ -180,14 +272,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
         MasterLokasiAsset::factory()->create([
-            'mla_lokasi_asset' => 'Lantai Bawah'
+            'mla_lokasi_asset' => 'Workshop - Lt. 1'
         ]);
 
         MasterLokasiAsset::factory()->create([
-            'mla_lokasi_asset' => 'Lantai Atas'
+            'mla_lokasi_asset' => 'Workshop - Lt. 2'
         ]);
-
-
+        MasterLokasiAsset::factory()->create([
+            'mla_lokasi_asset' => 'Head Office - Lt. 1'
+        ]);
+        MasterLokasiAsset::factory()->create([
+            'mla_lokasi_asset' => 'Head Office - Lt. 2'
+        ]);
+        MasterLokasiAsset::factory()->create([
+            'mla_lokasi_asset' => 'Pantry'
+        ]);
 
         MasterAktivitas::factory()->create([
             'ma_category_aktivitas' => 'Area Kerja Atas',
@@ -795,20 +894,38 @@ class DatabaseSeeder extends Seeder
             'mjp_jenis' => 'Pengadaan Barang',
         ]);
         MasterJenisPengajuan::factory()->create([
-            'mjp_jenis' => 'Pengadaan Jasa',
+            'mjp_jenis' => 'Pengajuan Barang Non Fisik',
         ]);
+        MasterJenisPengajuan::factory()->create([
+            'mjp_jenis' => 'Pengajuan Barang Fisik',
+        ]);
+        MasterJenisPengajuan::factory()->create([
+            'mjp_jenis' => 'Pengajuan Jasa',
+        ]);
+        MasterJenisPengajuan::factory()->create([
+            'mjp_jenis' => 'Pengajuan Barang Fisik',
+        ]);
+        
         MasterCategoryAsset::factory()->create([
             'mca_category' => 'Elektronik',
         ]);
         MasterCategoryAsset::factory()->create([
-            'mca_category' => 'Aksesories',
+            'mca_category' => 'Fasilitas Umum',
         ]);
         MasterCategoryAsset::factory()->create([
-            'mca_category' => 'Properti & Furniture',
+            'mca_category' => 'Furniture',
         ]);
         MasterCategoryAsset::factory()->create([
-            'mca_category' => 'Kendaraan',
+            'mca_category' => 'Fasilitas Penunjang Kerja',
         ]);
-
+        MasterCategoryAsset::factory()->create([
+            'mca_category' => 'Peralatan Dekoratif',
+        ]);
+        MasterCategoryAsset::factory()->create([
+            'mca_category' => 'Peralatan Kerja',
+        ]);
+        MasterCategoryAsset::factory()->create([
+            'mca_category' => 'Peralatan Ruangan',
+        ]);
     }
 }

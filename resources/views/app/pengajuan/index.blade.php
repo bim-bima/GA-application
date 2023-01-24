@@ -71,7 +71,7 @@
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="ap_status" id="gridRadios2" value="tidak setuju">
+                  <input class="form-check-input" type="radio" name="ap_status" id="gridRadios2" value="Tidak Setuju">
                   <label class="form-check-label p-sm-0" for="gridRadios2">
                     Tidak Setujui
                   </label>
@@ -98,14 +98,14 @@
     <div class="card-body px-sm-3 px-2">
       <form action="{{ route('app_pengajuan.store') }}" method="POST" enctype="multipart/form-data" class="row">
         @csrf
-        <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="150">
+        <div class="col-md-6 mb-sm-2 mb-3" data-aos="fade-right" data-aos-delay="150">
           <label for="nama_pengajuan" class="form-label">Nama Pengajuan</label>
           <input type="text" class="form-control @error('nama_pengajuan') is-invalid @enderror" name="nama_pengajuan" required autofocus value="{{ old('nama_pengajuan') }}">
           @error('nama_pengajuan')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="150">
+        <div class="col-md-6 mb-sm-2 mb-3" data-aos="fade-left" data-aos-delay="150">
           <label for="jenis_pengajuan" class="form-label">Jenis Pengajuan</label>
           <select name="jenis_pengajuan" required class="form-control @error('jenis_pengajuan') is-invalid @enderror" required>
             <option value="">Pilih Jenis Pengajuan</option>
@@ -121,11 +121,10 @@
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-
-        <div class="col-md-6 mb-2">  
+        <div class="col-md-6 mb-2"data-aos="fade-right" data-aos-delay="200">  
           <div class="form-group">  
               <label for="vendor">Vendor</label>
-              <input type="text" id="vendor" name="vendor" list="list_vendor" class="form-control" placeholder="pilih Vendor">
+              <input type="text" id="vendor" name="vendor" list="list_vendor" class="form-control" placeholder="Pilih Vendor">
              <datalist id="list_vendor" class="select2">
              @foreach ($vendor as $ven)
             @if( old('vendor') == $ven->mv_nama_vendor )
@@ -167,14 +166,14 @@
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6 mb-2" data-aos="fade-right" data-aos-delay="250">
+        <div class="col-md-6 mb-sm-2 mb-3" data-aos="fade-right" data-aos-delay="250">
           <label for="catatan" class="form-label">Catatan</label>
           <textarea type="text" class="form-control @error('catatan') is-invalid @enderror" name="catatan" required rows="3" ></textarea>
           @error('catatan')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <div class="col-md-6 mb-2" data-aos="fade-left" data-aos-delay="250">
+        <div class="col-md-6 mb-sm-2 mb-3" data-aos="fade-left" data-aos-delay="250">
           <label for="tanggal_pengadaan" class="form-label">Tanggal Estimasi</label>
           <input type="date" class="form-control @error('tanggal_pengadaan') is-invalid @enderror" name="tanggal_pengadaan" required autofocus value="{{ old('tanggal_pengadaan') }}" >
           @error('tanggal_pengadaan')
