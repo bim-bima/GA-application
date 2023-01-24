@@ -48,6 +48,10 @@
               <div for="ap_tanggal_pengadaan" class="form-label text-primary col-12 col-sm-4 col-md-4 col-lg-5 col-xl-4 font-weight-bold pr-0">Tanggal Estimasi</div>
               <div class="card-text col-sm-5 col-md-6 col-lg-6 col-xl-5 col-12 pl-sm-0 text-danger">{{ $tanggal_estimasi }}</div>
             </div>
+            <button class="btn btn-success mt-3" data-aos="fade-right" data-aos-delay="150">
+              <i class="fas fa-download"></i>
+              <a href="{{ url('downloadfile',$pengajuan->ap_file) }}" class="text-white text-decoration-none">Unduh file pengajuan</a>
+            </button>
           </div>
           <div class="col-lg-6 pl-xl-4" data-aos="fade-left" data-aos-delay="200">
             <div class="mb-3">
@@ -176,6 +180,11 @@
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
+        <div class="col-md-6 mb-2 mt-3" data-aos="fade-left" data-aos-delay="250">
+          <label for="file" class="form-label">Upload file</label>
+          <input type="file" name="file" required autofocus >
+        </div>
+
         <div class="col-12">
           <button type="submit" class="btn btn-success mt-3 mb-1">
             Kirim Pengajuan

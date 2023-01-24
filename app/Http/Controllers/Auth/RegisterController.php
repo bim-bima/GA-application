@@ -69,6 +69,6 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'level' => 'pegawai',
             'password' => Hash::make($data['password']),
-        ]);
+    ]);
     }
 }

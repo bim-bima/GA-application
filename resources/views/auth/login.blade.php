@@ -46,9 +46,9 @@
                             {{ __('Forgot Your Password?') }}
                         </a>
                     @endif --}} -->
-                  <div class="text-center mt-4">
+                  <!-- <div class="text-center mt-4">
                     <a href="/register" class="small text-center mt-4">Not Registered? Register now </a>
-                  </div>
+                  </div> -->
                 </div>                           
               </div> 
               <div class="col-lg-4 bg-login-left px-0"></div>
